@@ -14,7 +14,7 @@ include('../conf/config.php');
 <!-- <?php include('preloader.php');?> -->
 
   <!-- Navbar -->
-  <?php include('navbar.php');?>
+  <!-- <?php include('navbar.php');?> -->
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->

@@ -3,9 +3,9 @@
         <div class="card card-primary card-outline card-outline-tabs">
             <div class="card-body">
                 <div class="tab-content">
-                    <div class="tab-pane active" role="tabpanel">
+                    <div class="tab-pane active" >
                         <div class="row">
-                            <form method="post" action="" name="tform" id="tform" autocomplete="off" enctype="multipart/form-data">
+                            <form method="post" action="" autocomplete="off" enctype="multipart/form-data">
                                 <div class="col-md-12">
                                     <div class="row">
                                         <div class="col-md-12 mt-3">
@@ -19,7 +19,6 @@
                                                                 name="name" id="name" maxlength="64" value="">
                                                         </div>
                                                     </div>
-
                                                     <div class="col-md-3">
                                                         <div class="form-group">
                                                             <label class="font-weight-normal">Tanggal Lahir</label>
@@ -30,15 +29,13 @@
                                                             </div>
                                                         </div>
                                                     </div>
-
                                                     <div class="col-md-3">
                                                         <div class="form-group">
                                                             <label class="font-weight-normal">Nomor Identitas (KTP)</label>
                                                             <input type="text" class="form-control text-sm numeric"
-                                                                name="identity" id="identity" maxlength="18" value="">
+                                                                name="nik" id="nik" maxlength="18" value="">
                                                         </div>
                                                     </div>
-
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label class="font-weight-normal">Alamat Email</label>
@@ -49,15 +46,15 @@
 
                                                     <div class="col-md-3">
                                                         <div class="form-group">
-                                                            <label class="font-weight-normal">No Telepon Seluler (HP)</label>
+                                                            <label class="font-weight-normal">No Telepon Seluler (HP1)</label>
                                                             <input type="text" class="form-control text-sm phonehp"
-                                                                name="cellphone" id="cellphone" maxlength="16" value="">
+                                                                name="hp1" id="hp2" maxlength="16" value="">
                                                         </div>
                                                     </div>
 
                                                     <div class="col-md-3">
                                                         <div class="form-group">
-                                                            <label class="font-weight-normal">No Telepon Rumah</label>
+                                                            <label class="font-weight-normal">No Telepon Seluler (HP2)</label>
                                                             <input type="text" class="form-control text-sm phonehp"
                                                                 name="homephone" id="homephone" maxlength="16" value="">
                                                         </div>
@@ -65,9 +62,7 @@
                                                 </div>
                                             </fieldset>
                                         </div>
-
                                         <div class="col-md-12 mt-3">
-
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <div class="row">
@@ -88,11 +83,9 @@
                                                                         <div class="form-group">
                                                                             <label class="font-weight-normal">RT</label>
                                                                             <input type="text"
-                                                                                class="form-control text-sm numeric"maxlength="3"
-                                                                                value="">
+                                                                                class="form-control text-sm numeric"maxlength="3" value="">
                                                                         </div>
                                                                     </div>
-
                                                                     <div class="col-md-4">
                                                                         <div class="form-group">
                                                                             <label class="font-weight-normal">RW</label>
@@ -101,46 +94,43 @@
                                                                                 value="">
                                                                         </div>
                                                                     </div>
-
                                                                     <div class="col-md-4">
                                                                         <div class="form-group">
                                                                             <label class="font-weight-normal">Kode Pos</label>
-                                                                            <input type="text">
+                                                                            <input type="text" class="form-control text-sm">
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-md-6">
                                                                         <div class="form-group">
                                                                             <label class="font-weight-normal">Provinsi</label>
-                                                                            <select>
+                                                                            <select class="form-control">
                                                                                 <option> </option>
                                                                                 <option>JawaBarat <option>
                                                                             </select>
                                                                         </div>
                                                                     </div>
-
                                                                     <div class="col-md-6">
                                                                         <div class="form-group">
                                                                             <label class="font-weight-normal">Kota/Kabupaten</label>
-                                                                            <select>
+                                                                            <select class="form-control text-sm">
                                                                             <option> </option>
-                                                                                <option>Cirebon </option>
+                                                                                <option>Cirebon</option>
                                                                             </select>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-md-6">
                                                                         <div class="form-group">
                                                                             <label class="font-weight-normal">Kecamatan</label>
-                                                                            <input type="text" value="">
+                                                                            <input type="text" value="" class="form-control text-sm">
                                                                         </div>
                                                                     </div>
 
                                                                     <div class="col-md-6">
                                                                         <div class="form-group">
                                                                             <label class="font-weight-normal">Kelurahan</label>
-                                                                            <input type="text" value="">
+                                                                            <input type="text" value="" class="form-control text-sm">
                                                                         </div>
                                                                     </div>
-
                                                                     <hr class="bg-light col-md-11">
                                                                 </div>
                                                             </fieldset>
@@ -152,10 +142,9 @@
                                                                     <div class="col-md-12">
                                                                         <div class="form-group">
                                                                             <label class="font-weight-normal">Alamat</label>
-                                                                            <input type="text"class="form-controltext-sm" maxlength="128" value="">
+                                                                            <input type="text" class="form-control text-sm" maxlength="128" value="">
                                                                         </div>
                                                                     </div>
-
                                                                     <div class="col-md-4">
                                                                         <div class="form-group">
                                                                             <label class="font-weight-normal">RT</label>
@@ -163,7 +152,6 @@
                                                                             value="">
                                                                         </div>
                                                                     </div>
-
                                                                     <div class="col-md-4">
                                                                         <div class="form-group">
                                                                             <label class="font-weight-normal">RW</label>
@@ -171,47 +159,42 @@
                                                                             value="">
                                                                         </div>
                                                                     </div>
-
                                                                     <div class="col-md-4">
                                                                         <div class="form-group">
                                                                             <label class="font-weight-normal">Kode Pos</label>
-                                                                            <input type="text" value="">
+                                                                            <input type="text" class="form-control text-sm">
                                                                         </div>
                                                                     </div>
-
                                                                     <div class="col-md-6">
                                                                         <div class="form-group">
                                                                             <label class="font-weight-normal">Provinsi</label>
-                                                                            <select>   
-                                                                                <option>Jawa Barat </option>
+                                                                            <select class="form-control"> 
+                                                                                <option></option>  
+                                                                                <option>Jawa Barat</option>
                                                                             </select>
                                                                         </div>
                                                                     </div>
-
                                                                     <div class="col-md-6">
                                                                         <div class="form-group">
                                                                             <label class="font-weight-normal">Kota/Kabupaten</label>
-                                                                            <select>   
-                                                                                <option>Cirebon </option>
+                                                                            <select class="form-control">
+                                                                                <option></option>  
+                                                                                <option>Cirebon</option>
                                                                             </select>
                                                                         </div>
                                                                     </div>
-
-
                                                                     <div class="col-md-6">
                                                                         <div class="form-group">
-                                                                            <label class="font-weight-normal">Kecamatan</label> 
-                                                                            <input type="text" value="">
+                                                                            <label class="font-weight-normal">Kecamatan</label>
+                                                                            <input type="text" value="" class="form-control text-sm">
                                                                         </div>
                                                                     </div>
-
                                                                     <div class="col-md-6">
                                                                         <div class="form-group">
                                                                             <label class="font-weight-normal">Kelurahan</label>
-                                                                            <input type="text" value="">
+                                                                            <input type="text" value="" class="form-control text-sm">
                                                                         </div>
                                                                     </div>
-
                                                                     <hr class="bg-light col-md-11">
                                                                 </div>
                                                             </fieldset>
@@ -226,7 +209,7 @@
                                                     <div class="col-md-6 mt-3 mt-md-0">
                                                         <div class="form-group">
                                                             <label>Lokasi Maps:</label>
-                                                            <input type="text"/>
+                                                            <input type="text" class="form-control form-control-sm"/>
                                                         </div>
                                                         <div class="form-group">
                                                             <label>Latitude:</label>
@@ -248,7 +231,7 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="font-weight-normal">Paket Layanan</label>
-                                                        <select>
+                                                        <select class="form-control">
                                                             <option>Pilih</option>
                                                             <option> 30 mbps </option>
                                                             <option> 50 mbps </option>
@@ -275,13 +258,11 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-
-
                                                     </fieldset>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <fieldset class="well bg-light">
-                                                        <legend class="well-legend bg-light"><strong>Foto Rumah</strong></legend>
+                                                        <legend class="well-legend bg-light"><strong>Foto Depan Rumah</strong></legend>
                                                         <img id="preview3" src="customer/image?id=&type=rumah" class="mt-2 img-fluid rounded mx-auto d-block" alt="Rumah" title="Rumah" style="max-height: 200px;">
                                                         <div class="mt-2 mb-3 ml-1 mr-1">
                                                             <div class="input-group input-group-sm">
@@ -298,16 +279,16 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
-                                                <button style="width: 80px" disabled class="btn bg-info float-right btn-sm mb-1 mt-1"><i class="fa fa-save"></i> Simpan</button>
+                                                <button style="width: 80px"  class="btn bg-info float-right btn-sm mb-1 mt-1"><i class="fa fa-save"></i> Simpan</button>
                                             </div>
                                         </div>
                                     </div>
-                            </form>
-                        </div>
+                                </form>
+                            </div>
                         <!-- batas akhir tab -->
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
