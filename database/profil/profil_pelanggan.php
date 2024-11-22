@@ -1,6 +1,27 @@
 <?php
-  $query = mysqli_query($koneksi, "SELECT * FROM tb_pelanggan");
-  while($pelanggan = mysqli_fetch_array($query)) {
+
+// Mendapatkan ID pelanggan dari URL
+$id_pelanggan = isset($_GET['id_pelanggan']) ? (int) $_GET['id_pelanggan'] : 0;
+
+// Mengecek apakah ID pelanggan valid
+if ($id_pelanggan > 0) {
+    // Query untuk mengambil data pelanggan berdasarkan ID
+    $sql = "SELECT * FROM tb_pelanggan WHERE id = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $id_pelanggan);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    // Memeriksa apakah data ditemukan
+    if ($result->num_rows > 0) {
+        // Menampilkan data pelanggan
+        $row = $result->fetch_assoc();
+        // echo "<h2>Profil Pelanggan</h2>";
+        echo "ID: " . $row["id"] . "<br>";
+        // echo "Email: " . $row["email"] . "<br>";
+        // echo "Username: " . $row["username"] . "<br>";
+        // Hindari menampilkan password secara langsung
+
 ?>
     <!-- Main content -->
     <section class="content">
@@ -17,9 +38,9 @@
                        alt="User profile picture">
                 </div>
 
-                <h3 class="profile-username text-center"><?php echo $pelanggan ['id_pelanggan'];?></h3>
+                <h3 class="profile-username text-center"> <?php echo "ID: " . $row["id_pelanggan"] . "<br>";?> </h3>
 
-                <p class="text-muted text-center"><?php echo $pelanggan ['Nama_Lengkap'];?></p>
+                <p class="text-muted text-center"><?php echo "Nama_Lengkap: " . $row["Nama_Lengkap"] . "<br>";?></p>
 
                 <ul class="list-group list-group-unbordered mb-3">
                   <li class="list-group-item">
@@ -364,4 +385,14 @@
       
     </section>
     <!-- /.content
-    <?php }?>
+<?php
+        } else {
+        echo "Data pelanggan tidak ditemukan.";
+    }
+
+    // Menutup koneksi
+    // $stmt->close();
+} else {
+    echo "ID pelanggan tidak valid.";
+}
+   ?> 

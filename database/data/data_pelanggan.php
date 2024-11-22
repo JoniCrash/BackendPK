@@ -38,13 +38,13 @@
                     <a href="index.php?page=profil-pelanggan"</a> <?php echo $mhs ['id_pelanggan'];?>
                     </td>
                     <td><?php echo $mhs ['Nama_Lengkap'];?></td>
-                    <td><?php echo $mhs ['Nomor_HP_1'];?></td>
+                    <td><?php echo $mhs ['Nomor_Hp_1'];?></td>
                     <td><?php echo $mhs ['Alamat_Pemasangan'];?></td>
                     <td>
                      <!-- Toggle Switch untuk Status -->
                     <select onchange="ubahStatus(<?php echo $mhs['id_pelanggan']; ?>, this.value)">
-                      <option value="1" <?php echo $mhs['Status'] == '1' ? 'selected' : ''; ?>>Aktif</option>
-                      <option value="0" <?php echo $mhs['Status'] == '0' ? 'selected' : ''; ?>>Nonaktif</option>
+                      <option value="1" <?php echo $mhs['status'] == '1' ? 'selected' : ''; ?>>Aktif</option>
+                      <option value="0" <?php echo $mhs['status'] == '0' ? 'selected' : ''; ?>>Nonaktif</option>
                     </select>
                   </td>
                     <td>
