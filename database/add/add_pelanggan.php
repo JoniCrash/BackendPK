@@ -822,8 +822,6 @@
                                             </div>
                                             </fieldset>
                                         </div>
-
-
                                         <div class="col-md-12 mt-3">
                                 
                                         <div class="row">                    
@@ -847,24 +845,6 @@
                                                 </fieldset>
                                             </div>
                                             <div class="col-md-6">
-                                                <fieldset class="well bg-light">
-                                                    <legend class="well-legend bg-light"><strong>Foto NPWP</strong></legend>   
-                                                    <img id="preview2" src="https://crm.comet.net.id/customer/image?id=&type=npwp" class="mt-2 img-fluid rounded mx-auto d-block" alt="NPWP" title="NPWP" style="max-height: 200px;">
-                                                    <div class="mt-2 mb-3 ml-1 mr-1">
-                                                        <div class="input-group input-group-sm">
-                                                            <div class="input-group-prepend">
-                                                                <span class="input-group-text" id="inputGroupFileAddon02">Upload</span>
-                                                            </div>
-                                                            <div class="custom-file">
-                                                                <input type="file" name="image_npwp" class="custom-file-input" id="inputGroupFile02" aria-describedby="inputGroupFileAddon02" accept=".png, .jpg, .jpeg, .bmp">
-                                                                <label class="custom-file-label imgLabel2" for="inputGroupFile02" id="labelGroupFile02">Pilih berkas foto</label>
-                                                            </div>
-                                                        </div>
-                                                        
-                                                    </div>
-                                                    
-                                                                                                            
-                                                </fieldset>
                                             </div>
                                             <div class="col-md-6">
                                                 <fieldset class="well bg-light">
