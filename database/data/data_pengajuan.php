@@ -27,7 +27,8 @@
                     <th>Email</th>
                     <th>Nomor Hp 1</th>
                     <th>Nomor Hp 2</th>
-                    <th>Paket</th>
+                    <th>ID Paket</th>
+                    <th>Nama Paket</th>
                     <th>Foto KTP</th>
                     <th>Foto Depan Rumah</th>
                   </tr>
@@ -42,17 +43,18 @@
                   <tr>
                     <td width = 5%><?= $no?></td>
                     <td><?= $pengajuan ['id_pengajuan'];?></td>
-                    <td><?= $pengajuan ['Nama Lengkap'];?></td>
-                    <td><?= $pengajuan ['Nomor Identitas / KTP'];?></td>
-                    <td><?= $pengajuan ['Alamat Sesuai KTP'];?></td>
-                    <td><?= $pengajuan ['Alamat Pemasangan'];?></td>
-                    <td><?= $pengajuan ['Titik Kordinat'];?></td>
+                    <td><?= $pengajuan ['Nama_Lengkap'];?></td>
+                    <td><?= $pengajuan ['Nomor_Identitas/KTP'];?></td>
+                    <td><?= $pengajuan ['Alamat_Sesuai_KTP'];?></td>
+                    <td><?= $pengajuan ['Alamat_Pemasangan'];?></td>
+                    <td><?= $pengajuan ['Titik_Kordinat'];?></td>
                     <td><?= $pengajuan ['Email'];?></td>
-                    <td><?= $pengajuan ['Nomor Hp 1'];?></td>
-                    <td><?= $pengajuan ['Nomor Hp 2'];?></td>
-                    <td><?= $pengajuan ['Paket'];?></td>
-                    <td><?= $pengajuan ['Foto KTP'];?></td>
-                    <td><?= $pengajuan ['Foto Depan Rumah'];?></td>
+                    <td><?= $pengajuan ['Nomor_Hp_1'];?></td>
+                    <td><?= $pengajuan ['Nomor_Hp_2'];?></td>
+                    <td><?= $pengajuan ['id_paket'];?></td>
+                    <td><?= $pengajuan ['nama_paket'];?></td>
+                    <td><?= $pengajuan ['Foto_KTP'];?></td>
+                    <td><?= $pengajuan ['Foto_Depan_Rumah'];?></td>
                     <td>
                       <a onclick="hapus_data(<?= $pengajuan ['id_pengajuan'];?>)" class="btn btn-sm btn-danger">Hapus</a>
                       <a href="index.php?page=edit-data&&id=<?= $pengajuan ['id_pengajuan'];?>" class="btn btn-sm btn-success">Edit</a>
