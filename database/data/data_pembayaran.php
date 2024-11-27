@@ -28,17 +28,17 @@
                     <?php
                     $no = 0; 
                     $query = mysqli_query($koneksi, "SELECT * FROM tb_pembayaran");
-                    while($mhs = mysqli_fetch_array($query)){
+                    while($pembayaran = mysqli_fetch_array($query)){
                       $no++
                     ?>
                   <tr>
                     <td width = 5%><?php echo $no?></td>
-                    <td><?php echo $mhs ['id'];?></td>
-                    <td><?php echo $mhs ['paket'];?></td>
-                    <td><?php echo $mhs ['tagihan'];?></td>
+                    <td><?php echo $pembayaran ['id'];?></td>
+                    <td><?php echo $pembayaran ['paket'];?></td>
+                    <td><?php echo $pembayaran ['tagihan'];?></td>
                     <td>
-                      <a onclick="hapus_data(<?php echo $mhs ['id'];?>)" class="btn btn-sm btn-danger">Hapus</a>
-                      <a href="index.php?page=edit-data&&id=<?php echo $mhs ['id'];?>" class="btn btn-sm btn-success">Edit</a>
+                      <a onclick="hapus_data(<?php echo $pembayaran ['id'];?>)" class="btn btn-sm btn-danger">Hapus</a>
+                      <a href="index.php?page=edit-data&&id=<?php echo $pembayaran ['id'];?>" class="btn btn-sm btn-success">Edit</a>
                     </td>
                   </tr>
                   <?php }?>

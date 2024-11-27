@@ -21,6 +21,7 @@
                     <th>ID Pelanggan</th>
                     <th>Nama Lengkap</th>
                     <th>Nomor Telepon</th>
+                    <th>Alamat </th>
                     <th>Status</th>
                     <th>Action</th>
                   </tr>
@@ -29,40 +30,36 @@
                     <?php
                     $no = 0; 
                     $query = mysqli_query($koneksi, "SELECT * FROM tb_pelanggan");
-                    while($mhs = mysqli_fetch_array($query)){
+                    while($pelanggan = mysqli_fetch_array($query)){
                       $no++
                     ?>
                   <tr>
                     <td width = 5%><?php echo $no?></td>
-                    <td><!-- <?php echo $mhs ['id_pelanggan'];?> -->
-                    <a href="index.php?page=profil-pelanggan"</a> <?php echo $mhs ['id_pelanggan'];?>
-                    </td>
-                    <td><?php echo $mhs ['Nama_Lengkap'];?></td>
-                    <td><?php echo $mhs ['Nomor_Hp_1'];?></td>
-                    <td><?php echo $mhs ['Alamat_Pemasangan'];?></td>
+                    <!-- <td> -->
+                      <!-- <?php echo $pelanggan ['id_pelanggan'];?> -->
+                    <!-- <a href="index.php?page=profil-pelanggan"</a> <?php echo $pelanggan ['id_pelanggan'];?> -->
+
+                    <td><a href="index.php?page=profil-pelanggan&id_pelanggan=<?php echo $pelanggan['id_pelanggan']; ?>"><?php echo $pelanggan['id_pelanggan']; ?></a></td>
+
+                    <!-- </td> -->
+                    <td><?php echo $pelanggan ['Nama_Lengkap'];?></td>
+                    <td><?php echo $pelanggan ['Nomor_Hp_1'];?></td>
+                    <td><?php echo $pelanggan ['Alamat_Pemasangan'];?></td>
                     <td>
                      <!-- Toggle Switch untuk Status -->
-                    <select onchange="ubahStatus(<?php echo $mhs['id_pelanggan']; ?>, this.value)">
-                      <option value="1" <?php echo $mhs['status'] == '1' ? 'selected' : ''; ?>>Aktif</option>
-                      <option value="0" <?php echo $mhs['status'] == '0' ? 'selected' : ''; ?>>Nonaktif</option>
+                    <select onchange="ubahStatus(<?php echo $pelanggan['id_pelanggan']; ?>, this.value)">
+                      <option value="1" <?php echo $pelanggan['status'] == '1' ? 'selected' : ''; ?>>Aktif</option>
+                      <option value="0" <?php echo $pelanggan['status'] == '0' ? 'selected' : ''; ?>>Nonaktif</option>
                     </select>
                   </td>
                     <td>
-                      <a onclick="hapus_data(<?php echo $mhs ['id_pelanggan'];?>)" class="btn btn-sm btn-danger">Hapus</a>
-                      <a href="index.php?page=edit-data&&id=<?php echo $mhs ['id_pelanggan'];?>" class="btn btn-sm btn-success">Edit</a>
+                      <a onclick="hapus_data(<?php echo $pelanggan ['id_pelanggan'];?>)" class="btn btn-sm btn-danger">Hapus</a>
+                      <a href="index.php?page=edit-data&&id=<?php echo $pelanggan ['id_pelanggan'];?>" class="btn btn-sm btn-success">Edit</a>
                     </td>
                   </tr>
                   <?php }?>
                   </tbody>
                   <tfoot>
-                  <tr>
-                    <th>Rendering engine</th>
-                    <th>Browser</th>
-                    <th>Platform(s)</th>
-                    <th>Engine version</th>
-                    <th>CSS grade</th>
-                    <th>action</th>
-                  </tr>
                   </tfoot>
                 </table>
               </div>
@@ -80,7 +77,7 @@
       <Script>
         function hapus_data(data_id){
           alert("Data berhasil dihapus");
-          window.location=("delete/hapus_data.php?id="+data_id);
+          window.location=("delete/delete_pelanggan.php?id="+data_id);
           Swal.fire(
             'Hapus Data',
             'Data berhasil dihapus',
@@ -101,7 +98,7 @@
   },
 }).then((result) => {
   if (result.isConfirmed) {
-    window.location=("delete/hapus_data.php?id="+data_id);
+    window.location=("delete/delete_pelanggan.php?id="+data_id);
   } 
 })
         }

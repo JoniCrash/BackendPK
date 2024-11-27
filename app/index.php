@@ -73,8 +73,13 @@ if (isset($_GET['page'])){
     include('edit/edit_data.php');
   }else if($_GET['page']=='data-pembayaran'){
     include('../database/data/data_pembayaran.php');
-  }else if($_GET['page']=='profil-pelanggan'){
-    include('../database/profil/profil_pelanggan.php');
+  }
+  // else if($_GET['page']=='profil-pelanggan'){
+  //   include('../database/profil/profil_pelanggan_copy.php');
+  else if ($_GET['page'] == 'profil-pelanggan' && isset($_GET['id_pelanggan'])) {
+      include('../database/profil/profil_pelanggan.php');
+
+
   }else if($_GET['page']=='tambah-pelanggan'){
     include('../pel_baru.php');
   }else{

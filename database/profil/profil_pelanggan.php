@@ -1,34 +1,37 @@
-<?php
 
-// Mendapatkan ID pelanggan dari URL
-$id_pelanggan = isset($_GET['id_pelanggan']) ? (int) $_GET['id_pelanggan'] : 0;
-
-// Mengecek apakah ID pelanggan valid
-if ($id_pelanggan > 0) {
-    // Query untuk mengambil data pelanggan berdasarkan ID
-    $sql = "SELECT * FROM tb_pelanggan WHERE id = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("i", $id_pelanggan);
-    $stmt->execute();
-    $result = $stmt->get_result();
-
-    // Memeriksa apakah data ditemukan
-    if ($result->num_rows > 0) {
-        // Menampilkan data pelanggan
-        $row = $result->fetch_assoc();
-        // echo "<h2>Profil Pelanggan</h2>";
-        echo "ID: " . $row["id"] . "<br>";
-        // echo "Email: " . $row["email"] . "<br>";
-        // echo "Username: " . $row["username"] . "<br>";
-        // Hindari menampilkan password secara langsung
-
-?>
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
         <div class="row">
           <div class="col-md-3">
+<?php
+// Ambil ID Pelanggan dari parameter URL
+$id_pelanggan = isset($_GET['id_pelanggan']) ? intval($_GET['id_pelanggan']) : 0;
 
+if ($id_pelanggan > 0) {
+    // Query untuk mendapatkan data pelanggan berdasarkan ID
+    $sql = "SELECT * FROM tb_pelanggan WHERE id_pelanggan = ?";
+    $stmt = $koneksi->prepare($sql);
+    $stmt->bind_param("i", $id_pelanggan);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        // Ambil data pelanggan
+        $pelanggan = $result->fetch_assoc();
+
+    } else {
+        echo "Data pelanggan tidak ditemukan.";
+        exit;
+    }
+} else {
+    echo "ID Pelanggan tidak valid.";
+    exit;
+}
+
+// $stmt->close();
+// $koneksi->close();
+?>
             <!-- Profile Image -->
             <div class="card card-primary card-outline">
               <div class="card-body box-profile">
@@ -38,9 +41,13 @@ if ($id_pelanggan > 0) {
                        alt="User profile picture">
                 </div>
 
-                <h3 class="profile-username text-center"> <?php echo "ID: " . $row["id_pelanggan"] . "<br>";?> </h3>
 
-                <p class="text-muted text-center"><?php echo "Nama_Lengkap: " . $row["Nama_Lengkap"] . "<br>";?></p>
+
+               <h3 class="profile-username text-center"><?php echo $pelanggan['id_pelanggan'];?></h3>
+
+                <p class="text-muted text-center"><?php echo $pelanggan ['Nama_Lengkap'];?></p>
+
+                
 
                 <ul class="list-group list-group-unbordered mb-3">
                   <li class="list-group-item">
@@ -59,44 +66,7 @@ if ($id_pelanggan > 0) {
               <!-- /.card-body -->
             </div>
             <!-- /.card -->
-
-            <!-- About Me Box -->
-            <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">About Me</h3>
-              </div>
               <!-- /.card-header -->
-              <div class="card-body">
-                <strong><i class="fas fa-book mr-1"></i> Education</strong>
-
-                <p class="text-muted">
-                  B.S. in Computer Science from the University of Tennessee at Knoxville
-                </p>
-
-                <hr>
-
-                <strong><i class="fas fa-map-marker-alt mr-1"></i> Location</strong>
-
-                <p class="text-muted">Malibu, California</p>
-
-                <hr>
-
-                <strong><i class="fas fa-pencil-alt mr-1"></i> Skills</strong>
-
-                <p class="text-muted">
-                  <span class="tag tag-danger">UI Design</span>
-                  <span class="tag tag-success">Coding</span>
-                  <span class="tag tag-info">Javascript</span>
-                  <span class="tag tag-warning">PHP</span>
-                  <span class="tag tag-primary">Node.js</span>
-                </p>
-
-                <hr>
-
-                <strong><i class="far fa-file-alt mr-1"></i> Notes</strong>
-
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.</p>
-              </div>
               <!-- /.card-body -->
             </div>
             <!-- /.card -->
@@ -385,14 +355,4 @@ if ($id_pelanggan > 0) {
       
     </section>
     <!-- /.content
-<?php
-        } else {
-        echo "Data pelanggan tidak ditemukan.";
-    }
-
-    // Menutup koneksi
-    // $stmt->close();
-} else {
-    echo "ID pelanggan tidak valid.";
-}
-   ?> 
+    

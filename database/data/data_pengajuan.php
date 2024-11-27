@@ -57,21 +57,12 @@
                     <td><?= $pengajuan ['Foto_Depan_Rumah'];?></td>
                     <td>
                       <a onclick="hapus_data(<?= $pengajuan ['id_pengajuan'];?>)" class="btn btn-sm btn-danger">Hapus</a>
-                      <a href="index.php?page=edit-data&&id=<?= $pengajuan ['id_pengajuan'];?>" class="btn btn-sm btn-success">Edit</a>
+                      <!-- <a href="index.php?page=edit-data&&id=<?= $pengajuan ['id_pengajuan'];?>" class="btn btn-sm btn-success">Edit</a> -->
                     
                     </td>
                   </tr>
                   <?php }?>
                   </tbody>
-                  <tfoot>
-                  <!-- <tr>
-                    <th>Rendering engine</th>
-                    <th>Browser</th>
-                    <th>Platform(s)</th>
-                    <th>Engine version</th>
-                    <th>CSS grade</th>
-                  </tr> -->
-                  </tfoot>
                 </table>
               </div>
               <!-- /.card-body -->
@@ -83,48 +74,8 @@
         <!-- /.row -->
       </div>
       <!-- /.container-fluid -->
-    </section>
+      </section>
     <!-- /.content -->
-    <div class="modal fade" id="modal-lg">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title">Large Modal</h4>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <form class="form-horizontal" method = "get" action="add/tambah_data.php">
-            <div class="modal-body">
-              
-                <div class="form-group">
-                  <label class="control-label col-sm-2" for="username">Nama Lengkap:</label>
-                  <div class="col-sm-10">
-                    <input type="text" name = "username" class="form-control" id="username" placeholder="Masukan username" required >
-                  </div>
-                </div>
-
-
-
-
-                <div class="form-group">
-                  <div class="col-sm-offset-2 col-sm-10">
-                    <button type="submit" class="btn btn-default">Submit</button>
-                  </div>
-                </div>
-              
-              <p>One fine body&hellip;</p>
-            </div>
-            <div class="modal-footer justify-content-between">
-              <button type="button" class="btn btn-danger" data-dismiss="modal">Tutup</button>
-              <button type="submit" class="btn btn-primary">Simpan</button>
-            </div>
-            </form>
-          </div>
-          <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-      </div>
       <Script>
         function hapus_data(data_id){
           //alert("Data berhasil dihapus");

@@ -1,3 +1,37 @@
+<?php
+
+// Mendapatkan id_pengajuan dari parameter URL
+$id_pengajuan = isset($_GET['id_pengajuan']) ? (int)$_GET['id_pengajuan'] : 0;
+
+// Validasi id_pengajuan
+if ($id_pengajuan > 0) {
+    // Query untuk mengambil data pengajuan berdasarkan id_pengajuan
+    $sql = "SELECT * FROM pengajuan WHERE id_pengajuan = ?";
+    $stmt = $koneksi->prepare($sql);
+    $stmt->bind_param("i", $id_pengajuan);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    // Memeriksa apakah data ditemukan
+    if ($result->num_rows > 0) {
+        // Mengambil data hasil query
+        $pengajuan = $result->fetch_assoc();
+    } else {
+        die("Data dengan id_pengajuan tersebut tidak ditemukan.");
+    }
+} else {
+    die("ID pengajuan tidak valid.");
+}
+?>
+
+
+
+
+
+
+
+
+
 <!-- Main content -->
 <section class="content">
       <div class="container-fluid">
@@ -81,9 +115,6 @@
                   </div>
                 </div>
 
-
-
-
                 <div class="form-group">
                   <div class="col-sm-offset-2 col-sm-10">
                     <button type="submit" class="btn btn-default">Submit</button>
@@ -102,32 +133,8 @@
         </div>
         <!-- /.modal-dialog -->
       </div>
-      <Script>
-        function hapus_data(data_id){
-          //alert("Data berhasil dihapus");
-          //window.location=("delete/hapus_data.php?id="+data_id);
-          // Swal.fire(
-          //   'Hapus Data',
-          //   'Data berhasil dihapus',
-          //  'success'
-          // )
-          Swal.fire({
-  title: 'Apakah anda yakin ingin menghapus data?',
-  //showDenyButton: false,
-  showCancelButton: true,
-  confirmButtonText: 'Hapus Data',
-  confirmButtonColor:'red',
-  //denyButtonText: 'No',
-  customClass: {
-    actions: 'my-actions',
-    cancelButton: 'order-1 right-gap',
-    confirmButton: 'order-2',
-    denyButton: 'order-3',
-  },
-}).then((result) => {
-  if (result.isConfirmed) {
-    window.location=("delete/hapus_data.php?id="+data_id);
-  } 
-})
-        }
-      </Script>
+<?php
+// Menutup koneksi
+$stmt->close();
+$conn->close();
+?>
