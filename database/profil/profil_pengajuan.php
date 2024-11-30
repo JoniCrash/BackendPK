@@ -25,13 +25,6 @@ if ($id_pengajuan > 0) {
 ?>
 
 
-
-
-
-
-
-
-
 <!-- Main content -->
 <section class="content">
       <div class="container-fluid">

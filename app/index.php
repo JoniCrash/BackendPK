@@ -46,7 +46,13 @@ if (isset($_GET['page'])){
     include('content-header/content_header_profil_pelanggan.php');
   }elseif($_GET['page']=='tambah-pelanggan'){
     include('content-header/content_header_pelanggan_baru.php');
-  }else{
+  }
+  
+  elseif($_GET['page']=='profil-pelanggan-copy'){
+    include('content-header/content_header_profil_pelanggan_copy.php');
+  }
+  
+  else{
     include('content-header/content_header_dashboard.php');
   }
 }else{
@@ -81,7 +87,7 @@ if (isset($_GET['page'])){
 
 
   }else if($_GET['page']=='tambah-pelanggan'){
-    include('../pel_baru.php');
+    include('../database/add/pel_baru.php');
   }else{
     include('not-found.php');
   }

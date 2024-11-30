@@ -68,76 +68,7 @@
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <fieldset class="well bg-light">
-                                                                <legend class="well-legend bg-light"><strong>Data Alamat Sesuai KTP</strong></legend>
-                                                                <div class="row">
-                                                                    <div class="col-md-12">
-                                                                        <div class="form-group">
-                                                                            <label class="font-weight-normal">Alamat</label>
-                                                                            <input type="text"
-                                                                                class="form-control text-sm" maxlength="128"
-                                                                                value="">
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <div class="col-md-4">
-                                                                        <div class="form-group">
-                                                                            <label class="font-weight-normal">RT</label>
-                                                                            <input type="text"
-                                                                                class="form-control text-sm numeric"maxlength="3" value="">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-4">
-                                                                        <div class="form-group">
-                                                                            <label class="font-weight-normal">RW</label>
-                                                                            <input type="text"
-                                                                                class="form-control text-sm numeric" maxlength="3"
-                                                                                value="">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-4">
-                                                                        <div class="form-group">
-                                                                            <label class="font-weight-normal">Kode Pos</label>
-                                                                            <input type="text" class="form-control text-sm">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <div class="form-group">
-                                                                            <label class="font-weight-normal">Provinsi</label>
-                                                                            <select class="form-control">
-                                                                                <option> </option>
-                                                                                <option>JawaBarat <option>
-                                                                            </select>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <div class="form-group">
-                                                                            <label class="font-weight-normal">Kota/Kabupaten</label>
-                                                                            <select class="form-control text-sm">
-                                                                            <option> </option>
-                                                                                <option>Cirebon</option>
-                                                                            </select>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <div class="form-group">
-                                                                            <label class="font-weight-normal">Kecamatan</label>
-                                                                            <input type="text" value="" class="form-control text-sm">
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <div class="col-md-6">
-                                                                        <div class="form-group">
-                                                                            <label class="font-weight-normal">Kelurahan</label>
-                                                                            <input type="text" value="" class="form-control text-sm">
-                                                                        </div>
-                                                                    </div>
-                                                                    <hr class="bg-light col-md-11">
-                                                                </div>
-                                                            </fieldset>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <fieldset class="well bg-light">
-                                                                <legend class="well-legend bg-light"><strong>Data Alamat Instalasi</strong></legend>
+                                                                <legend class="well-legend bg-light"><strong>Data Alamat Pemasangan</strong></legend>
                                                                 <div class="row">
                                                                     <div class="col-md-12">
                                                                         <div class="form-group">
@@ -199,13 +130,9 @@
                                                                 </div>
                                                             </fieldset>
                                                         </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12 mt-3">
+                                                        <div class="col-md-6">
                                             <fieldset class="well bg-light">
-                                                <legend class="well-legend bg-light"><strong>Data Maps Alamat Instalasi</strong></legend>
+                                                <legend class="well-legend bg-light"><strong>Data Maps Alamat Pemasangan</strong></legend>
                                                     <div class="col-md-6 mt-3 mt-md-0">
                                                         <div class="form-group">
                                                             <label>Lokasi Maps:</label>
@@ -220,14 +147,9 @@
                                                             <input type="text" class="form-control form-control-sm" />
                                                         </div>
                                                     </div>
-                                                </div>
                                             </fieldset>
-                                        </div>
-                                        <div class="col-md-12 mt-3">
                                             <fieldset class="well bg-light">
                                                 <legend class="well-legend bg-light"><strong>Data Layanan</strong></legend>
-                                                <hr />
-
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="font-weight-normal">Paket Layanan</label>
@@ -239,8 +161,14 @@
                                                         </select>
                                                     </div>
                                                 </div>
+                                                <hr/>
                                             </fieldset>
-                                        </div>   
+                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+ 
                                         <div class="col-md-12 mt-3">
                                             <div class="row">
                                                 <div class="col-md-6">
