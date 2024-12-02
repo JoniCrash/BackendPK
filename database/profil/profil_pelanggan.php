@@ -66,8 +66,7 @@ if ($id_pelanggan > 0) {
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label class="font-weight-normal">Nama Lengkap</label>
-                                                            <input type="text" class="form-control text-sm bg-light" 
-                                                                name="name" id="name" maxlength="64" value= <?php echo $pelanggan['Nama_Lengkap'];?> readonly>
+                                                            <input type="text" class="form-control text-sm bg-light" value= <?php echo $pelanggan['Nama_Lengkap'];?> readonly>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-3">
@@ -184,11 +183,11 @@ if ($id_pelanggan > 0) {
                                                         </div>
                                                         <div class="form-group">
                                                             <label>Latitude:</label>
-                                                            <input type="text" class="form-control form-control-sm bg-light" readonly/>
+                                                            <input type="text" class="form-control form-control-sm bg-light" value="<?php echo $pelanggan['latitide'];?>" readonly/>
                                                         </div>
                                                         <div class="form-group">
                                                             <label>Longitude:</label>
-                                                            <input type="text" class="form-control form-control-sm bg-light" readonly/>
+                                                            <input type="text" class="form-control form-control-sm bg-light" value="<?php echo $pelanggan['longitude'];?>" readonly/>
                                                         </div>
                                                     </div>
                                             </fieldset>
@@ -198,7 +197,7 @@ if ($id_pelanggan > 0) {
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="font-weight-normal">Paket Layanan</label>
-                                                        <input type="text" class="form-control text-sm numeric bg-light" value="" readonly>
+                                                        <input type="text" class="form-control text-sm numeric bg-light" value="<?php echo $pelanggan['nama_paket'];?>" readonly>
                                                     </div>
                                                 </div>
                                                 <hr />
@@ -250,22 +249,15 @@ if ($id_pelanggan > 0) {
                                                     </fieldset>
                                                 </div>
                                             </div>
-                                            <div class="col-md-12">
-                                                <button style="width: 80px"  class="btn bg-info float-right btn-sm mb-1 mt-1"><i class="fa fa-save"></i> Simpan</button>
-                                            </div>
                                         </div>
                                     </div>
-                            </div>
+                                </div>
                         <!-- batas akhir tab -->
                         </div>
                     </div>
-
-
-                 
-
                 </div>
             </div>
         </div>
-        </div>
-    </section>
+    </div>
+</section>
     

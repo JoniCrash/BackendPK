@@ -43,9 +43,15 @@ $view = mysqli_fetch_array($query);
                         </div>
 
                         <div class="form-group">
-                        <label>Titik Kordinat</label>
-                        <input type="text" name="titik_kordinat" class="form-control" placeholder="Titik Kordinat" value = "<?php echo $view['Titik_kordinat'];?>">
-                        <input type="text" name="id_pelanggan" class="form-control" placeholder="Titik Kordinat" value = "<?php echo $view['id_pelanggan'];?>" hidden>
+                        <label>Latitude</label>
+                        <input type="text" name="latitude" class="form-control" placeholder="latitude" value = "<?php echo $view['latitude'];?>">
+                        <input type="text" name="id_pelanggan" class="form-control" placeholder="latitude" value = "<?php echo $view['id_pelanggan'];?>" hidden>
+                        </div>
+
+                        <div class="form-group">
+                        <label>Longitude</label>
+                        <input type="text" name="longitude" class="form-control" placeholder="longitude" value = "<?php echo $view['longitude'];?>">
+                        <input type="text" name="id_pelanggan" class="form-control" placeholder="longitude" value = "<?php echo $view['id_pelanggan'];?>" hidden>
                         </div>
 
                         <div class="form-group">

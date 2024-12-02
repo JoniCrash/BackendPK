@@ -100,7 +100,7 @@
   },
 }).then((result) => {
   if (result.isConfirmed) {
-    window.location=("delete/hapus_data.php?id="+data_id);
+    window.location=("delete/delete_pengajuan.php?id="+data_id);
   } 
 })
         }

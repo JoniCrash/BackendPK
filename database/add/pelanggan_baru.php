@@ -5,7 +5,7 @@
                 <div class="tab-content">
                     <div class="tab-pane active" >
                         <div class="row">
-                            <form method="post" action="" autocomplete="off" enctype="multipart/form-data">
+                            <form method="post" action="add_pelanggan.php" autocomplete="off" enctype="multipart/form-data">
                                 <div class="col-md-12">
                                     <div class="row">
                                         <div class="col-md-12 mt-3">
@@ -207,7 +207,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
-                                                <button style="width: 80px"  class="btn bg-info float-right btn-sm mb-1 mt-1"><i class="fa fa-save"></i> Simpan</button>
+                                                <button style="width: 80px"  class="btn bg-info float-right btn-sm mb-1 mt-1"><i class="fa fa-save"></i>Tambah Pelanggan</button>
                                             </div>
                                         </div>
                                     </div>

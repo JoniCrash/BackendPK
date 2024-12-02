@@ -87,7 +87,7 @@ if (isset($_GET['page'])){
 
 
   }else if($_GET['page']=='tambah-pelanggan'){
-    include('../database/add/pel_baru.php');
+    include('../database/add/pelanggan_baru.php');
   }else{
     include('not-found.php');
   }
