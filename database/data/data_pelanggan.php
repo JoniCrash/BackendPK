@@ -55,6 +55,8 @@
                     <td>
                       <a onclick="hapus_data(<?php echo $pelanggan ['id_pelanggan'];?>)" class="btn btn-sm btn-danger">Hapus</a>
                       <a href="index.php?page=edit-data&&id=<?php echo $pelanggan ['id_pelanggan'];?>" class="btn btn-sm btn-success">Edit</a>
+
+                      <a onclick="tagihan(<?php echo $pelanggan ['id_pelanggan'];?>)" class="btn btn-sm btn-danger">Buat Tagihan</a>
                     </td>
                   </tr>
                   <?php }?>
@@ -74,6 +76,17 @@
       <!-- /.container-fluid -->
     </section>
     <!-- /.content -->
+
+    <script>
+  function tagihan(id_pelanggan) {
+    // Konfirmasi sebelum membuat tagihan
+    if (confirm("Apakah Anda yakin ingin membuat tagihan untuk pelanggan ini?")) {
+      // Arahkan ke halaman PHP dengan parameter id_pelanggan
+      window.location = "tagihan/tagihan.php?id="+id_pelanggan;
+    }
+  }
+</script>
+
       <Script>
         function hapus_data(data_id){
           alert("Data berhasil dihapus");

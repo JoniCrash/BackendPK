@@ -23,7 +23,8 @@
                     <th>NIK</th>
                     <th>Alamat KTP</th>
                     <th>Alamat Pemasangan</th>
-                    <th>Titik Kordinat</th>
+                    <th>Latitude</th>
+                    <th>Longitude</th>
                     <th>Email</th>
                     <th>Nomor Hp 1</th>
                     <th>Nomor Hp 2</th>
@@ -47,7 +48,8 @@
                     <td><?= $pengajuan ['Nomor_Identitas/KTP'];?></td>
                     <td><?= $pengajuan ['Alamat_Sesuai_KTP'];?></td>
                     <td><?= $pengajuan ['Alamat_Pemasangan'];?></td>
-                    <td><?= $pengajuan ['Titik_Kordinat'];?></td>
+                    <td><?= $pengajuan ['latitude'];?></td>
+                    <td><?= $pengajuan ['longitude'];?></td>
                     <td><?= $pengajuan ['Email'];?></td>
                     <td><?= $pengajuan ['Nomor_Hp_1'];?></td>
                     <td><?= $pengajuan ['Nomor_Hp_2'];?></td>
