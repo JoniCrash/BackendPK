@@ -1,6 +1,6 @@
 <?php
 include('../../conf/config.php');
-$id_pengajuan = $_GET['id_pengajuan'];
+// $id_pengajuan = $_GET['id_pengajuan'];
 $nama_Lengkap = $_GET['Nama_Lengkap'];
 $no_nik = $_GET['Nomor_Identitas_KTP'];
 $alamat_pemasangan = $_GET['Alamat Pemasangan'];

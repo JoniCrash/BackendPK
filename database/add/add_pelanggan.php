@@ -1,52 +1,66 @@
 <?php
 include('../../conf/config.php');
 
-$id_pelanggan = $_GET['id'];
-$Nama_Lengkap = $_GET['nama_lengkap'];
-$Nomor_Identitas_KTP = $_GET['nomor_identitas_ktp'];
-$Alamat_Sesuai_KTP = $_GET['alamat_sesuai_ktp'];
-$Alamat_Pemasangan = $_GET['alamat_pemasangan'];
-$latitude = $_GET['latitude'];
-$longitude = $_GET['longitude'];
-$Email =  $_GET['email'];
-$Nomor_Hp_1 = $_GET['nomor_hp_1'];
-$Nomor_Hp_2 = $_GET['nomor_hp_2'];
-$id_paket = $_GET['id_paket'];
-$nama_paket = $_GET['nama_paket'];
-$Foto_KTP = $_GET['Foto_KTP'];
-$Foto_Depan_Rumah = $_GET['Foto_Depan_Rumah'];
+// $id_pelanggan = $_POST['id'];
+$Nama_Lengkap = $_POST['Nama_Lengkap'];
+$Nomor_Identitas_KTP = $_POST['Nomor_Identitas_KTP'];
+$Alamat_Pemasangan = $_POST['Alamat_Pemasangan'];
+$provinsi = $_POST['provinsi'];
+$kota = $_POST['kota'];
+$latitude = $_POST['latitude'];
+$longitude = $_POST['longitude'];
+$Email =  $_POST['Email'];
+$Nomor_Hp_1 = $_POST['Nomor_Hp_1'];
+$Nomor_Hp_2 = $_POST['Nomor_Hp_2'];
+// $id_paket = $_POST['id_paket'];
+$nama_paket = $_POST['nama_paket'];
+// $Foto_KTP = $_POST['Foto_KTP'];
+// $Foto_Depan_Rumah = $_POST['Foto_Depan_Rumah'];
+// Nama Foto
+$file_ktp = $_FILES['fotoktp']['name'];
+$file_depanrumah = $_FILES['fotodepanrumah']['name'];
+// Lokasi Foto
+$file_ktp_tmp = $_FILES['fotoktp']['tmp_name'];
+$file_depanrumah_tmp = $_FILES['fotodepanrumah']['tmp_name'];
+move_uploaded_file($file_ktp_tmp, '../image/foto_ktp/'. $file_ktp);
+move_uploaded_file($file_depanrumah_tmp, '../image/foto_depanrumah/'. $file_depanrumah); 
+
+$statuss = $_POST['status'];
 
 $query = mysqli_query($koneksi,"INSERT INTO tb_pelanggan
 (
-    id_pelanggan,
-    nama_lengkap,
-    nomor_identitas_ktp,
-    alamat_sesuai_ktp,
-    alamat_pemasangan,
+    Nama_Lengkap,
+    Nomor_Identitas_KTP,
+    Alamat_Sesuai_KTP,
+    Alamat_Pemasangan,
+    provinsi,
+    kota,
     latitude,
     longitude,
-    email,
-    nomor_hp_1,
-    nomor_hp_2,
-    id_paket,
+    Email,
+    Nomor_Hp_1,
+    Nomor_Hp_2,
     nama_paket,
-    foto_ktp,
-    foto_depan_rumah
+    Foto_KTP,
+    Foto_Depan_Rumah,
+    statuss
 
 ) VALUES(
-'$id_pelanggan',
 '$Nama_Lengkap',
 '$Nomor_Identitas_KTP',
-'$Alamat_Sesuai_KTP',
 '$Alamat_Pemasangan',
-'$Titik_kordinat',
+'$provinsi',
+'$kota',
+'$latitude',
+'$longitude',
 '$Email',
 '$Nomor_Hp_1',
 '$Nomor_Hp_2',
-'$id_paket',
 '$nama_paket',
-'$Foto_KTP',
-'$Foto_Depan_Rumah')");
+'$file_ktp',
+'$file_depanrumah',
+'Aktif'
+)");
 
-header('Location: ../index.php?page=data-pelanggan');
+header('Location: ../../index.php?page=data-pelanggan');
 ?>

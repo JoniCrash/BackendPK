@@ -6,5 +6,5 @@ $pass = $_GET['pass'];
 
 $query = mysqli_query($koneksi,"INSERT INTO user_app(id_user,username,email,pass) VALUES('','$username','$email','$pass')");
 
-header('Location: ../index.php?page=user-app');
+header('Location: ../../app/index.php?page=user-app');
 ?>

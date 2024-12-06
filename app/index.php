@@ -6,6 +6,7 @@ if(!$_SESSION ['nama']){
   header('Location: ../index.php?session=pageExpired');
 }
 include('../conf/config.php');
+// include('../database/add/add_user.php')
 ?>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">

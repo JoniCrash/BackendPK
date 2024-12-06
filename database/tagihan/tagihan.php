@@ -2,45 +2,52 @@
 if (isset($_GET['id_pelanggan'])) {
     $id_pelanggan = $_GET['id_pelanggan'];
 
-    // Ambil informasi pelanggan dan paket
-    // $query = "SELECT pelanggan.id_pelanggan, pelanggan.id_paket, paket.harga 
-    //           FROM pelanggan 
-    //           INNER JOIN paket ON pelanggan.id_paket = paket.id_paket 
-    //           WHERE pelanggan.id_pelanggan = ?";
-    // $stmt = $koneksi->prepare($query);
-    // $stmt->bind_param("i", $id_pelanggan);
-    // $stmt->execute();
-    // $result = $stmt->get_result();
-    // $data = $result->fetch_assoc();
+    // Koneksi ke database
+    $koneksi = new mysqli("localhost", "root", "", "nama_database");
 
-    if ($data) {
-        // $id_paket = $data['id_paket'];
-        // $total_harga = $data['total_harga'];
+    if ($koneksi->connect_error) {
+        die("Koneksi gagal: " . $koneksi->connect_error);
+    }
 
-        // Tambahkan tagihan ke tabel
+    // Query data pelanggan
+    $query = "SELECT p.id_paket, pk.harga 
+              FROM tb_pelanggan p 
+              INNER JOIN tb_paket pk ON p.id_paket = pk.id_paket 
+              WHERE p.id_pelanggan = ?";
+    $stmt = $koneksi->prepare($query);
+
+    if (!$stmt) {
+        die("Query gagal dipersiapkan: " . $koneksi->error);
+    }
+
+    $stmt->bind_param("i", $id_pelanggan);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $data = $result->fetch_assoc();
+
+        // Proses pembuatan tagihan
         $insert = "INSERT INTO tb_tagihan (id_pelanggan, id_paket, total_harga, status) 
-                   VALUES (?, ?, ?, 'Belum Lunas')";
+                   VALUES (?, ?, ?, 'Belum')";
         $stmt_insert = $koneksi->prepare($insert);
-        $stmt_insert->bind_param("iis", $id_pelanggan, $id_paket, $total_harga);
 
+        if (!$stmt_insert) {
+            die("Gagal mempersiapkan query INSERT: " . $koneksi->error);
+        }
+
+        $stmt_insert->bind_param("iis", $id_pelanggan, $data['id_paket'], $data['harga']);
         if ($stmt_insert->execute()) {
-            echo "<script>
-                    alert('Tagihan berhasil dibuat untuk pelanggan ID: $id_pelanggan');
-                    window.location = 'index.php?page=data-pelanggan';
-                  </script>";
+            echo "Tagihan berhasil dibuat!";
         } else {
-            echo "<script>
-                    alert('Gagal membuat tagihan.');
-                    window.location = 'index.php?page=data-pelanggan';
-                  </script>";
+            die("Gagal membuat tagihan: " . $stmt_insert->error);
         }
     } else {
-        echo "<script>
-                alert('Data pelanggan tidak ditemukan.');
-                window.location = 'index.php?page=data-pelanggan';
-              </script>";
+        die("Data pelanggan tidak ditemukan.");
     }
 
     $koneksi->close();
+} else {
+    die("Parameter id_pelanggan tidak ditemukan.");
 }
 ?>

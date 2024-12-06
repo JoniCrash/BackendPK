@@ -74,7 +74,8 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <form class="form-horizontal" method = "get" action="add/data_user.php">
+            
+            <form class="form-horizontal" method = "get" action="../database/add/add_user.php">
             <div class="modal-body">
               
                 <div class="form-group">
@@ -101,8 +102,6 @@
                     <button type="submit" class="btn btn-default">Submit</button>
                   </div>
                 </div>
-              
-              <p>One fine body&hellip;</p>
             </div>
             <div class="modal-footer justify-content-between">
               <button type="button" class="btn btn-danger" data-dismiss="modal">Tutup</button>
@@ -110,6 +109,7 @@
             </div>
             </form>
           </div>
+          
           <!-- /.modal-content -->
         </div>
         <!-- /.modal-dialog -->

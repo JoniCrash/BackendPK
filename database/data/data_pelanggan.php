@@ -35,9 +35,6 @@
                     ?>
                   <tr>
                     <td width = 5%><?php echo $no?></td>
-                    <!-- <td> -->
-                      <!-- <?php echo $pelanggan ['id_pelanggan'];?> -->
-                    <!-- <a href="index.php?page=profil-pelanggan"</a> <?php echo $pelanggan ['id_pelanggan'];?> -->
 
                     <td><a href="index.php?page=profil-pelanggan&id_pelanggan=<?php echo $pelanggan['id_pelanggan']; ?>"><?php echo $pelanggan['id_pelanggan']; ?></a></td>
 
