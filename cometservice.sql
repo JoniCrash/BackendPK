@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 02, 2024 at 10:36 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Waktu pembuatan: 08 Des 2024 pada 19.07
+-- Versi server: 10.4.32-MariaDB
+-- Versi PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `adm`
+-- Struktur dari tabel `adm`
 --
 
 CREATE TABLE `adm` (
@@ -36,7 +36,7 @@ CREATE TABLE `adm` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `adm`
+-- Dumping data untuk tabel `adm`
 --
 
 INSERT INTO `adm` (`id`, `nama`, `username`, `password`, `level`) VALUES
@@ -45,7 +45,7 @@ INSERT INTO `adm` (`id`, `nama`, `username`, `password`, `level`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `paket`
+-- Struktur dari tabel `paket`
 --
 
 CREATE TABLE `paket` (
@@ -56,7 +56,7 @@ CREATE TABLE `paket` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `paket`
+-- Dumping data untuk tabel `paket`
 --
 
 INSERT INTO `paket` (`id_paket`, `nama_paket`, `kecepatan`, `harga`) VALUES
@@ -67,7 +67,7 @@ INSERT INTO `paket` (`id_paket`, `nama_paket`, `kecepatan`, `harga`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_paket`
+-- Struktur dari tabel `tb_paket`
 --
 
 CREATE TABLE `tb_paket` (
@@ -80,7 +80,7 @@ CREATE TABLE `tb_paket` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_pelanggan`
+-- Struktur dari tabel `tb_pelanggan`
 --
 
 CREATE TABLE `tb_pelanggan` (
@@ -88,30 +88,35 @@ CREATE TABLE `tb_pelanggan` (
   `Nama_Lengkap` varchar(100) NOT NULL,
   `Nomor_Identitas_KTP` int(50) NOT NULL,
   `Alamat_Pemasangan` varchar(100) NOT NULL,
+  `provinsi` varchar(10) NOT NULL,
+  `kota` varchar(10) NOT NULL,
   `latitude` decimal(9,6) NOT NULL,
   `longitude` decimal(9,6) NOT NULL,
   `Email` varchar(50) NOT NULL,
   `Nomor_Hp_1` varchar(20) NOT NULL,
   `Nomor_Hp_2` varchar(20) NOT NULL,
-  `id_paket` int(11) NOT NULL,
   `nama_paket` varchar(50) NOT NULL,
   `Foto_KTP` varchar(255) NOT NULL,
   `Foto_Depan_Rumah` varchar(255) NOT NULL,
-  `status` tinyint(1) NOT NULL
+  `Status` enum('Aktif','NonAktif','','') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `tb_pelanggan`
+-- Dumping data untuk tabel `tb_pelanggan`
 --
 
-INSERT INTO `tb_pelanggan` (`id_pelanggan`, `Nama_Lengkap`, `Nomor_Identitas_KTP`, `Alamat_Pemasangan`, `latitude`, `longitude`, `Email`, `Nomor_Hp_1`, `Nomor_Hp_2`, `id_paket`, `nama_paket`, `Foto_KTP`, `Foto_Depan_Rumah`, `status`) VALUES
-(3, 'joni', 84349, '\0c\0i\0r\0e\0b\0o\0n\0n', 0.000000, 0.000000, 'joni@gmial.com', '09444', '0833944', 33, '50mb', '????\0JFIF\0\0`\0`\0\0???Exif\0\0MM\0*\0\0\0\0;\0\0\0\0sbp\0?i\0\0\0\0\0\0J??\0\0\0\0\0\0??\0\0\0\0\0\0>\0\0\0\0?\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '?PNG\r\n\Z\n\0\0\0\rIHDR\0\0J\0\0G\0\0\0Ƿ?\0\0\0sRGB\0???\0\0\0gAMA\0\0???a\0\0\0	pHYs\0\0?\0\0??o?d\0\0\0!tEXtCreation Time\02021:09:20 08:25:26?*\"?\0\0?6IDATx^???U??ϝ>[_o靐 ?^#M:?AŮ?aGDEEQ????k ?$??????s?sf?!j????^???ewf??ݙ?????r.DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD', 1),
-(4, 'fdfdf', 84349, '\0e\0r\0e\0r', 0.000000, 0.000000, 'joni@yy.com', '094445454', '083394445222', 32, '50mb', '?PNG\r\n\Z\n\0\0\0\rIHDR\0\0J\0\0G\0\0\0Ƿ?\0\0\0sRGB\0???\0\0\0gAMA\0\0???a\0\0\0	pHYs\0\0?\0\0??o?d\0\0\0!tEXtCreation Time\02021:09:20 08:25:26?*\"?\0\0?6IDATx^???U??ϝ>[_o靐 ?^#M:?AŮ?aGDEEQ????k ?$??????s?sf?!j????^???ewf??ݙ?????r.DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD', '????\0JFIF\0\0`\0`\0\0???Exif\0\0MM\0*\0\0\0\0;\0\0\0\0sbp\0?i\0\0\0\0\0\0J??\0\0\0\0\0\0??\0\0\0\0\0\0>\0\0\0\0?\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 1);
+INSERT INTO `tb_pelanggan` (`id_pelanggan`, `Nama_Lengkap`, `Nomor_Identitas_KTP`, `Alamat_Pemasangan`, `provinsi`, `kota`, `latitude`, `longitude`, `Email`, `Nomor_Hp_1`, `Nomor_Hp_2`, `nama_paket`, `Foto_KTP`, `Foto_Depan_Rumah`, `Status`) VALUES
+(3, 'joni', 84349, '\0c\0i\0r\0e\0b\0o\0n\0n', '', '', 0.000000, 0.000000, 'joni@gmial.com', '09444', '0833944', '50mb', '????\0JFIF\0\0`\0`\0\0???Exif\0\0MM\0*\0\0\0\0;\0\0\0\0sbp\0?i\0\0\0\0\0\0J??\0\0\0\0\0\0??\0\0\0\0\0\0>\0\0\0\0?\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '?PNG\r\n\Z\n\0\0\0\rIHDR\0\0J\0\0G\0\0\0Ƿ?\0\0\0sRGB\0???\0\0\0gAMA\0\0???a\0\0\0	pHYs\0\0?\0\0??o?d\0\0\0!tEXtCreation Time\02021:09:20 08:25:26?*\"?\0\0?6IDATx^???U??ϝ>[_o靐 ?^#M:?AŮ?aGDEEQ????k ?$??????s?sf?!j????^???ewf??ݙ?????r.DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD', 'Aktif'),
+(4, 'fdfdf', 84349, '\0e\0r\0e\0r', '', '', 0.000000, 0.000000, 'joni@yy.com', '094445454', '083394445222', '50mb', '?PNG\r\n\Z\n\0\0\0\rIHDR\0\0J\0\0G\0\0\0Ƿ?\0\0\0sRGB\0???\0\0\0gAMA\0\0???a\0\0\0	pHYs\0\0?\0\0??o?d\0\0\0!tEXtCreation Time\02021:09:20 08:25:26?*\"?\0\0?6IDATx^???U??ϝ>[_o靐 ?^#M:?AŮ?aGDEEQ????k ?$??????s?sf?!j????^???ewf??ݙ?????r.DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD', '????\0JFIF\0\0`\0`\0\0???Exif\0\0MM\0*\0\0\0\0;\0\0\0\0sbp\0?i\0\0\0\0\0\0J??\0\0\0\0\0\0??\0\0\0\0\0\0>\0\0\0\0?\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'Aktif'),
+(5, 'Joni Crash', 343553, 'rr', 'Jawa Barat', 'Cirebon', 1.663100, 7.555000, 'jonicrash@gmail.com', '01', '083824142921', '30 mbps', 'logo-Posongnet.png', 'logo-Posongnet.png', 'Aktif'),
+(6, 'jhom', 343553, 'rrrrr', 'Jawa Barat', 'Cirebon', 1.663100, 7.555000, 'jonicrash@gmail.com', '01', '083824142921', '100 mbps', 'logo-Posongnet.png', 'logo-Posongnet.png', 'NonAktif'),
+(7, 'jkjkj', 343553, 'rr', 'Jawa Barat', 'Cirebon', 999.999999, 999.999999, 'kjkjk@mail.com', '01', '54545', '30 mbps', 'logo-Posongnet.png', 'logo-Posongnet.png', 'Aktif'),
+(8, 'jkjkj', 343553, 'rr', 'Jawa Barat', 'Cirebon', 999.999999, 999.999999, 'kjkjk@mail.com', '01', '54545', '30 mbps', 'fotoktp_8.png', 'fotoDepanRumah_8.png', 'NonAktif');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_pembayaran`
+-- Struktur dari tabel `tb_pembayaran`
 --
 
 CREATE TABLE `tb_pembayaran` (
@@ -126,7 +131,7 @@ CREATE TABLE `tb_pembayaran` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_pengajuan`
+-- Struktur dari tabel `tb_pengajuan`
 --
 
 CREATE TABLE `tb_pengajuan` (
@@ -148,7 +153,7 @@ CREATE TABLE `tb_pengajuan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `tb_pengajuan`
+-- Dumping data untuk tabel `tb_pengajuan`
 --
 
 INSERT INTO `tb_pengajuan` (`id_pengajuan`, `id_user`, `Nama_Lengkap`, `Nomor_Identitas/KTP`, `Alamat_Sesuai_KTP`, `Alamat_Pemasangan`, `latitude`, `longitude`, `Email`, `Nomor_Hp_1`, `Nomor_Hp_2`, `id_paket`, `nama_paket`, `Foto_KTP`, `Foto_Depan_Rumah`) VALUES
@@ -157,20 +162,21 @@ INSERT INTO `tb_pengajuan` (`id_pengajuan`, `id_user`, `Nama_Lengkap`, `Nomor_Id
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_tagihan`
+-- Struktur dari tabel `tb_tagihan`
 --
 
 CREATE TABLE `tb_tagihan` (
+  `id_tagihan` int(10) NOT NULL,
   `id_pelanggan` int(10) NOT NULL,
   `id_paket` int(11) NOT NULL,
-  `periode` varchar(20) NOT NULL,
-  `tagihan` varchar(20) NOT NULL
+  `total_harga` decimal(10,2) NOT NULL,
+  `status` enum('Belum Lunas','Lunas','','') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_app`
+-- Struktur dari tabel `user_app`
 --
 
 CREATE TABLE `user_app` (
@@ -181,44 +187,51 @@ CREATE TABLE `user_app` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `user_app`
+-- Dumping data untuk tabel `user_app`
 --
 
 INSERT INTO `user_app` (`id_user`, `username`, `email`, `pass`) VALUES
-(14, 'joni', 'joni@mail.com', '12345');
+(14, 'joni', 'joni@mail.com', '12345'),
+(15, 'jhon', 'jhon@mail.com', 'mmm'),
+(16, 'jhon', 'jhon@mail.com', 'hhh'),
+(17, 'jhon', 'jhon@mail.com', 'yyy'),
+(18, 'jhon', 'jhon@mail.com', 'uuu'),
+(19, 'jhon', 'jhon@mail.com', 'pppppppppppppppppp'),
+(20, 'jhon', 'jhon@mail.com', 'rrrrrrrrrrrrrrrrrrrr'),
+(21, 'jh', 'jhon@mail.com', '1111111111');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `adm`
+-- Indeks untuk tabel `adm`
 --
 ALTER TABLE `adm`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `paket`
+-- Indeks untuk tabel `paket`
 --
 ALTER TABLE `paket`
   ADD PRIMARY KEY (`id_paket`);
 
 --
--- Indexes for table `tb_paket`
+-- Indeks untuk tabel `tb_paket`
 --
 ALTER TABLE `tb_paket`
   ADD KEY `Paket` (`id_paket`),
   ADD KEY `id_pelanggan` (`id_pelanggan`,`id_paket`);
 
 --
--- Indexes for table `tb_pelanggan`
+-- Indeks untuk tabel `tb_pelanggan`
 --
 ALTER TABLE `tb_pelanggan`
   ADD PRIMARY KEY (`id_pelanggan`),
-  ADD KEY `id_paket` (`id_paket`,`nama_paket`);
+  ADD KEY `id_paket` (`nama_paket`);
 
 --
--- Indexes for table `tb_pembayaran`
+-- Indeks untuk tabel `tb_pembayaran`
 --
 ALTER TABLE `tb_pembayaran`
   ADD PRIMARY KEY (`id_tagihan`),
@@ -226,89 +239,90 @@ ALTER TABLE `tb_pembayaran`
   ADD KEY `id_pelanggan` (`id_pelanggan`);
 
 --
--- Indexes for table `tb_pengajuan`
+-- Indeks untuk tabel `tb_pengajuan`
 --
 ALTER TABLE `tb_pengajuan`
   ADD PRIMARY KEY (`id_pengajuan`);
 
 --
--- Indexes for table `tb_tagihan`
+-- Indeks untuk tabel `tb_tagihan`
 --
 ALTER TABLE `tb_tagihan`
-  ADD KEY `id_paket` (`id_paket`,`periode`),
+  ADD PRIMARY KEY (`id_tagihan`),
+  ADD KEY `id_paket` (`id_paket`,`total_harga`),
   ADD KEY `id_pelanggan` (`id_pelanggan`),
   ADD KEY `id_paket_2` (`id_paket`);
 
 --
--- Indexes for table `user_app`
+-- Indeks untuk tabel `user_app`
 --
 ALTER TABLE `user_app`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `adm`
+-- AUTO_INCREMENT untuk tabel `adm`
 --
 ALTER TABLE `adm`
   MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `paket`
+-- AUTO_INCREMENT untuk tabel `paket`
 --
 ALTER TABLE `paket`
   MODIFY `id_paket` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `tb_pelanggan`
+-- AUTO_INCREMENT untuk tabel `tb_pelanggan`
 --
 ALTER TABLE `tb_pelanggan`
-  MODIFY `id_pelanggan` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_pelanggan` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `tb_pembayaran`
+-- AUTO_INCREMENT untuk tabel `tb_pembayaran`
 --
 ALTER TABLE `tb_pembayaran`
   MODIFY `id_tagihan` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tb_pengajuan`
+-- AUTO_INCREMENT untuk tabel `tb_pengajuan`
 --
 ALTER TABLE `tb_pengajuan`
   MODIFY `id_pengajuan` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `user_app`
+-- AUTO_INCREMENT untuk tabel `user_app`
 --
 ALTER TABLE `user_app`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `tb_paket`
+-- Ketidakleluasaan untuk tabel `tb_paket`
 --
 ALTER TABLE `tb_paket`
   ADD CONSTRAINT `tb_paket_ibfk_1` FOREIGN KEY (`id_paket`) REFERENCES `paket` (`id_paket`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `tb_paket_ibfk_2` FOREIGN KEY (`id_pelanggan`) REFERENCES `tb_pelanggan` (`id_pelanggan`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `tb_pembayaran`
+-- Ketidakleluasaan untuk tabel `tb_pembayaran`
 --
 ALTER TABLE `tb_pembayaran`
   ADD CONSTRAINT `tb_pembayaran_ibfk_1` FOREIGN KEY (`id_paket`) REFERENCES `paket` (`id_paket`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `tb_pembayaran_ibfk_2` FOREIGN KEY (`id_pelanggan`) REFERENCES `tb_pelanggan` (`id_pelanggan`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `tb_tagihan`
+-- Ketidakleluasaan untuk tabel `tb_tagihan`
 --
 ALTER TABLE `tb_tagihan`
   ADD CONSTRAINT `tb_tagihan_ibfk_1` FOREIGN KEY (`id_pelanggan`) REFERENCES `tb_pelanggan` (`id_pelanggan`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tb_tagihan_ibfk_2` FOREIGN KEY (`id_paket`) REFERENCES `tb_paket` (`id_paket`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `tb_tagihan_ibfk_2` FOREIGN KEY (`id_paket`) REFERENCES `paket` (`id_paket`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

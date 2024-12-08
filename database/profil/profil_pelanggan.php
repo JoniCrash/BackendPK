@@ -69,20 +69,7 @@ if ($id_pelanggan > 0) {
                                                             <input type="text" class="form-control text-sm bg-light" value= <?php echo $pelanggan['Nama_Lengkap'];?> readonly>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-3">
-                                                        <div class="form-group">
-                                                            <label class="font-weight-normal">Tanggal Lahir</label>
-                                                            <div class="input-group mb-3">
-                                                                <div class="input-group-prepend">
-                                                                    <span class="input-group-text">
-                                                                    <i class="far fa-calendar-alt"></i>
-                                                                    </span>
-                                                                </div>
-                                                                <input type="text" class="form-control text-sm bg-light" value="" readonly>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-3">
+                                                    <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label class="font-weight-normal">Nomor Identitas (KTP)</label>
                                                             <input type="text" class="form-control text-sm bg-light" value  = <?php echo $pelanggan['Nomor_Identitas_KTP'];?> readonly>
@@ -125,48 +112,16 @@ if ($id_pelanggan > 0) {
                                                                             <input type="text" class="form-control bg-light" value="<?php echo $pelanggan['Alamat_Pemasangan'];?>" readonly >
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-4">
-                                                                        <div class="form-group">
-                                                                            <label class="font-weight-normal">RT</label>
-                                                                            <input type="text" class="form-control text-sm numeric bg-light" maxlength="3"
-                                                                            value="" readonly>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-4">
-                                                                        <div class="form-group">
-                                                                            <label class="font-weight-normal">RW</label>
-                                                                            <input type="text" class="form-control text-sm numeric bg-light"
-                                                                            value="" readonly>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-4">
-                                                                        <div class="form-group">
-                                                                            <label class="font-weight-normal">Kode Pos</label>
-                                                                            <input type="text" class="form-control text-sm bg-light" readonly>
-                                                                        </div>
-                                                                    </div>
                                                                     <div class="col-md-6">
                                                                         <div class="form-group">
                                                                             <label class="font-weight-normal">Provinsi</label>
-                                                                            <input type="text" class="form-control text-sm bg-light" readonly>
+                                                                            <input type="text" class="form-control text-sm bg-light" value="<?php echo $pelanggan['provinsi'];?>" readonly>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-md-6">
                                                                         <div class="form-group">
                                                                             <label class="font-weight-normal">Kota/Kabupaten</label>
-                                                                            <input type="text" class="form-control text-sm bg-light" readonly>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <div class="form-group">
-                                                                            <label class="font-weight-normal">Kecamatan</label>
-                                                                            <input type="text" value="" class="form-control text-sm bg-light" readonly>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <div class="form-group">
-                                                                            <label class="font-weight-normal">Kelurahan</label>
-                                                                            <input type="text" value="" class="form-control text-sm bg-light" readonly>
+                                                                            <input type="text" class="form-control text-sm bg-light" value="<?php echo $pelanggan['kota'];?>" readonly>
                                                                         </div>
                                                                     </div>
                                                                     <hr class="bg-light col-md-11">
@@ -178,31 +133,43 @@ if ($id_pelanggan > 0) {
                                                 <legend class="well-legend bg-light"><strong>Data Maps Alamat Pemasangan</strong></legend>
                                                     <div class="col-md-6 mt-3 mt-md-0">
                                                         <div class="form-group">
-                                                            <label>Lokasi Maps:</label>
-                                                            <input type="text" class="form-control form-control-sm bg-light" readonly/>
-                                                        </div>
-                                                        <div class="form-group">
                                                             <label>Latitude:</label>
-                                                            <input type="text" class="form-control form-control-sm bg-light" value="<?php echo $pelanggan['latitide'];?>" readonly/>
+                                                            <input type="text" class="form-control form-control-sm bg-light" value="<?php echo $pelanggan['latitude'];?>" readonly/>
                                                         </div>
                                                         <div class="form-group">
                                                             <label>Longitude:</label>
                                                             <input type="text" class="form-control form-control-sm bg-light" value="<?php echo $pelanggan['longitude'];?>" readonly/>
                                                         </div>
                                                     </div>
+                                                    <hr class="bg-light col-md-11">
                                             </fieldset>
-                                            <fieldset class="well bg-light">
+                                            
+                                        </div> 
+                                        <div class="col-md-12">
+                                        <fieldset class="well bg-light">
                                                 <legend class="well-legend bg-light"><strong>Data Layanan</strong></legend>
                                                 
-                                                <div class="col-md-6">
+                                                <div class="col-md-12">
                                                     <div class="form-group">
                                                         <label class="font-weight-normal">Paket Layanan</label>
                                                         <input type="text" class="form-control text-sm numeric bg-light" value="<?php echo $pelanggan['nama_paket'];?>" readonly>
                                                     </div>
                                                 </div>
                                                 <hr />
+                                            </fieldset>  
+                                            </div>
+                                            <div class="col-md-12">
+                                        <fieldset class="well bg-light">
+                                                <legend class="well-legend bg-light"><strong>Data Status</strong></legend>
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label class="font-weight-normal">Status</label>
+                                                        <input type="text" class="form-control text-sm numeric bg-light" value="<?php echo $pelanggan['Status'];?>" readonly>
+                                                    </div>
+                                                </div>
+                                                <hr/>
                                             </fieldset>
-                                        </div>   
+                                                    </div>
                                         </div>
                                         
                                                     </div>
@@ -213,38 +180,32 @@ if ($id_pelanggan > 0) {
                                        
                                         
                                         <div class="col-md-12 mt-3">
-                                            <div class="row">
+                                        <div class="row">
+                                                <!-- Foto KTP -->
                                                 <div class="col-md-6">
                                                     <fieldset class="well bg-light">
                                                         <legend class="well-legend bg-light"><strong>Foto KTP</strong></legend>
-                                                        <img id="preview1" src="/customer/image?id=&type=ktp" class="mt-2 img-fluid rounded mx-auto d-block" alt="KTP" title="KTP" style="max-height: 200px;">
                                                         <div class="mt-2 mb-3 ml-1 mr-1">
-                                                            <div class="input-group input-group-sm">
-                                                                <div class="input-group-prepend">
-                                                                    <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
-                                                                </div>
-                                                                <div class="custom-file">
-                                                                    <input type="file" name="image_ktp" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" accept=".png, .jpg, .jpeg, .bmp">
-                                                                    <label class="custom-file-label imgLabel1" for="inputGroupFile01" id="labelGroupFile01">Pilih berkas foto</label>
-                                                                </div>
-                                                            </div>
+                                                        <div class="input-group input-group-sm">
+                                                        <?php
+                                                        // Ambil nama file dari database
+                                                        $fotoKTP = htmlspecialchars($pelanggan['Foto_KTP']); // Menghindari XSS
+                                                        $pathGambar = "../image/foto_ktp/" . $fotoKTP; // Path gambar
+                                                        ?>
+                                                        <img src="<?php echo $pathGambar; ?>" alt="Foto KTP" style="max-width: 100%; height: auto; border: 1px solid #ccc; border-radius: 5px;">
+                                                        </div>
+                                                        <div id="ktpPreviewContainer" style="display: flex; gap: 10px; margin-top: 10px;"></div>
                                                         </div>
                                                     </fieldset>
                                                 </div>
+
+                                                <!-- Foto Depan Rumah -->
                                                 <div class="col-md-6">
                                                     <fieldset class="well bg-light">
                                                         <legend class="well-legend bg-light"><strong>Foto Depan Rumah</strong></legend>
-                                                        <img id="preview3" src="customer/image?id=&type=rumah" class="mt-2 img-fluid rounded mx-auto d-block" alt="Rumah" title="Rumah" style="max-height: 200px;">
                                                         <div class="mt-2 mb-3 ml-1 mr-1">
-                                                            <div class="input-group input-group-sm">
-                                                                <div class="input-group-prepend">
-                                                                    <span class="input-group-text" id="inputGroupFileAddon03">Upload</span>
-                                                                </div>
-                                                                <div class="custom-file">
-                                                                    <input type="file" name="image_rumah" class="custom-file-input" id="inputGroupFile03" aria-describedby="inputGroupFileAddon03" accept=".png, .jpg, .jpeg, .bmp">
-                                                                    <label class="custom-file-label imgLabel3" for="inputGroupFile03" id="labelGroupFile03">Pilih berkas foto</label>
-                                                                </div>
-                                                            </div>
+                                                            <div id="depanRumahPreviewContainer" style="display: flex; gap: 10px; margin-top: 10px;"> </div>
+                                                           
                                                         </div>
                                                     </fieldset>
                                                 </div>
@@ -260,4 +221,3 @@ if ($id_pelanggan > 0) {
         </div>
     </div>
 </section>
-    

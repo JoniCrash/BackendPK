@@ -75,3 +75,41 @@
     });  
   });
 </script>
+<script>
+    // Fungsi untuk membuat pratinjau gambar
+    function handleFileInput(inputElement, previewContainerId) {
+        const files = inputElement.files;
+        const previewContainer = document.getElementById(previewContainerId);
+
+        // Hapus pratinjau sebelumnya
+        previewContainer.innerHTML = '';
+
+        Array.from(files).forEach(file => {
+            if (file && file.type.startsWith('image/')) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    const img = document.createElement('img');
+                    img.src = e.target.result;
+                    img.alt = 'Preview Gambar';
+                    img.style.maxWidth = '150px';
+                    img.style.maxHeight = '150px';
+                    img.style.border = '1px solid #ddd';
+                    img.style.borderRadius = '5px';
+                    img.style.padding = '5px';
+                    previewContainer.appendChild(img);
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    }
+
+    // Event listener untuk Foto KTP
+    document.getElementById('fotoKTPInput').addEventListener('change', function () {
+        handleFileInput(this, 'ktpPreviewContainer');
+    });
+
+    // Event listener untuk Foto Depan Rumah
+    document.getElementById('depanRumahInput').addEventListener('change', function () {
+        handleFileInput(this, 'depanRumahPreviewContainer');
+    });
+</script>

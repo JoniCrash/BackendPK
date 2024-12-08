@@ -5,7 +5,7 @@
                 <div class="tab-content">
                     <div class="tab-pane active" >
                         <div class="row">
-                            <form method="get" action="../database/add/add_pelanggan.php" autocomplete="off" enctype="multipart/form-data">
+                            <form method="POST" action="../database/add/add_pelanggan.php" autocomplete="off" enctype="multipart/form-data">
                                 <div class="col-md-12">
                                     <div class="row">
                                         <div class="col-md-12 mt-3">
@@ -16,7 +16,7 @@
                                                         <div class="form-group">
                                                             <label class="font-weight-normal">Nama Lengkap</label>
                                                             <input type="text" class="form-control text-sm"
-                                                                name="name" id="name" maxlength="64" value="">
+                                                                name="nama" id="Nama_Lengkap" value="">
                                                         </div>
                                                     </div>
                                                     <!-- <div class="col-md-3">
@@ -33,14 +33,14 @@
                                                         <div class="form-group">
                                                             <label class="font-weight-normal">Nomor Identitas (KTP)</label>
                                                             <input type="text" class="form-control text-sm numeric"
-                                                                name="nik" id="nik" maxlength="18" value="">
+                                                                name="nik" id="nik" value="">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label class="font-weight-normal">Alamat Email</label>
                                                             <input type="text" class="form-control text-sm"
-                                                                name="email" id="email" maxlength="128" value="">
+                                                                name="email" id="email" value="">
                                                         </div>
                                                     </div>
 
@@ -48,7 +48,7 @@
                                                         <div class="form-group">
                                                             <label class="font-weight-normal">No Telepon Seluler (HP1)</label>
                                                             <input type="text" class="form-control text-sm phonehp"
-                                                                name="hp1" id="hp2" maxlength="16" value="">
+                                                                name="no1" id="no1" maxlength="16" value="">
                                                         </div>
                                                     </div>
 
@@ -56,7 +56,7 @@
                                                         <div class="form-group">
                                                             <label class="font-weight-normal">No Telepon Seluler (HP2)</label>
                                                             <input type="text" class="form-control text-sm phonehp"
-                                                                name="homephone" id="homephone" maxlength="16" value="">
+                                                                name="no2" id="no2" value="">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -73,13 +73,13 @@
                                                                     <div class="col-md-12">
                                                                         <div class="form-group">
                                                                             <label class="font-weight-normal">Alamat</label>
-                                                                            <input type="text" class="form-control text-sm" maxlength="128" value="">
+                                                                            <input type="text" name="alamat" id="alamat" class="form-control text-sm" value="">
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-md-6">
                                                                         <div class="form-group">
                                                                             <label class="font-weight-normal">Provinsi</label>
-                                                                            <select class="form-control"> 
+                                                                            <select name="provinsi" id="provinsi" class="form-control"> 
                                                                                 <option></option>  
                                                                                 <option>Jawa Barat</option>
                                                                             </select>
@@ -88,7 +88,7 @@
                                                                     <div class="col-md-6">
                                                                         <div class="form-group">
                                                                             <label class="font-weight-normal">Kota/Kabupaten</label>
-                                                                            <select class="form-control">
+                                                                            <select name="kota" id="kota" class="form-control">
                                                                                 <option></option>  
                                                                                 <option>Cirebon</option>
                                                                             </select>
@@ -104,24 +104,23 @@
                                                     <div class="col-md-12 mt-3 mt-md-0">
                                                         <div class="form-group">
                                                             <label>Latitude:</label>
-                                                            <input type="text" class="form-control form-control-sm"/>
+                                                            <input type="text" name="latitude" id="latitude" class="form-control form-control-sm"/>
                                                         </div>
                                                         <div class="form-group">
                                                             <label>Longitude:</label>
-                                                            <input type="text" class="form-control form-control-sm" />
+                                                            <input type="text" name="longitude" id="longitude" class="form-control form-control-sm" />
                                                         </div>
                                                     </div>
                                                     <hr class="bg-light col-md-11">
                                             </fieldset>
                                         </div>
-
                                         <div class="col-md-12">
                                         <fieldset class="well bg-light">
                                                 <legend class="well-legend bg-light"><strong>Data Layanan</strong></legend>
                                                 <div class="col-md-12">
                                                     <div class="form-group">
                                                         <label class="font-weight-normal">Paket Layanan</label>
-                                                        <select class="form-control">
+                                                        <select name="paket" id="paket" class="form-control">
                                                             <option>Pilih</option>
                                                             <option> 30 mbps </option>
                                                             <option> 50 mbps </option>
@@ -131,17 +130,28 @@
                                                 </div>
                                                 <hr/>
                                             </fieldset>
-                                            </>
-
-
-
+                                                    </div>
+                                                    <div class="col-md-12">
+                                        <fieldset class="well bg-light">
+                                                <legend class="well-legend bg-light"><strong>Data Status</strong></legend>
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label class="font-weight-normal">Status</label>
+                                                        <select name="status" id="status" class="form-control">
+                                                            <option>Pilih</option>
+                                                            <option> Aktif </option>
+                                                            <option> NonAktif </option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <hr/>
+                                            </fieldset>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
  
                                         <div class="col-md-12 mt-3">
-                                            <div class="row">
                                             <div class="row">
                                                 <!-- Foto KTP -->
                                                 <div class="col-md-6">
@@ -171,14 +181,13 @@
                                                     </fieldset>
                                                 </div>
                                             </div>
-                                            </div>
                                             <div class="col-md-12">
                                                 <button style="width: 80px"  class="btn bg-info float-right btn-sm mb-1 mt-1"><i class="fa fa-save"></i>Tambah Pelanggan</button>
                                             </div>
                                         </div>
                                     </div>
                                 </form>
-                            </div>
+                        </div>
                         <!-- batas akhir tab -->
                         </div>
                     </div>
@@ -186,41 +195,3 @@
             </div>
         </div>
     </section>
-    <script>
-    // Fungsi untuk membuat pratinjau gambar
-    function handleFileInput(inputElement, previewContainerId) {
-        const files = inputElement.files;
-        const previewContainer = document.getElementById(previewContainerId);
-
-        // Hapus pratinjau sebelumnya
-        previewContainer.innerHTML = '';
-
-        Array.from(files).forEach(file => {
-            if (file && file.type.startsWith('image/')) {
-                const reader = new FileReader();
-                reader.onload = function (e) {
-                    const img = document.createElement('img');
-                    img.src = e.target.result;
-                    img.alt = 'Preview Gambar';
-                    img.style.maxWidth = '150px';
-                    img.style.maxHeight = '150px';
-                    img.style.border = '1px solid #ddd';
-                    img.style.borderRadius = '5px';
-                    img.style.padding = '5px';
-                    previewContainer.appendChild(img);
-                };
-                reader.readAsDataURL(file);
-            }
-        });
-    }
-
-    // Event listener untuk Foto KTP
-    document.getElementById('fotoKTPInput').addEventListener('change', function () {
-        handleFileInput(this, 'ktpPreviewContainer');
-    });
-
-    // Event listener untuk Foto Depan Rumah
-    document.getElementById('depanRumahInput').addEventListener('change', function () {
-        handleFileInput(this, 'depanRumahPreviewContainer');
-    });
-</script>

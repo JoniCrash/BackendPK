@@ -42,18 +42,18 @@
                     <td><?php echo $pelanggan ['Nama_Lengkap'];?></td>
                     <td><?php echo $pelanggan ['Nomor_Hp_1'];?></td>
                     <td><?php echo $pelanggan ['Alamat_Pemasangan'];?></td>
-                    <td>
+                    <td><?php echo $pelanggan ['Status'];?>
                      <!-- Toggle Switch untuk Status -->
-                    <select onchange="ubahStatus(<?php echo $pelanggan['id_pelanggan']; ?>, this.value)">
+                    <!-- <select onchange="ubahStatus(<?php echo $pelanggan['id_pelanggan']; ?>, this.value)">
                       <option value="1" <?php echo $pelanggan['status'] == '1' ? 'selected' : ''; ?>>Aktif</option>
                       <option value="0" <?php echo $pelanggan['status'] == '0' ? 'selected' : ''; ?>>Nonaktif</option>
-                    </select>
+                    </select> -->
                   </td>
                     <td>
                       <a onclick="hapus_data(<?php echo $pelanggan ['id_pelanggan'];?>)" class="btn btn-sm btn-danger">Hapus</a>
                       <a href="index.php?page=edit-data&&id=<?php echo $pelanggan ['id_pelanggan'];?>" class="btn btn-sm btn-success">Edit</a>
 
-                      <a onclick="tagihan(<?php echo $pelanggan ['id_pelanggan'];?>)" class="btn btn-sm btn-danger">Buat Tagihan</a>
+                      <a onclick="tagihan(<?php echo $pelanggan ['id_pelanggan'];?>)" class="btn btn-sm btn-primary">Buat Tagihan</a>
                     </td>
                   </tr>
                   <?php }?>
