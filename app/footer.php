@@ -113,3 +113,84 @@
         handleFileInput(this, 'depanRumahPreviewContainer');
     });
 </script>
+<script>
+    function setPaketID() {
+        var paketValue = document.getElementById('paket').value;
+        
+        var idPaket = '';
+        var namaPaket = '';
+        if (paketValue === '1') {
+            idPaket = '1';
+            namaPaket = '30 mbps';
+        } else if (paketValue === '2') {
+            idPaket = '2';
+            namaPaket = '50 mbps';
+        } else if (paketValue === '3') {
+            idPaket = '3';
+            namaPaket = '100 mbps';
+        }
+
+        document.getElementById('id_paket').value = idPaket;
+        document.getElementById('nama_paket').value = namaPaket;
+    }
+</script>
+<script>
+  function buatTagihan(id_pelanggan) {
+    if (confirm("Apakah Anda yakin ingin membuat tagihan untuk pelanggan ini?")) {
+      // Kirim permintaan ke server menggunakan URL
+      window.location.href = "index.php?page=buat-tagihan&id_pelanggan="+ id_pelanggan;
+    }
+  }
+</script>
+
+      <Script>
+        function hapus_data(data_id){
+          alert("Data berhasil dihapus");
+          window.location=("delete/delete_pelanggan.php?id="+data_id);
+          Swal.fire(
+            'Hapus Data',
+            'Data berhasil dihapus',
+           'success'
+          )
+          Swal.fire({
+  title: 'Apakah anda yakin ingin menghapus data?',
+  //showDenyButton: false,
+  showCancelButton: true,
+  confirmButtonText: 'Hapus Data',
+  confirmButtonColor:'red',
+  //denyButtonText: 'No',
+  customClass: {
+    actions: 'my-actions',
+    cancelButton: 'order-1 right-gap',
+    confirmButton: 'order-2',
+    denyButton: 'order-3',
+  },
+}).then((result) => {
+  if (result.isConfirmed) {
+    window.location=("delete/delete_pelanggan.php?id="+data_id);
+  } 
+})
+        }
+      </Script>
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+  // Fungsi untuk Mengupdate Status
+  function ubahStatus(id_pelanggan, status) {
+  console.log("Mengirim status:", id_pelanggan, status); // Debug log untuk mengecek data yang dikirim
+  const xhr = new XMLHttpRequest();
+  xhr.open("POST", "http://localhost/BackEndpk/database/data/update.php", true);
+  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4) {
+      console.log("Response:", xhr.responseText); // Log respons dari server untuk debugging
+      if (xhr.status === 200) {
+        Swal.fire('Berhasil!', 'Status berhasil diperbarui.', 'success');
+      } else {
+        Swal.fire('Gagal!', 'Tidak dapat memperbarui status.', 'error');
+      }
+    }
+  };
+  xhr.send("id_pelanggan=" + id_pelanggan + "&status=" + status);
+}
+
+</script>

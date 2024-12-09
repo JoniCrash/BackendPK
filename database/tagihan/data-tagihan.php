@@ -6,7 +6,7 @@
             <div class="card">
 
               <div class="card-header">
-                <h3 class="card-title">Data Pelanggan</h3>
+                <h3 class="card-title">Data Tagihan</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -23,7 +23,6 @@
                     <th>ID Paket</th>
                     <th>Total Harga</th>
                     <th>Status</th>
-                    <th>Action</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -39,12 +38,7 @@
                     <td><?php echo $tagihan ['id_pelanggan'];?></td>
                     <td><?php echo $tagihan ['id_paket'];?></td>
                     <td><?php echo $tagihan ['total_harga'];?></td>
-                    <td><?php echo $tagihan ['Status'];?></td>
-                    <td>
-                      <a onclick="hapus_data(<?php echo $tagihan ['id_pelanggan'];?>)" class="btn btn-sm btn-danger">Hapus</a>
-                      <a href="index.php?page=edit-data&&id=<?php echo $tagihan ['id_pelanggan'];?>" class="btn btn-sm btn-success">Edit</a>
-
-                    </td>
+                    <td><?php echo $tagihan ['status'];?></td>
                   </tr>
                   <?php }?>
                   </tbody>

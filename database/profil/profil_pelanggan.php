@@ -28,6 +28,23 @@ if ($id_pelanggan > 0) {
 // $koneksi->close();
 ?> -->
 
+<style>
+        .profile-container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .profile-info {
+            margin-top: 20px;
+        }
+    </style>
 
 
 <section class="content">
@@ -181,20 +198,18 @@ if ($id_pelanggan > 0) {
                                         
                                         <div class="col-md-12 mt-3">
                                         <div class="row">
-                                                <!-- Foto KTP -->
+                                        <!-- Foto KTP -->
                                                 <div class="col-md-6">
                                                     <fieldset class="well bg-light">
                                                         <legend class="well-legend bg-light"><strong>Foto KTP</strong></legend>
                                                         <div class="mt-2 mb-3 ml-1 mr-1">
                                                         <div class="input-group input-group-sm">
-                                                        <?php
-                                                        // Ambil nama file dari database
-                                                        $fotoKTP = htmlspecialchars($pelanggan['Foto_KTP']); // Menghindari XSS
-                                                        $pathGambar = "../image/foto_ktp/" . $fotoKTP; // Path gambar
-                                                        ?>
-                                                        <img src="<?php echo $pathGambar; ?>" alt="Foto KTP" style="max-width: 100%; height: auto; border: 1px solid #ccc; border-radius: 5px;">
+                                                       
+                                                        <img src="../database/image/foto_ktp/<?= htmlspecialchars($pelanggan['Foto_KTP']) ?>" alt="Foto KTP" style="max-width: 100%; height: auto; border: 1px solid #ccc; border-radius: 5px;">                           
+                                                        <!-- <?php echo "Path gambar: image/foto_ktp/" . $pelanggan['Foto_KTP']; // Debugging?> -->
+
                                                         </div>
-                                                        <div id="ktpPreviewContainer" style="display: flex; gap: 10px; margin-top: 10px;"></div>
+                                                        <!-- <div id="ktpPreviewContainer" style="display: flex; gap: 10px; margin-top: 10px;"></div> -->
                                                         </div>
                                                     </fieldset>
                                                 </div>
@@ -204,8 +219,12 @@ if ($id_pelanggan > 0) {
                                                     <fieldset class="well bg-light">
                                                         <legend class="well-legend bg-light"><strong>Foto Depan Rumah</strong></legend>
                                                         <div class="mt-2 mb-3 ml-1 mr-1">
-                                                            <div id="depanRumahPreviewContainer" style="display: flex; gap: 10px; margin-top: 10px;"> </div>
-                                                           
+                                                        <div class="input-group input-group-sm">
+                                                       
+                                                       <img src="../database/image/foto_depan_rumah/<?= htmlspecialchars($pelanggan['Foto_Depan_Rumah']) ?>" alt="Foto KTP" style="max-width: 100%; height: auto; border: 1px solid #ccc; border-radius: 5px;">                           
+                                                       <!-- <?php echo "image/foto_ktp/" . $pelanggan['Foto_KTP']; // Debugging?> -->
+
+                                                       </div>                                                           
                                                         </div>
                                                     </fieldset>
                                                 </div>

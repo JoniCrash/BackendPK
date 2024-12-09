@@ -48,16 +48,19 @@ if (isset($_GET['page'])){
   }elseif($_GET['page']=='tambah-pelanggan'){
     include('content-header/content_header_pelanggan_baru.php');
   }
-
   elseif($_GET['page']=='data-tagihan'){
     include('content-header/content_header_tagihan.php');
   }
 
-  
+  elseif($_GET['page']=='buat-tagihan'){
+    include('content-header/content_header_buat_tagihan.php');
+  }
+
   elseif($_GET['page']=='profil-pelanggan-copy'){
     include('content-header/content_header_profil_pelanggan_copy.php');
+
+
   }
-  
   else{
     include('content-header/content_header_dashboard.php');
   }
@@ -95,6 +98,11 @@ if (isset($_GET['page'])){
   else if ($_GET['page'] == 'profil-pelanggan' && isset($_GET['id_pelanggan'])) {
       include('../database/profil/profil_pelanggan.php');
   }
+  
+  else if ($_GET['page'] == 'buat-tagihan' && isset($_GET['id_pelanggan'])) {
+    include('../database/tagihan/tagihan.php');
+}
+
   else if($_GET['page']=='tambah-pelanggan'){
     include('../database/add/pelanggan_baru.php');
   }else{

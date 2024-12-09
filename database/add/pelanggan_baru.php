@@ -114,22 +114,29 @@
                                                     <hr class="bg-light col-md-11">
                                             </fieldset>
                                         </div>
-                                        <div class="col-md-12">
+                                        <div class="col-md-9">
                                         <fieldset class="well bg-light">
                                                 <legend class="well-legend bg-light"><strong>Data Layanan</strong></legend>
                                                 <div class="col-md-12">
                                                     <div class="form-group">
                                                         <label class="font-weight-normal">Paket Layanan</label>
-                                                        <select name="paket" id="paket" class="form-control">
+                                                        <select name="paket" id="paket" class="form-control" onchange="setPaketID()">
                                                             <option>Pilih</option>
-                                                            <option> 30 mbps </option>
-                                                            <option> 50 mbps </option>
-                                                            <option> 100 mbps </option>
+                                                            <option value="1">30 mbps</option>
+                                                            <option value="2">50 mbps</option>
+                                                            <option value="3">100 mbps</option>
                                                         </select>
                                                     </div>
                                                 </div>
                                                 <hr/>
                                             </fieldset>
+                                            <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label class="font-weight-normal">ID Paket</label>
+                                                <input type="text" name="id_paket" id="id_paket" class="form-control" readonly />
+                                                <input type="hidden" id="nama_paket" name="nama_paket" />
+                                            </div>
+                                        </div>
                                                     </div>
                                                     <div class="col-md-12">
                                         <fieldset class="well bg-light">
