@@ -21,6 +21,7 @@
                     <th>Username</th>
                     <th>Email</th>
                     <th>Password</th>
+                    <th>Dibuat</th>
                     <th>Action</th>
                   </tr>
                   </thead>
@@ -36,6 +37,7 @@
                     <td><?php echo $user ['username'];?></td>
                     <td><?php echo $user ['email'];?></td>
                     <td><?php echo $user ['pass'];?></td>
+                    <td><?php echo $user ['dibuat_pada_'];?></td>
                     <td>
                       <a onclick="hapus_data(<?php echo $user ['id_user'];?>)" class="btn btn-sm btn-danger">Hapus</a>
                       <a href="index.php?page=edit-data&&id=<?php echo $user ['id_user'];?>" class="btn btn-sm btn-success">Edit</a>
