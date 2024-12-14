@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 09 Des 2024 pada 20.57
+-- Waktu pembuatan: 14 Des 2024 pada 22.13
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.2.12
 
@@ -63,19 +63,6 @@ INSERT INTO `paket` (`id_paket`, `nama_paket`, `kecepatan`, `harga`) VALUES
 (1, '30 MBPS', 30, 250.00),
 (2, '50 mbps', 50, 320.00),
 (3, '100 MBPS', 100, 500.00);
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `tb_paket`
---
-
-CREATE TABLE `tb_paket` (
-  `id_pelanggan` int(10) NOT NULL,
-  `id_paket` int(11) NOT NULL,
-  `nama _paket` varchar(50) NOT NULL,
-  `harga` decimal(10,2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -193,22 +180,33 @@ CREATE TABLE `user_app` (
   `id_user` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `pass` varchar(50) NOT NULL
+  `pass` varchar(50) NOT NULL,
+  `dibuat_pada_` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `user_app`
 --
 
-INSERT INTO `user_app` (`id_user`, `username`, `email`, `pass`) VALUES
-(14, 'joni', 'joni@mail.com', '12345'),
-(15, 'jhon', 'jhon@mail.com', 'mmm'),
-(16, 'jhon', 'jhon@mail.com', 'hhh'),
-(17, 'jhon', 'jhon@mail.com', 'yyy'),
-(18, 'jhon', 'jhon@mail.com', 'uuu'),
-(19, 'jhon', 'jhon@mail.com', 'pppppppppppppppppp'),
-(20, 'jhon', 'jhon@mail.com', 'rrrrrrrrrrrrrrrrrrrr'),
-(21, 'jh', 'jhon@mail.com', '1111111111');
+INSERT INTO `user_app` (`id_user`, `username`, `email`, `pass`, `dibuat_pada_`) VALUES
+(15, 'jhon', 'jhon@mail.com', 'mmm', '2024-12-13 16:45:37'),
+(16, 'jhon', 'jhon@mail.com', 'hhh', '2024-12-13 16:45:37'),
+(17, 'jhon', 'jhon@mail.com', 'yyy', '2024-12-13 16:45:37'),
+(18, 'jhon', 'jhon@mail.com', 'uuu', '2024-12-13 16:45:37'),
+(19, 'jhon', 'jhon@mail.com', 'pppppppppppppppppp', '2024-12-13 16:45:37'),
+(20, 'jhon', 'jhon@mail.com', 'rrrrrrrrrrrrrrrrrrrr', '2024-12-13 16:45:37'),
+(21, 'jh', 'jhon@mail.com', '1111111111', '2024-12-13 16:45:37'),
+(22, '', '', '', '2024-12-14 19:06:58'),
+(23, 'testuser', 'testuser@email.com', 'test123', '2024-12-14 19:09:25'),
+(24, 'joni', 'joni@mail.com', 'passpostman', '2024-12-14 19:18:53'),
+(25, 'testuser', 'testuser@email.com', 'test123', '2024-12-14 19:40:26'),
+(26, 'testuser', 'testuser@email.com', 'test123', '2024-12-14 19:43:52'),
+(27, 'testur', 'testuser@email.com', 'test123', '2024-12-14 19:44:01'),
+(28, 'testur', 'testuser@email.com', 'test123', '2024-12-14 20:00:39'),
+(29, 'mmm', 'mmm@mail.com', 'mmm', '2024-12-14 20:01:59'),
+(30, 'mmm', 'mmm@mail.com', 'mmm', '2024-12-14 20:02:00'),
+(31, 'hhu', 'jjjj', 'jj', '2024-12-14 20:17:30'),
+(32, 'hhu', 'jjjj', 'jj', '2024-12-14 20:17:30');
 
 --
 -- Indexes for dumped tables
@@ -225,13 +223,6 @@ ALTER TABLE `adm`
 --
 ALTER TABLE `paket`
   ADD PRIMARY KEY (`id_paket`);
-
---
--- Indeks untuk tabel `tb_paket`
---
-ALTER TABLE `tb_paket`
-  ADD KEY `Paket` (`id_paket`),
-  ADD KEY `id_pelanggan` (`id_pelanggan`,`id_paket`);
 
 --
 -- Indeks untuk tabel `tb_pelanggan`
@@ -312,18 +303,11 @@ ALTER TABLE `tb_tagihan`
 -- AUTO_INCREMENT untuk tabel `user_app`
 --
 ALTER TABLE `user_app`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
-
---
--- Ketidakleluasaan untuk tabel `tb_paket`
---
-ALTER TABLE `tb_paket`
-  ADD CONSTRAINT `tb_paket_ibfk_1` FOREIGN KEY (`id_paket`) REFERENCES `paket` (`id_paket`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tb_paket_ibfk_2` FOREIGN KEY (`id_pelanggan`) REFERENCES `tb_pelanggan` (`id_pelanggan`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `tb_pelanggan`
