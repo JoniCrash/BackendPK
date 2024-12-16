@@ -50,14 +50,12 @@ if (isset($_GET['page'])){
   }
   elseif($_GET['page']=='data-tagihan'){
     include('content-header/content_header_tagihan.php');
-  }
-
-  elseif($_GET['page']=='buat-tagihan'){
+  }elseif($_GET['page']=='buat-tagihan'){
     include('content-header/content_header_buat_tagihan.php');
   }
 
-  elseif($_GET['page']=='profil-pelanggan-copy'){
-    include('content-header/content_header_profil_pelanggan_copy.php');
+  elseif($_GET['page']=='invoice'){
+    include('content-header/content_header_invoice.php');
 
 
   }
@@ -90,18 +88,17 @@ if (isset($_GET['page'])){
     include('../database/data/data_pembayaran.php');
   }else if($_GET['page']=='data-tagihan' ){
     include('../database/tagihan/data-tagihan.php');
-  }
-
-
-  // else if($_GET['page']=='profil-pelanggan'){
-  //   include('../database/profil/profil_pelanggan_copy.php');
-  else if ($_GET['page'] == 'profil-pelanggan' && isset($_GET['id_pelanggan'])) {
+  }else if ($_GET['page'] == 'profil-pelanggan' && isset($_GET['id_pelanggan'])) {
       include('../database/profil/profil_pelanggan.php');
-  }
-  
-  else if ($_GET['page'] == 'buat-tagihan' && isset($_GET['id_pelanggan'])) {
+  }else if ($_GET['page'] == 'buat-tagihan' && isset($_GET['id_pelanggan'])) {
     include('../database/tagihan/tagihan.php');
 }
+
+
+else if ($_GET['page'] == 'invoice' && isset($_GET['id_pelanggan'])) {
+  include('../database/tagihan/invoice.php');
+}
+
 
   else if($_GET['page']=='tambah-pelanggan'){
     include('../database/add/pelanggan_baru.php');
