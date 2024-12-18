@@ -24,10 +24,11 @@
   <!-- /.login-logo -->
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
-      <a href="#" class="h1"><b>Layanan</b>Customer</a>
+      <a href="#" class="h1"><b>Comet</b> service</a><br>
+      <b>Combo internet service provider</b>
     </div>
     <div class="card-body">
-      <p class="login-box-msg">Masuk ke akun</p>
+      <p class="login-box-msg">Masuk ke akun <b>ADMIN</b></p>
 
       <form action="conf/autentikasi.php" method="post">
         <div class="input-group mb-3">

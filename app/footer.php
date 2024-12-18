@@ -184,6 +184,3 @@
   };
   xhr.send("id_pelanggan=" + id_pelanggan + "&status=" + status);}
 </script>
-<script>
-  window.addEventListener("load", window.print());
-</script>

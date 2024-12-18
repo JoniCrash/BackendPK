@@ -1,4 +1,3 @@
-<div class="wrapper">
   <!-- Main content -->
   <section class="invoice">
     <!-- title row -->
@@ -138,7 +137,10 @@
     </div>
     <!-- /.row -->
   </section>
+
   <!-- /.content -->
-</div>
 <!-- ./wrapper -->
 <!-- Page specific script -->
+<script>
+  window.addEventListener("load", window.print());
+</script>
