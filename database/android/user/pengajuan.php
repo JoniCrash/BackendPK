@@ -10,19 +10,21 @@ include('../../../conf/config.php');
     $email = $_POST['Email'];
     $no1 = $_POST['Nomor_Hp_1'];
     $no2 = $_POST['Nomor_Hp_2'];
+    $id_paket = $_POST['id_paket'];
     $paket = $_POST['nama_paket'];
     $foto_ktp = $_POST['Foto_KTP'];
     $foto_depan_rumah = $_POST['Foto_Depan_Rumah'];
 
-    $query_paket = "SELECT id_paket FROM paket WHERE nama_paket = '$paket'";
+// Dapatkan nama paket berdasarkan id_paket
+$query_paket = "SELECT nama_paket FROM paket WHERE id_paket = '$id_paket'";
 $result_paket = mysqli_query($koneksi, $query_paket);
 $paket_data = mysqli_fetch_assoc($result_paket);
 
 // Jika nama paket ditemukan, simpan ke variabel
 if ($paket_data) {
-    $id_paket = $paket_data['id_paket'];
+    $nama_paket = $paket_data['nama_paket'];
 } else {
-    $id_paket = ''; // Jika tidak ditemukan, kosongkan nama paket (opsional)
+    $nama_paket = ''; // Jika tidak ditemukan, kosongkan nama paket (opsional)
 }
 
     // Proses penyimpanan ke database
@@ -36,6 +38,7 @@ if ($paket_data) {
             Nomor_Hp_1,
             Nomor_Hp_2,
             nama_paket,
+            id_paket,
             Foto_KTP,
             Foto_Depan_Rumah
         ) VALUES (
@@ -48,6 +51,7 @@ if ($paket_data) {
             '$email',
             '$no1',
             '$no2',
+            '$id_paket'
             '$paket',
             '$foto_ktp',
             '$foto_depan_rumah'
@@ -79,14 +83,13 @@ if ($paket_data) {
         $file_depanrumah_name = "fotoDepanRumah_" . $id_pengajuan . "." . $file_depanrumah_ext;
     
         // Pindahkan file ke folder tujuan
-        move_uploaded_file($file_ktp_tmp, $target_dir_ktp . $file_ktp_name);
-        move_uploaded_file($file_depanrumah_tmp, $target_dir_depanrumah . $file_depanrumah_name);
-    
-        // Update database dengan nama file
-        $query_update = "UPDATE tb_pengajuan
-                         SET Foto_KTP = '$file_ktp_name', 
-                             Foto_Depan_Rumah = '$file_depanrumah_name' 
-                         WHERE id_pengajuan = $id_pengajuan";
+        if (move_uploaded_file($_FILES["fotoktp"]["tmp_name"], $target_file_ktp) &&
+        move_uploaded_file($_FILES["fotorumah"]["tmp_name"], $target_file_rumah)) {
+        // Update database dengan nama file yang baru diunggah
+        $query_update = "UPDATE tb_pengajuan SET
+            Foto_KTP = '$target_file_ktp',
+            Foto_Depan_Rumah = '$target_file_rumah'
+            WHERE id_pengajuan = $id_pengajuan";
         if (mysqli_query($koneksi, $query_update)) {
             echo "Data pengajuan dan foto berhasil disimpan.";
         } else {
