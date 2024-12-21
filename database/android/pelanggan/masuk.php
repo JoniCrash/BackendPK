@@ -21,9 +21,9 @@ if (isset($_POST['id_pelanggan'])) {
             "message" => "Login berhasil",
             "data" => [
                 "id_pelanggan" => $pelanggan['id_pelanggan'],
-                "nama" => $pelanggan['nama'],
-                "email" => $pelanggan['email'],
-                "alamat" => $pelanggan['alamat']
+                "Nama_Lengkap" => $pelanggan['Nama_Lengkap'],
+                // "email" => $pelanggan['email'],
+                // "alamat" => $pelanggan['alamat']
             ]
         ]);
     } else {
