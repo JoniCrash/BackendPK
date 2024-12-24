@@ -2,8 +2,8 @@
 include('../../../conf/config.php');
 
 // Pastikan semua input tersedia
-if (isset($_GET['id_pelanggan'])) {
-    $id_pelanggan = $_GET['id_pelanggan'];
+if (isset($_POST['id_pelanggan'])) {
+    $id_pelanggan = $_POST['id_pelanggan'];
 
     // Validasi input kosong
     if (empty($id_pelanggan)) {

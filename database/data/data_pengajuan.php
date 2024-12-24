@@ -21,7 +21,6 @@
                     <th>Id</th>
                     <th>Nama Lengkap</th>
                     <th>NIK</th>
-                    <th>Alamat KTP</th>
                     <th>Alamat Pemasangan</th>
                     <th>Latitude</th>
                     <th>Longitude</th>
@@ -45,8 +44,7 @@
                     <td width = 5%><?= $no?></td>
                     <td><?= $pengajuan ['id_pengajuan'];?></td>
                     <td><?= $pengajuan ['Nama_Lengkap'];?></td>
-                    <td><?= $pengajuan ['Nomor_Identitas/KTP'];?></td>
-                    <td><?= $pengajuan ['Alamat_Sesuai_KTP'];?></td>
+                    <td><?= $pengajuan ['Nomor_Identitas_KTP'];?></td>
                     <td><?= $pengajuan ['Alamat_Pemasangan'];?></td>
                     <td><?= $pengajuan ['latitude'];?></td>
                     <td><?= $pengajuan ['longitude'];?></td>
