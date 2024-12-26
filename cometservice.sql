@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 21 Des 2024 pada 22.09
+-- Waktu pembuatan: 26 Des 2024 pada 10.15
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.2.12
 
@@ -74,7 +74,7 @@ CREATE TABLE `tb_pelanggan` (
   `id_pelanggan` int(10) NOT NULL,
   `Nama_Lengkap` varchar(100) NOT NULL,
   `Nomor_Identitas_KTP` int(50) NOT NULL,
-  `Alamat_Pemasangan` varchar(100) NOT NULL,
+  `Alamat_Pemasangan` varchar(200) NOT NULL,
   `provinsi` varchar(10) NOT NULL,
   `kota` varchar(10) NOT NULL,
   `latitude` decimal(9,6) NOT NULL,
@@ -99,7 +99,8 @@ INSERT INTO `tb_pelanggan` (`id_pelanggan`, `Nama_Lengkap`, `Nomor_Identitas_KTP
 (12, '', 0, '', '', '', 0.000000, 0.000000, '', '', '', 2, '50 mbps', 'fotoktp_12.', 'fotoDepanRumah_12.', 'Aktif', '2024-12-16 04:54:09'),
 (13, 'yuyu', 343553, 'rr', 'Jawa Barat', 'Cirebon', 1.663100, 7.555000, 'uyum', '01767', 'uyuy', 1, '30 MBPS', 'fotoktp_13.png', 'fotoDepanRumah_13.png', 'Aktif', '2024-12-16 04:54:09'),
 (14, 'yuyukjkj', 343553, 'rr', 'Jawa Barat', 'Cirebon', 1.663100, 7.555000, 'uyum', '01767', 'uyuy', 3, '100 MBPS', 'fotoktp_14.jpg', 'fotoDepanRumah_14.jpg', 'Aktif', '2024-12-16 04:54:09'),
-(15, 'hh', 343553, 'rrh', 'Jawa Barat', 'Cirebon', 1.663100, 7.555000, 'uyum', '01767', 'uyuy', 3, '100 MBPS', 'fotoktp_15.png', 'fotoDepanRumah_15.png', 'Aktif', '2024-12-16 04:54:09');
+(15, 'hh', 343553, 'rrh', 'Jawa Barat', 'Cirebon', 1.663100, 7.555000, 'uyum', '01767', 'uyuy', 3, '100 MBPS', 'fotoktp_15.png', 'fotoDepanRumah_15.png', 'Aktif', '2024-12-16 04:54:09'),
+(16, 'iwan', 321000, 'Jl. Syech Lemahabang No.04, Astanamukti, Kec.Pangenan, Kab.Cirebon Prov.Jawa barat Indonesia', 'Jawa Barat', 'Cirebon', -6.795918, 108.641095, 'iwan@gmail.com', '083333', '083333', 1, '30 MBPS', 'fotoktp_16.jpg', 'fotoDepanRumah_16.jpg', 'Aktif', '2024-12-26 03:42:50');
 
 -- --------------------------------------------------------
 
@@ -126,7 +127,7 @@ CREATE TABLE `tb_pengajuan` (
   `id_pengajuan` int(10) NOT NULL,
   `Nama_Lengkap` varchar(100) NOT NULL,
   `Nomor_Identitas_KTP` int(50) NOT NULL,
-  `Alamat_Pemasangan` varchar(100) NOT NULL,
+  `Alamat_Pemasangan` varchar(200) NOT NULL,
   `latitude` decimal(9,6) NOT NULL,
   `longitude` decimal(9,6) NOT NULL,
   `Email` varchar(50) NOT NULL,
@@ -173,7 +174,8 @@ INSERT INTO `tb_tagihan` (`id_tagihan`, `id_pelanggan`, `id_paket`, `total_harga
 (1, 14, 3, 500.00, '', '2024-12-16 04:55:22'),
 (2, 15, 3, 500.00, '', '2024-12-16 04:55:22'),
 (3, 15, 3, 500.00, '', '2024-12-16 04:55:22'),
-(4, 15, 3, 500.00, 'Belum Lunas', '2024-12-16 04:55:22');
+(4, 15, 3, 500.00, 'Belum Lunas', '2024-12-16 04:55:22'),
+(5, 16, 1, 250.00, 'Belum Lunas', '2024-12-26 03:43:05');
 
 -- --------------------------------------------------------
 
@@ -283,7 +285,7 @@ ALTER TABLE `paket`
 -- AUTO_INCREMENT untuk tabel `tb_pelanggan`
 --
 ALTER TABLE `tb_pelanggan`
-  MODIFY `id_pelanggan` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_pelanggan` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_pembayaran`
@@ -301,7 +303,7 @@ ALTER TABLE `tb_pengajuan`
 -- AUTO_INCREMENT untuk tabel `tb_tagihan`
 --
 ALTER TABLE `tb_tagihan`
-  MODIFY `id_tagihan` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_tagihan` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `user_app`
