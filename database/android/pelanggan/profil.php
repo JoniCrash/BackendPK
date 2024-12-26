@@ -1,44 +1,39 @@
 <?php
 include('../../../conf/config.php');
+// header('Content-Type: application/json');
+// Pastikan semua input tersedia
+if (isset($_POST['id_pelanggan'])) {
+    $id_pelanggan = $_POST['id_pelanggan'];
 
-// Memeriksa apakah koneksi database berhasil
-if ($koneksi) {
-    // Ambil id_pelanggan dari POST request
-    $id_pelanggan = $_POST['id_pelanggan'] ?? '';
 
-    // Query untuk mengambil data pelanggan berdasarkan id
-    $query = "SELECT * FROM tb_pelanggan WHERE id_pelanggan = '$id_pelanggan'";
-    $result = mysqli_query($koneksi, $query);
+    // Proses verifikasi ke database
+    $sql = mysqli_query($koneksi, "SELECT * FROM tb_pelanggan WHERE id_pelanggan = '$id_pelanggan'");
 
-    if ($result && mysqli_num_rows($result) > 0) {
-        // Ambil hasil dari query
-        $row = mysqli_fetch_assoc($result);
-
-        // Kirimkan response JSON yang berhasil
+    if (mysqli_num_rows($sql) > 0) {
+        $pelanggan = mysqli_fetch_assoc($sql);
         echo json_encode([
             "status" => "success",
-            "message" => "Data pelanggan ditemukan",
+            "message" => "Login berhasil",
             "data" => [
-                "id_pelanggan" => $row['id_pelanggan'],
-                "nama_lengkap" => $row['Nama_Lengkap'],
-                "nik" => $row['Nomor_Identitas_KTP'],
-                "alamat_pemasangan" => $row['Alamat_Pemasangan'],
-
-
+                "id_pelanggan" => $pelanggan['id_pelanggan'],
+                "Nama_Lengkap" => $pelanggan['Nama_Lengkap'],
+                "nik" => $pelanggan['Nomor_Identitas_KTP'],
+                "alamat" => $pelanggan['Alamat_Pemasangan'],
+                "provinsi" => $pelanggan['provinsi'],
+                "kota" => $pelanggan['kota'],
+                "latitude" => $pelanggan['latitude'],
+                "longitude" => $pelanggan['longitude'],
+                "email" => $pelanggan['Email'],
+                "nohp1" => $pelanggan['Nomor_Hp_1'],
+                "nohp2" => $pelanggan['Nomor_Hp_2'],
+                "idpaket" => $pelanggan['id_paket'],
+                "namapaket" => $pelanggan['nama_paket'],
             ]
         ]);
     } else {
-        // Jika data tidak ditemukan
-        echo json_encode([
-            "status" => "error",
-            "message" => "Data pelanggan tidak ditemukan",
-        ]);
+        echo json_encode(["status" => "error", "message" => "ID Pelanggan tidak ditemukan."]);
     }
 } else {
-    // Jika gagal koneksi ke database
-    echo json_encode([
-        "status" => "error",
-        "message" => "Koneksi database gagal"
-    ]);
+    echo json_encode(["status" => "error", "message" => "Input tidak lengkap."]);
 }
 ?>

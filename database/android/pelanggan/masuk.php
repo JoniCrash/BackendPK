@@ -1,6 +1,6 @@
 <?php
 include('../../../conf/config.php');
-
+// header('Content-Type: application/json');
 // Pastikan semua input tersedia
 if (isset($_POST['id_pelanggan'])) {
     $id_pelanggan = $_POST['id_pelanggan'];
@@ -12,7 +12,7 @@ if (isset($_POST['id_pelanggan'])) {
     }
 
     // Proses verifikasi ke database
-    $sql = mysqli_query($koneksi, "SELECT * FROM pelanggan WHERE id_pelanggan = '$id_pelanggan'");
+    $sql = mysqli_query($koneksi, "SELECT * FROM tb_pelanggan WHERE id_pelanggan = '$id_pelanggan'");
 
     if (mysqli_num_rows($sql) > 0) {
         $pelanggan = mysqli_fetch_assoc($sql);
@@ -22,8 +22,8 @@ if (isset($_POST['id_pelanggan'])) {
             "data" => [
                 "id_pelanggan" => $pelanggan['id_pelanggan'],
                 "Nama_Lengkap" => $pelanggan['Nama_Lengkap'],
-                // "email" => $pelanggan['email'],
-                // "alamat" => $pelanggan['alamat']
+                "email" => $pelanggan['Email'],
+                "alamat" => $pelanggan['Alamat_Pemasangan'],
             ]
         ]);
     } else {
