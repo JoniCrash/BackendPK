@@ -28,6 +28,8 @@ if (isset($_POST['id_pelanggan'])) {
                 "nohp2" => $pelanggan['Nomor_Hp_2'],
                 "idpaket" => $pelanggan['id_paket'],
                 "namapaket" => $pelanggan['nama_paket'],
+                "fotoktp" => $pelanggan['Foto_KTP'],
+                "fotorumah" => $pelanggan['Foto_Depan_Rumah']
             ]
         ]);
     } else {
