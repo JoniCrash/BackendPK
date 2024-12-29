@@ -18,10 +18,13 @@
                   <thead>
                   <tr>
                     <th>No</th>
-                    <th>Id Pelanggan</th>
-                    <th>Paket</th>
-                    <th>Tagihan</th>
-                    <th>Action</th>
+                    <th>ID Pembayaran</th>
+                    <th>ID Tagihan</th>
+                    <th>Bukti Pembayaran</th>
+                    <th>Periode</th>
+                    <th>Status</th>
+                    <th>Di Buat Pada</th>
+                    <th>Actions</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -33,9 +36,12 @@
                     ?>
                   <tr>
                     <td width = 5%><?php echo $no?></td>
-                    <td><?php echo $pembayaran ['id'];?></td>
-                    <td><?php echo $pembayaran ['paket'];?></td>
-                    <td><?php echo $pembayaran ['tagihan'];?></td>
+                    <td><?php echo $pembayaran ['id_pembayaran'];?></td>
+                    <td><?php echo $pembayaran ['id_tagihan'];?></td>
+                    <td><?php echo $pembayaran ['bukti_pembayaran'];?></td>
+                    <td><?php echo $pembayaran ['periode'];?></td>
+                    <td><?php echo $pembayaran ['status'];?></td>
+                    <td><?php echo $pembayaran ['di_buat_pada'];?></td>
                     <td>
                       <a onclick="hapus_data(<?php echo $pembayaran ['id'];?>)" class="btn btn-sm btn-danger">Hapus</a>
                       <a href="index.php?page=edit-data&&id=<?php echo $pembayaran ['id'];?>" class="btn btn-sm btn-success">Edit</a>
@@ -43,7 +49,7 @@
                   </tr>
                   <?php }?>
                   </tbody>
-                  <tfoot>
+                  <!-- <tfoot>
                   <tr>
                     <th>Rendering engine</th>
                     <th>Browser</th>
@@ -51,7 +57,7 @@
                     <th>Engine version</th>
                     <th>CSS grade</th>
                   </tr>
-                  </tfoot>
+                  </tfoot> -->
                 </table>
               </div>
               <!-- /.card-body -->
