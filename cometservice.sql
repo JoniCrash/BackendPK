@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 26 Des 2024 pada 10.15
+-- Waktu pembuatan: 29 Des 2024 pada 20.17
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.2.12
 
@@ -112,10 +112,26 @@ CREATE TABLE `tb_pembayaran` (
   `id_pembayaran` int(11) NOT NULL,
   `id_tagihan` int(10) NOT NULL,
   `bukti_pembayaran` varchar(255) NOT NULL,
-  `periode` date NOT NULL,
-  `status` enum('lunas','belum lunas') NOT NULL DEFAULT 'belum lunas',
+  `periode` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `status` enum('Lunas','Belum Lunas','') NOT NULL DEFAULT 'Belum Lunas',
   `dibuat_pada_` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `tb_pembayaran`
+--
+
+INSERT INTO `tb_pembayaran` (`id_pembayaran`, `id_tagihan`, `bukti_pembayaran`, `periode`, `status`, `dibuat_pada_`) VALUES
+(1, 5, '', '0000-00-00 00:00:00', 'Belum Lunas', '2024-12-29 17:00:32'),
+(2, 5, '', '0000-00-00 00:00:00', 'Belum Lunas', '2024-12-29 17:02:05'),
+(3, 5, '', '0000-00-00 00:00:00', 'Belum Lunas', '2024-12-29 17:16:59'),
+(17, 5, '', '0000-00-00 00:00:00', 'Belum Lunas', '2024-12-29 17:48:39'),
+(18, 5, '', '0000-00-00 00:00:00', 'Belum Lunas', '2024-12-29 17:49:02'),
+(19, 5, '', '0000-00-00 00:00:00', 'Belum Lunas', '2024-12-29 18:06:12'),
+(20, 5, '', '0000-00-00 00:00:00', 'Belum Lunas', '2024-12-29 18:06:33'),
+(21, 5, '', '0000-00-00 00:00:00', 'Belum Lunas', '2024-12-29 18:07:20'),
+(22, 5, '', '0000-00-00 00:00:00', 'Belum Lunas', '2024-12-29 18:07:29'),
+(23, 5, '', '0000-00-00 00:00:00', 'Belum Lunas', '2024-12-29 18:08:33');
 
 -- --------------------------------------------------------
 
@@ -291,7 +307,7 @@ ALTER TABLE `tb_pelanggan`
 -- AUTO_INCREMENT untuk tabel `tb_pembayaran`
 --
 ALTER TABLE `tb_pembayaran`
-  MODIFY `id_pembayaran` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pembayaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_pengajuan`
