@@ -3,7 +3,7 @@ include('../../conf/config.php');
 
 // Ambil data dari POST
 $id_tagihan = $_POST['id_tagihan'] ?? '';
-$status = "belum lunas"; // Status otomatis "belum lunas"
+$status = "Belum Lunas"; // Status otomatis "belum lunas"
 
 // Ambil periode otomatis dari tabel tagihan berdasarkan id_tagihan
 $query_periode = "SELECT DATE_FORMAT(dibuat_pada_, '%M%Y') AS periode 
