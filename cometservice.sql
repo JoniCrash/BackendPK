@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 29 Des 2024 pada 20.17
+-- Waktu pembuatan: 01 Jan 2025 pada 15.38
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.2.12
 
@@ -112,7 +112,7 @@ CREATE TABLE `tb_pembayaran` (
   `id_pembayaran` int(11) NOT NULL,
   `id_tagihan` int(10) NOT NULL,
   `bukti_pembayaran` varchar(255) NOT NULL,
-  `periode` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `periode` varchar(20) NOT NULL,
   `status` enum('Lunas','Belum Lunas','') NOT NULL DEFAULT 'Belum Lunas',
   `dibuat_pada_` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -122,16 +122,21 @@ CREATE TABLE `tb_pembayaran` (
 --
 
 INSERT INTO `tb_pembayaran` (`id_pembayaran`, `id_tagihan`, `bukti_pembayaran`, `periode`, `status`, `dibuat_pada_`) VALUES
-(1, 5, '', '0000-00-00 00:00:00', 'Belum Lunas', '2024-12-29 17:00:32'),
 (2, 5, '', '0000-00-00 00:00:00', 'Belum Lunas', '2024-12-29 17:02:05'),
 (3, 5, '', '0000-00-00 00:00:00', 'Belum Lunas', '2024-12-29 17:16:59'),
-(17, 5, '', '0000-00-00 00:00:00', 'Belum Lunas', '2024-12-29 17:48:39'),
-(18, 5, '', '0000-00-00 00:00:00', 'Belum Lunas', '2024-12-29 17:49:02'),
-(19, 5, '', '0000-00-00 00:00:00', 'Belum Lunas', '2024-12-29 18:06:12'),
-(20, 5, '', '0000-00-00 00:00:00', 'Belum Lunas', '2024-12-29 18:06:33'),
-(21, 5, '', '0000-00-00 00:00:00', 'Belum Lunas', '2024-12-29 18:07:20'),
-(22, 5, '', '0000-00-00 00:00:00', 'Belum Lunas', '2024-12-29 18:07:29'),
-(23, 5, '', '0000-00-00 00:00:00', 'Belum Lunas', '2024-12-29 18:08:33');
+(56, 5, '', '0000-00-00 00:00:00', 'Belum Lunas', '2025-01-01 08:17:41'),
+(57, 5, 'bukti_57_1735719684.png', '2025-01-01 15:21:24', 'Belum Lunas', '2025-01-01 08:21:24'),
+(58, 5, '', '0000-00-00 00:00:00', 'Belum Lunas', '2025-01-01 08:22:54'),
+(59, 5, 'bukti_59_1735720188.png', '2025-01-01 15:29:48', 'Belum Lunas', '2025-01-01 08:29:48'),
+(60, 5, 'bukti_60_1735720286.png', '2025-01-01 15:31:26', '', '2025-01-01 08:31:26'),
+(61, 5, 'bukti_61_1735720701.png', '2025-01-01 15:38:21', 'Belum Lunas', '2025-01-01 08:38:21'),
+(62, 5, '', 'December2024', 'Belum Lunas', '2025-01-01 08:49:00'),
+(63, 5, 'bukti_63_1735721375.png', 'December2024', 'Belum Lunas', '2025-01-01 08:49:35'),
+(64, 6, 'bukti_64_1735721450.png', 'January2025', 'Belum Lunas', '2025-01-01 08:50:50'),
+(65, 6, '', 'January2025', 'Belum Lunas', '2025-01-01 08:53:12'),
+(66, 6, '', 'January2025', 'Belum Lunas', '2025-01-01 08:53:33'),
+(67, 6, '', 'January2025', 'Belum Lunas', '2025-01-01 08:53:56'),
+(68, 6, 'bukti_68_January_2025.png', 'January _ 2025', 'Belum Lunas', '2025-01-01 09:03:17');
 
 -- --------------------------------------------------------
 
@@ -191,7 +196,8 @@ INSERT INTO `tb_tagihan` (`id_tagihan`, `id_pelanggan`, `id_paket`, `total_harga
 (2, 15, 3, 500.00, '', '2024-12-16 04:55:22'),
 (3, 15, 3, 500.00, '', '2024-12-16 04:55:22'),
 (4, 15, 3, 500.00, 'Belum Lunas', '2024-12-16 04:55:22'),
-(5, 16, 1, 250.00, 'Belum Lunas', '2024-12-26 03:43:05');
+(5, 16, 1, 250.00, 'Belum Lunas', '2024-12-26 03:43:05'),
+(6, 13, 1, 250.00, 'Belum Lunas', '2025-01-01 08:50:36');
 
 -- --------------------------------------------------------
 
@@ -307,7 +313,7 @@ ALTER TABLE `tb_pelanggan`
 -- AUTO_INCREMENT untuk tabel `tb_pembayaran`
 --
 ALTER TABLE `tb_pembayaran`
-  MODIFY `id_pembayaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id_pembayaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_pengajuan`
@@ -319,7 +325,7 @@ ALTER TABLE `tb_pengajuan`
 -- AUTO_INCREMENT untuk tabel `tb_tagihan`
 --
 ALTER TABLE `tb_tagihan`
-  MODIFY `id_tagihan` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_tagihan` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `user_app`
