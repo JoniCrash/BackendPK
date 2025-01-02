@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 01 Jan 2025 pada 15.38
--- Versi server: 10.4.32-MariaDB
--- Versi PHP: 8.2.12
+-- Generation Time: Jan 02, 2025 at 10:31 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `adm`
+-- Table structure for table `adm`
 --
 
 CREATE TABLE `adm` (
@@ -36,7 +36,7 @@ CREATE TABLE `adm` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `adm`
+-- Dumping data for table `adm`
 --
 
 INSERT INTO `adm` (`id`, `nama`, `username`, `password`, `level`) VALUES
@@ -45,7 +45,7 @@ INSERT INTO `adm` (`id`, `nama`, `username`, `password`, `level`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `paket`
+-- Table structure for table `paket`
 --
 
 CREATE TABLE `paket` (
@@ -56,7 +56,7 @@ CREATE TABLE `paket` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `paket`
+-- Dumping data for table `paket`
 --
 
 INSERT INTO `paket` (`id_paket`, `nama_paket`, `kecepatan`, `harga`) VALUES
@@ -67,7 +67,7 @@ INSERT INTO `paket` (`id_paket`, `nama_paket`, `kecepatan`, `harga`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_pelanggan`
+-- Table structure for table `tb_pelanggan`
 --
 
 CREATE TABLE `tb_pelanggan` (
@@ -91,21 +91,20 @@ CREATE TABLE `tb_pelanggan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `tb_pelanggan`
+-- Dumping data for table `tb_pelanggan`
 --
 
 INSERT INTO `tb_pelanggan` (`id_pelanggan`, `Nama_Lengkap`, `Nomor_Identitas_KTP`, `Alamat_Pemasangan`, `provinsi`, `kota`, `latitude`, `longitude`, `Email`, `Nomor_Hp_1`, `Nomor_Hp_2`, `id_paket`, `nama_paket`, `Foto_KTP`, `Foto_Depan_Rumah`, `Status`, `dibuat_pada_`) VALUES
-(11, '', 0, '', '', '', 0.000000, 0.000000, '', '', '', 1, '', 'fotoktp_11.', 'fotoDepanRumah_11.', '', '2024-12-16 04:54:09'),
-(12, '', 0, '', '', '', 0.000000, 0.000000, '', '', '', 2, '50 mbps', 'fotoktp_12.', 'fotoDepanRumah_12.', 'Aktif', '2024-12-16 04:54:09'),
-(13, 'yuyu', 343553, 'rr', 'Jawa Barat', 'Cirebon', 1.663100, 7.555000, 'uyum', '01767', 'uyuy', 1, '30 MBPS', 'fotoktp_13.png', 'fotoDepanRumah_13.png', 'Aktif', '2024-12-16 04:54:09'),
-(14, 'yuyukjkj', 343553, 'rr', 'Jawa Barat', 'Cirebon', 1.663100, 7.555000, 'uyum', '01767', 'uyuy', 3, '100 MBPS', 'fotoktp_14.jpg', 'fotoDepanRumah_14.jpg', 'Aktif', '2024-12-16 04:54:09'),
-(15, 'hh', 343553, 'rrh', 'Jawa Barat', 'Cirebon', 1.663100, 7.555000, 'uyum', '01767', 'uyuy', 3, '100 MBPS', 'fotoktp_15.png', 'fotoDepanRumah_15.png', 'Aktif', '2024-12-16 04:54:09'),
-(16, 'iwan', 321000, 'Jl. Syech Lemahabang No.04, Astanamukti, Kec.Pangenan, Kab.Cirebon Prov.Jawa barat Indonesia', 'Jawa Barat', 'Cirebon', -6.795918, 108.641095, 'iwan@gmail.com', '083333', '083333', 1, '30 MBPS', 'fotoktp_16.jpg', 'fotoDepanRumah_16.jpg', 'Aktif', '2024-12-26 03:42:50');
+(16, 'iwan', 321000, 'Jl. Syech Lemahabang No.04, Astanamukti, Kec.Pangenan, Kab.Cirebon Prov.Jawa barat Indonesia', 'Jawa Barat', 'Cirebon', -6.795918, 108.641095, 'iwan@gmail.com', '083333', '083333', 1, '30 MBPS', 'fotoktp_16.jpg', 'fotoDepanRumah_16.jpg', 'Aktif', '2024-12-26 03:42:50'),
+(17, 'Joni123456', 21212, 'pangenan', 'Jawa Barat', 'Cirebon', 6.121200, 12.121212, 'jonicrash8@gmail.com', '21212', '12121', 1, '30 MBPS', 'fotoktp_17.png', 'fotoDepanRumah_17.png', 'Aktif', '2025-01-02 05:36:44'),
+(21, 'jonddd', 21212, 'pangenan', 'Jawa Barat', 'Cirebon', 6.121200, 12.121212, 'jonicrash8@gmail.com', '21212', '', 1, '30 MBPS', 'fotoktp_21.png', 'fotoDepanRumah_21.png', 'Aktif', '2025-01-02 06:44:31'),
+(22, 'jondddgfgfg', 21212, 'pangenan', 'Jawa Barat', 'Cirebon', 6.121200, 12.121212, 'jonicrash8@gmail.com', '21212', '', 1, '30 MBPS', 'fotoktp_22.png', 'fotoDepanRumah_22.png', 'Aktif', '2025-01-02 06:45:26'),
+(23, 'jondddgfgfgbbb', 21212, 'pangenan', 'Jawa Barat', 'Cirebon', 6.121200, 12.121212, 'jonicrash8@gmail.com', '21212', '', 2, '50 MBPS', 'fotoktp_23.png', 'fotoDepanRumah_23.png', 'Aktif', '2025-01-02 06:47:25');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_pembayaran`
+-- Table structure for table `tb_pembayaran`
 --
 
 CREATE TABLE `tb_pembayaran` (
@@ -117,31 +116,10 @@ CREATE TABLE `tb_pembayaran` (
   `dibuat_pada_` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data untuk tabel `tb_pembayaran`
---
-
-INSERT INTO `tb_pembayaran` (`id_pembayaran`, `id_tagihan`, `bukti_pembayaran`, `periode`, `status`, `dibuat_pada_`) VALUES
-(2, 5, '', '0000-00-00 00:00:00', 'Belum Lunas', '2024-12-29 17:02:05'),
-(3, 5, '', '0000-00-00 00:00:00', 'Belum Lunas', '2024-12-29 17:16:59'),
-(56, 5, '', '0000-00-00 00:00:00', 'Belum Lunas', '2025-01-01 08:17:41'),
-(57, 5, 'bukti_57_1735719684.png', '2025-01-01 15:21:24', 'Belum Lunas', '2025-01-01 08:21:24'),
-(58, 5, '', '0000-00-00 00:00:00', 'Belum Lunas', '2025-01-01 08:22:54'),
-(59, 5, 'bukti_59_1735720188.png', '2025-01-01 15:29:48', 'Belum Lunas', '2025-01-01 08:29:48'),
-(60, 5, 'bukti_60_1735720286.png', '2025-01-01 15:31:26', '', '2025-01-01 08:31:26'),
-(61, 5, 'bukti_61_1735720701.png', '2025-01-01 15:38:21', 'Belum Lunas', '2025-01-01 08:38:21'),
-(62, 5, '', 'December2024', 'Belum Lunas', '2025-01-01 08:49:00'),
-(63, 5, 'bukti_63_1735721375.png', 'December2024', 'Belum Lunas', '2025-01-01 08:49:35'),
-(64, 6, 'bukti_64_1735721450.png', 'January2025', 'Belum Lunas', '2025-01-01 08:50:50'),
-(65, 6, '', 'January2025', 'Belum Lunas', '2025-01-01 08:53:12'),
-(66, 6, '', 'January2025', 'Belum Lunas', '2025-01-01 08:53:33'),
-(67, 6, '', 'January2025', 'Belum Lunas', '2025-01-01 08:53:56'),
-(68, 6, 'bukti_68_January_2025.png', 'January _ 2025', 'Belum Lunas', '2025-01-01 09:03:17');
-
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_pengajuan`
+-- Table structure for table `tb_pengajuan`
 --
 
 CREATE TABLE `tb_pengajuan` (
@@ -162,11 +140,10 @@ CREATE TABLE `tb_pengajuan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `tb_pengajuan`
+-- Dumping data for table `tb_pengajuan`
 --
 
 INSERT INTO `tb_pengajuan` (`id_pengajuan`, `Nama_Lengkap`, `Nomor_Identitas_KTP`, `Alamat_Pemasangan`, `latitude`, `longitude`, `Email`, `Nomor_Hp_1`, `Nomor_Hp_2`, `id_paket`, `nama_paket`, `Foto_KTP`, `Foto_Depan_Rumah`, `dibuat_pada_`) VALUES
-(1, 'joni', 3209, 'cirebon', 0.000000, 0.000000, 'joni@gmial.com', '83', '82', 30, '0', '?PNG\r\n\Z\n\0\0\0\rIHDR\0\0J\0\0G\0\0\0Ƿ?\0\0\0sRGB\0???\0\0\0gAMA\0\0???a\0\0\0	pHYs\0\0?\0\0??o?d\0\0\0!tEXtCreation Time\02021:09:20 08:25:26?*\"?\0\0?6IDATx^???U??ϝ>[_o靐 ?^#M:?AŮ?aGDEEQ????k ?$??????s?sf?!j????^???ewf??ݙ?????r.DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD', '????\0JFIF\0\0`\0`\0\0???Exif\0\0MM\0*\0\0\0\0;\0\0\0\0sbp\0?i\0\0\0\0\0\0J??\0\0\0\0\0\0??\0\0\0\0\0\0>\0\0\0\0?\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '2024-12-16 04:54:59'),
 (2, 'joni', 1234567, 'cirebon', -6.200000, 106.816666, 'joni@gmail.com', '123', '1234', 1, '30 MBPS', 'foto_ktp/fotoktp_2.png', 'foto_depan_rumah/fotoDepanRumah_2.jpg', '2024-12-21 18:43:03'),
 (3, 'ii', 123, 'Jl. Syech Lemahabang No.04, Astanamukti, Kec. Pangenan, Kabupaten Cirebon, Jawa Barat 45182, Indones', -6.795929, 108.641095, 'ii@gmail.com', '', '', 1, '30 MBPS', 'foto_ktp/fotoktp_3.jpg', 'foto_depan_rumah/fotoDepanRumah_3.jpg', '2024-12-21 19:51:10'),
 (4, 'iiiiiiiiiii', 123456, 'Jl. Syech Lemahabang No.04, Astanamukti, Kec. Pangenan, Kabupaten Cirebon, Jawa Barat 45182, Indones', -6.795929, 108.641095, 'iiiiiiii@gmail.com', '', '', 2, '50 MBPS', 'foto_ktp/fotoktp_4.jpg', 'foto_depan_rumah/fotoDepanRumah_4.jpg', '2024-12-21 19:55:49'),
@@ -175,34 +152,32 @@ INSERT INTO `tb_pengajuan` (`id_pengajuan`, `Nama_Lengkap`, `Nomor_Identitas_KTP
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_tagihan`
+-- Table structure for table `tb_tagihan`
 --
 
 CREATE TABLE `tb_tagihan` (
   `id_tagihan` int(10) NOT NULL,
   `id_pelanggan` int(10) NOT NULL,
   `id_paket` int(11) NOT NULL,
+  `Nama_Lengkap` varchar(100) NOT NULL,
   `total_harga` decimal(10,2) NOT NULL,
   `status` enum('Belum Lunas','Lunas','','') NOT NULL,
   `dibuat_pada_` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `tb_tagihan`
+-- Dumping data for table `tb_tagihan`
 --
 
-INSERT INTO `tb_tagihan` (`id_tagihan`, `id_pelanggan`, `id_paket`, `total_harga`, `status`, `dibuat_pada_`) VALUES
-(1, 14, 3, 500.00, '', '2024-12-16 04:55:22'),
-(2, 15, 3, 500.00, '', '2024-12-16 04:55:22'),
-(3, 15, 3, 500.00, '', '2024-12-16 04:55:22'),
-(4, 15, 3, 500.00, 'Belum Lunas', '2024-12-16 04:55:22'),
-(5, 16, 1, 250.00, 'Belum Lunas', '2024-12-26 03:43:05'),
-(6, 13, 1, 250.00, 'Belum Lunas', '2025-01-01 08:50:36');
+INSERT INTO `tb_tagihan` (`id_tagihan`, `id_pelanggan`, `id_paket`, `Nama_Lengkap`, `total_harga`, `status`, `dibuat_pada_`) VALUES
+(8, 17, 1, '', 250.00, 'Belum Lunas', '2025-01-02 05:36:58'),
+(11, 21, 1, 'jonddd', 250.00, 'Belum Lunas', '2025-01-02 06:48:47'),
+(12, 16, 1, 'iwan', 250.00, 'Belum Lunas', '2025-01-02 07:04:54');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user_app`
+-- Table structure for table `user_app`
 --
 
 CREATE TABLE `user_app` (
@@ -214,7 +189,7 @@ CREATE TABLE `user_app` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `user_app`
+-- Dumping data for table `user_app`
 --
 
 INSERT INTO `user_app` (`id_user`, `username`, `email`, `pass`, `dibuat_pada_`) VALUES
@@ -225,7 +200,6 @@ INSERT INTO `user_app` (`id_user`, `username`, `email`, `pass`, `dibuat_pada_`) 
 (19, 'jhon', 'jhon@mail.com', 'pppppppppppppppppp', '2024-12-13 16:45:37'),
 (20, 'jhon', 'jhon@mail.com', 'rrrrrrrrrrrrrrrrrrrr', '2024-12-13 16:45:37'),
 (21, 'jh', 'jhon@mail.com', '1111111111', '2024-12-13 16:45:37'),
-(22, '', '', '', '2024-12-14 19:06:58'),
 (23, 'testuser', 'testuser@email.com', 'test123', '2024-12-14 19:09:25'),
 (24, 'joni', 'joni@mail.com', 'passpostman', '2024-12-14 19:18:53'),
 (25, 'testuser', 'testuser@email.com', 'test123', '2024-12-14 19:40:26'),
@@ -242,39 +216,39 @@ INSERT INTO `user_app` (`id_user`, `username`, `email`, `pass`, `dibuat_pada_`) 
 --
 
 --
--- Indeks untuk tabel `adm`
+-- Indexes for table `adm`
 --
 ALTER TABLE `adm`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `paket`
+-- Indexes for table `paket`
 --
 ALTER TABLE `paket`
   ADD PRIMARY KEY (`id_paket`);
 
 --
--- Indeks untuk tabel `tb_pelanggan`
+-- Indexes for table `tb_pelanggan`
 --
 ALTER TABLE `tb_pelanggan`
   ADD PRIMARY KEY (`id_pelanggan`),
   ADD KEY `id_paket` (`id_paket`);
 
 --
--- Indeks untuk tabel `tb_pembayaran`
+-- Indexes for table `tb_pembayaran`
 --
 ALTER TABLE `tb_pembayaran`
   ADD PRIMARY KEY (`id_pembayaran`),
   ADD KEY `id_tagihan` (`id_tagihan`);
 
 --
--- Indeks untuk tabel `tb_pengajuan`
+-- Indexes for table `tb_pengajuan`
 --
 ALTER TABLE `tb_pengajuan`
   ADD PRIMARY KEY (`id_pengajuan`);
 
 --
--- Indeks untuk tabel `tb_tagihan`
+-- Indexes for table `tb_tagihan`
 --
 ALTER TABLE `tb_tagihan`
   ADD PRIMARY KEY (`id_tagihan`),
@@ -282,75 +256,75 @@ ALTER TABLE `tb_tagihan`
   ADD KEY `id_pelanggan` (`id_pelanggan`);
 
 --
--- Indeks untuk tabel `user_app`
+-- Indexes for table `user_app`
 --
 ALTER TABLE `user_app`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `adm`
+-- AUTO_INCREMENT for table `adm`
 --
 ALTER TABLE `adm`
   MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `paket`
+-- AUTO_INCREMENT for table `paket`
 --
 ALTER TABLE `paket`
   MODIFY `id_paket` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_pelanggan`
+-- AUTO_INCREMENT for table `tb_pelanggan`
 --
 ALTER TABLE `tb_pelanggan`
-  MODIFY `id_pelanggan` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_pelanggan` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_pembayaran`
+-- AUTO_INCREMENT for table `tb_pembayaran`
 --
 ALTER TABLE `tb_pembayaran`
   MODIFY `id_pembayaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_pengajuan`
+-- AUTO_INCREMENT for table `tb_pengajuan`
 --
 ALTER TABLE `tb_pengajuan`
   MODIFY `id_pengajuan` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_tagihan`
+-- AUTO_INCREMENT for table `tb_tagihan`
 --
 ALTER TABLE `tb_tagihan`
-  MODIFY `id_tagihan` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_tagihan` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT untuk tabel `user_app`
+-- AUTO_INCREMENT for table `user_app`
 --
 ALTER TABLE `user_app`
   MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `tb_pelanggan`
+-- Constraints for table `tb_pelanggan`
 --
 ALTER TABLE `tb_pelanggan`
   ADD CONSTRAINT `tb_pelanggan_ibfk_1` FOREIGN KEY (`id_paket`) REFERENCES `paket` (`id_paket`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `tb_pembayaran`
+-- Constraints for table `tb_pembayaran`
 --
 ALTER TABLE `tb_pembayaran`
   ADD CONSTRAINT `tb_pembayaran_ibfk_1` FOREIGN KEY (`id_tagihan`) REFERENCES `tb_tagihan` (`id_tagihan`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `tb_tagihan`
+-- Constraints for table `tb_tagihan`
 --
 ALTER TABLE `tb_tagihan`
   ADD CONSTRAINT `tb_tagihan_ibfk_1` FOREIGN KEY (`id_pelanggan`) REFERENCES `tb_pelanggan` (`id_pelanggan`) ON DELETE CASCADE ON UPDATE CASCADE,

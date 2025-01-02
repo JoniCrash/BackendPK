@@ -1,7 +1,8 @@
 <?php
-include('../../conf/config.php');
+// include('../../conf/config.php');
 $id = $_GET['id_pelanggan'];
+$query = mysqli_query($koneksi,"DELETE FROM tb_pelanggan WHERE id_pelanggan='$id'");
 
-$query = mysqli_query($koneksi,"DELETE FROM tb_pelanggan WHERE id='$id'");
-header('Location: ../index.php?page=data-pelanggan');
-?>
+echo "Data Pelanggan Berhasil Di Hapus"
+// header('Location: ../../index.php?page=data-pelanggan');
+?> 

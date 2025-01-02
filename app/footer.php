@@ -134,16 +134,45 @@
     }
   }
 </script>
+<Script>
+  
+  function hapus_data_user(iduser){
+          Swal.fire({
+  title: 'Apakah anda yakin ingin menghapus data pengjuan?',
+  //showDenyButton: false,
+  showCancelButton: true,
+  confirmButtonText: 'Hapus Data',
+  confirmButtonColor:'red',
+  //denyButtonText: 'No',
+  customClass: {
+    actions: 'my-actions',
+    cancelButton: 'order-1 right-gap',
+    confirmButton: 'order-2',
+    denyButton: 'order-3',
+  },}).then((result) => {
+    if (result.isConfirmed) {
+      window.location = "index.php?page=delete-user&id_user=" + iduser;
+  } })}
 
-      <Script>
-        function hapus_data(data_id){
-          alert("Data berhasil dihapus");
-          window.location=("delete/delete_pelanggan.php?id="+data_id);
-          Swal.fire(
-            'Hapus Data',
-            'Data berhasil dihapus',
-           'success'
-          )
+  function hapus_data_pengajuan(idpengajuan){
+          Swal.fire({
+  title: 'Apakah anda yakin ingin menghapus data pengjuan?',
+  //showDenyButton: false,
+  showCancelButton: true,
+  confirmButtonText: 'Hapus Data',
+  confirmButtonColor:'red',
+  //denyButtonText: 'No',
+  customClass: {
+    actions: 'my-actions',
+    cancelButton: 'order-1 right-gap',
+    confirmButton: 'order-2',
+    denyButton: 'order-3',
+  },}).then((result) => {
+    if (result.isConfirmed) {
+      window.location = "index.php?page=delete-pengajuan&id_pengajuan=" + idpengajuan;
+  } })}
+  
+  function hapus_data_pelanggan(idpelanggan){
           Swal.fire({
   title: 'Apakah anda yakin ingin menghapus data?',
   //showDenyButton: false,
@@ -156,15 +185,34 @@
     cancelButton: 'order-1 right-gap',
     confirmButton: 'order-2',
     denyButton: 'order-3',
-  },
-}).then((result) => {
-  if (result.isConfirmed) {
-    window.location=("delete/delete_pelanggan.php?id="+data_id);
-  } 
-})
-        }
-      </Script>
-      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  },}).then((result) => {
+    if (result.isConfirmed) {
+      window.location = "index.php?page=delete-pelanggan&id_pelanggan=" + idpelanggan;
+  } })}
+
+
+  function hapus_data_tagihan(idtagihan){
+          Swal.fire({
+  title: 'Apakah anda yakin ingin menghapus data?',
+  //showDenyButton: false,
+  showCancelButton: true,
+  confirmButtonText: 'Hapus Data',
+  confirmButtonColor:'red',
+  //denyButtonText: 'No',
+  customClass: {
+    actions: 'my-actions',
+    cancelButton: 'order-1 right-gap',
+    confirmButton: 'order-2',
+    denyButton: 'order-3',
+  },}).then((result) => {
+    if (result.isConfirmed) {
+      window.location = "index.php?page=delete-tagihan&id_tagihan=" + idtagihan;
+  } })}
+
+
+</Script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11">
+</script>
 <script>
   // Fungsi untuk Mengupdate Status
   function ubahStatus(id_pelanggan, status) {

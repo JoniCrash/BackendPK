@@ -10,9 +10,9 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-              <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-lg">
-                  Tambah Data
-                </button>
+              <a href="index.php?page=tambah-pengajuan">
+              <button type="button" class="btn btn-info">Tambah Data</button>
+              </a>
                 <br></br>
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
@@ -42,7 +42,7 @@
                     ?>
                   <tr>
                     <td width = 5%><?= $no?></td>
-                    <td><?= $pengajuan ['id_pengajuan'];?></td>
+                    <td><a href="index.php?page=profil-pengajuan&id_pengajuan=<?php echo $pengajuan['id_pengajuan']; ?>"><?php echo $pengajuan['id_pengajuan']; ?></a></td>
                     <td><?= $pengajuan ['Nama_Lengkap'];?></td>
                     <td><?= $pengajuan ['Nomor_Identitas_KTP'];?></td>
                     <td><?= $pengajuan ['Alamat_Pemasangan'];?></td>
@@ -56,7 +56,7 @@
                     <td><?= $pengajuan ['Foto_KTP'];?></td>
                     <td><?= $pengajuan ['Foto_Depan_Rumah'];?></td>
                     <td>
-                      <a onclick="hapus_data(<?= $pengajuan ['id_pengajuan'];?>)" class="btn btn-sm btn-danger">Hapus</a>
+                      <a onclick="hapus_data_pengajuan(<?= $pengajuan ['id_pengajuan'];?>)" class="btn btn-sm btn-danger">Hapus</a>
                       <!-- <a href="index.php?page=edit-data&&id=<?= $pengajuan ['id_pengajuan'];?>" class="btn btn-sm btn-success">Edit</a> -->
                     
                     </td>
@@ -76,32 +76,3 @@
       <!-- /.container-fluid -->
       </section>
     <!-- /.content -->
-      <Script>
-        function hapus_data(data_id){
-          //alert("Data berhasil dihapus");
-          //window.location=("delete/hapus_data.php?id="+data_id);
-          // Swal.fire(
-          //   'Hapus Data',
-          //   'Data berhasil dihapus',
-          //  'success'
-          // )
-          Swal.fire({
-  title: 'Apakah anda yakin ingin menghapus data?',
-  //showDenyButton: false,
-  showCancelButton: true,
-  confirmButtonText: 'Hapus Data',
-  confirmButtonColor:'red',
-  //denyButtonText: 'No',
-  customClass: {
-    actions: 'my-actions',
-    cancelButton: 'order-1 right-gap',
-    confirmButton: 'order-2',
-    denyButton: 'order-3',
-  },
-}).then((result) => {
-  if (result.isConfirmed) {
-    window.location=("delete/delete_pengajuan.php?id="+data_id);
-  } 
-})
-        }
-      </Script>

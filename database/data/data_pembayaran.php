@@ -36,15 +36,18 @@
                     ?>
                   <tr>
                     <td width = 5%><?php echo $no?></td>
-                    <td><?php echo $pembayaran ['id_pembayaran'];?></td>
+                    <!-- <td><?php echo $pembayaran ['id_pembayaran'];?></td> -->
+                     <td><a href="index.php?page=profil-pembayaran&id_pembayaran=<?php echo $pembayaran['id_pembayaran']; ?>"><?php echo $pembayaran['id_pembayaran']; ?></a></td>
+
+
                     <td><?php echo $pembayaran ['id_tagihan'];?></td>
                     <td><?php echo $pembayaran ['bukti_pembayaran'];?></td>
                     <td><?php echo $pembayaran ['periode'];?></td>
                     <td><?php echo $pembayaran ['status'];?></td>
-                    <td><?php echo $pembayaran ['di_buat_pada'];?></td>
+                    <td><?php echo $pembayaran ['dibuat_pada_'];?></td>
                     <td>
-                      <a onclick="hapus_data(<?php echo $pembayaran ['id'];?>)" class="btn btn-sm btn-danger">Hapus</a>
-                      <a href="index.php?page=edit-data&&id=<?php echo $pembayaran ['id'];?>" class="btn btn-sm btn-success">Edit</a>
+                      <a onclick="hapus_data(<?php echo $pembayaran ['id_pembayaran'];?>)" class="btn btn-sm btn-danger">Hapus</a>
+                      <!-- <a href="index.php?page=edit-data&&id=<?php echo $pembayaran ['id'];?>" class="btn btn-sm btn-success">Edit</a> -->
                     </td>
                   </tr>
                   <?php }?>

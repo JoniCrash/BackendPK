@@ -1,4 +1,4 @@
-<!-- 
+
 <?php
 // Ambil ID Pelanggan dari parameter URL
 $id_pelanggan = isset($_GET['id_pelanggan']) ? intval($_GET['id_pelanggan']) : 0;
@@ -26,7 +26,7 @@ if ($id_pelanggan > 0) {
 
 // $stmt->close();
 // $koneksi->close();
-?> -->
+?> 
 
 <style>
         .profile-container {
@@ -205,11 +205,9 @@ if ($id_pelanggan > 0) {
                                                         <div class="mt-2 mb-3 ml-1 mr-1">
                                                         <div class="input-group input-group-sm">
                                                        
-                                                        <img src="../database/image/foto_ktp/<?= htmlspecialchars($pelanggan['Foto_KTP']) ?>" alt="Foto KTP" style="max-width: 100%; height: auto; border: 1px solid #ccc; border-radius: 5px;">                           
-                                                        <!-- <?php echo "Path gambar: image/foto_ktp/" . $pelanggan['Foto_KTP']; // Debugging?> -->
+                                                        <img src="../database/image/foto_ktp/<?= htmlspecialchars($pelanggan['Foto_KTP']) ?>" alt="Foto KTP" style="max-width: 100%; height: auto; border: 1px solid #ccc; border-radius: 5px;">
 
                                                         </div>
-                                                        <!-- <div id="ktpPreviewContainer" style="display: flex; gap: 10px; margin-top: 10px;"></div> -->
                                                         </div>
                                                     </fieldset>
                                                 </div>
@@ -218,14 +216,9 @@ if ($id_pelanggan > 0) {
                                                 <div class="col-md-6">
                                                     <fieldset class="well bg-light">
                                                         <legend class="well-legend bg-light"><strong>Foto Depan Rumah</strong></legend>
-                                                        <div class="mt-2 mb-3 ml-1 mr-1">
-                                                        <div class="input-group input-group-sm">
                                                        
-                                                       <img src="../database/image/foto_depan_rumah/<?= htmlspecialchars($pelanggan['Foto_Depan_Rumah']) ?>" alt="Foto KTP" style="max-width: 100%; height: auto; border: 1px solid #ccc; border-radius: 5px;">                           
-                                                       <!-- <?php echo "image/foto_ktp/" . $pelanggan['Foto_KTP']; // Debugging?> -->
-
-                                                       </div>                                                           
-                                                        </div>
+                                                       <img src="../database/image/foto_depan_rumah/<?= htmlspecialchars($pelanggan['Foto_Depan_Rumah']) ?>" alt="Foto KTP" style="max-width: 100%; height: auto; border: 1px solid #ccc; border-radius: 5px;">
+                                                              
                                                     </fieldset>
                                                 </div>
                                             </div>

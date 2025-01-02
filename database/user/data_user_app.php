@@ -39,7 +39,7 @@
                     <td><?php echo $user ['pass'];?></td>
                     <td><?php echo $user ['dibuat_pada_'];?></td>
                     <td>
-                      <a onclick="hapus_data(<?php echo $user ['id_user'];?>)" class="btn btn-sm btn-danger">Hapus</a>
+                      <a onclick="hapus_data_user(<?php echo $user ['id_user'];?>)" class="btn btn-sm btn-danger">Hapus</a>
                       <a href="index.php?page=edit-data&&id=<?php echo $user ['id_user'];?>" class="btn btn-sm btn-success">Edit</a>
                     </td>
                   </tr>
@@ -116,32 +116,3 @@
         </div>
         <!-- /.modal-dialog -->
       </div>
-      <Script>
-        function hapus_data(data_id){
-          //alert("Data berhasil dihapus");
-          //window.location=("delete/hapus_data.php?id="+data_id);
-          // Swal.fire(
-          //   'Hapus Data',
-          //   'Data berhasil dihapus',
-          //  'success'
-          // )
-          Swal.fire({
-  title: 'Apakah anda yakin ingin menghapus data?',
-  //showDenyButton: false,
-  showCancelButton: true,
-  confirmButtonText: 'Hapus Data',
-  confirmButtonColor:'red',
-  //denyButtonText: 'No',
-  customClass: {
-    actions: 'my-actions',
-    cancelButton: 'order-1 right-gap',
-    confirmButton: 'order-2',
-    denyButton: 'order-3',
-  },
-}).then((result) => {
-  if (result.isConfirmed) {
-    window.location=("delete/hapus_data.php?id="+data_id);
-  } 
-})
-        }
-      </Script>

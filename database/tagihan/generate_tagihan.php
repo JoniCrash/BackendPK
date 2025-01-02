@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 
 include('../conf/config.php');
 // Tanggal saat ini
@@ -31,4 +31,4 @@ while ($row = $result->fetch_assoc()) {
 // Menutup koneksi
 $stmt->close();
 $conn->close();
-?>
+?> -->

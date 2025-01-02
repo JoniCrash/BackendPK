@@ -18,11 +18,13 @@
                   <thead>
                   <tr>
                     <th>No</th>
+                    <th>Nama Lengkap</th>
                     <th>ID Tagihan</th>
                     <th>ID Pelanggan</th>
                     <th>ID Paket</th>
                     <th>Total Harga</th>
                     <th>Status</th>
+                    <th>Action</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -34,11 +36,13 @@
                     ?>
                   <tr>
                     <td width = 5%><?php echo $no?></td>
+                    <td><?php echo $tagihan['Nama_Lengkap']; ?></td>
                     <td><?php echo $tagihan['id_tagihan']; ?></td>
                     <td><?php echo $tagihan ['id_pelanggan'];?></td>
                     <td><?php echo $tagihan ['id_paket'];?></td>
                     <td><?php echo $tagihan ['total_harga'];?></td>
                     <td><?php echo $tagihan ['status'];?></td>
+                    <td><a onclick="hapus_data_tagihan(<?php echo $tagihan ['id_tagihan'];?>)" class="btn btn-sm btn-danger">Hapus</a></td>
                   </tr>
                   <?php }?>
                   </tbody>
@@ -58,10 +62,10 @@
     </section>
     <!-- /.content -->
 
-    <Script>
+    <!-- <Script>
         function hapus_data(data_id){
           alert("Data berhasil dihapus");
-          window.location=("delete/delete_pelanggan.php?id="+data_id);
+          window.location=("delete/delete_tagihan.php?id="+data_id);
           Swal.fire(
             'Hapus Data',
             'Data berhasil dihapus',
@@ -82,11 +86,11 @@
   },
 }).then((result) => {
   if (result.isConfirmed) {
-    window.location=("delete/delete_pelanggan.php?id="+data_id);
+    window.location=("delete/delete_tagihan.php?id="+data_id);
   } 
 })
         }
-      </Script>
+      </Script> -->
       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
   // Fungsi untuk Mengupdate Status

@@ -98,10 +98,8 @@ if (mysqli_query($koneksi, $query_insert)) {
         echo "Data pelanggan dan foto berhasil disimpan.";
     } else {
         echo "Gagal memperbarui foto pelanggan: " . mysqli_error($koneksi);
-    }
-} else {
-    echo "Gagal menyimpan data pelanggan: " . mysqli_error($koneksi);
-}
+    }} else {echo "Gagal menyimpan data pelanggan: " . mysqli_error($koneksi);}
 
-header('Location: ../../index.php?page=data-pelanggan');
+// header('Location: ../../index.php?page=data-pelanggan');
+echo "Data Pelanggan Berhasil Di Tambahkan"
 ?>

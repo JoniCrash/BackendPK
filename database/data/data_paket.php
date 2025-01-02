@@ -19,6 +19,7 @@
                   <tr>
                     <th>No</th>
                     <th>Id Pelanggan</th>
+                    <th>Nama Pelanggan</th>
                     <th>Paket</th>
                     <th>Action</th>
                   </tr>
@@ -26,16 +27,17 @@
                   <tbody>
                   <?php
                     $no = 0; 
-                    $query = mysqli_query($koneksi, "SELECT * FROM tb_paket");
+                    $query = mysqli_query($koneksi, "SELECT * FROM tb_pelanggan");
                     while($paket = mysqli_fetch_array($query)){
                       $no++
                     ?>
                   <tr>
                     <td width = 5%><?php echo $no?></td>
                     <td><?php echo $paket ['id_pelanggan'];?></td>
-                    <td><?php echo $paket ['paket'];?></td>
+                    <td><?php echo $paket ['Nama_Lengkap'];?></td>
+                    <td><?php echo $paket ['nama_paket'];?></td>
                     <td>
-                      <a onclick="hapus_data(<?php echo $paket ['id'];?>)" class="btn btn-sm btn-danger">Hapus</a>
+                      <a onclick="hapus_data(<?php echo $paket ['id_pelanggan'];?>)" class="btn btn-sm btn-danger">Hapus</a>
                       <!-- <a href="index.php?page=edit-data&&id=<?php echo $paket ['id'];?>" class="btn btn-sm btn-success">Edit</a> -->
                     </td>
                   </tr>
@@ -104,13 +106,13 @@
       </div>
       <Script>
         function hapus_data(data_id){
-          //alert("Data berhasil dihapus");
-          //window.location=("delete/hapus_data.php?id="+data_id);
-          // Swal.fire(
-          //   'Hapus Data',
-          //   'Data berhasil dihapus',
-          //  'success'
-          // )
+          alert("Data berhasil dihapus");
+          window.location=("delete/hapus_data.php?id="+data_id);
+          Swal.fire(
+            'Hapus Data',
+            'Data berhasil dihapus',
+           'success'
+          )
           Swal.fire({
   title: 'Apakah anda yakin ingin menghapus data?',
   //showDenyButton: false,

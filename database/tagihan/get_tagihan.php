@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 
 include('../conf/config.php');
 $user_id = isset($_GET['user_id']) ? intval($_GET['user_id']) : 0;
@@ -26,4 +26,4 @@ header('Content-Type: application/json');
 echo json_encode($tagihanList);
 
 $stmt->close();
-?>
+?> -->
