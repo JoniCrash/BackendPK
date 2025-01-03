@@ -20,7 +20,7 @@
               </li>
               <li class="nav-item">
                 <a href="index.php?page=data-pengajuan" class="nav-link">
-                  <i class="far fa-plus nav-icon"></i>
+                  <i class="far fa-user nav-icon"></i>
                   <p>Pengajuan</p>
                 </a>
               </li>
@@ -50,12 +50,12 @@
                   <p>Pembayaran</p>
                 </a>
               </li>
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a href="index.php?page=tambah-pelanggan" class="nav-link">
                   <i class="far fa-credit-card nav-icon"></i>
                   <p>Tambah Pelanggan</p>
                 </a>
-              </li>
+              </li> -->
           <li class="nav-item">
             <a href="logout.php" class="nav-link text-red">
               <i class="nav-icon fas  fa-power-off"></i>

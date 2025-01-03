@@ -144,10 +144,11 @@ else if ($_GET['page'] == 'delete-tagihan' && isset($_GET['id_tagihan'])) {
   include('../database/delete/delete_tagihan.php');
 }
 else if($_GET['page']=='tambah-pengajuan'){
+  //Tambahan Pengajuan
   include('../database/add/add_pengajuan.php');
 }
-
   else if($_GET['page']=='tambah-pelanggan'){
+    //Tambahan Pelanggan
     include('../database/add/pelanggan_baru.php');
   }
   
