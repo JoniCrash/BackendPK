@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 02, 2025 at 10:31 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Waktu pembuatan: 04 Jan 2025 pada 11.19
+-- Versi server: 10.4.32-MariaDB
+-- Versi PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `adm`
+-- Struktur dari tabel `adm`
 --
 
 CREATE TABLE `adm` (
@@ -36,7 +36,7 @@ CREATE TABLE `adm` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `adm`
+-- Dumping data untuk tabel `adm`
 --
 
 INSERT INTO `adm` (`id`, `nama`, `username`, `password`, `level`) VALUES
@@ -45,7 +45,7 @@ INSERT INTO `adm` (`id`, `nama`, `username`, `password`, `level`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `paket`
+-- Struktur dari tabel `paket`
 --
 
 CREATE TABLE `paket` (
@@ -56,7 +56,7 @@ CREATE TABLE `paket` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `paket`
+-- Dumping data untuk tabel `paket`
 --
 
 INSERT INTO `paket` (`id_paket`, `nama_paket`, `kecepatan`, `harga`) VALUES
@@ -67,7 +67,7 @@ INSERT INTO `paket` (`id_paket`, `nama_paket`, `kecepatan`, `harga`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_pelanggan`
+-- Struktur dari tabel `tb_pelanggan`
 --
 
 CREATE TABLE `tb_pelanggan` (
@@ -91,7 +91,7 @@ CREATE TABLE `tb_pelanggan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `tb_pelanggan`
+-- Dumping data untuk tabel `tb_pelanggan`
 --
 
 INSERT INTO `tb_pelanggan` (`id_pelanggan`, `Nama_Lengkap`, `Nomor_Identitas_KTP`, `Alamat_Pemasangan`, `provinsi`, `kota`, `latitude`, `longitude`, `Email`, `Nomor_Hp_1`, `Nomor_Hp_2`, `id_paket`, `nama_paket`, `Foto_KTP`, `Foto_Depan_Rumah`, `Status`, `dibuat_pada_`) VALUES
@@ -104,22 +104,32 @@ INSERT INTO `tb_pelanggan` (`id_pelanggan`, `Nama_Lengkap`, `Nomor_Identitas_KTP
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_pembayaran`
+-- Struktur dari tabel `tb_pembayaran`
 --
 
 CREATE TABLE `tb_pembayaran` (
   `id_pembayaran` int(11) NOT NULL,
   `id_tagihan` int(10) NOT NULL,
+  `Nama_Lengkap` varchar(100) NOT NULL,
   `bukti_pembayaran` varchar(255) NOT NULL,
   `periode` varchar(20) NOT NULL,
   `status` enum('Lunas','Belum Lunas','') NOT NULL DEFAULT 'Belum Lunas',
   `dibuat_pada_` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data untuk tabel `tb_pembayaran`
+--
+
+INSERT INTO `tb_pembayaran` (`id_pembayaran`, `id_tagihan`, `Nama_Lengkap`, `bukti_pembayaran`, `periode`, `status`, `dibuat_pada_`) VALUES
+(69, 12, 'iwan', 'image/bukti_pembayaran/bukti_69_January_2025.jpg', 'January_2025', 'Belum Lunas', '2025-01-04 05:31:41'),
+(70, 12, 'iwan', 'image/bukti_pembayaran/bukti_70_January_2025.jpg', 'January_2025', 'Belum Lunas', '2025-01-04 05:42:40'),
+(71, 12, 'iwan', 'bukti_pembayaran/bukti_71_January_2025.jpg', 'January_2025', 'Belum Lunas', '2025-01-04 05:47:49');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_pengajuan`
+-- Struktur dari tabel `tb_pengajuan`
 --
 
 CREATE TABLE `tb_pengajuan` (
@@ -140,7 +150,7 @@ CREATE TABLE `tb_pengajuan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `tb_pengajuan`
+-- Dumping data untuk tabel `tb_pengajuan`
 --
 
 INSERT INTO `tb_pengajuan` (`id_pengajuan`, `Nama_Lengkap`, `Nomor_Identitas_KTP`, `Alamat_Pemasangan`, `latitude`, `longitude`, `Email`, `Nomor_Hp_1`, `Nomor_Hp_2`, `id_paket`, `nama_paket`, `Foto_KTP`, `Foto_Depan_Rumah`, `dibuat_pada_`) VALUES
@@ -152,7 +162,7 @@ INSERT INTO `tb_pengajuan` (`id_pengajuan`, `Nama_Lengkap`, `Nomor_Identitas_KTP
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_tagihan`
+-- Struktur dari tabel `tb_tagihan`
 --
 
 CREATE TABLE `tb_tagihan` (
@@ -166,7 +176,7 @@ CREATE TABLE `tb_tagihan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `tb_tagihan`
+-- Dumping data untuk tabel `tb_tagihan`
 --
 
 INSERT INTO `tb_tagihan` (`id_tagihan`, `id_pelanggan`, `id_paket`, `Nama_Lengkap`, `total_harga`, `status`, `dibuat_pada_`) VALUES
@@ -177,7 +187,7 @@ INSERT INTO `tb_tagihan` (`id_tagihan`, `id_pelanggan`, `id_paket`, `Nama_Lengka
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_app`
+-- Struktur dari tabel `user_app`
 --
 
 CREATE TABLE `user_app` (
@@ -189,7 +199,7 @@ CREATE TABLE `user_app` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `user_app`
+-- Dumping data untuk tabel `user_app`
 --
 
 INSERT INTO `user_app` (`id_user`, `username`, `email`, `pass`, `dibuat_pada_`) VALUES
@@ -209,46 +219,47 @@ INSERT INTO `user_app` (`id_user`, `username`, `email`, `pass`, `dibuat_pada_`) 
 (29, 'mmm', 'mmm@mail.com', 'mmm', '2024-12-14 20:01:59'),
 (30, 'mmm', 'mmm@mail.com', 'mmm', '2024-12-14 20:02:00'),
 (31, 'hhu', 'jjjj', 'jj', '2024-12-14 20:17:30'),
-(32, 'hhu', 'jjjj', 'jj', '2024-12-14 20:17:30');
+(32, 'hhu', 'jjjj', 'jj', '2024-12-14 20:17:30'),
+(33, 'www', 'www', 'www', '2025-01-04 10:09:19');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `adm`
+-- Indeks untuk tabel `adm`
 --
 ALTER TABLE `adm`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `paket`
+-- Indeks untuk tabel `paket`
 --
 ALTER TABLE `paket`
   ADD PRIMARY KEY (`id_paket`);
 
 --
--- Indexes for table `tb_pelanggan`
+-- Indeks untuk tabel `tb_pelanggan`
 --
 ALTER TABLE `tb_pelanggan`
   ADD PRIMARY KEY (`id_pelanggan`),
   ADD KEY `id_paket` (`id_paket`);
 
 --
--- Indexes for table `tb_pembayaran`
+-- Indeks untuk tabel `tb_pembayaran`
 --
 ALTER TABLE `tb_pembayaran`
   ADD PRIMARY KEY (`id_pembayaran`),
   ADD KEY `id_tagihan` (`id_tagihan`);
 
 --
--- Indexes for table `tb_pengajuan`
+-- Indeks untuk tabel `tb_pengajuan`
 --
 ALTER TABLE `tb_pengajuan`
   ADD PRIMARY KEY (`id_pengajuan`);
 
 --
--- Indexes for table `tb_tagihan`
+-- Indeks untuk tabel `tb_tagihan`
 --
 ALTER TABLE `tb_tagihan`
   ADD PRIMARY KEY (`id_tagihan`),
@@ -256,75 +267,75 @@ ALTER TABLE `tb_tagihan`
   ADD KEY `id_pelanggan` (`id_pelanggan`);
 
 --
--- Indexes for table `user_app`
+-- Indeks untuk tabel `user_app`
 --
 ALTER TABLE `user_app`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `adm`
+-- AUTO_INCREMENT untuk tabel `adm`
 --
 ALTER TABLE `adm`
   MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `paket`
+-- AUTO_INCREMENT untuk tabel `paket`
 --
 ALTER TABLE `paket`
   MODIFY `id_paket` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `tb_pelanggan`
+-- AUTO_INCREMENT untuk tabel `tb_pelanggan`
 --
 ALTER TABLE `tb_pelanggan`
   MODIFY `id_pelanggan` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
--- AUTO_INCREMENT for table `tb_pembayaran`
+-- AUTO_INCREMENT untuk tabel `tb_pembayaran`
 --
 ALTER TABLE `tb_pembayaran`
-  MODIFY `id_pembayaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+  MODIFY `id_pembayaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 
 --
--- AUTO_INCREMENT for table `tb_pengajuan`
+-- AUTO_INCREMENT untuk tabel `tb_pengajuan`
 --
 ALTER TABLE `tb_pengajuan`
   MODIFY `id_pengajuan` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `tb_tagihan`
+-- AUTO_INCREMENT untuk tabel `tb_tagihan`
 --
 ALTER TABLE `tb_tagihan`
   MODIFY `id_tagihan` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT for table `user_app`
+-- AUTO_INCREMENT untuk tabel `user_app`
 --
 ALTER TABLE `user_app`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `tb_pelanggan`
+-- Ketidakleluasaan untuk tabel `tb_pelanggan`
 --
 ALTER TABLE `tb_pelanggan`
   ADD CONSTRAINT `tb_pelanggan_ibfk_1` FOREIGN KEY (`id_paket`) REFERENCES `paket` (`id_paket`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `tb_pembayaran`
+-- Ketidakleluasaan untuk tabel `tb_pembayaran`
 --
 ALTER TABLE `tb_pembayaran`
   ADD CONSTRAINT `tb_pembayaran_ibfk_1` FOREIGN KEY (`id_tagihan`) REFERENCES `tb_tagihan` (`id_tagihan`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `tb_tagihan`
+-- Ketidakleluasaan untuk tabel `tb_tagihan`
 --
 ALTER TABLE `tb_tagihan`
   ADD CONSTRAINT `tb_tagihan_ibfk_1` FOREIGN KEY (`id_pelanggan`) REFERENCES `tb_pelanggan` (`id_pelanggan`) ON DELETE CASCADE ON UPDATE CASCADE,
