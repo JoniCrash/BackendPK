@@ -18,7 +18,7 @@
                   <thead>
                   <tr>
                     <th>No</th>
-                    <th>Id</th>
+                    <th>ID Pengajuan</th>
                     <th>Nama Lengkap</th>
                     <th>NIK</th>
                     <th>Alamat Pemasangan</th>

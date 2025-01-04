@@ -18,7 +18,7 @@ if (isset($_POST['id_user'])) {
                 "id_user" => $user['id_user'],
                 "username" => $user['username'],
                 "email" => $user['email'],
-                "pass" => $user['pass'],
+                "password" => $user['pass'],
             ]
         ]);
     } else {

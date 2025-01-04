@@ -14,7 +14,7 @@ if (isset($_POST['id_pelanggan'])) {
     // Query untuk mengambil data tagihan berdasarkan id_pelanggan
     $query = mysqli_query(
         $koneksi,
-        "SELECT id_tagihan, id_pelanggan, id_paket, total_harga, status FROM tb_tagihan WHERE id_pelanggan = '$id_pelanggan'"
+        "SELECT id_tagihan, id_pelanggan, Nama_Lengkap, id_paket, total_harga, status FROM tb_tagihan WHERE id_pelanggan = '$id_pelanggan'"
     );
 
     if (mysqli_num_rows($query) > 0) {
