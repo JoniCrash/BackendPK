@@ -174,7 +174,7 @@ if ($id_pengajuan > 0) {
                                                         <div class="mt-2 mb-3 ml-1 mr-1">
                                                         <div class="input-group input-group-sm">
                                                        
-                                                        <img src="../database/android/user/foto_ktp/<?= $pengajuan['Foto_KTP']; ?>" alt="Foto KTP" style="max-width: 100%; height: auto; border: 1px solid #ccc; border-radius: 5px;">
+                                                        <img src="../database/android/user/<?= htmlspecialchars($pengajuan['Foto_KTP']) ?>" alt="Foto KTP" style="max-width: 100%; height: auto; border: 1px solid #ccc; border-radius: 5px;">
 
                                                         </div>
                                                         </div>
@@ -188,7 +188,7 @@ if ($id_pengajuan > 0) {
                                                         <div class="mt-2 mb-3 ml-1 mr-1">
                                                         <div class="input-group input-group-sm">
                                                        
-                                                       <img src="../database/android/user/foto_depan_rumah/<?= htmlspecialchars($pengajuan['Foto_Depan_Rumah']) ?>" alt="Foto KTP" style="max-width: 100%; height: auto; border: 1px solid #ccc; border-radius: 5px;">
+                                                       <img src="../database/android/user/<?= htmlspecialchars($pengajuan['Foto_Depan_Rumah']) ?>" alt="Foto Depan Rumah" style="max-width: 100%; height: auto; border: 1px solid #ccc; border-radius: 5px;">
 
                                                        </div>                                                           
                                                         </div>

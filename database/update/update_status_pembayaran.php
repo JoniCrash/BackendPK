@@ -2,22 +2,22 @@
 include('../../conf/config.php'); // Hubungkan ke database
 
 // Cek apakah data yang diperlukan tersedia
-if (!isset($_POST['id_pelanggan']) || !isset($_POST['Status'])) {
+if (!isset($_POST['id_pembayaran']) || !isset($_POST['Status'])) {
     echo json_encode(["success" => false, "message" => "Data tidak lengkap!"]);
     exit;
 }
 
-$id_pelanggan = mysqli_real_escape_string($koneksi, $_POST['id_pelanggan']);
+$id_pembayaran = mysqli_real_escape_string($koneksi, $_POST['id_pembayaran']);
 $Status = mysqli_real_escape_string($koneksi, $_POST['Status']);
 
-// Validasi nilai status agar hanya menerima 'aktif' atau 'nonaktif'
-if (!in_array($Status, ['Aktif', 'Nonaktif'])) {
+// Validasi nilai status agar hanya menerima 'Lunas' atau 'Belum Lunas'
+if (!in_array($Status, ['Lunas', 'Belum Lunas'])) {
     echo json_encode(["success" => false, "message" => "Status tidak valid!"]);
     exit;
 }
 
 // Update status di database
-$query = "UPDATE tb_pelanggan SET Status = '$Status' WHERE id_pelanggan = '$id_pelanggan'";
+$query = "UPDATE tb_pembayaran SET Status = '$Status' WHERE id_pembayaran = '$id_pembayaran'";
 if (mysqli_query($koneksi, $query)) {
     echo json_encode(["success" => true, "message" => "Status berhasil diperbarui."]);
 } else {

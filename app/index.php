@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+<?php
+header("Cache-Control: no-cache, must-revalidate");
+header("Pragma: no-cache");
+header("Expires: 0");
+?>
+
 <html lang="en">
 <?php
 session_start();
@@ -62,7 +68,8 @@ if (isset($_GET['page'])){
   }
   elseif($_GET['page']=='data-tagihan'){
     include('content-header/content_header_tagihan.php');
-  }elseif($_GET['page']=='buat-tagihan'){
+  }
+  elseif($_GET['page']=='buat-tagihan'){
     include('content-header/content_header_buat_tagihan.php');
   }
 
@@ -77,6 +84,9 @@ if (isset($_GET['page'])){
   }
   elseif($_GET['page']=='delete-tagihan'){
     include('content-header/content_header_delete_tagihan.php');
+  }
+  elseif($_GET['page']=='delete-pembayran'){
+    include('content-header/content_header_delete_pembayaran.php');
   }
 
 
@@ -142,6 +152,10 @@ else if ($_GET['page'] == 'delete-pelanggan' && isset($_GET['id_pelanggan'])) {
 else if ($_GET['page'] == 'delete-tagihan' && isset($_GET['id_tagihan'])) {
   //Delete Tagihan
   include('../database/delete/delete_tagihan.php');
+}
+else if ($_GET['page'] == 'delete-pemabayran' && isset($_GET['id_pemabayran'])) {
+  //Delete Tagihan
+  include('../database/delete/delete_pemabayran.php');
 }
 else if($_GET['page']=='tambah-pengajuan'){
   //Tambahan Pengajuan

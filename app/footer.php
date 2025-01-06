@@ -209,26 +209,70 @@
       window.location = "index.php?page=delete-tagihan&id_tagihan=" + idtagihan;
   } })}
 
+  function hapus_data_pembayaran(idpembayaran){
+          Swal.fire({
+  title: 'Apakah anda yakin ingin menghapus data?',
+  //showDenyButton: false,
+  showCancelButton: true,
+  confirmButtonText: 'Hapus Data',
+  confirmButtonColor:'red',
+  //denyButtonText: 'No',
+  customClass: {
+    actions: 'my-actions',
+    cancelButton: 'order-1 right-gap',
+    confirmButton: 'order-2',
+    denyButton: 'order-3',
+  },}).then((result) => {
+    if (result.isConfirmed) {
+      window.location = "index.php?page=delete-pemabayaran&id_tagihan=" + idpembayaran;
+  } })}
+
 
 </Script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11">
 </script>
 <script>
-  // Fungsi untuk Mengupdate Status
-  function ubahStatus(id_pelanggan, status) {
-  console.log("Mengirim status:", id_pelanggan, status); // Debug log untuk mengecek data yang dikirim
+function ubahStatusPelanggan(id_pelanggan, Status) {
+  console.log("Mengirim status:", id_pelanggan, Status); // Debug log untuk mengecek data yang dikirim
+  
   const xhr = new XMLHttpRequest();
-  xhr.open("POST", "http://localhost/BackEndpk/database/data/update.php", true);
+  xhr.open("POST", "http://localhost/backendpk/database/update/update_status_pelanggan.php", true);
   xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  
   xhr.onreadystatechange = function () {
     if (xhr.readyState === 4) {
       console.log("Response:", xhr.responseText); // Log respons dari server untuk debugging
       if (xhr.status === 200) {
         Swal.fire('Berhasil!', 'Status berhasil diperbarui.', 'success');
+        // window.location.reload(); 
       } else {
         Swal.fire('Gagal!', 'Tidak dapat memperbarui status.', 'error');
       }
     }
   };
-  xhr.send("id_pelanggan=" + id_pelanggan + "&status=" + status);}
+  
+  xhr.send("id_pelanggan=" + id_pelanggan + "&Status=" + Status);
+}
+
+function ubahStatusPembayaran(id_pembayaran, Status) {
+  console.log("Mengirim status:", id_pembayaran, Status); // Debug log untuk mengecek data yang dikirim
+  
+  const xhr = new XMLHttpRequest();
+  xhr.open("POST", "http://localhost/backendpk/database/update/update_status_pembayaran.php", true);
+  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4) {
+      console.log("Response:", xhr.responseText); // Log respons dari server untuk debugging
+      if (xhr.status === 200) {
+        Swal.fire('Berhasil!', 'Status berhasil diperbarui.', 'success');
+        // window.location.reload(); 
+      } else {
+        Swal.fire('Gagal!', 'Tidak dapat memperbarui status.', 'error');
+      }
+    }
+  };
+  
+  xhr.send("id_pembayaran=" + id_pembayaran + "&Status=" + Status);
+}
 </script>

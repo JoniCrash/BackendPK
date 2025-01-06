@@ -42,7 +42,16 @@
                     <td><?php echo $pelanggan ['Nama_Lengkap'];?></td>
                     <td><?php echo $pelanggan ['Nomor_Hp_1'];?></td>
                     <td><?php echo $pelanggan ['Alamat_Pemasangan'];?></td>
-                    <td><?php echo $pelanggan ['Status'];?></td>
+                    <td>
+
+          
+                    <select
+                    
+                        onchange="ubahStatusPelanggan(<?php echo $pelanggan ['id_pelanggan'];?>, this.value)">
+                        <option value="Nonaktif" <?php echo ($pelanggan['Status'] == 'Nonaktif') ? 'selected' : ''; ?>>Nonaktif</option>
+                        <option value="Aktif" <?php echo ($pelanggan['Status'] == 'Aktif') ? 'selected' : ''; ?>>Aktif</option>
+                    </select>
+                    </td>
                     <td>
                       <a onclick="hapus_data_pelanggan(<?php echo $pelanggan ['id_pelanggan'];?>)" class="btn btn-sm btn-danger">Hapus</a>
                       <a href="index.php?page=edit-data&&id=<?php echo $pelanggan ['id_pelanggan'];?>" class="btn btn-sm btn-success">Edit</a>
