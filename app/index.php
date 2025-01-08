@@ -42,12 +42,15 @@ if (isset($_GET['page'])){
   if($_GET['page']=='dashboard'){
     //Dashboard
     include('content-header/content_header_dashboard.php');
-  }elseif($_GET['page']=='user-app'){
+  }elseif($_GET['page']=='data-user'){
     //User App
-    include('content-header/content_header_user_app.php');
+    include('content-header/content_header_user.php');
   }elseif($_GET['page']=='data-pelanggan'){
     //Data Pelanggan
     include('content-header/content_header_pelanggan.php');
+  }elseif($_GET['page']=='data-paket'){
+    //User App
+    include('content-header/content_header_paket.php');
   }elseif($_GET['page']=='data-pengajuan'){
     //Data Pengajuan
     include('content-header/content_header_pengajuan.php');
@@ -60,6 +63,9 @@ if (isset($_GET['page'])){
   elseif($_GET['page']=='profil-pengajuan'){
     include('content-header/content_header_profil_pengajuan.php');
   } 
+  elseif($_GET['page']=='profil-pembayaran'){
+    include('content-header/content_header_profil_pembayaran.php');
+  }
   elseif($_GET['page']=='tambah-pengajuan'){
     include('content-header/content_header_pengajuan_baru.php');
   }
@@ -107,9 +113,9 @@ if (isset($_GET['page'])){
   if($_GET['page']=='dashboard'){
     //Dashboard
     include('dashboard.php');
-  }else if($_GET['page']=='user-app'){
+  }else if($_GET['page']=='data-user'){
     //User App
-    include('../database/user/data_user_app.php');
+    include('../database/data/data_user.php');
   }else if($_GET['page']=='data-pengajuan'){
     //Data Pengajuan
     include('../database/data/data_pengajuan.php');

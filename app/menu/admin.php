@@ -13,9 +13,9 @@
             </a>
           </li>
           <li class="nav-item">
-                <a href="index.php?page=user-app" class="nav-link">
+                <a href="index.php?page=data-user" class="nav-link">
                   <i class="far fa-user nav-icon"></i>
-                  <p>Pengguna Aplikasi</p>
+                  <p>User</p>
                 </a>
               </li>
               <li class="nav-item">

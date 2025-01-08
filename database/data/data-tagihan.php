@@ -14,6 +14,25 @@
               <button type="button" class="btn btn-info">Tambah Tagihan</button>
               </a>
                 <br></br>
+                <form method="post">
+                  <table>
+                    <tr>
+                      <td>Dari Tanggal</td>
+                      <td><input type="date" name="dari_tgl" required="required"></td>
+                      <td>Sampai Tanggal</td>
+                      <td><input type="date" name="sampai_tgl" required="required"></td>
+                      <td><button type="submit" class="btn btn-info" name="filter" value="Filter">Filter</button>
+                    </tr>
+                  </table>
+                </form>
+                <?php
+                if (isset($_POST['filter'])) {
+                  $dari_tgl = mysqli_real_escape_string($koneksi,$_POST['dari_tgl']);
+                  $sampai_tgl = mysqli_real_escape_string($koneksi,$_POST['sampai_tgl']);
+                  echo " Dari Tanggal  " . $dari_tgl . " Sampai Tanggal  " . $sampai_tgl ;
+                }
+              ?>
+              <br><br>
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
@@ -30,7 +49,13 @@
                   <tbody>
                     <?php
                     $no = 0; 
+                    if (isset($_POST['filter'])) {
+                      $dari_tgl = mysqli_real_escape_string($koneksi,$_POST ['dari_tgl']) ;
+                      $sampai_tgl = mysqli_real_escape_string($koneksi,$_POST ['sampai_tgl']) ;
+                      $query = mysqli_query ($koneksi, "SELECT * FROM tb_tagihan WHERE dibuat_pada_ BETWEEN '$dari_tgl' AND '$sampai_tgl'");
+                    }else{
                     $query = mysqli_query($koneksi, "SELECT * FROM tb_tagihan");
+                    }
                     while($tagihan = mysqli_fetch_array($query)){
                       $no++
                     ?>

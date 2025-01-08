@@ -19,8 +19,8 @@ if (!in_array($Status, ['Aktif', 'Nonaktif'])) {
 // Update status di database
 $query = "UPDATE tb_pelanggan SET Status = '$Status' WHERE id_pelanggan = '$id_pelanggan'";
 if (mysqli_query($koneksi, $query)) {
-    echo json_encode(["success" => true, "message" => "Status berhasil diperbarui."]);
+    echo json_encode(["success" => true, "message" => "Status pelanggan berhasil diperbarui."]);
 } else {
-    echo json_encode(["success" => false, "message" => "Gagal memperbarui status: " . mysqli_error($koneksi)]);
+    echo json_encode(["success" => false, "message" => "Gagal memperbarui status pelanggan: " . mysqli_error($koneksi)]);
 }
 ?>

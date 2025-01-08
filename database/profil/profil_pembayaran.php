@@ -65,7 +65,7 @@ if ($id_pembayaran > 0) {
                                         readonly>
                                 </div>
                                 <div class="w-100 mb-1"></div>
-                                <div style="width: 150px">Nama pembayaran</div>
+                                <div style="width: 150px">Nama Pelanggan</div>
                                 <div style="width: 220px">
                                     <input class="form-control text-sm bg-light"
                                         style="height: 30px" type="text" value= <?php echo $pembayaran['Nama_Lengkap'];?> readonly>

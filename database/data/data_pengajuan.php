@@ -10,10 +10,25 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-              <a href="index.php?page=tambah-pengajuan">
-              <button type="button" class="btn btn-info">Tambah Data</button>
-              </a>
-                <br></br>
+                <form method="post">
+                  <table>
+                    <tr>
+                      <td>Dari Tanggal</td>
+                      <td><input type="date" name="dari_tgl" required="required"></td>
+                      <td>Sampai Tanggal</td>
+                      <td><input type="date" name="sampai_tgl" required="required"></td>
+                      <td><button type="submit" class="btn btn-info" name="filter" value="Filter">Filter</button>
+                    </tr>
+                  </table>
+                </form>
+                <?php
+                if (isset($_POST['filter'])) {
+                  $dari_tgl = mysqli_real_escape_string($koneksi,$_POST['dari_tgl']);
+                  $sampai_tgl = mysqli_real_escape_string($koneksi,$_POST['sampai_tgl']);
+                  echo " Dari Tanggal  " . $dari_tgl . " Sampai Tanggal  " . $sampai_tgl ;
+                }
+              ?>
+              <br><br>
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
@@ -27,16 +42,22 @@
                     <th>Email</th>
                     <th>Nomor Hp 1</th>
                     <th>Nomor Hp 2</th>
-                    <th>ID Paket</th>
                     <th>Nama Paket</th>
-                    <th>Foto KTP</th>
-                    <th>Foto Depan Rumah</th>
+                    <!-- <th>Foto KTP</th>
+                    <th>Foto Depan Rumah</th> -->
+                    <th>Action</th>
                   </tr>
                   </thead>
                   <tbody>
                     <?php
                     $no = 0; 
+                    if (isset($_POST['filter'])) {
+                      $dari_tgl = mysqli_real_escape_string($koneksi,$_POST ['dari_tgl']) ;
+                      $sampai_tgl = mysqli_real_escape_string($koneksi,$_POST ['sampai_tgl']) ;
+                      $query = mysqli_query ($koneksi, "SELECT * FROM tb_penfajuan WHERE dibuat_pada_ BETWEEN '$dari_tgl' AND '$sampai_tgl'");
+                    }else{
                     $query = mysqli_query($koneksi, "SELECT * FROM tb_pengajuan");
+                    }
                     while($pengajuan = mysqli_fetch_array($query)){
                       $no++
                     ?>
@@ -51,13 +72,11 @@
                     <td><?= $pengajuan ['Email'];?></td>
                     <td><?= $pengajuan ['Nomor_Hp_1'];?></td>
                     <td><?= $pengajuan ['Nomor_Hp_2'];?></td>
-                    <td><?= $pengajuan ['id_paket'];?></td>
                     <td><?= $pengajuan ['nama_paket'];?></td>
-                    <td><?= $pengajuan ['Foto_KTP'];?></td>
-                    <td><?= $pengajuan ['Foto_Depan_Rumah'];?></td>
+                    <!-- <td><?= $pengajuan ['Foto_KTP'];?></td>
+                    <td><?= $pengajuan ['Foto_Depan_Rumah'];?></td> -->
                     <td>
                       <a onclick="hapus_data_pengajuan(<?= $pengajuan ['id_pengajuan'];?>)" class="btn btn-sm btn-danger">Hapus</a>
-                      <!-- <a href="index.php?page=edit-data&&id=<?= $pengajuan ['id_pengajuan'];?>" class="btn btn-sm btn-success">Edit</a> -->
                     
                     </td>
                   </tr>

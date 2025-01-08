@@ -14,6 +14,25 @@
                   Tambah Data
                 </button>
                 <br></br>
+                <form method="post">
+                  <table>
+                    <tr>
+                      <td>Dari Tanggal</td>
+                      <td><input type="date" name="dari_tgl" required="required"></td>
+                      <td>Sampai Tanggal</td>
+                      <td><input type="date" name="sampai_tgl" required="required"></td>
+                      <td><button type="submit" class="btn btn-info" name="filter" value="Filter">Filter</button>
+                    </tr>
+                  </table>
+                </form>
+                <?php
+                if (isset($_POST['filter'])) {
+                  $dari_tgl = mysqli_real_escape_string($koneksi,$_POST['dari_tgl']);
+                  $sampai_tgl = mysqli_real_escape_string($koneksi,$_POST['sampai_tgl']);
+                  echo " Dari Tanggal  " . $dari_tgl . " Sampai Tanggal  " . $sampai_tgl ;
+                }
+              ?>
+              <br><br>
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
@@ -27,7 +46,13 @@
                   <tbody>
                   <?php
                     $no = 0; 
+                    if (isset($_POST['filter'])) {
+                      $dari_tgl = mysqli_real_escape_string($koneksi,$_POST ['dari_tgl']) ;
+                      $sampai_tgl = mysqli_real_escape_string($koneksi,$_POST ['sampai_tgl']) ;
+                      $query = mysqli_query ($koneksi, "SELECT * FROM tb_pelanggan WHERE dibuat_pada_ BETWEEN '$dari_tgl' AND '$sampai_tgl'");
+                    }else{
                     $query = mysqli_query($koneksi, "SELECT * FROM tb_pelanggan");
+                    }
                     while($paket = mysqli_fetch_array($query)){
                       $no++
                     ?>
@@ -38,19 +63,10 @@
                     <td><?php echo $paket ['nama_paket'];?></td>
                     <td>
                       <a onclick="hapus_data(<?php echo $paket ['id_pelanggan'];?>)" class="btn btn-sm btn-danger">Hapus</a>
-                      <!-- <a href="index.php?page=edit-data&&id=<?php echo $paket ['id'];?>" class="btn btn-sm btn-success">Edit</a> -->
                     </td>
                   </tr>
                   <?php }?>
                   </tbody>
-                  <tfoot>
-                  <tr>
-                    <th>Rendering engine</th>
-                    <th>Browser</th>
-                    <th>Platform(s)</th>
-                    <th>Engine version</th>
-                  </tr>
-                  </tfoot>
                 </table>
               </div>
               <!-- /.card-body -->
