@@ -58,21 +58,27 @@ if (isset($_GET['page'])){
     //Data Pembayaran
     include('content-header/content_header_pembayaran.php');
   }elseif($_GET['page']=='profil-pelanggan'){
+    //Profil Pelanggan
     include('content-header/content_header_profil_pelanggan.php');
   }
   elseif($_GET['page']=='profil-pengajuan'){
+    //Profil Pengajuan
     include('content-header/content_header_profil_pengajuan.php');
   } 
   elseif($_GET['page']=='profil-pembayaran'){
+    //Profil Pembayaran
     include('content-header/content_header_profil_pembayaran.php');
   }
   elseif($_GET['page']=='tambah-pengajuan'){
+    //Profil Pngajuan
     include('content-header/content_header_pengajuan_baru.php');
   }
   elseif($_GET['page']=='tambah-pelanggan'){
+    //tambah pelanggan
     include('content-header/content_header_pelanggan_baru.php');
   }
   elseif($_GET['page']=='data-tagihan'){
+
     include('content-header/content_header_tagihan.php');
   }
   elseif($_GET['page']=='buat-tagihan'){
@@ -93,6 +99,9 @@ if (isset($_GET['page'])){
   }
   elseif($_GET['page']=='delete-pembayran'){
     include('content-header/content_header_delete_pembayaran.php');
+  }
+  elseif($_GET['page']=='edit-pelanggan'){
+    include('content-header/content_header_edit_pelanggan.php');
   }
 
 
@@ -171,10 +180,12 @@ else if($_GET['page']=='tambah-pengajuan'){
     //Tambahan Pelanggan
     include('../database/add/pelanggan_baru.php');
   }
-  
-  else if($_GET['page']=='edit-data'){
-    include('edit/edit_data.php');
+  else if($_GET['page']=='edit-pelanggan'){
+    include('../database/edit/edit_pelanggan.php');
   }
+  // else if($_GET['page']=='edit-data'){
+  //   include('edit/edit_data.php');
+  // }
   
   else{
     include('not-found.php');

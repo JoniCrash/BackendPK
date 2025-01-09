@@ -26,15 +26,9 @@ $view = mysqli_fetch_array($query);
 
                       <div class="form-group">
                         <label>Nomor Identitas/KTP</label>
-                        <input type="text" name="no_identitas" class="form-control" placeholder="Nomor Identitas/KTP" value = "<?php echo $view['Nomor_Identitas/KTP'];?>">
+                        <input type="text" name="no_identitas" class="form-control" placeholder="Nomor Identitas/KTP" value = "<?php echo $view['Nomor_Identitas_KTP'];?>">
                         <input type="text" name="id_pelanggan" class="form-control" placeholder="Nomor Identitas/KTP" value = "<?php echo $view['id_pelanggan'];?>" hidden>
                       </div>
-
-                      <div class="form-group">
-                        <label>Alamat Sesuai KTP</label>
-                        <textarea class="form-control" rows="3" name="alamat_ktp" placeholder="Alamat Sesuai KTP"><?php echo $view['Alamat_Sesuai_KTP'];?></textarea>
-                        <input type="text" name="id_pelanggan" class="form-control" placeholder="Alamat Sesuai KTP" value = "<?php echo $view['id_pelanggan'];?>" hidden>
-                        </div>
 
                         <div class="form-group">
                         <label>Alamat Pemasangan</label>
@@ -84,7 +78,7 @@ $view = mysqli_fetch_array($query);
 
                         <div class="form-group">
                         <label>Foto KTP</label>
-                        <img id="preview1" src="foto/<?php echo $view['foto_ktp'];?>" class="mt-2 img-fluid rounded mx-auto d-block" alt="KTP" title="KTP" style="max-height: 200px;">
+                        <img id="preview1" src="image/foto_ktp/<?php echo $view['Foto_KTP'];?>" class="mt-2 img-fluid rounded mx-auto d-block" alt="KTP" title="KTP" style="max-height: 200px;">
                         <div class="mt-2 mb-3 ml-1 mr-1"></div>
                         <div class="input-group input-group-sm">
                           <div class="input-group-prepend">
@@ -96,7 +90,6 @@ $view = mysqli_fetch_array($query);
                           </div>
                         </div>
                         </div>
-
                         <div class="form-group">
                         <label>Foto Depan Rumah</label>
                         <img id="preview2" src="foto/<?php echo $view['foto_depan_rumah'];?>" class="mt-2 img-fluid rounded mx-auto d-block" alt="Foto Depan Rumah" title="Foto Depan Rumah" style="max-height: 200px;">

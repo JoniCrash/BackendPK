@@ -4,7 +4,6 @@
         <div class="row">
           <div class="col-30">
             <div class="card">
-
               <div class="card-header">
                 <h3 class="card-title">Data Pengajuan Pemasangan Baru</h3>
               </div>
@@ -37,8 +36,8 @@
                     <th>Nama Lengkap</th>
                     <th>NIK</th>
                     <th>Alamat Pemasangan</th>
-                    <th>Latitude</th>
-                    <th>Longitude</th>
+                    <!-- <th>Latitude</th>
+                    <th>Longitude</th> -->
                     <th>Email</th>
                     <th>Nomor Hp 1</th>
                     <th>Nomor Hp 2</th>
@@ -54,7 +53,7 @@
                     if (isset($_POST['filter'])) {
                       $dari_tgl = mysqli_real_escape_string($koneksi,$_POST ['dari_tgl']) ;
                       $sampai_tgl = mysqli_real_escape_string($koneksi,$_POST ['sampai_tgl']) ;
-                      $query = mysqli_query ($koneksi, "SELECT * FROM tb_penfajuan WHERE dibuat_pada_ BETWEEN '$dari_tgl' AND '$sampai_tgl'");
+                      $query = mysqli_query ($koneksi, "SELECT * FROM tb_pengajuan WHERE dibuat_pada_ BETWEEN '$dari_tgl' AND '$sampai_tgl'");
                     }else{
                     $query = mysqli_query($koneksi, "SELECT * FROM tb_pengajuan");
                     }
@@ -67,8 +66,8 @@
                     <td><?= $pengajuan ['Nama_Lengkap'];?></td>
                     <td><?= $pengajuan ['Nomor_Identitas_KTP'];?></td>
                     <td><?= $pengajuan ['Alamat_Pemasangan'];?></td>
-                    <td><?= $pengajuan ['latitude'];?></td>
-                    <td><?= $pengajuan ['longitude'];?></td>
+                    <!-- <td><?= $pengajuan ['latitude'];?></td>
+                    <td><?= $pengajuan ['longitude'];?></td> -->
                     <td><?= $pengajuan ['Email'];?></td>
                     <td><?= $pengajuan ['Nomor_Hp_1'];?></td>
                     <td><?= $pengajuan ['Nomor_Hp_2'];?></td>
@@ -77,6 +76,7 @@
                     <td><?= $pengajuan ['Foto_Depan_Rumah'];?></td> -->
                     <td>
                       <a onclick="hapus_data_pengajuan(<?= $pengajuan ['id_pengajuan'];?>)" class="btn btn-sm btn-danger">Hapus</a>
+                      tombol terima pengajuan
                     
                     </td>
                   </tr>
