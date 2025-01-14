@@ -76,7 +76,12 @@
                     <td><?= $pengajuan ['Foto_Depan_Rumah'];?></td> -->
                     <td>
                       <a onclick="hapus_data_pengajuan(<?= $pengajuan ['id_pengajuan'];?>)" class="btn btn-sm btn-danger">Hapus</a>
-                      tombol terima pengajuan
+                      
+                    <form action="../add/acc_pelanggan.php" method="POST" style="display:inline;">
+                        <input type="hidden" name="id_pengajuan" value="<?= $pengajuan['id_pengajuan']; ?>">
+                        <button type="submit" class="btn btn-sm btn-success">Terima</button>
+                    </form>
+
                     
                     </td>
                   </tr>
