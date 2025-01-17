@@ -73,6 +73,10 @@ if (isset($_GET['page'])){
     //Profil Pngajuan
     include('content-header/content_header_pengajuan_baru.php');
   }
+    elseif($_GET['page']=='terima-pengajuan'){
+    //terima pengajuan
+    include('content-header/content_header_terima_pengajuan.php');
+  }
   elseif($_GET['page']=='tambah-pelanggan'){
     //tambah pelanggan
     include('content-header/content_header_pelanggan_baru.php');
@@ -176,6 +180,12 @@ else if($_GET['page']=='tambah-pengajuan'){
   //Tambahan Pengajuan
   include('../database/add/add_pengajuan.php');
 }
+
+else if($_GET['page']=='terima-pengajuan'){
+  //Terima pengajuan
+  include('../database/add/acc_pengajuan.php');
+}
+
   else if($_GET['page']=='tambah-pelanggan'){
     //Tambahan Pelanggan
     include('../database/add/pelanggan_baru.php');

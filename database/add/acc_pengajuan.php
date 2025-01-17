@@ -14,6 +14,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $nama_lengkap = $data_pengajuan['Nama_Lengkap'];
         $nomor_ktp = $data_pengajuan['Nomor_Identitas_KTP'];
         $alamat = $data_pengajuan['Alamat_Pemasangan'];
+        $provinsi = $data_pengajuan['provinsi'];
+        $kota = $data_pengajuan['kota'];
         $email = $data_pengajuan['Email'];
         $nomor_hp_1 = $data_pengajuan['Nomor_Hp_1'];
         $nomor_hp_2 = $data_pengajuan['Nomor_Hp_2'];
@@ -22,12 +24,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $fotktp = $data_pengajuan['Foto_KTP'];
         $fotodepnrumah = $data_pengajuan['Foto_Depan_Rumah'];
 
+                // Validasi gambar
+                if (empty($fotoktp) || empty($fotodepanrumah)) {
+                    echo "<script>alert('Foto KTP atau Foto Depan Rumah kosong!'); window.location.href='index.php?page=data-pengajuan';</script>";
+                    exit;
+                }
+
         // Masukkan data ke tabel pelanggan
         $query_pelanggan = "
             INSERT INTO tb_pelanggan 
-            (Nama_Lengkap, Nomor_Identitas_KTP, Alamat, Email, Nomor_Hp_1, Nomor_Hp_2, id_paket nama_paket,Foto_KTP, FotoDepanRumah) 
+            (Nama_Lengkap, Nomor_Identitas_KTP, Alamat_Pemasangan,provinsi,kota, Email, Nomor_Hp_1, Nomor_Hp_2, id_paket ,nama_paket,Foto_KTP, Foto_Depan_Rumah) 
             VALUES 
-            ('$nama_lengkap', '$nomor_ktp', '$alamat', '$email', '$nomor_hp_1', '$nomor_hp_2' ,'$id_paket','$nama_paket', '$fotoktp', '$fotodepanrumah')";
+            ('$nama_lengkap', '$nomor_ktp', '$alamat','$provinsi','$kota', '$email', '$nomor_hp_1', '$nomor_hp_2' ,'$id_paket','$nama_paket', '$fotoktp', '$fotodepanrumah')";
 
         if (mysqli_query($koneksi, $query_pelanggan)) {
             // Hapus data dari tabel pengajuan
@@ -36,12 +44,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             echo "<script>alert('Pengajuan berhasil diterima dan ditambahkan sebagai pelanggan!'); window.location.href='index.php?page=data-pengajuan';</script>";
         } else {
-            echo "<script>alert('Gagal menambahkan pelanggan!'); window.location.href='index.php?page=list-pengajuan';</script>";
+            echo "<script>alert('Gagal menambahkan pelanggan!'); window.location.href='index.php?page=data-pengajuan';</script>";
         }
     } else {
-        echo "<script>alert('Data pengajuan tidak ditemukan!'); window.location.href='index.php?page=list-pengajuan';</script>";
+        echo "<script>alert('Data pengajuan tidak ditemukan!'); window.location.href='index.php?page=data-pengajuan';</script>";
     }
 } else {
-    echo "<script>alert('Metode tidak valid!'); window.location.href='index.php?page=list-pengajuan';</script>";
+    echo "<script>alert('Metode tidak valid!'); window.location.href='index.php?page=data-pengajuan';</script>";
 }
 ?>

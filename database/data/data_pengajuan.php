@@ -66,18 +66,18 @@
                     <td><?= $pengajuan ['Nama_Lengkap'];?></td>
                     <td><?= $pengajuan ['Nomor_Identitas_KTP'];?></td>
                     <td><?= $pengajuan ['Alamat_Pemasangan'];?></td>
-                    <!-- <td><?= $pengajuan ['latitude'];?></td>
-                    <td><?= $pengajuan ['longitude'];?></td> -->
+                    <td><?= $pengajuan ['latitude'];?></td>
+                    <td><?= $pengajuan ['longitude'];?></td>
                     <td><?= $pengajuan ['Email'];?></td>
                     <td><?= $pengajuan ['Nomor_Hp_1'];?></td>
                     <td><?= $pengajuan ['Nomor_Hp_2'];?></td>
                     <td><?= $pengajuan ['nama_paket'];?></td>
-                    <!-- <td><?= $pengajuan ['Foto_KTP'];?></td>
-                    <td><?= $pengajuan ['Foto_Depan_Rumah'];?></td> -->
+                    <td><?= $pengajuan ['Foto_KTP'];?></td>
+                    <td><?= $pengajuan ['Foto_Depan_Rumah'];?></td>
                     <td>
                       <a onclick="hapus_data_pengajuan(<?= $pengajuan ['id_pengajuan'];?>)" class="btn btn-sm btn-danger">Hapus</a>
                       
-                    <form action="../add/acc_pelanggan.php" method="POST" style="display:inline;">
+                    <form action="index.php?page=terima-pengajuan" method="POST" style="display:inline;">
                         <input type="hidden" name="id_pengajuan" value="<?= $pengajuan['id_pengajuan']; ?>">
                         <button type="submit" class="btn btn-sm btn-success">Terima</button>
                     </form>
