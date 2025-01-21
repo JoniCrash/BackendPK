@@ -1,7 +1,7 @@
 <?php
 $id_pelanggan = $_GET['id'];
 $query = mysqli_query($koneksi," SELECT * FROM tb_pelanggan WHERE id_pelanggan='$id_pelanggan'");
-$view = mysqli_fetch_array($query);
+$pelanggan= mysqli_fetch_array($query);
 ?>
 
 <section class = "content">
@@ -20,56 +20,56 @@ $view = mysqli_fetch_array($query);
                       <div class="form-group">
 
                         <label>Nama Lengkap</label>
-                        <input type="text" name="username" class="form-control" placeholder="Nama Lengkap" value = "<?php echo $view['Nama_Lengkap'];?>">
-                        <input type="text" name="id_pelanggan" class="form-control" placeholder="Nama Lengkap" value = "<?php echo $view['id_pelanggan'];?>" hidden>
+                        <input type="text" name="username" class="form-control" placeholder="Nama Lengkap" value = "<?php echo $pelanggan['Nama_Lengkap'];?>">
+                        <input type="text" name="id_pelanggan" class="form-control" placeholder="Nama Lengkap" value = "<?php echo $pelanggan['id_pelanggan'];?>" hidden>
                       </div>
 
                       <div class="form-group">
                         <label>Nomor Identitas/KTP</label>
-                        <input type="text" name="no_identitas" class="form-control" placeholder="Nomor Identitas/KTP" value = "<?php echo $view['Nomor_Identitas_KTP'];?>">
-                        <input type="text" name="id_pelanggan" class="form-control" placeholder="Nomor Identitas/KTP" value = "<?php echo $view['id_pelanggan'];?>" hidden>
+                        <input type="text" name="no_identitas" class="form-control" placeholder="Nomor Identitas/KTP" value = "<?php echo $pelanggan['Nomor_Identitas_KTP'];?>">
+                        <input type="text" name="id_pelanggan" class="form-control" placeholder="Nomor Identitas/KTP" value = "<?php echo $pelanggan['id_pelanggan'];?>" hidden>
                       </div>
 
                         <div class="form-group">
                         <label>Alamat Pemasangan</label>
-                        <textarea class="form-control" rows="3" name="alamat_pemasangan" placeholder="Alamat Pemasangan"><?php echo $view['Alamat_Pemasangan'];?></textarea>
-                        <input type="text" name="id_pelanggan" class="form-control" placeholder="Alamat Pemasangan" value = "<?php echo $view['id_pelanggan'];?>" hidden>
+                        <textarea class="form-control" rows="3" name="alamat_pemasangan" placeholder="Alamat Pemasangan"><?php echo $pelanggan['Alamat_Pemasangan'];?></textarea>
+                        <input type="text" name="id_pelanggan" class="form-control" placeholder="Alamat Pemasangan" value = "<?php echo $pelanggan['id_pelanggan'];?>" hidden>
                         </div>
 
                         <div class="form-group">
                         <label>Latitude</label>
-                        <input type="text" name="latitude" class="form-control" placeholder="latitude" value = "<?php echo $view['latitude'];?>">
-                        <input type="text" name="id_pelanggan" class="form-control" placeholder="latitude" value = "<?php echo $view['id_pelanggan'];?>" hidden>
+                        <input type="text" name="latitude" class="form-control" placeholder="latitude" value = "<?php echo $pelanggan['latitude'];?>">
+                        <input type="text" name="id_pelanggan" class="form-control" placeholder="latitude" value = "<?php echo $pelanggan['id_pelanggan'];?>" hidden>
                         </div>
 
                         <div class="form-group">
                         <label>Longitude</label>
-                        <input type="text" name="longitude" class="form-control" placeholder="longitude" value = "<?php echo $view['longitude'];?>">
-                        <input type="text" name="id_pelanggan" class="form-control" placeholder="longitude" value = "<?php echo $view['id_pelanggan'];?>" hidden>
+                        <input type="text" name="longitude" class="form-control" placeholder="longitude" value = "<?php echo $pelanggan['longitude'];?>">
+                        <input type="text" name="id_pelanggan" class="form-control" placeholder="longitude" value = "<?php echo $pelanggan['id_pelanggan'];?>" hidden>
                         </div>
 
                         <div class="form-group">
                         <label>Email</label>
-                        <input type="email" name="email" class="form-control" placeholder="email" value = "<?php echo $view['Email'];?>">
-                        <input type="text" name="id_pelanggan" class="form-control" placeholder="email" value = "<?php echo $view['id_pelanggan'];?>" hidden>
+                        <input type="email" name="email" class="form-control" placeholder="email" value = "<?php echo $pelanggan['Email'];?>">
+                        <input type="text" name="id_pelanggan" class="form-control" placeholder="email" value = "<?php echo $pelanggan['id_pelanggan'];?>" hidden>
                         </div>
 
                         <div class="form-group">
                         <label>Nomor HP 1</label>
-                        <input type="text" name="no_hp1" class="form-control" placeholder="Nomor HP 1" value = "<?php echo $view['Nomor_Hp_1'];?>">
-                        <input type="text" name="id_pelanggan" class="form-control" placeholder="Nomor HP 1" value = "<?php echo $view['id_pelanggan'];?>" hidden>
+                        <input type="text" name="no_hp1" class="form-control" placeholder="Nomor HP 1" value = "<?php echo $pelanggan['Nomor_Hp_1'];?>">
+                        <input type="text" name="id_pelanggan" class="form-control" placeholder="Nomor HP 1" value = "<?php echo $pelanggan['id_pelanggan'];?>" hidden>
                         </div>
 
                         <div class="form-group">
                         <label>Nomor HP 2</label>
-                        <input type="text" name="no_hp1" class="form-control" placeholder="Nomor HP 2" value = "<?php echo $view['Nomor_Hp_2'];?>">
-                        <input type="text" name="id_pelanggan" class="form-control" placeholder="Nomor HP 2" value = "<?php echo $view['id_pelanggan'];?>" hidden>
+                        <input type="text" name="no_hp1" class="form-control" placeholder="Nomor HP 2" value = "<?php echo $pelanggan['Nomor_Hp_2'];?>">
+                        <input type="text" name="id_pelanggan" class="form-control" placeholder="Nomor HP 2" value = "<?php echo $pelanggan['id_pelanggan'];?>" hidden>
                         </div>
 
                         <div class="form-group">
                         <label>ID Paket</label>
                         <select class="custom-select" name = "id_paket" required >
-                        <option value="<?php echo $view['id_paket'];?>" selected><?php echo $view['id_paket'];?></option>
+                        <option value="<?php echo $pelanggan['id_paket'];?>" selected><?php echo $pelanggan['id_paket'];?></option>
                         <option value="30MBPS">Paket 30 MBPS</option>
                         <option value="50MBPS">Paket 50 MBPS</option>
                         <option value="50MBPS">Paket 100 MBPS</option>
@@ -78,7 +78,7 @@ $view = mysqli_fetch_array($query);
 
                         <div class="form-group">
                         <label>Foto KTP</label>
-                        <img id="preview1" src="image/foto_ktp/<?php echo $view['Foto_KTP'];?>" class="mt-2 img-fluid rounded mx-auto d-block" alt="KTP" title="KTP" style="max-height: 200px;">
+                        <img id="prepelanggan1" src="image/foto_ktp/<?php echo $pelanggan['Foto_KTP'];?>" class="mt-2 img-fluid rounded mx-auto d-block" alt="KTP" title="KTP" style="max-height: 200px;">
                         <div class="mt-2 mb-3 ml-1 mr-1"></div>
                         <div class="input-group input-group-sm">
                           <div class="input-group-prepend">
@@ -92,7 +92,7 @@ $view = mysqli_fetch_array($query);
                         </div>
                         <div class="form-group">
                         <label>Foto Depan Rumah</label>
-                        <img id="preview2" src="foto/<?php echo $view['foto_depan_rumah'];?>" class="mt-2 img-fluid rounded mx-auto d-block" alt="Foto Depan Rumah" title="Foto Depan Rumah" style="max-height: 200px;">
+                        <img id="prepelanggan2" src="foto/<?php echo $pelanggan['foto_depan_rumah'];?>" class="mt-2 img-fluid rounded mx-auto d-block" alt="Foto Depan Rumah" title="Foto Depan Rumah" style="max-height: 200px;">
                         <div class="mt-2 mb-3 ml-1 mr-1"></div>
                         <div class="input-group input-group-sm">
                           <div class="input-group-prepend">
@@ -105,12 +105,6 @@ $view = mysqli_fetch_array($query);
                         </div>
                         </div>
                     </div>
-                    <!-- <div class="col-sm-6">
-                      <div class="form-group">
-                        <label>Nim</label>
-                        <input type="text" name = "nim" class="form-control" placeholder="Nim" value = "<?php echo $view['nim'];?>">
-                      </div>
-                    </div> -->
                   </div>
                   <div class="row">
                     <div class="col-sm-6">
@@ -121,7 +115,7 @@ $view = mysqli_fetch_array($query);
                   <div class="row"> 
                   <div class="col-sm-12">
                     <!-- folder naro foto -->
-                  <img src="foto/<?php echo $view['foto'];?>" width="100px" class="rounded">
+                  <img src="foto/<?php echo $pelanggan['foto'];?>" width="100px" class="rounded">
                   </div>
                   </div>
                   <div class="row">
