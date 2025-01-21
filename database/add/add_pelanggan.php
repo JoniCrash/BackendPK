@@ -76,8 +76,8 @@ if (mysqli_query($koneksi, $query_insert)) {
     $file_depanrumah_ext = strtolower(pathinfo($file_depanrumah, PATHINFO_EXTENSION));
 
     // Lokasi folder tujuan
-    $target_dir_ktp = '../image/foto_ktp/';
-    $target_dir_depanrumah = '../image/foto_depan_rumah/';
+    $target_dir_ktp = '../android/pelanggan/foto_ktp/';
+    $target_dir_depanrumah = '../android/pelanggan/foto_depan_rumah/';
     if (!file_exists($target_dir_ktp)) mkdir($target_dir_ktp, 0777, true);
     if (!file_exists($target_dir_depanrumah)) mkdir($target_dir_depanrumah, 0777, true);
 

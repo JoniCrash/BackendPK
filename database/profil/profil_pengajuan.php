@@ -122,6 +122,18 @@ if ($id_pengajuan > 0) {
                                                                             <input type="text" class="form-control bg-light" value="<?php echo $pengajuan['Alamat_Pemasangan'];?>" readonly >
                                                                         </div>
                                                                     </div>
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-group">
+                                                                            <label class="font-weight-normal">Provinsi</label>
+                                                                            <input type="text" class="form-control text-sm bg-light" value="<?php echo $pengajuan['provinsi'];?>" readonly>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-group">
+                                                                            <label class="font-weight-normal">Kota/Kabupaten</label>
+                                                                            <input type="text" class="form-control text-sm bg-light" value="<?php echo $pengajuan['kota'];?>" readonly>
+                                                                        </div>
+                                                                    </div>
                                                                     <hr class="bg-light col-md-11">
                                                                 </div>
                                                             </fieldset>

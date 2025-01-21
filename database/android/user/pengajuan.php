@@ -2,11 +2,14 @@
 include('../../../conf/config.php');
 
 // Ambil data dari POST
+$id_user = $_POST['id_user'];
 $nama_Lengkap = $_POST['Nama_Lengkap'] ?? '';
 $no_nik = $_POST['Nomor_Identitas_KTP'] ?? '';
 $alamat_pemasangan = $_POST['Alamat_Pemasangan'] ?? '';
 $latitude = $_POST['latitude'] ?? '';
 $longitude = $_POST['longitude'] ?? '';
+$provinsi = $_POST['provinsi'] ?? '';
+$kota = $_POST['kota'] ?? '';
 $email = $_POST['Email'] ?? '';
 $no1 = $_POST['Nomor_Hp_1'] ?? '';
 $no2 = $_POST['Nomor_Hp_2'] ?? '';
@@ -31,22 +34,28 @@ if ($paket_data) {
 
 // Proses penyimpanan ke database
 $query_insert = "INSERT INTO tb_pengajuan (
+    id_user,
     Nama_Lengkap,
     Nomor_Identitas_KTP,
     Alamat_Pemasangan,
     latitude,
     longitude,
+    provinsi,
+    kota,
     Email,
     Nomor_Hp_1,
     Nomor_Hp_2,
     nama_paket,
     id_paket
 ) VALUES (
+    '$id_user',
     '$nama_Lengkap',
     '$no_nik',
     '$alamat_pemasangan',
     '$latitude',
     '$longitude',
+    '$provinsi',
+    '$kota',
     '$email',
     '$no1',
     '$no2',
