@@ -11,7 +11,7 @@ function sendError($message)
 
 // Validasi dan sanitasi input
 $id_tagihan = filter_var($_POST['id_tagihan'] ?? 0, FILTER_VALIDATE_INT);
-$status = filter_var($_POST['status'] ?? 'BelumLunas', FILTER_SANITIZE_STRING);
+$status = filter_var($_POST['Status'] ?? 'BelumLunas');
 
 // Validasi ID Tagihan
 if (!$id_tagihan) {

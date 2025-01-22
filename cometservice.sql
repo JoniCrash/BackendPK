@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 21 Jan 2025 pada 21.49
+-- Waktu pembuatan: 22 Jan 2025 pada 20.15
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.2.12
 
@@ -122,6 +122,13 @@ CREATE TABLE `tb_pembayaran` (
   `dibuat_pada_` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data untuk tabel `tb_pembayaran`
+--
+
+INSERT INTO `tb_pembayaran` (`id_pembayaran`, `id_tagihan`, `Nama_Lengkap`, `bukti_pembayaran`, `periode`, `Status`, `dibuat_pada_`) VALUES
+(5003, 4001, 'iwann', 'bukti_pembayaran/bukti_5003_January_2025.jpg', 'January_2025', 'BelumLunas', '2025-01-23');
+
 -- --------------------------------------------------------
 
 --
@@ -190,7 +197,8 @@ CREATE TABLE `user_app` (
 --
 
 INSERT INTO `user_app` (`id_user`, `username`, `email`, `pass`, `dibuat_pada_`) VALUES
-(1001, 'iwan', 'iwan@gmil.com', 'iwan123', '2025-01-18');
+(1001, 'iwan', 'iwan@gmil.com', 'iwan123', '2025-01-18'),
+(1002, 'iwan1', 'iwan1@gmail.com', 'iwan1', '2025-01-23');
 
 --
 -- Indexes for dumped tables
@@ -269,7 +277,7 @@ ALTER TABLE `tb_pelanggan`
 -- AUTO_INCREMENT untuk tabel `tb_pembayaran`
 --
 ALTER TABLE `tb_pembayaran`
-  MODIFY `id_pembayaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5001;
+  MODIFY `id_pembayaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5004;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_pengajuan`
@@ -287,7 +295,7 @@ ALTER TABLE `tb_tagihan`
 -- AUTO_INCREMENT untuk tabel `user_app`
 --
 ALTER TABLE `user_app`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1002;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1003;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
