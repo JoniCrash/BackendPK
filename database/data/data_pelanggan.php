@@ -68,10 +68,7 @@
                     <td><?php echo $pelanggan ['Nomor_Hp_1'];?></td>
                     <td><?php echo $pelanggan ['Alamat_Pemasangan'];?></td>
                     <td>
-
-          
                     <select
-                    
                         onchange="ubahStatusPelanggan(<?php echo $pelanggan ['id_pelanggan'];?>, this.value)">
                         <option value="Nonaktif" <?php echo ($pelanggan['Status'] == 'Nonaktif') ? 'selected' : ''; ?>>Nonaktif</option>
                         <option value="Aktif" <?php echo ($pelanggan['Status'] == 'Aktif') ? 'selected' : ''; ?>>Aktif</option>
