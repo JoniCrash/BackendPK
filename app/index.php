@@ -108,6 +108,9 @@ if (isset($_GET['page'])){
   elseif($_GET['page']=='edit-pelanggan'){
     include('content-header/content_header_edit_pelanggan.php');
   }
+  elseif($_GET['page']=='update-pelanggan'){
+    include('content-header/content_header_update_pelanggan.php');
+  }
 
 
 
@@ -193,6 +196,9 @@ else if($_GET['page']=='terima-pengajuan'){
   }
   else if($_GET['page']=='edit-pelanggan'){
     include('../database/edit/edit_pelanggan.php');
+  }
+  else if($_GET['page']=='update-pelanggan'){
+    include('../database/update/update_pelanggan.php');
   }
   // else if($_GET['page']=='edit-data'){
   //   include('edit/edit_data.php');

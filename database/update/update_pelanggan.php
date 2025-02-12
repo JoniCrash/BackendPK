@@ -1,9 +1,9 @@
 <?php
 include('../../conf/config.php');
-$id_pelanggan = $_POST['id'];
-$Nama_Lengkap = $_POST['nama_lengkap'];
-$Nomor_Identitas_KTP = $_POST['nomor_identitas_ktp'];
-$Alamat_Sesuai_KTP = $_POST['alamat_sesuai_ktp'];
+
+// Ambil data dari form
+$Nama_Lengkap = $_POST['lama_lengkap'];
+$Nomor_Identitas_KTP = $_POST['nik'];
 $Alamat_Pemasangan = $_POST['alamat_pemasangan'];
 $latitude = $_POST['latitude'];
 $longitude = $_POST['longitude'];
@@ -12,18 +12,29 @@ $Nomor_Hp_1 = $_POST['nomor_hp_1'];
 $Nomor_Hp_2 = $_POST['nomor_hp_2'];
 $id_paket = $_POST['id_paket'];
 $nama_paket = $_POST['nama_paket'];
-$Foto_KTP = $_POST['Foto_KTP'];
-$Foto_Depan_Rumah = $_POST['Foto_Depan_Rumah'];
-//nama foto
-// $nama_file = $_FILES['foto']['name'];
-// echo $namafile;
-//lokasi foto
-// $file_tmp = $_FILES['foto']['tmp_name'];
-// move_uploaded_file($file_tmp,'../foto/'.$nama_file);
-// $query = mysqli_query($koneksi, "UPDATE tb_pelanggan SET username='$username', email='$email',password ='$pass', foto='$nama_file' WHERE id_user='$id_user'");
+$id_pelanggan = $_POST['id_pelanggan']; // Pastikan variabel ini didefinisikan
 
+// Query untuk update data
+$query = "UPDATE tb_pelanggan SET 
+          Nama_Lengkap = '$Nama_Lengkap', 
+          Nomor_Identitas_KTP = '$Nomor_Identitas_KTP', 
+          Alamat_Pemasangan = '$Alamat_Pemasangan', 
+          latitude = '$latitude', 
+          longitude = '$longitude', 
+          Email = '$Email', 
+          Nomor_Hp_1 = '$Nomor_Hp_1', 
+          Nomor_Hp_2 = '$Nomor_Hp_2', 
+          id_paket = '$id_paket', 
+          nama_paket = '$nama_paket' 
+          WHERE id_pelanggan='$id_pelanggan'";
 
-$query = mysqli_query($koneksi, "UPDATE tb_pelanggan SET id = '$id_pelanggan', nama_lengkap = '$Nama_lengkap', nomor_identitas_ktp = '$Nomor_Identitas_KTP', alamat_sesuai_ktp = '$Alamat_Sesuai_KTP', alamat_pemasangan = '$Alamat_Pemasangan', latitide = '$latitude',longitude = '$longitude', email = '$Email', nomor_hp_1 = '$Nomor_hp_1', nomor_hp_2 = '$Nomor_hp_2', id_paket = '$id_paket', nama_paket = '$nama_paket', foto_ktp = '$Foto_KTP', Foto_Depan_Rumah = '$Foto_Depan_Rumah'");
+// Eksekusi query
+if (mysqli_query($koneksi, $query)) {
+    echo json_encode(["success" => true, "message" => "Data pelanggan berhasil diperbarui."]);
+} else {
+    echo json_encode(["success" => false, "message" => "Gagal memperbarui pelanggan: " . mysqli_error($koneksi)]);
+}
 
- header('Location: ../index.php?page=data-pelanggan');
+// Redirect setelah menampilkan pesan
+echo "<script>window.location.href = 'index.php?page=data-pelanggan';</script>";
 ?>

@@ -40,7 +40,7 @@
                     <th>Id Pelanggan</th>
                     <th>Nama Pelanggan</th>
                     <th>Paket</th>
-                    <th>Action</th>
+                    <!-- <th>Action</th> -->
                   </tr>
                   </thead>
                   <tbody>
@@ -60,18 +60,18 @@
                     <td width = 5%><?php echo $no?></td>
                     <td><?php echo $paket ['id_pelanggan'];?></td>
                     <td><?php echo $paket ['Nama_Lengkap'];?></td>
-                    <!-- <td><?php echo $paket ['nama_paket'];?></td> -->
-                    <td>
+                    <td><?php echo $paket ['nama_paket'];?></td>
+                    <!-- <td>
                     <select
                         onchange="ubahPaket(<?php echo $paket ['id_pelanggan'];?>, this.value)">
                         <option value="30 MBPS" <?php echo ($paket['nama_paket'] == '30 MBPS') ? 'selected' : ''; ?>>30 MBPS</option>
                         <option value="50 MBPS" <?php echo ($paket['nama_paket'] == '50 MBPS') ? 'selected' : ''; ?>>50 MBPS</option>
                         <option value="100 MBPS" <?php echo ($paket['nama_paket'] == '100 MBPS') ? 'selected' : ''; ?>>100 MBPS</option>
                     </select>
-                    </td>
-                    <td>
+                    </td> -->
+                    <!-- <td>
                       <a onclick="hapus_data(<?php echo $paket ['id_pelanggan'];?>)" class="btn btn-sm btn-danger">Ubah Paket</a>
-                    </td>
+                    </td> -->
                   </tr>
                   <?php }?>
                   </tbody>
