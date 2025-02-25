@@ -3,7 +3,6 @@
 header("Cache-Control: no-cache, must-revalidate");
 header("Pragma: no-cache");
 header("Expires: 0");
-// include('../database/android')
 ?>
 
 <html lang="en">
@@ -19,10 +18,10 @@ include('../conf/config.php');
 <div class="wrapper">
 
   <!-- Preloader -->
-<!-- <?php include('preloader.php');?> -->
+<!-- <?php //include('preloader.php');?> -->
 
   <!-- Navbar -->
-  <!-- <?php include('navbar.php');?> -->
+  <!-- <?php //include('navbar.php');?> -->
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
@@ -207,7 +206,7 @@ else if($_GET['page']=='terima-pengajuan'){
   else{
     include('not-found.php');
   }
-}else{
+ }else{
   include('dashboard.php');
 }
 ?>

@@ -50,7 +50,7 @@ if ($result) {
 								<p>Total User</p>
 							</div>
 							<div class="icon">
-								<i class="ion ion-bag"></i>
+								<i class="ion ion-person"></i>
 							</div>
 							<a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
 						</div>
@@ -65,7 +65,7 @@ if ($result) {
 								<p>Total Pengajuan</p>
 							</div>
 							<div class="icon">
-								<i class="ion ion-stats-bars"></i>
+								<i class="ion ion-person-add"></i>
 							</div>
 							<a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
 						</div>
@@ -80,7 +80,7 @@ if ($result) {
 								<p>Total Pelanggan</p>
 							</div>
 							<div class="icon">
-								<i class="ion ion-person-add"></i>
+								<i class="ion ion-person"></i>
 							</div>
 							<a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
 						</div>
@@ -95,12 +95,26 @@ if ($result) {
 								<p>total Tagihan</p>
 							</div>
 							<div class="icon">
-								<i class="ion ion-pie-graph"></i>
+								<i class="ion ion-cash"></i>
 							</div>
 							<a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
 						</div>
 					</div>
 					<!-- ./col -->
+					<div class="col-lg-3 col-6">
+						<!-- small box -->
+						<div class="small-box bg-secondary">
+							<div class="inner">
+								<h3><?php echo $totalPembayaran; ?></h3>
+
+								<p>total Pembayaran</p>
+							</div>
+							<div class="icon">
+								<i class="ion ion-cash"></i>
+							</div>
+							<a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+						</div>
+					</div>
 				</div>
 				<!-- /.row -->
 				<!-- Main row -->
