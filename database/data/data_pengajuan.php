@@ -33,8 +33,9 @@
                   <tr>
                     <th>No</th>
                     <th>ID Pengajuan</th>
+                    <th>ID User</th>
                     <th>Nama Lengkap</th>
-                    <!-- <th>NIK</th> -->
+                    <th>NIK</th>
                     <th>Alamat Pemasangan</th>
                     <!-- <th>Latitude</th>
                     <th>Longitude</th> -->
@@ -63,8 +64,9 @@
                   <tr>
                     <td width = 5%><?= $no?></td>
                     <td><a href="index.php?page=profil-pengajuan&id_pengajuan=<?php echo $pengajuan['id_pengajuan']; ?>"><?php echo $pengajuan['id_pengajuan']; ?></a></td>
+                    <td><?php echo $pengajuan['id_user']; ?></td>
                     <td><?= $pengajuan ['Nama_Lengkap'];?></td>
-                    <!-- <td><?= $pengajuan ['Nomor_Identitas_KTP'];?></td> -->
+                    <td><?= $pengajuan ['Nomor_Identitas_KTP'];?></td>
                     <td><?= $pengajuan ['Alamat_Pemasangan'];?></td>
                     <!-- <td><?= $pengajuan ['latitude'];?></td>
                     <td><?= $pengajuan ['longitude'];?></td> -->

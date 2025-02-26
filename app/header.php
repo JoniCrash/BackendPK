@@ -3,7 +3,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
  <?php
   $page = isset($_GET['page']) ? $_GET['page'] : 'home';
-  $title = "Website Saya";
+  $title = "Comet Service";
   switch ($page) {
       case 'dashboard':
           $title = "Dashboard - Comet Service";

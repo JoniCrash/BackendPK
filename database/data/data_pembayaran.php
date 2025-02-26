@@ -63,10 +63,10 @@
                      <td><a href="index.php?page=profil-pembayaran&id_pembayaran=<?php echo $pembayaran['id_pembayaran']; ?>"><?php echo $pembayaran['id_pembayaran']; ?></a></td>
                     <td><?php echo $pembayaran['Nama_Lengkap']; ?></td>
 
-                    <td>
+                    <!-- <td>
                     <img src="../database/android/pelanggan/<?= htmlspecialchars($pembayaran['bukti_pembayaran']) ?>" alt="Bukti Pembayaran" style="max-width: 30%; height: 30%; border: 1px solid #ccc; border-radius: 5px;">   
-                    </td>
-                    <!-- <td><?php echo $pembayaran ['bukti_pembayaran'];?></td> -->
+                    </td> -->
+                    <td><?php echo $pembayaran ['bukti_pembayaran'];?></td>
                     <td><?php echo $pembayaran ['periode'];?></td>
                     <td>
                     <select
