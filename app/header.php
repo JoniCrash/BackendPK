@@ -1,7 +1,34 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>cometservice | Dashboard</title>
+ <?php
+  $page = isset($_GET['page']) ? $_GET['page'] : 'home';
+  $title = "Website Saya";
+  switch ($page) {
+      case 'dashboard':
+          $title = "Dashboard - Comet Service";
+          break;
+      case 'data-user':
+          $title = "User - Comet Service";
+          break;
+      case 'data-pengajuan':
+          $title = "Pengajuan - Comet Service";
+          break;
+      case 'data-pelanggan':
+          $title = "Pelanggan - Comet Service";
+          break;
+      case 'data-paket':
+          $title = "Paket - Comet Service";
+          break;
+      case 'data-tagihan':
+          $title = "Tagihan - Comet Service";
+          break;
+      case 'data-pembayaran':
+          $title = "Pembayaran - Comet Service";
+          break;
+  }
+ ?>
+  <title><?php echo $title; ?></title>
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->

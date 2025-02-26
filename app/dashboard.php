@@ -52,7 +52,7 @@ if ($result) {
 							<div class="icon">
 								<i class="ion ion-person"></i>
 							</div>
-							<a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+							<a href="index.php?page=data-user" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
 						</div>
 					</div>
 					<!-- ./col -->
@@ -67,7 +67,7 @@ if ($result) {
 							<div class="icon">
 								<i class="ion ion-person-add"></i>
 							</div>
-							<a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+							<a href="index.php?page=data-pengajuan" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
 						</div>
 					</div>
 					<!-- ./col -->
@@ -82,7 +82,7 @@ if ($result) {
 							<div class="icon">
 								<i class="ion ion-person"></i>
 							</div>
-							<a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+							<a href="index.php?page=data-pelanggan" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
 						</div>
 					</div>
 					<!-- ./col -->
@@ -92,12 +92,12 @@ if ($result) {
 							<div class="inner">
 								<h3><?php echo $totalTagihan; ?></h3>
 
-								<p>total Tagihan</p>
+								<p>Total Tagihan</p>
 							</div>
 							<div class="icon">
 								<i class="ion ion-cash"></i>
 							</div>
-							<a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+							<a href="index.php?page=data-tagihan" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
 						</div>
 					</div>
 					<!-- ./col -->
@@ -112,7 +112,7 @@ if ($result) {
 							<div class="icon">
 								<i class="ion ion-cash"></i>
 							</div>
-							<a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+							<a href="index.php?page=data-pembayaran" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
 						</div>
 					</div>
 				</div>

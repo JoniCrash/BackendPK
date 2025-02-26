@@ -34,14 +34,14 @@
                     <th>No</th>
                     <th>ID Pengajuan</th>
                     <th>Nama Lengkap</th>
-                    <th>NIK</th>
+                    <!-- <th>NIK</th> -->
                     <th>Alamat Pemasangan</th>
                     <!-- <th>Latitude</th>
                     <th>Longitude</th> -->
                     <th>Email</th>
-                    <th>Nomor Hp 1</th>
-                    <th>Nomor Hp 2</th>
-                    <th>Nama Paket</th>
+                    <th>Nomor Telepon</th>
+                    <!-- <th>Nomor Hp 2</th> -->
+                    <th>Paket</th>
                     <!-- <th>Foto KTP</th>
                     <th>Foto Depan Rumah</th> -->
                     <th>Action</th>
@@ -64,13 +64,13 @@
                     <td width = 5%><?= $no?></td>
                     <td><a href="index.php?page=profil-pengajuan&id_pengajuan=<?php echo $pengajuan['id_pengajuan']; ?>"><?php echo $pengajuan['id_pengajuan']; ?></a></td>
                     <td><?= $pengajuan ['Nama_Lengkap'];?></td>
-                    <td><?= $pengajuan ['Nomor_Identitas_KTP'];?></td>
+                    <!-- <td><?= $pengajuan ['Nomor_Identitas_KTP'];?></td> -->
                     <td><?= $pengajuan ['Alamat_Pemasangan'];?></td>
                     <!-- <td><?= $pengajuan ['latitude'];?></td>
                     <td><?= $pengajuan ['longitude'];?></td> -->
                     <td><?= $pengajuan ['Email'];?></td>
                     <td><?= $pengajuan ['Nomor_Hp_1'];?></td>
-                    <td><?= $pengajuan ['Nomor_Hp_2'];?></td>
+                    <!-- <td><?= $pengajuan ['Nomor_Hp_2'];?></td> -->
                     <td><?= $pengajuan ['nama_paket'];?></td>
                     <!-- <td><?= $pengajuan ['Foto_KTP'];?></td>
                     <td><?= $pengajuan ['Foto_Depan_Rumah'];?></td> -->
