@@ -14,7 +14,7 @@ if (isset($_GET['id_pelanggan'])) {
 }
 
 // Query data pelanggan
-$query = "SELECT p.id_paket, pk.harga, p.Nama_Lengkap
+$query = "SELECT p.id_paket,  pk.harga, p.Nama_Lengkap
           FROM tb_pelanggan p 
           INNER JOIN paket pk ON p.id_paket = pk.id_paket 
           WHERE p.id_pelanggan = ?";
@@ -43,7 +43,7 @@ if ($result->num_rows > 0) {
     }
 
     // Proses pembuatan tagihan
-    $insert = "INSERT INTO tb_tagihan (id_pelanggan, Nama_Lengkap, id_paket, total_harga, status) 
+    $insert = "INSERT INTO tb_tagihan (id_pelanggan, Nama_Lengkap, id_paket,kecepatan, total_harga, status) 
                VALUES (?, ?, ?, ?, 'Belum Lunas')";
     $stmt_insert = $koneksi->prepare($insert);
 

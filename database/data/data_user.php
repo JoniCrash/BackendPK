@@ -30,7 +30,7 @@
                 }
               ?>
               <br><br>
-                <table id="example1" class="table table-bordered table-striped">
+                <table id="example1" class="table table-bordered table-striped" data-title="Laporan Data User">
                   <thead>
                   <tr>
                     <th>No</th>
@@ -38,7 +38,7 @@
                     <th>Email</th>
                     <th>Password</th>
                     <th>Dibuat</th>
-                    <th>Action</th>
+                    <th class="noExport">Action</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -61,7 +61,7 @@
                     <td><?php echo $user ['email'];?></td>
                     <td><?php echo $user ['pass'];?></td>
                     <td><?php echo $user ['dibuat_pada_'];?></td>
-                    <td>
+                    <td class="noExport">
                       <a onclick="hapus_data_user(<?php echo $user ['id_user'];?>)" class="btn btn-sm btn-danger">Hapus</a>
                     </td>
                   </tr>

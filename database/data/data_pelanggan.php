@@ -33,7 +33,7 @@
                 }
               ?>
               <br><br>
-                <table id="example1" class="table table-bordered table-striped">
+                <table id="example1" class="table table-bordered table-striped" data-title="Laporan Data Pelanggan">
                   <thead>
                   <tr>
                     <th>No</th>
@@ -42,7 +42,7 @@
                     <th>Nomor Telepon</th>
                     <th>Alamat </th>
                     <th>Status</th>
-                    <th>Action</th>
+                    <th class="noExport">Action</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -74,7 +74,7 @@
                         <option value="Aktif" <?php echo ($pelanggan['Status'] == 'Aktif') ? 'selected' : ''; ?>>Aktif</option>
                     </select>
                     </td>
-                    <td>
+                    <td class="noExport">
                       <a onclick="hapus_data_pelanggan(<?php echo $pelanggan ['id_pelanggan'];?>)" class="btn btn-sm btn-danger">Hapus</a>
                       <a href="index.php?page=edit-pelanggan&id=<?php echo $pelanggan ['id_pelanggan'];?>" class="btn btn-sm btn-success">Edit</a>
 

@@ -1,0 +1,3 @@
+http://localhost:8080/backendpk/database/update/update_paket_pelanggan.php
+http://localhost:8080/backendpk/database/update/update_status_pelanggan.php
+http://localhost:8080/backendpk/database/update/update_status_pembayaran.php

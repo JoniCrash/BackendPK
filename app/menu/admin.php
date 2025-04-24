@@ -19,6 +19,12 @@
                 </a>
               </li>
               <li class="nav-item">
+                <a href="index.php?page=data-paket" class="nav-link">
+                  <i class="far fa-user nav-icon"></i>
+                  <p>Paket</p>
+                </a>
+              </li>
+              <li class="nav-item">
                 <a href="index.php?page=data-pengajuan" class="nav-link">
                   <i class="far fa-user nav-icon"></i>
                   <p>Pengajuan</p>
@@ -31,9 +37,9 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="index.php?page=data-paket" class="nav-link" >
+                <a href="index.php?page=data-paket-pelanggan" class="nav-link" >
                   <i class="far fa-folder nav-icon"></i>
-                  <p>Paket</p>
+                  <p>Data Paket Pelanggan</p>
                 </a>
               </li>
 

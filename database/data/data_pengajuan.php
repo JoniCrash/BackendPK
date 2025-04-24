@@ -28,7 +28,7 @@
                 }
               ?>
               <br><br>
-                <table id="example1" class="table table-bordered table-striped">
+                <table id="example1" class="table table-bordered table-striped" data-title="Laporan Data Pengajuan">
                   <thead>
                   <tr>
                     <th>No</th>
@@ -45,7 +45,7 @@
                     <th>Paket</th>
                     <!-- <th>Foto KTP</th>
                     <th>Foto Depan Rumah</th> -->
-                    <th>Action</th>
+                    <th class="noExport">Action</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -76,7 +76,7 @@
                     <td><?= $pengajuan ['nama_paket'];?></td>
                     <!-- <td><?= $pengajuan ['Foto_KTP'];?></td>
                     <td><?= $pengajuan ['Foto_Depan_Rumah'];?></td> -->
-                    <td>
+                    <td class="noExport">
                       <a onclick="hapus_data_pengajuan(<?= $pengajuan ['id_pengajuan'];?>)" class="btn btn-sm btn-danger">Hapus</a>
                       
                     <form action="index.php?page=terima-pengajuan" method="POST" style="display:inline;">

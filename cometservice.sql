@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 26 Feb 2025 pada 21.22
+-- Waktu pembuatan: 25 Apr 2025 pada 01.15
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.2.12
 
@@ -51,7 +51,7 @@ INSERT INTO `adm` (`id`, `nama`, `username`, `password`, `level`) VALUES
 CREATE TABLE `paket` (
   `id_paket` int(11) NOT NULL,
   `nama_paket` varchar(50) DEFAULT NULL,
-  `kecepatan` int(11) DEFAULT NULL,
+  `kecepatan` varchar(11) DEFAULT NULL,
   `harga` decimal(10,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -60,9 +60,9 @@ CREATE TABLE `paket` (
 --
 
 INSERT INTO `paket` (`id_paket`, `nama_paket`, `kecepatan`, `harga`) VALUES
-(1, '30 MBPS', 30, 250000.00),
-(2, '50 MBPS', 50, 320000.00),
-(3, '100 MBPS', 100, 500000.00);
+(1, 'Lite', '30 MBPS', 250000.00),
+(2, 'Family', '50 MBPS', 320000.00),
+(3, 'Max', '100 MBPS', 500000.00);
 
 -- --------------------------------------------------------
 
@@ -84,18 +84,12 @@ CREATE TABLE `tb_pelanggan` (
   `Nomor_Hp_2` varchar(20) NOT NULL,
   `id_paket` int(11) NOT NULL,
   `nama_paket` varchar(50) NOT NULL,
+  `kecepatan` int(11) NOT NULL,
   `Foto_KTP` varchar(255) NOT NULL,
   `Foto_Depan_Rumah` varchar(255) NOT NULL,
   `Status` enum('Aktif','NonAktif','','') NOT NULL,
   `dibuat_pada_` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data untuk tabel `tb_pelanggan`
---
-
-INSERT INTO `tb_pelanggan` (`id_pelanggan`, `Nama_Lengkap`, `Nomor_Identitas_KTP`, `Alamat_Pemasangan`, `provinsi`, `kota`, `latitude`, `longitude`, `Email`, `Nomor_Hp_1`, `Nomor_Hp_2`, `id_paket`, `nama_paket`, `Foto_KTP`, `Foto_Depan_Rumah`, `Status`, `dibuat_pada_`) VALUES
-(3004, 'iwan', '3209110408000007', 'Jl. Syech Lemahabang No.04, Astanamukti, Kec. Pangenan, Kabupaten Cirebon, Jawa Barat 45182, Indonesia', 'Jawa Barat', 'Cirebon', -6.795897, 108.641095, 'iwan@gmail.com', '083824142921', '083824142921', 2, '50 MBPS', 'fotoktp_3004.jpg', 'fotoDepanRumah_3004.jpg', 'Aktif', '2025-02-27');
 
 -- --------------------------------------------------------
 
@@ -112,13 +106,6 @@ CREATE TABLE `tb_pembayaran` (
   `Status` enum('Lunas','BelumLunas','') NOT NULL DEFAULT 'BelumLunas',
   `dibuat_pada_` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data untuk tabel `tb_pembayaran`
---
-
-INSERT INTO `tb_pembayaran` (`id_pembayaran`, `id_tagihan`, `Nama_Lengkap`, `bukti_pembayaran`, `periode`, `Status`, `dibuat_pada_`) VALUES
-(5005, 4004, 'iwan', 'bukti_pembayaran/bukti_5005_February_2025.jpg', 'February_2025', 'Lunas', '2025-02-27');
 
 -- --------------------------------------------------------
 
@@ -156,18 +143,12 @@ CREATE TABLE `tb_tagihan` (
   `id_tagihan` int(10) NOT NULL,
   `id_pelanggan` int(10) NOT NULL,
   `id_paket` int(11) NOT NULL,
+  `kecepatan` varchar(11) NOT NULL,
   `Nama_Lengkap` varchar(100) NOT NULL,
   `total_harga` decimal(10,2) NOT NULL,
   `status` enum('Belum Lunas','Lunas','','') NOT NULL,
   `dibuat_pada_` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data untuk tabel `tb_tagihan`
---
-
-INSERT INTO `tb_tagihan` (`id_tagihan`, `id_pelanggan`, `id_paket`, `Nama_Lengkap`, `total_harga`, `status`, `dibuat_pada_`) VALUES
-(4004, 3004, 2, 'iwan', 320000.00, 'Belum Lunas', '2025-02-27');
 
 -- --------------------------------------------------------
 
@@ -204,7 +185,8 @@ ALTER TABLE `adm`
 -- Indeks untuk tabel `paket`
 --
 ALTER TABLE `paket`
-  ADD PRIMARY KEY (`id_paket`);
+  ADD PRIMARY KEY (`id_paket`),
+  ADD UNIQUE KEY `kecepatan` (`kecepatan`);
 
 --
 -- Indeks untuk tabel `tb_pelanggan`
@@ -233,7 +215,8 @@ ALTER TABLE `tb_pengajuan`
 ALTER TABLE `tb_tagihan`
   ADD PRIMARY KEY (`id_tagihan`),
   ADD KEY `id_paket` (`id_paket`,`total_harga`),
-  ADD KEY `id_pelanggan` (`id_pelanggan`);
+  ADD KEY `id_pelanggan` (`id_pelanggan`),
+  ADD KEY `kecepatan` (`kecepatan`);
 
 --
 -- Indeks untuk tabel `user_app`
@@ -279,7 +262,7 @@ ALTER TABLE `tb_pengajuan`
 -- AUTO_INCREMENT untuk tabel `tb_tagihan`
 --
 ALTER TABLE `tb_tagihan`
-  MODIFY `id_tagihan` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4005;
+  MODIFY `id_tagihan` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4006;
 
 --
 -- AUTO_INCREMENT untuk tabel `user_app`
@@ -314,7 +297,8 @@ ALTER TABLE `tb_pengajuan`
 --
 ALTER TABLE `tb_tagihan`
   ADD CONSTRAINT `tb_tagihan_ibfk_1` FOREIGN KEY (`id_pelanggan`) REFERENCES `tb_pelanggan` (`id_pelanggan`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tb_tagihan_ibfk_2` FOREIGN KEY (`id_paket`) REFERENCES `paket` (`id_paket`);
+  ADD CONSTRAINT `tb_tagihan_ibfk_2` FOREIGN KEY (`id_paket`) REFERENCES `paket` (`id_paket`),
+  ADD CONSTRAINT `tb_tagihan_ibfk_3` FOREIGN KEY (`kecepatan`) REFERENCES `paket` (`kecepatan`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

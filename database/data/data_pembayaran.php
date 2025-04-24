@@ -33,16 +33,16 @@
                 }
               ?>
               <br><br>
-                <table id="example1" class="table table-bordered table-striped">
+                <table id="example1" class="table table-bordered table-striped" data-title="Laporan Data Pembayaran">
                   <thead>
                   <tr>
                     <th>No</th>
                     <th>ID</th>
                     <th>Nama</th>
-                    <th>Bukti Pembayaran</th>
+                    <!-- <th>Bukti Pembayaran</th> -->
                     <th>Periode</th>
                     <th>Status</th>
-                    <th>Actions</th>
+                    <th class="noExport">Actions</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -66,7 +66,7 @@
                     <!-- <td>
                     <img src="../database/android/pelanggan/<?= htmlspecialchars($pembayaran['bukti_pembayaran']) ?>" alt="Bukti Pembayaran" style="max-width: 30%; height: 30%; border: 1px solid #ccc; border-radius: 5px;">   
                     </td> -->
-                    <td><?php echo $pembayaran ['bukti_pembayaran'];?></td>
+                    <!-- <td><?php echo $pembayaran ['bukti_pembayaran'];?></td> -->
                     <td><?php echo $pembayaran ['periode'];?></td>
                     <td>
                     <select
@@ -75,7 +75,7 @@
                         <option value="BelumLunas" <?php echo ($pembayaran['Status'] == 'BelumLunas') ? 'selected' : ''; ?>>Belum Lunas</option>
                     </select>
                   </td>
-                    <td>
+                    <td class="noExport">
                       <a onclick="hapus_data_pembayaran(<?php echo $pembayaran ['id_pembayaran'];?>)" class="btn btn-sm btn-danger">Hapus</a>
                     </td>
                   </tr>

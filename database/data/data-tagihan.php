@@ -33,7 +33,7 @@
                 }
               ?>
               <br><br>
-                <table id="example1" class="table table-bordered table-striped">
+                <table id="example1" class="table table-bordered table-striped" data-title="Laporan Data Tagihan">
                   <thead>
                   <tr>
                     <th>No</th>
@@ -43,7 +43,7 @@
                     <th>ID Paket</th>
                     <th>Total Harga</th>
                     <th>Status</th>
-                    <th>Action</th>
+                    <th class="noExport">Action</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -64,10 +64,10 @@
                     <td><?php echo $tagihan['Nama_Lengkap']; ?></td>
                     <td><?php echo $tagihan['id_tagihan']; ?></td>
                     <td><?php echo $tagihan ['id_pelanggan'];?></td>
-                    <td><?php echo $tagihan ['id_paket'];?></td>
+                    <td><?php echo $tagihan ['kecepatan'];?></td>
                     <td><?php echo $tagihan ['total_harga'];?></td>
                     <td><?php echo $tagihan ['status'];?></td>
-                    <td><a onclick="hapus_data_tagihan(<?php echo $tagihan ['id_tagihan'];?>)" class="btn btn-sm btn-danger">Hapus</a></td>
+                    <td class="noExport"><a onclick="hapus_data_tagihan(<?php echo $tagihan ['id_tagihan'];?>)" class="btn btn-sm btn-danger">Hapus</a></td>
                   </tr>
                   <?php }?>
                   </tbody>

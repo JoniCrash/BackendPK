@@ -6,15 +6,15 @@
             <div class="card">
 
               <div class="card-header">
-                <h3 class="card-title">Data Paket</h3>
+                <h3 class="card-title">Data Paket Pelanggan</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
               <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-lg">
-                  Tambah Paket
+                  Tambah Data
                 </button>
-                <br>
-                <!-- <form method="post">
+                <br></br>
+                <form method="post">
                   <table>
                     <tr>
                       <td>Dari Tanggal</td>
@@ -24,39 +24,43 @@
                       <td><button type="submit" class="btn btn-info" name="filter" value="Filter">Filter</button>
                     </tr>
                   </table>
-                </form> -->
+                </form>
                 <?php
-                // if (isset($_POST['filter'])) {
-                //   $dari_tgl = mysqli_real_escape_string($koneksi,$_POST['dari_tgl']);
-                //   $sampai_tgl = mysqli_real_escape_string($koneksi,$_POST['sampai_tgl']);
-                //   echo " Dari Tanggal  " . $dari_tgl . " Sampai Tanggal  " . $sampai_tgl ;
-                // }
+                if (isset($_POST['filter'])) {
+                  $dari_tgl = mysqli_real_escape_string($koneksi,$_POST['dari_tgl']);
+                  $sampai_tgl = mysqli_real_escape_string($koneksi,$_POST['sampai_tgl']);
+                  echo " Dari Tanggal  " . $dari_tgl . " Sampai Tanggal  " . $sampai_tgl ;
+                }
               ?>
               <br><br>
-                <table id="example1" class="table table-bordered table-striped" data-title="Laporan Data Paket">
+                <table id="example1" class="table table-bordered table-striped" data-title="Laporan Data Paket Pelanggan">
                   <thead>
                   <tr>
                     <th>No</th>
-                    <!-- <th>Id Paket</th> -->
+                    <th>Id Pelanggan</th>
+                    <th>Nama Pelanggan</th>
                     <th>Paket</th>
-                    <th>Kecepatan</th>
-                    <th>Harga</th>
+                    <!-- <th>Action</th> -->
                   </tr>
                   </thead>
                   <tbody>
                   <?php
-                    $no = 0;
-                    $query = mysqli_query($koneksi, "SELECT * FROM paket");
-                    
+                    $no = 0; 
+                    if (isset($_POST['filter'])) {
+                      $dari_tgl = mysqli_real_escape_string($koneksi,$_POST ['dari_tgl']) ;
+                      $sampai_tgl = mysqli_real_escape_string($koneksi,$_POST ['sampai_tgl']) ;
+                      $query = mysqli_query ($koneksi, "SELECT * FROM tb_pelanggan WHERE dibuat_pada_ BETWEEN '$dari_tgl' AND '$sampai_tgl'");
+                    }else{
+                    $query = mysqli_query($koneksi, "SELECT * FROM tb_pelanggan");
+                    }
                     while($paket = mysqli_fetch_array($query)){
                       $no++
                     ?>
                   <tr>
                     <td width = 5%><?php echo $no?></td>
-                    <!-- <td><?php echo $paket ['id_paket'];?></td> -->
+                    <td><?php echo $paket ['id_pelanggan'];?></td>
+                    <td><?php echo $paket ['Nama_Lengkap'];?></td>
                     <td><?php echo $paket ['nama_paket'];?></td>
-                    <td><?php echo $paket ['kecepatan'];?></td>
-                    <td><?php echo $paket ['harga'];?></td>
                     <!-- <td>
                     <select
                         onchange="ubahPaket(<?php echo $paket ['id_pelanggan'];?>, this.value)">

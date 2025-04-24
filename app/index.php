@@ -49,8 +49,11 @@ if (isset($_GET['page'])){
     //Data Pelanggan
     include('content-header/content_header_pelanggan.php');
   }elseif($_GET['page']=='data-paket'){
-    //User App
-    include('content-header/content_header_paket.php');
+    //data paket
+    include('content-header/content_header_data_paket.php');
+  }elseif($_GET['page']=='data-paket-pelanggan'){
+    //Data Paket Pelanggan
+    include('content-header/content_header_data_paket_pelanggan.php');
   }elseif($_GET['page']=='data-pengajuan'){
     //Data Pengajuan
     include('content-header/content_header_pengajuan.php');
@@ -132,15 +135,18 @@ if (isset($_GET['page'])){
   }else if($_GET['page']=='data-user'){
     //User App
     include('../database/data/data_user.php');
+  }else if($_GET['page']=='data-paket'){
+    //Data Paket Pelanggan
+    include('../database/data/data_paket.php');
   }else if($_GET['page']=='data-pengajuan'){
     //Data Pengajuan
     include('../database/data/data_pengajuan.php');
   }else if($_GET['page']=='data-pelanggan'){
     //Data Pelanggan
     include('../database/data/data_pelanggan.php');
-  }else if($_GET['page']=='data-paket'){
-    //Data Paket
-    include('../database/data/data_paket.php');
+  }else if($_GET['page']=='data-paket-pelanggan'){
+    //Data Paket Pelanggan
+    include('../database/data/data_paket_pelanggan.php');
   }else if($_GET['page']=='data-tagihan' ){
     //Data Tagihan
     include('../database/data/data-tagihan.php');
