@@ -14,7 +14,7 @@ if (isset($_GET['id_pelanggan'])) {
 }
 
 // Query data pelanggan
-$query = "SELECT p.id_paket,  pk.harga, p.Nama_Lengkap
+$query = "SELECT p.id_paket, pk.nama_paket, pk.kecepatan,pk.harga, pk.kecepatan, p.Nama_Lengkap
           FROM tb_pelanggan p 
           INNER JOIN paket pk ON p.id_paket = pk.id_paket 
           WHERE p.id_pelanggan = ?";
@@ -43,15 +43,15 @@ if ($result->num_rows > 0) {
     }
 
     // Proses pembuatan tagihan
-    $insert = "INSERT INTO tb_tagihan (id_pelanggan, Nama_Lengkap, id_paket,kecepatan, total_harga, status) 
-               VALUES (?, ?, ?, ?, 'Belum Lunas')";
+    $insert = "INSERT INTO tb_tagihan (id_pelanggan, Nama_Lengkap, id_paket, nama_paket,kecepatan, total_harga, status) 
+               VALUES (?, ?, ?, ?, ?, ?, 'Belum Lunas')";
     $stmt_insert = $koneksi->prepare($insert);
 
     if (!$stmt_insert) {
         die("Gagal mempersiapkan query INSERT: " . $koneksi->error);
     }
 
-    $stmt_insert->bind_param("isis", $id_pelanggan,$data['Nama_Lengkap'] , $data['id_paket'], $data['harga']);
+    $stmt_insert->bind_param("isissd", $id_pelanggan,$data['Nama_Lengkap'] , $data['id_paket'], $data['nama_paket'], $data['kecepatan'], $data['harga']);
     if ($stmt_insert->execute()) {
         echo "Tagihan berhasil dibuat!";
     } else {

@@ -40,7 +40,8 @@
                     <th>Nama Lengkap</th>
                     <th>ID Tagihan</th>
                     <th>ID Pelanggan</th>
-                    <th>ID Paket</th>
+                    <th>Paket</th>
+                    <th>Kecepatan</th>
                     <th>Total Harga</th>
                     <th>Status</th>
                     <th class="noExport">Action</th>
@@ -64,9 +65,17 @@
                     <td><?php echo $tagihan['Nama_Lengkap']; ?></td>
                     <td><?php echo $tagihan['id_tagihan']; ?></td>
                     <td><?php echo $tagihan ['id_pelanggan'];?></td>
+                    <td><?php echo $tagihan ['nama_paket'];?></td>
                     <td><?php echo $tagihan ['kecepatan'];?></td>
                     <td><?php echo $tagihan ['total_harga'];?></td>
-                    <td><?php echo $tagihan ['status'];?></td>
+                    <td>
+                    <select
+                        onchange="ubahStatusTagihan(<?php echo $tagihan ['id_tagihan'];?>, this.value)">
+                        <option value="Lunas" <?php echo ($tagihan['status'] == 'Lunas') ? 'selected' : ''; ?>>Lunas</option>
+                        <option value="Belum Lunas" <?php echo ($tagihan['status'] == 'Belum Lunas') ? 'selected' : ''; ?>>Belum Lunas</option>
+                    </select>
+                      <!-- <?php echo $tagihan ['status'];?> -->
+                    </td>
                     <td class="noExport"><a onclick="hapus_data_tagihan(<?php echo $tagihan ['id_tagihan'];?>)" class="btn btn-sm btn-danger">Hapus</a></td>
                   </tr>
                   <?php }?>

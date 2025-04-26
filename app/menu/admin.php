@@ -20,7 +20,7 @@
               </li>
               <li class="nav-item">
                 <a href="index.php?page=data-paket" class="nav-link">
-                  <i class="far fa-user nav-icon"></i>
+                  <i class="far fa-folder nav-icon"></i>
                   <p>Paket</p>
                 </a>
               </li>
@@ -31,18 +31,17 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="index.php?page=data-pelanggan" class="nav-link">
-                  <i class="far fa-user nav-icon"></i>
-                  <p>Pelanggan</p>
-                </a>
-              </li>
-              <li class="nav-item">
                 <a href="index.php?page=data-paket-pelanggan" class="nav-link" >
                   <i class="far fa-folder nav-icon"></i>
                   <p>Data Paket Pelanggan</p>
                 </a>
               </li>
-
+              <li class="nav-item">
+                <a href="index.php?page=data-pelanggan" class="nav-link">
+                  <i class="far fa-user nav-icon"></i>
+                  <p>Pelanggan</p>
+                </a>
+              </li>
               <li class="nav-item">
                 <a href="index.php?page=data-tagihan" class="nav-link">
                   <i class="far fa-credit-card nav-icon"></i>

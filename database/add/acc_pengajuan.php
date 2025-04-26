@@ -1,5 +1,5 @@
 <?php
-include('../../conf/config.php');
+include('../conf/config.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $id_pengajuan = mysqli_real_escape_string($koneksi, $_POST['id_pengajuan']);
@@ -23,6 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $nomor_hp_2 = $data_pengajuan['Nomor_Hp_2'];
         $id_paket = $data_pengajuan['id_paket'];
         $nama_paket = $data_pengajuan['nama_paket'];
+        $kecepatan = $data_pengajuan['kecepatan'];
         $fotktp = $data_pengajuan['Foto_KTP'];
         $fotodepnrumah = $data_pengajuan['Foto_Depan_Rumah'];
 
@@ -35,9 +36,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Masukkan data ke tabel pelanggan
         $query_pelanggan = "
             INSERT INTO tb_pelanggan 
-            (Nama_Lengkap, Nomor_Identitas_KTP, Alamat_Pemasangan, provinsi, kota, latitude, longitude, Email, Nomor_Hp_1, Nomor_Hp_2, id_paket, nama_paket, Foto_KTP, Foto_Depan_Rumah) 
+            (Nama_Lengkap, Nomor_Identitas_KTP, Alamat_Pemasangan, provinsi, kota, latitude, longitude, Email, Nomor_Hp_1, Nomor_Hp_2, id_paket, nama_paket,kecepatan, Foto_KTP, Foto_Depan_Rumah) 
             VALUES 
-            ('$nama_lengkap', '$nomor_ktp', '$alamat', '$provinsi', '$kota', '$latitude', '$longitude', '$email', '$nomor_hp_1', '$nomor_hp_2', '$id_paket', '$nama_paket', '$fotktp', '$fotodepnrumah')";
+            ('$nama_lengkap', '$nomor_ktp', '$alamat', '$provinsi', '$kota', '$latitude', '$longitude', '$email', '$nomor_hp_1', '$nomor_hp_2', '$id_paket', '$nama_paket', '$kecepatan' , '$fotktp', '$fotodepnrumah')";
 
         if (mysqli_query($koneksi, $query_pelanggan)) {
             // Ambil ID pelanggan yang baru saja dibuat

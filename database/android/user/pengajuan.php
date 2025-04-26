@@ -14,7 +14,8 @@ $email = $_POST['Email'] ?? '';
 $no1 = $_POST['Nomor_Hp_1'] ?? '';
 $no2 = $_POST['Nomor_Hp_2'] ?? '';
 $id_paket = $_POST['id_paket'] ?? '';
-$paket = $_POST['nama_paket'] ?? '';
+$nama_paket = $_POST['nama_paket'] ?? '';
+$kecepata = $_POST['kecepatan'] ?? '';
 
 // Validasi file yang diunggah
 if (!isset($_FILES['fotoktp'], $_FILES['fotodepanrumah'])) {
@@ -22,14 +23,16 @@ if (!isset($_FILES['fotoktp'], $_FILES['fotodepanrumah'])) {
 }
 
 // Dapatkan nama paket berdasarkan id_paket
-$query_paket = "SELECT nama_paket FROM paket WHERE id_paket = '$id_paket'";
+$query_paket = "SELECT nama_paket,kecepatan FROM paket WHERE id_paket = '$id_paket'";
 $result_paket = mysqli_query($koneksi, $query_paket);
 $paket_data = mysqli_fetch_assoc($result_paket);
 
 if ($paket_data) {
     $nama_paket = $paket_data['nama_paket'];
+    $kecepatan = $paket_data['kecepatan'];
 } else {
     $nama_paket = ''; // Jika tidak ditemukan
+    $kecepatan = ''; // Jika tidak ditemukan
 }
 
 // Proses penyimpanan ke database
@@ -45,8 +48,10 @@ $query_insert = "INSERT INTO tb_pengajuan (
     Email,
     Nomor_Hp_1,
     Nomor_Hp_2,
+    id_paket,
     nama_paket,
-    id_paket
+    kecepatan
+    
 ) VALUES (
     '$id_user',
     '$nama_Lengkap',
@@ -59,8 +64,9 @@ $query_insert = "INSERT INTO tb_pengajuan (
     '$email',
     '$no1',
     '$no2',
-    '$paket',
-    '$id_paket'
+    '$id_paket',
+    '$nama_paket',
+    '$kecepatan'
 )";
 
 if (mysqli_query($koneksi, $query_insert)) {
