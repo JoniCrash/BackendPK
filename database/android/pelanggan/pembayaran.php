@@ -55,6 +55,7 @@ if (isset($_FILES['gambarbuktipembayaran'])) {
     $file_ext = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
     $target_dir = 'bukti_pembayaran/';
     $target_file = $target_dir . "bukti_" . $id_pembayaran . "_" . date("F_Y") . "." . $file_ext;
+    $file_name_only = basename($target_file); // ambil nama file saja tanpa folder
 
     // Cek direktori
     if (!is_dir($target_dir)) {
@@ -67,7 +68,7 @@ if (isset($_FILES['gambarbuktipembayaran'])) {
                          SET bukti_pembayaran = ? 
                          WHERE id_pembayaran = ?";
         $stmt_update = $koneksi->prepare($query_update);
-        $stmt_update->bind_param("si", $target_file, $id_pembayaran);
+        $stmt_update->bind_param("si", $file_name_only, $id_pembayaran);
 
         if (!$stmt_update->execute()) {
             sendError("Gagal memperbarui bukti pembayaran: " . $stmt_update->error);
