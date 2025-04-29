@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 25 Apr 2025 pada 01.15
+-- Waktu pembuatan: 29 Apr 2025 pada 20.09
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.2.12
 
@@ -84,12 +84,19 @@ CREATE TABLE `tb_pelanggan` (
   `Nomor_Hp_2` varchar(20) NOT NULL,
   `id_paket` int(11) NOT NULL,
   `nama_paket` varchar(50) NOT NULL,
-  `kecepatan` int(11) NOT NULL,
+  `kecepatan` varchar(11) NOT NULL,
   `Foto_KTP` varchar(255) NOT NULL,
   `Foto_Depan_Rumah` varchar(255) NOT NULL,
   `Status` enum('Aktif','NonAktif','','') NOT NULL,
   `dibuat_pada_` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `tb_pelanggan`
+--
+
+INSERT INTO `tb_pelanggan` (`id_pelanggan`, `Nama_Lengkap`, `Nomor_Identitas_KTP`, `Alamat_Pemasangan`, `provinsi`, `kota`, `latitude`, `longitude`, `Email`, `Nomor_Hp_1`, `Nomor_Hp_2`, `id_paket`, `nama_paket`, `kecepatan`, `Foto_KTP`, `Foto_Depan_Rumah`, `Status`, `dibuat_pada_`) VALUES
+(3014, 'alex', '12345678910111213', 'Jl. Kanci - Sindang Laut No.48, Japura Lor, Kec. Pangenan, Kabupaten Cirebon, Jawa Barat 45182, Indonesia', 'Jawa Barat', 'Cirebon', -6.795972, 108.641063, 'alex@gmail.com', '0812', '0834', 3, 'Max', '100 MBPS', 'fotoktp_3014.jpg', 'fotoDepanRumah_3014.jpg', 'Aktif', '2025-04-26');
 
 -- --------------------------------------------------------
 
@@ -106,6 +113,15 @@ CREATE TABLE `tb_pembayaran` (
   `Status` enum('Lunas','BelumLunas','') NOT NULL DEFAULT 'BelumLunas',
   `dibuat_pada_` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `tb_pembayaran`
+--
+
+INSERT INTO `tb_pembayaran` (`id_pembayaran`, `id_tagihan`, `Nama_Lengkap`, `bukti_pembayaran`, `periode`, `Status`, `dibuat_pada_`) VALUES
+(5006, 4006, 'alex', 'bukti_5006_April_2025.jpg', 'April_2025', 'Lunas', '2025-04-26'),
+(5007, 4006, 'alex', 'bukti_5007_April_2025.jpg', 'April_2025', 'BelumLunas', '2025-04-29'),
+(5008, 4006, 'alex', 'bukti_5008_April_2025.jpg', 'April_2025', 'BelumLunas', '2025-04-29');
 
 -- --------------------------------------------------------
 
@@ -128,10 +144,18 @@ CREATE TABLE `tb_pengajuan` (
   `Nomor_Hp_2` varchar(20) NOT NULL,
   `id_paket` int(11) NOT NULL,
   `nama_paket` varchar(50) NOT NULL,
+  `kecepatan` varchar(11) NOT NULL,
   `Foto_KTP` varchar(255) NOT NULL,
   `Foto_Depan_Rumah` varchar(255) NOT NULL,
   `dibuat_pada_` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `tb_pengajuan`
+--
+
+INSERT INTO `tb_pengajuan` (`id_pengajuan`, `id_user`, `Nama_Lengkap`, `Nomor_Identitas_KTP`, `Alamat_Pemasangan`, `provinsi`, `kota`, `latitude`, `longitude`, `Email`, `Nomor_Hp_1`, `Nomor_Hp_2`, `id_paket`, `nama_paket`, `kecepatan`, `Foto_KTP`, `Foto_Depan_Rumah`, `dibuat_pada_`) VALUES
+(2019, 1004, 'alex', '12345678910111213', 'Jl. Kanci - Sindang Laut No.48, Japura Lor, Kec. Pangenan, Kabupaten Cirebon, Jawa Barat 45182, Indonesia', 'Jawa Barat', 'Cirebon', -6.795972, 108.641063, 'alex@gmail.com', '0812', '0834', 3, 'Max', '100 MBPS', 'foto_ktp/fotoktp_2019.jpg', 'foto_depan_rumah/fotoDepanRumah_2019.jpg', '2025-04-26');
 
 -- --------------------------------------------------------
 
@@ -143,12 +167,20 @@ CREATE TABLE `tb_tagihan` (
   `id_tagihan` int(10) NOT NULL,
   `id_pelanggan` int(10) NOT NULL,
   `id_paket` int(11) NOT NULL,
+  `nama_paket` varchar(50) NOT NULL,
   `kecepatan` varchar(11) NOT NULL,
   `Nama_Lengkap` varchar(100) NOT NULL,
   `total_harga` decimal(10,2) NOT NULL,
   `status` enum('Belum Lunas','Lunas','','') NOT NULL,
   `dibuat_pada_` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `tb_tagihan`
+--
+
+INSERT INTO `tb_tagihan` (`id_tagihan`, `id_pelanggan`, `id_paket`, `nama_paket`, `kecepatan`, `Nama_Lengkap`, `total_harga`, `status`, `dibuat_pada_`) VALUES
+(4006, 3014, 3, 'Max', '100 MBPS', 'alex', 500000.00, 'Lunas', '2025-04-26');
 
 -- --------------------------------------------------------
 
@@ -169,7 +201,8 @@ CREATE TABLE `user_app` (
 --
 
 INSERT INTO `user_app` (`id_user`, `username`, `email`, `pass`, `dibuat_pada_`) VALUES
-(1003, 'iwan', 'iwan@gmail.com', 'iwan123???', '2025-02-27');
+(1003, 'iwan', 'iwan@gmail.com', 'iwan123???', '2025-02-27'),
+(1004, 'alex', 'alex@gmail.com', 'alex123', '2025-04-26');
 
 --
 -- Indexes for dumped tables
@@ -244,31 +277,31 @@ ALTER TABLE `paket`
 -- AUTO_INCREMENT untuk tabel `tb_pelanggan`
 --
 ALTER TABLE `tb_pelanggan`
-  MODIFY `id_pelanggan` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3005;
+  MODIFY `id_pelanggan` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3015;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_pembayaran`
 --
 ALTER TABLE `tb_pembayaran`
-  MODIFY `id_pembayaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5006;
+  MODIFY `id_pembayaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5009;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_pengajuan`
 --
 ALTER TABLE `tb_pengajuan`
-  MODIFY `id_pengajuan` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2016;
+  MODIFY `id_pengajuan` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2020;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_tagihan`
 --
 ALTER TABLE `tb_tagihan`
-  MODIFY `id_tagihan` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4006;
+  MODIFY `id_tagihan` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4007;
 
 --
 -- AUTO_INCREMENT untuk tabel `user_app`
 --
 ALTER TABLE `user_app`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1004;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1005;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
