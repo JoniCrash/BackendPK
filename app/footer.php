@@ -195,26 +195,36 @@
     });
 </script>
 <script>
-    function setPaketID() {
-        var paketValue = document.getElementById('paket').value;
-        
-        var idPaket = '';
-        var namaPaket = '';
-        if (paketValue === '1') {
-            idPaket = '1';
-            namaPaket = '30 mbps';
-        } else if (paketValue === '2') {
-            idPaket = '2';
-            namaPaket = '50 mbps';
-        } else if (paketValue === '3') {
-            idPaket = '3';
-            namaPaket = '100 mbps';
-        }
+function setPaketID() {
+    var paketValue = document.getElementById('paket').value;
 
-        document.getElementById('id_paket').value = idPaket;
-        document.getElementById('nama_paket').value = namaPaket;
+    var idPaket = '';
+    var namaPaket = '';
+    var kecepatan = '';
+
+    if (paketValue === '1') {
+        idPaket = '1';
+        namaPaket = 'Lite';
+        kecepatan = '30 MBPS';
+    } else if (paketValue === '2') {
+        idPaket = '2';
+        namaPaket = 'Family';
+        kecepatan = '50 MBPS';
+    } else if (paketValue === '3') {
+        idPaket = '3';
+        namaPaket = 'Max';
+        kecepatan = '100 MBPS';
     }
+
+    // Masukkan ke input hidden
+    document.getElementById('id_paket').value = idPaket;
+    document.getElementById('id_paket_display').value = idPaket;
+    document.getElementById('kecepatan').value = kecepatan;
+    document.getElementById('kecepatan_display').value = kecepatan;
+    document.getElementById('nama_paket').value = namaPaket;
+}
 </script>
+
 <script>
   function buatTagihan(id_pelanggan) {
     if (confirm("Apakah Anda yakin ingin membuat tagihan untuk pelanggan ini?")) {
@@ -322,7 +332,7 @@
 </script>
 <script>
   function ubahPaket(id_pelanggan, paket, id_paket) {
-  console.log("Mengirim status:", id_pelanggan, paket, id_paket); // Debug log untuk mengecek data yang dikirim
+  console.log("Mengirim status:", id_pelanggan, paket, kecepatan, id_paket); // Debug log untuk mengecek data yang dikirim
   
   const xhr = new XMLHttpRequest();
   xhr.open("POST", "http://localhost:8080/backendpk/database/update/update_paket_pelanggan.php", true);
@@ -340,7 +350,7 @@
     }
   };
   
-  xhr.send("id_pelanggan=" + id_pelanggan + "nama_paket=" + paket + "&id_paket" + id_paket);
+  xhr.send("id_pelanggan=" + id_pelanggan + "nama_paket=" + paket + "kecepatan" + kecepatan + "&id_paket" + id_paket);
 }
 
 

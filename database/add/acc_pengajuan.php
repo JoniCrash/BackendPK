@@ -26,6 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $kecepatan = $data_pengajuan['kecepatan'];
         $fotktp = $data_pengajuan['Foto_KTP'];
         $fotodepnrumah = $data_pengajuan['Foto_Depan_Rumah'];
+        $file_name_only = basename($target_file); // ambil nama file saja tanpa folder
 
         // Validasi gambar
         if (empty($fotktp) || empty($fotodepnrumah)) {

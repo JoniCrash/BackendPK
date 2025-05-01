@@ -72,7 +72,7 @@
                     </select>
                     </td> -->
                     <td>
-                      <a onclick="hapus_data(<?php echo $paket ['id_pelanggan'];?>)" class="btn btn-sm btn-danger">Ubah Paket</a>
+                    <a href="index.php?page=ubah-paket-pelanggan&id=<?php echo $paket ['id_pelanggan'];?>" class="btn btn-sm btn-success">Ubah Paket</a>
                     </td>
                   </tr>
                   <?php }?>

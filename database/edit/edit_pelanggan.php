@@ -66,7 +66,7 @@ $pelanggan= mysqli_fetch_array($query);
                         </div>
 
                         <div class="form-group">
-                        <label>ID Paket</label>
+                        <label>Paket</label>
                         <input type="text" class="form-control text-sm numeric bg-light" value="<?php echo $pelanggan['nama_paket'];?>" readonly>
                         <select name="paket" id="paket" class="form-control" onchange="setPaketID()">
                           <option>Pilih</option>

@@ -37,7 +37,7 @@
                   <thead>
                   <tr>
                     <th>No</th>
-                    <th>ID</th>
+                    <th>ID Pembayaran</th>
                     <th>Nama</th>
                     <!-- <th>Bukti Pembayaran</th> -->
                     <th>Periode</th>
