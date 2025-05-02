@@ -41,7 +41,7 @@
                     <th>Nama Pelanggan</th>
                     <th>Paket</th>
                     <th>Kecepatan</th>
-                    <th>Action</th>
+                    <th class="noExport">Action</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -71,7 +71,7 @@
                         <option value="100 MBPS" <?php echo ($paket['nama_paket'] == '100 MBPS') ? 'selected' : ''; ?>>100 MBPS</option>
                     </select>
                     </td> -->
-                    <td>
+                    <td class="noExport">
                     <a href="index.php?page=ubah-paket-pelanggan&id=<?php echo $paket ['id_pelanggan'];?>" class="btn btn-sm btn-success">Ubah Paket</a>
                     </td>
                   </tr>
