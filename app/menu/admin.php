@@ -55,6 +55,12 @@
                   <p>Pembayaran</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="index.php?page=data-terminasi" class="nav-link">
+                  <i class="far fa-trash-can nav-icon"></i>
+                  <p>Terminasi</p>
+                </a>
+              </li>
               <!-- <li class="nav-item">
                 <a href="index.php?page=tambah-pelanggan" class="nav-link">
                   <i class="far fa-credit-card nav-icon"></i>

@@ -26,6 +26,9 @@
       case 'data-pembayaran':
           $title = "Pembayaran - Comet Service";
           break;
+      case 'data-terminasi':
+          $title = "Terminasi - Comet Service";
+          break;
   }
  ?>
   <title><?php echo $title; ?></title>

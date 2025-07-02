@@ -60,6 +60,9 @@ if (isset($_GET['page'])){
   }elseif($_GET['page']=='data-pembayaran'){
     //Data Pembayaran
     include('content-header/content_header_pembayaran.php');
+      }elseif($_GET['page']=='data-terminasi'){
+    //Data Terminasi
+    include('content-header/content_header_data_terminasi.php');
   }elseif($_GET['page']=='profil-pelanggan'){
     //Profil Pelanggan
     include('content-header/content_header_profil_pelanggan.php');
@@ -157,6 +160,9 @@ if (isset($_GET['page'])){
   }else if($_GET['page']=='data-pembayaran'){
     //Data Pembayaran
     include('../database/data/data_pembayaran.php');
+      }else if($_GET['page']=='data-terminasi'){
+    //Data Terminasi
+    include('../database/data/data_terminasi.php');
   }else if ($_GET['page'] == 'profil-pengajuan' && isset($_GET['id_pengajuan'])) {
     //Profil Pengajuan
     include('../database/profil/profil_pengajuan.php');

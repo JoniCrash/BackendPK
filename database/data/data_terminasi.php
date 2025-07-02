@@ -6,13 +6,13 @@
             <div class="card">
 
               <div class="card-header">
-                <h3 class="card-title">Data Pelanggan</h3>
+                <h3 class="card-title">Data Terminasi</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-              <a href="index.php?page=tambah-pelanggan">
+              <!-- <a href="index.php?page=tambah-pelanggan">
               <button type="button" class="btn btn-info">Tambah Pelanggan</button>
-              </a>
+              </a> -->
                 <br></br>
                 <form method="post">
                   <table>
@@ -33,15 +33,14 @@
                 }
               ?>
               <br><br>
-                <table id="example1" class="table table-bordered table-striped" data-title="Laporan Data Pelanggan">
+                <table id="example1" class="table table-bordered table-striped" data-title="Laporan Data Terminasi">
                   <thead>
                   <tr>
                     <th>No</th>
+                    <th>ID Terminasi</th>
                     <th>ID Pelanggan</th>
                     <th>Nama Lengkap</th>
-                    <th>Nomor Telepon</th>
-                    <th>Alamat </th>
-                    <th>Status</th>
+                    <th>Tanggal</th>
                     <th class="noExport">Action</th>
                   </tr>
                   </thead>
@@ -51,35 +50,23 @@
                     if (isset($_POST['filter'])) {
                       $dari_tgl = mysqli_real_escape_string($koneksi,$_POST ['dari_tgl']) ;
                       $sampai_tgl = mysqli_real_escape_string($koneksi,$_POST ['sampai_tgl']) ;
-                      $query = mysqli_query ($koneksi, "SELECT * FROM tb_pelanggan WHERE dibuat_pada_ BETWEEN '$dari_tgl' AND '$sampai_tgl'");
+                      $query = mysqli_query ($koneksi, "SELECT * FROM tb_terminasi WHERE dibuat_pada_ BETWEEN '$dari_tgl' AND '$sampai_tgl'");
                     }else{
-                    $query = mysqli_query($koneksi, "SELECT * FROM tb_pelanggan");
+                    $query = mysqli_query($koneksi, "SELECT * FROM tb_terminasi");
                     }
-                    while($pelanggan = mysqli_fetch_array($query)){
+                    while($terminasi = mysqli_fetch_array($query)){
                       $no++
                     ?>
                   <tr>
                     <td width = 5%><?php echo $no?></td>
-
-                    <td><a href="index.php?page=profil-pelanggan&id_pelanggan=<?php echo $pelanggan['id_pelanggan']; ?>"><?php echo $pelanggan['id_pelanggan']; ?></a></td>
+                    <td><a href="index.php?page=profil-terminasi&id_terminasi=<?php echo $terminasi['id_terminasi']; ?>"><?php echo $terminasi['id_terminasi']; ?></a></td>
 
                     <!-- </td> -->
-                    <td><?php echo $pelanggan ['Nama_Lengkap'];?></td>
-                    <td><?php echo $pelanggan ['Nomor_Hp_1'];?></td>
-                    <td><?php echo $pelanggan ['Alamat_Pemasangan'];?></td>
-                    <td>
-                    <select
-                        onchange="ubahStatusPelanggan(<?php echo $pelanggan ['id_pelanggan'];?>, this.value)">
-                        <option value="Nonaktif" <?php echo ($pelanggan['Status'] == 'Nonaktif') ? 'selected' : ''; ?>>Nonaktif</option>
-                        <option value="Aktif" <?php echo ($pelanggan['Status'] == 'Aktif') ? 'selected' : ''; ?>>Aktif</option>
-                    </select>
-                    </td>
+                     <td><?php echo $terminasi ['id_pelanggan'];?></td>
+                    <td><?php echo $terminasi ['Nama_Lengkap'];?></td>
+                    <td><?php echo $terminasi ['dibuat_pada_'];?></td>
                     <td class="noExport">
-                      <a onclick="hapus_data_pelanggan(<?php echo $pelanggan ['id_pelanggan'];?>)" class="btn btn-sm btn-danger">Hapus</a>
-                      <a href="index.php?page=edit-pelanggan&id=<?php echo $pelanggan ['id_pelanggan'];?>" class="btn btn-sm btn-success">Edit</a>
-                      <a onclick="terminasi_data_pelanggan(<?php echo $pelanggan ['id_pelanggan'];?>)" class="btn btn-sm btn-secondary">Terminasi</a>
-
-                      <a onclick="buatTagihan(<?php echo $pelanggan ['id_pelanggan'];?>)" class="btn btn-sm btn-primary">Buat Tagihan</a>
+                      <a onclick="hapus_data_terminasi(<?php echo $terminasi ['id_terminasi'];?>)" class="btn btn-sm btn-danger">Hapus</a>
                     </td>
                   </tr>
                   <?php }?>

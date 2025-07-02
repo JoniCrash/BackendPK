@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 01 Bulan Mei 2025 pada 07.35
+-- Waktu pembuatan: 02 Jul 2025 pada 18.47
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.2.12
 
@@ -99,9 +99,9 @@ INSERT INTO `tb_pelanggan` (`id_pelanggan`, `Nama_Lengkap`, `Nomor_Identitas_KTP
 (3015, 'maskina', '3274035003720009', 'Perumahan Grand Firdaus Residance 2 blok E-11, Mundumesigit, Kec. Mundu, Kabupaten Cirebon, Jawa Barat 45173, Indonesia', 'Jawa Barat', 'Cirebon', -6.767365, 108.591789, 'maskina@gmail.com', '089694375484', '089694375484', 2, 'Family', '50 MBPS', 'fotoktp_3015.jpg', 'fotoDepanRumah_3015.jpg', 'Aktif', '2025-05-01'),
 (3016, 'Lukman pratin', '3209196607850003', 'Jl. Kanggraksan Selatan No.15, RT.05 RT02, Harjamukti, Kec. Harjamukti, Kota Cirebon, Jawa Barat 45143, Indonesia', 'Jawa Barat', 'Cirebon', -6.741460, 108.546570, 'Lukmanpratin@gmail.com', '083461845273', '083461845273', 1, 'Lite', '30 MBPS', 'fotoktp_3016.jpg', 'fotoDepanRumah_3016.jpg', 'Aktif', '2025-05-01'),
 (3017, 'haryanto', '3274051611870008', 'Jl. Perjuangan III, Sunyaragi, Kec. Kesambi, Kota Cirebon, Jawa Barat 45131, Indonesia', 'Jawa Barat', 'Cirebon', -6.732336, 108.530655, 'haryanto@gmail.com', '081315070711', '081315070711', 3, 'Max', '100 MBPS', 'fotoktp_3017.jpg', 'fotoDepanRumah_3017.jpg', 'Aktif', '2025-05-01'),
-(3018, 'ferry ferdiansyah', '3274031710830005', 'Jl. Saladara, Karyamulya, Kec. Kesambi, Kota Cirebon, Jawa Barat 45135, Indonesia', 'Jawa Barat', 'Cirebon', -6.745041, 108.528030, 'ferry@gmail.com', '0895351463838', '0895351463838', 1, 'Lite', '30 MBPS', 'fotoktp_3018.jpg', 'fotoDepanRumah_3018.jpg', 'Aktif', '2025-05-01'),
+(3018, 'ferry ferdiansyah', '3274031710830005', 'Jl. Saladara, Karyamulya, Kec. Kesambi, Kota Cirebon, Jawa Barat 45135, Indonesia', 'Jawa Barat', 'Cirebon', -6.745041, 108.528030, 'ferry@gmail.com', '0895351463838', '0895351463838', 2, 'Family', '50 MBPS', 'fotoktp_3018.jpg', 'fotoDepanRumah_3018.jpg', 'Aktif', '2025-05-01'),
 (3019, 'Mochammad teguh ramadhan', '3210171501990001', 'Jl. Kapuk VIII No.e49, Kedawung, Kec. Kedawung, Kabupaten Cirebon, Jawa Barat 45153, Indonesia', 'Jawa Barat', 'Cirebon', -6.716309, 108.528801, 'teguh@gmail.com', '082130545108', '082130545108', 1, 'Lite', '30 MBPS', 'fotoktp_3019.jpg', 'fotoDepanRumah_3019.jpg', 'Aktif', '2025-05-01'),
-(3020, 'Rafael mikko wenzelo', '3274051206070002', 'Jl. Tentara Pelajar No.9, Pekiringan, Kec. Kesambi, Kota Cirebon, Jawa Barat 45131, Indonesia', 'Jawa Barat', 'Cirebon', -6.715886, 108.556259, 'rafael@gmail.com', '0895320173461', '0895320173461', 3, 'Max', '100 MBPS', 'fotoktp_3020.jpg', 'fotoDepanRumah_3020.jpg', 'Aktif', '2025-05-01');
+(3020, 'Rafael mikko wenzelo', '3274051206070002', 'Jl. Tentara Pelajar No.9, Pekiringan, Kec. Kesambi, Kota Cirebon, Jawa Barat 45131, Indonesia', 'Jawa Barat', 'Cirebon', -6.715886, 108.556259, 'rafael@gmail.com', '0895320173461', '0895320173461', 2, 'Family', '50 MBPS', 'fotoktp_3020.jpg', 'fotoDepanRumah_3020.jpg', 'Aktif', '2025-05-01');
 
 -- --------------------------------------------------------
 
@@ -191,6 +191,19 @@ INSERT INTO `tb_tagihan` (`id_tagihan`, `id_pelanggan`, `id_paket`, `nama_paket`
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `tb_terminasi`
+--
+
+CREATE TABLE `tb_terminasi` (
+  `id_terminasi` int(10) NOT NULL,
+  `id_pelanggan` int(10) NOT NULL,
+  `Nama_Lengkap` varchar(100) NOT NULL,
+  `dibuat_pada_` date NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `user_app`
 --
 
@@ -263,6 +276,13 @@ ALTER TABLE `tb_tagihan`
   ADD KEY `kecepatan` (`kecepatan`);
 
 --
+-- Indeks untuk tabel `tb_terminasi`
+--
+ALTER TABLE `tb_terminasi`
+  ADD PRIMARY KEY (`id_terminasi`),
+  ADD KEY `id_pelanggan` (`id_pelanggan`);
+
+--
 -- Indeks untuk tabel `user_app`
 --
 ALTER TABLE `user_app`
@@ -309,6 +329,12 @@ ALTER TABLE `tb_tagihan`
   MODIFY `id_tagihan` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4013;
 
 --
+-- AUTO_INCREMENT untuk tabel `tb_terminasi`
+--
+ALTER TABLE `tb_terminasi`
+  MODIFY `id_terminasi` int(10) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT untuk tabel `user_app`
 --
 ALTER TABLE `user_app`
@@ -343,6 +369,12 @@ ALTER TABLE `tb_tagihan`
   ADD CONSTRAINT `tb_tagihan_ibfk_1` FOREIGN KEY (`id_pelanggan`) REFERENCES `tb_pelanggan` (`id_pelanggan`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `tb_tagihan_ibfk_2` FOREIGN KEY (`id_paket`) REFERENCES `paket` (`id_paket`),
   ADD CONSTRAINT `tb_tagihan_ibfk_3` FOREIGN KEY (`kecepatan`) REFERENCES `paket` (`kecepatan`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Ketidakleluasaan untuk tabel `tb_terminasi`
+--
+ALTER TABLE `tb_terminasi`
+  ADD CONSTRAINT `tb_terminasi_ibfk_1` FOREIGN KEY (`id_pelanggan`) REFERENCES `tb_pelanggan` (`id_pelanggan`) ON DELETE CASCADE ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
