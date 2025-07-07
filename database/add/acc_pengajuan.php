@@ -78,8 +78,8 @@ if (rename($source_file_ktp, $target_file_ktp) && rename($source_file_depanrumah
 
     if (mysqli_query($koneksi, $query_update)) {
         // Hapus data dari tabel pengajuan
-        $query_hapus = "DELETE FROM tb_pengajuan WHERE id_pengajuan = '$id_pengajuan'";
-        mysqli_query($koneksi, $query_hapus);
+        // $query_hapus = "DELETE FROM tb_pengajuan WHERE id_pengajuan = '$id_pengajuan'";
+        // mysqli_query($koneksi, $query_hapus);
 
         echo "<script>alert('Pengajuan berhasil diterima dan ditambahkan sebagai pelanggan!'); window.location.href='index.php?page=data-pengajuan';</script>";
     } else {

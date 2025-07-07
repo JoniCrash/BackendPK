@@ -420,3 +420,12 @@ function ubahStatusPembayaran(id_pembayaran, Status) {
   xhr.send("id_pembayaran=" + id_pembayaran + "&Status=" + Status);
 }
 </script>
+
+<script>
+  function addTerminasi(id_pelanggan) {
+    if (confirm("Apakah Anda yakin ingin membuat terminasi untuk pelanggan ini?")) {
+      // Kirim permintaan ke server menggunakan URL
+      window.location.href = "index.php?page=buat-terminasi&id_pelanggan="+ id_pelanggan;
+    }
+  }
+</script>

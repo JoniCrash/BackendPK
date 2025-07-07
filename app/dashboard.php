@@ -8,7 +8,8 @@ $query = "
 	(SELECT COUNT(*) FROM tb_pengajuan) as totalPengajuan,
 	(SELECT COUNT(*) FROM tb_pelanggan) as totalPelanggan,
 	(SELECT COUNT(*) FROM tb_tagihan) as totalTagihan,
-	(SELECT COUNT(*) FROM tb_pembayaran) as totalPembayaran	
+	(SELECT COUNT(*) FROM tb_pembayaran) as totalPembayaran,
+	(SELECT COUNT(*) FROM tb_terminasi) as totalTerminasi
 ";
 $result = $koneksi->query($query);
 
@@ -19,8 +20,9 @@ if ($result) {
     $totalTagihan = $data['totalTagihan'];
     $totalPembayaran = $data['totalPembayaran'];
     $totalPengajuan = $data['totalPengajuan'];
+	$totalTerminasi = $data['totalTerminasi'];
 } else {
-    $totaluser = $totalPelanggan = $totalTagihan = $totalPembayaran = $totalPengajuan = 0;
+    $totaluser = $totalPelanggan = $totalTagihan = $totalPembayaran = $totalPengajuan = $totalTerminasi= 0;
 }
 
 
@@ -111,6 +113,20 @@ if ($result) {
 							</div>
 							<div class="icon">
 								<i class="ion ion-cash"></i>
+							</div>
+							<a href="index.php?page=data-pembayaran" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+						</div>
+					</div>
+										<div class="col-lg-3 col-6">
+						<!-- small box -->
+						<div class="small-box bg-danger">
+							<div class="inner">
+								<h3><?php echo $totalTerminasi; ?></h3>
+
+								<p>total Terminasi</p>
+							</div>
+							<div class="icon">
+								<i class="ion ion-trash-outline"></i>
 							</div>
 							<a href="index.php?page=data-pembayaran" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
 						</div>

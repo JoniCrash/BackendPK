@@ -122,6 +122,10 @@ if (isset($_GET['page'])){
   elseif($_GET['page']=='update-paket-pelanggan'){
     include('content-header/content_header_update_paket_pelanggan.php');
   }
+  elseif($_GET['page']=='buat-terminasi'){
+    //buat terminasi
+    include('content-header/content_header_buat_terminasi.php');
+  }
 
   else{
     include('content-header/content_header_dashboard.php');
@@ -221,6 +225,10 @@ else if($_GET['page']=='terima-pengajuan'){
   else if($_GET['page']=='update-paket-pelanggan'){
     include('../database/update/update_paket_pelanggan.php');
   }
+  else if($_GET['page']=='buat-terminasi'){
+  //Terima pengajuan
+  include('../database/add/add_terminasi.php');
+}
   // else if($_GET['page']=='edit-data'){
   //   include('edit/edit_data.php');
   // }
