@@ -5,7 +5,16 @@ $id_pembayaran = isset($_GET['id_pembayaran']) ? intval($_GET['id_pembayaran']) 
 
 if ($id_pembayaran > 0) {
     // Query untuk mendapatkan data pembayaran berdasarkan ID
-    $sql = "SELECT * FROM tb_pembayaran WHERE id_pembayaran = ?";
+    $sql = "
+    SELECT 
+        pb.*,
+        pl.Nama_Lengkap
+    FROM tb_pembayaran pb
+    JOIN tb_tagihan tg ON pb.id_tagihan = tg.id_tagihan
+    JOIN tb_pelanggan pl ON tg.id_pelanggan = pl.id_pelanggan
+    WHERE pb.id_pembayaran = ?
+";
+
     $stmt = $koneksi->prepare($sql);
     $stmt->bind_param("i", $id_pembayaran);
     $stmt->execute();

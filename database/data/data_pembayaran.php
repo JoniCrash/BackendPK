@@ -51,9 +51,24 @@
                     if (isset($_POST['filter'])) {
                       $dari_tgl = mysqli_real_escape_string($koneksi,$_POST ['dari_tgl']) ;
                       $sampai_tgl = mysqli_real_escape_string($koneksi,$_POST ['sampai_tgl']) ;
-                      $query = mysqli_query ($koneksi, "SELECT * FROM tb_pembayaran WHERE dibuat_pada_ BETWEEN '$dari_tgl' AND '$sampai_tgl'");
+                      $query = mysqli_query($koneksi, "
+                        SELECT 
+                            pb.*, 
+                            pl.Nama_Lengkap
+                        FROM tb_pembayaran pb
+                        JOIN tb_tagihan tg ON pb.id_tagihan = tg.id_tagihan
+                        JOIN tb_pelanggan pl ON tg.id_pelanggan = pl.id_pelanggan
+                        WHERE pb.dibuat_pada_ BETWEEN '$dari_tgl' AND '$sampai_tgl'
+                    ");
                     }else{
-                    $query = mysqli_query($koneksi, "SELECT * FROM tb_pembayaran");
+                    $query = mysqli_query($koneksi, "
+                      SELECT 
+                          pb.*, 
+                          pl.Nama_Lengkap
+                      FROM tb_pembayaran pb
+                      JOIN tb_tagihan tg ON pb.id_tagihan = tg.id_tagihan
+                      JOIN tb_pelanggan pl ON tg.id_pelanggan = pl.id_pelanggan
+                  ");
                     }
                     while($pembayaran = mysqli_fetch_array($query)){
                       $no++

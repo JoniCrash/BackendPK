@@ -39,9 +39,8 @@
                     <th>No</th>
                     <th>Nama Lengkap</th>
                     <th>ID Tagihan</th>
-                    <th>ID Pelanggan</th>
                     <th>Paket</th>
-                    <th>Kecepatan</th>
+                    <th>Periode</th>
                     <th>Total Harga</th>
                     <th>Status</th>
                     <th class="noExport">Action</th>
@@ -53,9 +52,37 @@
                     if (isset($_POST['filter'])) {
                       $dari_tgl = mysqli_real_escape_string($koneksi,$_POST ['dari_tgl']) ;
                       $sampai_tgl = mysqli_real_escape_string($koneksi,$_POST ['sampai_tgl']) ;
-                      $query = mysqli_query ($koneksi, "SELECT * FROM tb_tagihan WHERE dibuat_pada_ BETWEEN '$dari_tgl' AND '$sampai_tgl'");
+                      $query = mysqli_query($koneksi, "
+                        SELECT 
+                            t.id_tagihan, 
+                            t.id_pelanggan,
+                            t.status,
+                            t.dibuat_pada_,
+                            p.Nama_Lengkap,
+                            k.nama_paket,
+                            k.kecepatan,
+                            k.harga AS total_harga
+                        FROM tb_tagihan t
+                        JOIN tb_pelanggan p ON t.id_pelanggan = p.id_pelanggan
+                        JOIN paket k ON p.id_paket = k.id_paket
+                        WHERE t.dibuat_pada_ BETWEEN '$dari_tgl' AND '$sampai_tgl'
+                    ");
                     }else{
-                    $query = mysqli_query($koneksi, "SELECT * FROM tb_tagihan");
+                    $query = mysqli_query($koneksi, "
+                        SELECT 
+                            t.id_tagihan, 
+                            t.id_pelanggan,
+                            t.periode,
+                            t.status,
+                            t.dibuat_pada_,
+                            p.Nama_Lengkap,
+                            k.nama_paket,
+                            k.kecepatan,
+                            k.harga AS total_harga
+                        FROM tb_tagihan t
+                        JOIN tb_pelanggan p ON t.id_pelanggan = p.id_pelanggan
+                        JOIN paket k ON p.id_paket = k.id_paket
+                    ");
                     }
                     while($tagihan = mysqli_fetch_array($query)){
                       $no++
@@ -64,9 +91,8 @@
                     <td width = 5%><?php echo $no?></td>
                     <td><?php echo $tagihan['Nama_Lengkap']; ?></td>
                     <td><?php echo $tagihan['id_tagihan']; ?></td>
-                    <td><?php echo $tagihan ['id_pelanggan'];?></td>
-                    <td><?php echo $tagihan ['nama_paket'];?></td>
                     <td><?php echo $tagihan ['kecepatan'];?></td>
+                    <td><?php echo $tagihan ['periode'];?></td>
                     <td><?php echo $tagihan ['total_harga'];?></td>
                     <td>
                     <select

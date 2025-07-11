@@ -5,7 +5,14 @@ $id_pelanggan = isset($_GET['id_pelanggan']) ? intval($_GET['id_pelanggan']) : 0
 
 if ($id_pelanggan > 0) {
     // Query untuk mendapatkan data pelanggan berdasarkan ID
-    $sql = "SELECT * FROM tb_pelanggan WHERE id_pelanggan = ?";
+    $sql = "SELECT 
+            p.*, 
+            k.nama_paket, 
+            k.kecepatan, 
+            k.harga 
+        FROM tb_pelanggan p 
+        JOIN paket k ON p.id_paket = k.id_paket 
+        WHERE p.id_pelanggan = ?";
     $stmt = $koneksi->prepare($sql);
     $stmt->bind_param("i", $id_pelanggan);
     $stmt->execute();
@@ -168,9 +175,20 @@ if ($id_pelanggan > 0) {
                                                 
                                                 <div class="col-md-12">
                                                     <div class="form-group">
-                                                        <label class="font-weight-normal">Paket Layanan</label>
-                                                        <input type="text" class="form-control text-sm numeric bg-light" value="<?php echo $pelanggan['nama_paket'];?>" readonly>
-                                                    </div>
+    <label class="font-weight-normal">Paket Layanan</label>
+    <input type="text" class="form-control text-sm numeric bg-light" value="<?php echo $pelanggan['nama_paket']; ?>" readonly>
+</div>
+
+<div class="form-group">
+    <label class="font-weight-normal">Kecepatan</label>
+    <input type="text" class="form-control text-sm numeric bg-light" value="<?php echo $pelanggan['kecepatan']; ?>" readonly>
+</div>
+
+<div class="form-group">
+    <label class="font-weight-normal">Harga</label>
+    <input type="text" class="form-control text-sm numeric bg-light" value="Rp <?php echo number_format($pelanggan['harga'], 0, ',', '.'); ?>" readonly>
+</div>
+
                                                 </div>
                                                 <hr />
                                             </fieldset>  

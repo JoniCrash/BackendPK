@@ -54,7 +54,7 @@ if (isset($_FILES['gambarbuktipembayaran'])) {
     $file = $_FILES['gambarbuktipembayaran'];
     $file_ext = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
     $target_dir = 'bukti_pembayaran/';
-    $target_file = $target_dir . "bukti_" . $id_pembayaran . "_" . date("F_Y") . "." . $file_ext;
+    $target_file = $target_dir . "bukti_" . $id_pembayaran . "_" . date("F Y") . "." . $file_ext;
     $file_name_only = basename($target_file); // ambil nama file saja tanpa folder
 
     // Cek direktori
