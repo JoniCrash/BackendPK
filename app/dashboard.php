@@ -128,7 +128,7 @@ if ($result) {
 							<div class="icon">
 								<i class="ion ion-trash-outline"></i>
 							</div>
-							<a href="index.php?page=data-pembayaran" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+							<a href="index.php?page=data-terminasi" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
 						</div>
 					</div>
 				</div>
