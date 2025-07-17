@@ -51,26 +51,22 @@
                       $dari_tgl = mysqli_real_escape_string($koneksi,$_POST ['dari_tgl']) ;
                       $sampai_tgl = mysqli_real_escape_string($koneksi,$_POST ['sampai_tgl']) ;
                       $query = mysqli_query($koneksi, "
-                        SELECT 
-                            p.id_pelanggan,
-                            p.Nama_Lengkap,
-                            p.dibuat_pada_,
-                            k.nama_paket,
-                            k.kecepatan
-                        FROM tb_pelanggan p
-                        JOIN tb_paket k ON p.id_paket = k.id_paket
-                        WHERE p.dibuat_pada_ BETWEEN '$dari_tgl' AND '$sampai_tgl'
+                      SELECT p.*, 
+                             pj.*, 
+                             pk.*
+                      FROM tb_pelanggan p
+                      INNER JOIN tb_pengajuan pj ON p.id_pengajuan = pj.id_pengajuan
+                      INNER JOIN paket pk ON p.id_paket = pk.id_paket
+                      WHERE pj.dibuat_pada_ BETWEEN '$dari_tgl' AND '$sampai_tgl'
                     ");
                     }else{
                     $query = mysqli_query($koneksi, "
-                      SELECT 
-                          p.id_pelanggan,
-                          p.Nama_Lengkap,
-                          p.dibuat_pada_,
-                          k.nama_paket,
-                          k.kecepatan
+                      SELECT p.*, 
+                             pj.*, 
+                             pk.*
                       FROM tb_pelanggan p
-                      JOIN paket k ON p.id_paket = k.id_paket
+                      INNER JOIN tb_pengajuan pj ON p.id_pengajuan = pj.id_pengajuan
+                      INNER JOIN paket pk ON p.id_paket = pk.id_paket
                   ");
                     }
                     while($paket = mysqli_fetch_array($query)){

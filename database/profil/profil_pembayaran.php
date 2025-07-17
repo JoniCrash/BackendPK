@@ -1,4 +1,3 @@
-<!-- 
 <?php
 // Ambil ID pembayaran dari parameter URL
 $id_pembayaran = isset($_GET['id_pembayaran']) ? intval($_GET['id_pembayaran']) : 0;
@@ -8,12 +7,17 @@ if ($id_pembayaran > 0) {
     $sql = "
     SELECT 
         pb.*,
-        pl.Nama_Lengkap
+        tg.*,
+        pl.*,
+        pj.*,
+        pk.*
     FROM tb_pembayaran pb
     JOIN tb_tagihan tg ON pb.id_tagihan = tg.id_tagihan
     JOIN tb_pelanggan pl ON tg.id_pelanggan = pl.id_pelanggan
+    JOIN tb_pengajuan pj ON pl.id_pengajuan = pj.id_pengajuan
+    JOIN paket pk ON tg.id_paket = pk.id_paket
     WHERE pb.id_pembayaran = ?
-";
+    ";
 
     $stmt = $koneksi->prepare($sql);
     $stmt->bind_param("i", $id_pembayaran);
@@ -23,7 +27,6 @@ if ($id_pembayaran > 0) {
     if ($result->num_rows > 0) {
         // Ambil data pembayaran
         $pembayaran = $result->fetch_assoc();
-
     } else {
         echo "Data pembayaran tidak ditemukan.";
         exit;
@@ -32,13 +35,9 @@ if ($id_pembayaran > 0) {
     echo "ID pembayaran tidak valid.";
     exit;
 }
-
-
-
-// $stmt->close();
-// $koneksi->close();
-?> -->
-
+$stmt->close();
+$koneksi->close();
+?>
 <style>
         .profile-container {
             max-width: 600px;
@@ -56,14 +55,10 @@ if ($id_pembayaran > 0) {
             margin-top: 20px;
         }
     </style>
-
-
 <section class="content">
     <div class="container">
         <div class="card card-primary card-outline card-outline-tabs">
             <div class="card-body">
-
-
                 <div class="tab-content">
                     <div class="tab-pane active" >
                     <div class="container row text-sm">
@@ -77,7 +72,7 @@ if ($id_pembayaran > 0) {
                                 <div style="width: 150px">Nama Pelanggan</div>
                                 <div style="width: 220px">
                                     <input class="form-control text-sm bg-light"
-                                        style="height: 30px" type="text" value= <?php echo $pembayaran['Nama_Lengkap'];?> readonly>
+                                        style="height: 30px" type="text" value="<?php echo htmlspecialchars($pembayaran['Nama_Lengkap']); ?>" readonly>
                                 </div>
                                 <div class="w-100 mb-1"></div>
                                 <div style="width: 150px">Status Pembayaran</div>

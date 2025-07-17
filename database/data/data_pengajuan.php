@@ -50,16 +50,31 @@
                   </thead>
                   <tbody>
                     <?php
-                    $no = 0; 
+                    $no = 0;
+
                     if (isset($_POST['filter'])) {
-                      $dari_tgl = mysqli_real_escape_string($koneksi,$_POST ['dari_tgl']) ;
-                      $sampai_tgl = mysqli_real_escape_string($koneksi,$_POST ['sampai_tgl']) ;
-                      $query = mysqli_query ($koneksi, "SELECT * FROM tb_pengajuan WHERE dibuat_pada_ BETWEEN '$dari_tgl' AND '$sampai_tgl'");
-                    }else{
-                    $query = mysqli_query($koneksi, "SELECT * FROM tb_pengajuan");
+                        $dari_tgl = mysqli_real_escape_string($koneksi, $_POST['dari_tgl']);
+                        $sampai_tgl = mysqli_real_escape_string($koneksi, $_POST['sampai_tgl']);
+
+                        $query = mysqli_query($koneksi, "
+                            SELECT pj.*, us.username, us.email, pk.nama_paket, pk.kecepatan, pk.harga
+                            FROM tb_pengajuan pj
+                            INNER JOIN user_app us ON pj.id_user = us.id_user
+                            INNER JOIN paket pk ON pj.id_paket = pk.id_paket
+                            WHERE pj.dibuat_pada_ BETWEEN '$dari_tgl' AND '$sampai_tgl'
+                            ORDER BY pj.dibuat_pada_ DESC
+                        ");
+                    } else {
+                        $query = mysqli_query($koneksi, "
+                            SELECT pj.*, us.username, us.email, pk.nama_paket, pk.kecepatan, pk.harga
+                            FROM tb_pengajuan pj
+                            INNER JOIN user_app us ON pj.id_user = us.id_user
+                            INNER JOIN paket pk ON pj.id_paket = pk.id_paket
+                            ORDER BY pj.dibuat_pada_ DESC
+                        ");
                     }
-                    while($pengajuan = mysqli_fetch_array($query)){
-                      $no++
+                    while ($pengajuan = mysqli_fetch_array($query)) {
+                        $no++;
                     ?>
                   <tr>
                     <td width = 5%><?= $no?></td>
@@ -68,14 +83,9 @@
                     <td><?= $pengajuan ['Nama_Lengkap'];?></td>
                     <td><?= $pengajuan ['Nomor_Identitas_KTP'];?></td>
                     <td><?= $pengajuan ['Alamat_Pemasangan'];?></td>
-                    <!-- <td><?= $pengajuan ['latitude'];?></td>
-                    <td><?= $pengajuan ['longitude'];?></td> -->
                     <td><?= $pengajuan ['Email'];?></td>
                     <td><?= $pengajuan ['Nomor_Hp_1'];?></td>
-                    <!-- <td><?= $pengajuan ['Nomor_Hp_2'];?></td> -->
                     <td><?= $pengajuan ['nama_paket'];?></td>
-                    <!-- <td><?= $pengajuan ['Foto_KTP'];?></td>
-                    <td><?= $pengajuan ['Foto_Depan_Rumah'];?></td> -->
                     <td class="noExport">
                       <a onclick="hapus_data_pengajuan(<?= $pengajuan ['id_pengajuan'];?>)" class="btn btn-sm btn-danger">Hapus</a>
                       

@@ -46,17 +46,40 @@
                   </thead>
                   <tbody>
                     <?php
-                    $no = 0; 
-                    if (isset($_POST['filter'])) {
-                      $dari_tgl = mysqli_real_escape_string($koneksi,$_POST ['dari_tgl']) ;
-                      $sampai_tgl = mysqli_real_escape_string($koneksi,$_POST ['sampai_tgl']) ;
-                      $query = mysqli_query ($koneksi, "SELECT * FROM tb_terminasi WHERE dibuat_pada_ BETWEEN '$dari_tgl' AND '$sampai_tgl'");
-                    }else{
-                    $query = mysqli_query($koneksi, "SELECT * FROM tb_terminasi");
-                    }
-                    while($terminasi = mysqli_fetch_array($query)){
-                      $no++
-                    ?>
+                      $no = 0;
+                      if (isset($_POST['filter'])) {
+                          $dari_tgl = mysqli_real_escape_string($koneksi, $_POST['dari_tgl']);
+                          $sampai_tgl = mysqli_real_escape_string($koneksi, $_POST['sampai_tgl']);
+
+                          $query = mysqli_query($koneksi, "
+                              SELECT 
+                                  t.*, 
+                                  p.*, 
+                                  pj.*, 
+                                  pk.*
+                              FROM tb_terminasi t
+                              INNER JOIN tb_pelanggan p ON t.id_pelanggan = p.id_pelanggan
+                              INNER JOIN tb_pengajuan pj ON p.id_pengajuan = pj.id_pengajuan
+                              INNER JOIN paket pk ON p.id_paket = pk.id_paket
+                              WHERE t.dibuat_pada_ BETWEEN '$dari_tgl' AND '$sampai_tgl'
+                          ");
+                      } else {
+                          $query = mysqli_query($koneksi, "
+                              SELECT 
+                                  t.*, 
+                                  p.*, 
+                                  pj.*, 
+                                  pk.*
+                              FROM tb_terminasi t
+                              INNER JOIN tb_pelanggan p ON t.id_pelanggan = p.id_pelanggan
+                              INNER JOIN tb_pengajuan pj ON p.id_pengajuan = pj.id_pengajuan
+                              INNER JOIN paket pk ON p.id_paket = pk.id_paket
+                          ");
+                      }
+
+                      while ($terminasi = mysqli_fetch_array($query)) {
+                          $no++;
+                      ?>
                   <tr>
                     <td width = 5%><?php echo $no?></td>
                     <td><a href="index.php?page=profil-terminasi&id_terminasi=<?php echo $terminasi['id_terminasi']; ?>"><?php echo $terminasi['id_terminasi']; ?></a></td>

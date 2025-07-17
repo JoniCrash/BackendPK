@@ -1,11 +1,20 @@
 
 <?php
+include('../conf/config.php');
+
 // Ambil ID pengajuan dari parameter URL
 $id_pengajuan = isset($_GET['id_pengajuan']) ? intval($_GET['id_pengajuan']) : 0;
 
 if ($id_pengajuan > 0) {
-    // Query untuk mendapatkan data pengajuan berdasarkan ID
-    $sql = "SELECT * FROM tb_pengajuan WHERE id_pengajuan = ?";
+    // Query untuk mendapatkan data pengajuan lengkap dengan JOIN ke user_app dan tb_paket
+    $sql = "
+        SELECT pj.*, us.username, us.Email, pk.nama_paket, pk.kecepatan, pk.harga
+        FROM tb_pengajuan pj
+        INNER JOIN user_app us ON pj.id_user = us.id_user
+        INNER JOIN paket pk ON pj.id_paket = pk.id_paket
+        WHERE pj.id_pengajuan = ?
+    ";
+    
     $stmt = $koneksi->prepare($sql);
     $stmt->bind_param("i", $id_pengajuan);
     $stmt->execute();
@@ -14,7 +23,6 @@ if ($id_pengajuan > 0) {
     if ($result->num_rows > 0) {
         // Ambil data pengajuan
         $pengajuan = $result->fetch_assoc();
-
     } else {
         echo "Data pengajuan tidak ditemukan.";
         exit;
@@ -26,7 +34,7 @@ if ($id_pengajuan > 0) {
 
 // $stmt->close();
 // $koneksi->close();
-?> 
+?>
 
 <style>
         .profile-container {
@@ -186,7 +194,7 @@ if ($id_pengajuan > 0) {
                                                         <div class="mt-2 mb-3 ml-1 mr-1">
                                                         <div class="input-group input-group-sm">
                                                        
-                                                        <img src="../database/android/user/<?= htmlspecialchars($pengajuan['Foto_KTP']) ?>" alt="Foto KTP" style="max-width: 100%; height: auto; border: 1px solid #ccc; border-radius: 5px;">
+                                                        <img src="../database/android/user/foto_ktp/<?= htmlspecialchars($pengajuan['Foto_KTP']) ?>" alt="Foto KTP" style="max-width: 100%; height: auto; border: 1px solid #ccc; border-radius: 5px;">
 
                                                         </div>
                                                         </div>
@@ -200,7 +208,7 @@ if ($id_pengajuan > 0) {
                                                         <div class="mt-2 mb-3 ml-1 mr-1">
                                                         <div class="input-group input-group-sm">
                                                        
-                                                       <img src="../database/android/user/<?= htmlspecialchars($pengajuan['Foto_Depan_Rumah']) ?>" alt="Foto Depan Rumah" style="max-width: 100%; height: auto; border: 1px solid #ccc; border-radius: 5px;">
+                                                       <img src="../database/android/user/foto_depan_rumah/<?= htmlspecialchars($pengajuan['Foto_Depan_Rumah']) ?>" alt="Foto Depan Rumah" style="max-width: 100%; height: auto; border: 1px solid #ccc; border-radius: 5px;">
 
                                                        </div>                                                           
                                                         </div>

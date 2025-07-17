@@ -6,12 +6,12 @@ $id_pelanggan = isset($_GET['id_pelanggan']) ? intval($_GET['id_pelanggan']) : 0
 if ($id_pelanggan > 0) {
     // Query untuk mendapatkan data pelanggan berdasarkan ID
     $sql = "SELECT 
-            p.*, 
-            k.nama_paket, 
-            k.kecepatan, 
-            k.harga 
-        FROM tb_pelanggan p 
-        JOIN paket k ON p.id_paket = k.id_paket 
+            p.*,
+            pj.*,
+            pk.*
+        FROM tb_pelanggan p
+        JOIN tb_pengajuan pj ON p.id_pengajuan = pj.id_pengajuan
+        JOIN paket pk ON p.id_paket = pk.id_paket 
         WHERE p.id_pelanggan = ?";
     $stmt = $koneksi->prepare($sql);
     $stmt->bind_param("i", $id_pelanggan);
@@ -31,8 +31,8 @@ if ($id_pelanggan > 0) {
     exit;
 }
 
-// $stmt->close();
-// $koneksi->close();
+$stmt->close();
+$koneksi->close();
 ?> 
 
 <style>
@@ -223,7 +223,7 @@ if ($id_pelanggan > 0) {
                                                         <div class="mt-2 mb-3 ml-1 mr-1">
                                                         <div class="input-group input-group-sm">
                                                        
-                                                        <img src="../database/android/pelanggan/foto_ktp/<?= htmlspecialchars($pelanggan['Foto_KTP']) ?>" alt="Foto KTP" style="max-width: 100%; height: auto; border: 1px solid #ccc; border-radius: 5px;">
+                                                        <img src="../database/android/user/foto_ktp/<?= htmlspecialchars($pelanggan['Foto_KTP']) ?>" alt="Foto KTP" style="max-width: 100%; height: auto; border: 1px solid #ccc; border-radius: 5px;">
 
                                                         </div>
                                                         </div>
@@ -235,7 +235,7 @@ if ($id_pelanggan > 0) {
                                                     <fieldset class="well bg-light">
                                                         <legend class="well-legend bg-light"><strong>Foto Depan Rumah</strong></legend>
                                                        
-                                                       <img src="../database/android/pelanggan/foto_depan_rumah/<?= htmlspecialchars($pelanggan['Foto_Depan_Rumah']) ?>" alt="Foto KTP" style="max-width: 100%; height: auto; border: 1px solid #ccc; border-radius: 5px;">
+                                                       <img src="../database/android/user/foto_depan_rumah/<?= htmlspecialchars($pelanggan['Foto_Depan_Rumah']) ?>" alt="Foto KTP" style="max-width: 100%; height: auto; border: 1px solid #ccc; border-radius: 5px;">
                                                               
                                                     </fieldset>
                                                 </div>

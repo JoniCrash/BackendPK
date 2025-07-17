@@ -48,45 +48,40 @@
                   </thead>
                   <tbody>
                     <?php
-                    $no = 0; 
-                    if (isset($_POST['filter'])) {
-                      $dari_tgl = mysqli_real_escape_string($koneksi,$_POST ['dari_tgl']) ;
-                      $sampai_tgl = mysqli_real_escape_string($koneksi,$_POST ['sampai_tgl']) ;
-                      $query = mysqli_query($koneksi, "
-                        SELECT 
-                            t.id_tagihan, 
-                            t.id_pelanggan,
-                            t.status,
-                            t.dibuat_pada_,
-                            p.Nama_Lengkap,
-                            k.nama_paket,
-                            k.kecepatan,
-                            k.harga AS total_harga
-                        FROM tb_tagihan t
-                        JOIN tb_pelanggan p ON t.id_pelanggan = p.id_pelanggan
-                        JOIN paket k ON p.id_paket = k.id_paket
-                        WHERE t.dibuat_pada_ BETWEEN '$dari_tgl' AND '$sampai_tgl'
-                    ");
-                    }else{
-                    $query = mysqli_query($koneksi, "
-                        SELECT 
-                            t.id_tagihan, 
-                            t.id_pelanggan,
-                            t.periode,
-                            t.status,
-                            t.dibuat_pada_,
-                            p.Nama_Lengkap,
-                            k.nama_paket,
-                            k.kecepatan,
-                            k.harga AS total_harga
-                        FROM tb_tagihan t
-                        JOIN tb_pelanggan p ON t.id_pelanggan = p.id_pelanggan
-                        JOIN paket k ON p.id_paket = k.id_paket
-                    ");
-                    }
-                    while($tagihan = mysqli_fetch_array($query)){
-                      $no++
-                    ?>
+                      $no = 0; 
+                      if (isset($_POST['filter'])) {
+                          $dari_tgl = mysqli_real_escape_string($koneksi, $_POST['dari_tgl']);
+                          $sampai_tgl = mysqli_real_escape_string($koneksi, $_POST['sampai_tgl']);
+                          
+                          $query = mysqli_query($koneksi, "
+                              SELECT 
+                                  t.*,             -- Data tagihan
+                                  p.*,             -- Data pelanggan
+                                  pj.*,            -- Data pengajuan
+                                  pk.*  -- Ambil kolom penting dari paket
+                              FROM tb_tagihan t
+                              INNER JOIN tb_pelanggan p ON t.id_pelanggan = p.id_pelanggan
+                              INNER JOIN tb_pengajuan pj ON p.id_pengajuan = pj.id_pengajuan
+                              INNER JOIN paket pk ON p.id_paket = pk.id_paket
+                              WHERE t.dibuat_pada_ BETWEEN '$dari_tgl' AND '$sampai_tgl'
+                          ");
+                      } else {
+                          $query = mysqli_query($koneksi, "
+                              SELECT 
+                                  t.*, 
+                                  p.*, 
+                                  pj.*, 
+                                  pk.*
+                              FROM tb_tagihan t
+                              INNER JOIN tb_pelanggan p ON t.id_pelanggan = p.id_pelanggan
+                              INNER JOIN tb_pengajuan pj ON p.id_pengajuan = pj.id_pengajuan
+                              INNER JOIN paket pk ON p.id_paket = pk.id_paket
+                          ");
+                      }
+
+                      while($tagihan = mysqli_fetch_array($query)){
+                          $no++;
+                      ?>
                   <tr>
                     <td width = 5%><?php echo $no?></td>
                     <td><?php echo $tagihan['Nama_Lengkap']; ?></td>

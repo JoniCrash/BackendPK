@@ -51,23 +51,33 @@
                     if (isset($_POST['filter'])) {
                       $dari_tgl = mysqli_real_escape_string($koneksi,$_POST ['dari_tgl']) ;
                       $sampai_tgl = mysqli_real_escape_string($koneksi,$_POST ['sampai_tgl']) ;
-                      $query = mysqli_query($koneksi, "
+                        $query = mysqli_query($koneksi, "
+                            SELECT 
+                                pb.*,
+                                tg.*,
+                                pl.*,
+                                pj.*,
+                                pk.*
+                            FROM tb_pembayaran pb
+                            JOIN tb_tagihan tg ON pb.id_tagihan = tg.id_tagihan
+                            JOIN tb_pelanggan pl ON tg.id_pelanggan = pl.id_pelanggan
+                            JOIN tb_pengajuan pj ON pl.id_pengajuan = pj.id_pengajuan
+                            JOIN paket pk ON tg.id_paket = pk.id_paket
+                            WHERE pb.dibuat_pada_ BETWEEN '$dari_tgl' AND '$sampai_tgl'
+                        ");
+                    }else{
+                    $query = mysqli_query($koneksi, "
                         SELECT 
-                            pb.*, 
-                            pl.Nama_Lengkap
+                            pb.*,
+                            tg.*,
+                            pl.*,
+                            pj.*,
+                            pk.*
                         FROM tb_pembayaran pb
                         JOIN tb_tagihan tg ON pb.id_tagihan = tg.id_tagihan
                         JOIN tb_pelanggan pl ON tg.id_pelanggan = pl.id_pelanggan
-                        WHERE pb.dibuat_pada_ BETWEEN '$dari_tgl' AND '$sampai_tgl'
-                    ");
-                    }else{
-                    $query = mysqli_query($koneksi, "
-                      SELECT 
-                          pb.*, 
-                          pl.Nama_Lengkap
-                      FROM tb_pembayaran pb
-                      JOIN tb_tagihan tg ON pb.id_tagihan = tg.id_tagihan
-                      JOIN tb_pelanggan pl ON tg.id_pelanggan = pl.id_pelanggan
+                        JOIN tb_pengajuan pj ON pl.id_pengajuan = pj.id_pengajuan
+                        JOIN paket pk ON tg.id_paket = pk.id_paket
                   ");
                     }
                     while($pembayaran = mysqli_fetch_array($query)){
