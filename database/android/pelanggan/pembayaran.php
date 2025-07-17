@@ -20,7 +20,7 @@ if (!$id_tagihan) {
 
 // Ambil Nama_Lengkap dan periode dari tabel tagihan
 $query_name_periode = "
-    SELECT Nama_Lengkap, DATE_FORMAT(dibuat_pada_, '%M_%Y') AS periode 
+    SELECT Nama_Lengkap, DATE_FORMAT(dibuat_pada_, '%M %Y') AS periode 
     FROM tb_tagihan 
     WHERE id_tagihan = ?";
 $stmt = $koneksi->prepare($query_name_periode);
@@ -33,12 +33,11 @@ $row = $result->fetch_assoc();
 if (!$row) {
     sendError("Data tidak ditemukan untuk ID Tagihan: $id_tagihan");
 }
-$nama_lengkap = $row['Nama_Lengkap'];
 $periode = $row['periode'];
 
 // Simpan data pembayaran
-$query_insert = "INSERT INTO tb_pembayaran (id_tagihan, Nama_Lengkap, periode, status) 
-                 VALUES (?, ?, ?, ?)";
+$query_insert = "INSERT INTO tb_pembayaran (id_tagihan, periode, status) 
+                 VALUES (?, ?, ?)";
 $stmt_insert = $koneksi->prepare($query_insert);
 $stmt_insert->bind_param("isss", $id_tagihan, $nama_lengkap, $periode, $status);
 

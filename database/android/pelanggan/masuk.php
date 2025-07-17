@@ -15,8 +15,15 @@ if (isset($_POST['email'])) {
         exit();
     }
 
-    // Gunakan prepared statement untuk menghindari SQL Injection
-    $stmt = $koneksi->prepare("SELECT id_pelanggan, Email FROM tb_pelanggan WHERE email = ?");
+    // Gunakan prepared statement untuk ambil pelanggan berdasarkan email di tb_pengajuan
+    $stmt = $koneksi->prepare("
+        SELECT 
+            pl.*, 
+            pj.*
+        FROM tb_pelanggan pl
+        JOIN tb_pengajuan pj ON pl.id_pengajuan = pj.id_pengajuan
+        WHERE pj.email = ?
+    ");
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -29,7 +36,7 @@ if (isset($_POST['email'])) {
             "message" => "Login berhasil",
             "data" => [
                 "id_pelanggan" => $pelanggan['id_pelanggan'],
-                "email" => $pelanggan['Email']
+                "email" => $pelanggan['email']
             ]
         ]);
     } else {
@@ -42,4 +49,5 @@ if (isset($_POST['email'])) {
     ob_clean();
     echo json_encode(["status" => "error", "message" => "Input tidak lengkap."]);
 }
+
 ?>

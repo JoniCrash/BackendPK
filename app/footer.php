@@ -335,7 +335,7 @@ function setPaketID() {
   console.log("Mengirim status:", id_pelanggan, paket, kecepatan, id_paket); // Debug log untuk mengecek data yang dikirim
   
   const xhr = new XMLHttpRequest();
-  xhr.open("POST", "http://localhost:80/backendpk/database/update/update_paket_pelanggan.php", true);
+  xhr.open("POST", "http://localhost:8080/backendpk/database/update/update_paket_pelanggan.php", true);
   xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
   
   xhr.onreadystatechange = function () {
@@ -358,7 +358,7 @@ function ubahStatusPelanggan(id_pelanggan, Status) {
   console.log("Mengirim status:", id_pelanggan, Status); // Debug log untuk mengecek data yang dikirim
   
   const xhr = new XMLHttpRequest();
-  xhr.open("POST", "http://localhost:80/backendpk/database/update/update_status_pelanggan.php", true);
+  xhr.open("POST", "http://localhost:8080/backendpk/database/update/update_status_pelanggan.php", true);
   xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
   
   xhr.onreadystatechange = function () {
