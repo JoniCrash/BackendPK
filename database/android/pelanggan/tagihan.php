@@ -54,7 +54,7 @@ if (isset($_POST['id_pelanggan'])) {
          FROM tb_tagihan t
          JOIN tb_pelanggan pl ON t.id_pelanggan = pl.id_pelanggan
          JOIN tb_pengajuan pj ON pl.id_pengajuan = pj.id_pengajuan
-         JOIN tb_paket p ON t.id_paket = p.id_paket
+         JOIN paket p ON t.id_paket = p.id_paket
          WHERE t.id_pelanggan = '$id_pelanggan'"
     );
 
