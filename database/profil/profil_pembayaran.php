@@ -6,16 +6,14 @@ if ($id_pembayaran > 0) {
     // Query untuk mendapatkan data pembayaran berdasarkan ID
     $sql = "
     SELECT 
-        pb.*,
-        tg.*,
-        pl.*,
-        pj.*,
-        pk.*
+        pb.id_pembayaran,pb.Status,pb.bukti_pembayaran,
+        tg.id_tagihan,tg.periode,
+        pl.id_pelanggan,
+        pj.Nama_Lengkap
     FROM tb_pembayaran pb
     JOIN tb_tagihan tg ON pb.id_tagihan = tg.id_tagihan
     JOIN tb_pelanggan pl ON tg.id_pelanggan = pl.id_pelanggan
     JOIN tb_pengajuan pj ON pl.id_pengajuan = pj.id_pengajuan
-    JOIN paket pk ON tg.id_paket = pk.id_paket
     WHERE pb.id_pembayaran = ?
     ";
 
@@ -84,7 +82,7 @@ $koneksi->close();
                                 <div style="width: 150px">Periode</div>
                                 <div style="width: 220px">
                                 <input class="form-control text-sm bg-light"
-                                style="height: 30px" type="text" value= <?php echo $pembayaran['periode'];?> readonly>
+                                style="height: 30px" type="text" value= "<?php echo $pembayaran['periode'];?>" readonly>
                                 </div>
                                         <div class="col-md-12 mt-3">
                                         <div class="row">
@@ -95,7 +93,7 @@ $koneksi->close();
                                                         <div class="mt-2 mb-3 ml-1 mr-1">
                                                         <div class="input-group input-group-sm">
                                                        
-                                                        <img src="../database/android/pelanggan/<?= htmlspecialchars($pembayaran['bukti_pembayaran']) ?>" alt="Bukti Pembayaran" style="max-width: 100%; height: auto; border: 1px solid #ccc; border-radius: 5px;">                           
+                                                        <img src="../database/android/pelanggan/bukti_pembayaran/<?= htmlspecialchars($pembayaran['bukti_pembayaran']) ?>" alt="Bukti Pembayaran" style="max-width: 100%; height: auto; border: 1px solid #ccc; border-radius: 5px;">                           
                                                         <!-- <?php echo "Path gambar: image/foto_ktp/" . $pembayaran['Foto_KTP']; // Debugging?> -->
 
                                                         </div>

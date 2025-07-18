@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 17 Jul 2025 pada 18.37
+-- Waktu pembuatan: 19 Jul 2025 pada 00.02
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.2.12
 
@@ -100,9 +100,17 @@ CREATE TABLE `tb_pembayaran` (
   `id_pembayaran` int(11) NOT NULL,
   `id_tagihan` int(10) NOT NULL,
   `bukti_pembayaran` varchar(200) NOT NULL,
-  `Status` enum('Lunas','BelumLunas','') NOT NULL DEFAULT 'BelumLunas',
+  `Status` enum('Lunas','Belum Lunas','') NOT NULL DEFAULT 'Belum Lunas',
   `dibuat_pada_` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `tb_pembayaran`
+--
+
+INSERT INTO `tb_pembayaran` (`id_pembayaran`, `id_tagihan`, `bukti_pembayaran`, `Status`, `dibuat_pada_`) VALUES
+(5030, 4015, 'bukti_5030_July 2025.jpg', 'Lunas', '2025-07-19'),
+(5031, 4015, 'bukti_5031_July 2025.jpg', 'Belum Lunas', '2025-07-19');
 
 -- --------------------------------------------------------
 
@@ -162,7 +170,8 @@ CREATE TABLE `tb_tagihan` (
 --
 
 INSERT INTO `tb_tagihan` (`id_tagihan`, `id_pelanggan`, `id_paket`, `periode`, `total_harga`, `status`, `dibuat_pada_`) VALUES
-(4014, 3023, 1, 'July 2025', 250000.00, 'Belum Lunas', '2025-07-17');
+(4014, 3023, 1, 'July 2025', 250000.00, 'Lunas', '2025-07-17'),
+(4015, 3022, 2, 'July 2025', 320000.00, 'Lunas', '2025-07-18');
 
 -- --------------------------------------------------------
 
@@ -291,7 +300,7 @@ ALTER TABLE `tb_pelanggan`
 -- AUTO_INCREMENT untuk tabel `tb_pembayaran`
 --
 ALTER TABLE `tb_pembayaran`
-  MODIFY `id_pembayaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5016;
+  MODIFY `id_pembayaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5032;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_pengajuan`
@@ -303,7 +312,7 @@ ALTER TABLE `tb_pengajuan`
 -- AUTO_INCREMENT untuk tabel `tb_tagihan`
 --
 ALTER TABLE `tb_tagihan`
-  MODIFY `id_tagihan` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4015;
+  MODIFY `id_tagihan` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4016;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_terminasi`

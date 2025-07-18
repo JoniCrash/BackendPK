@@ -11,7 +11,7 @@ $id_pembayaran = mysqli_real_escape_string($koneksi, $_POST['id_pembayaran']);
 $Status = mysqli_real_escape_string($koneksi, $_POST['Status']);
 
 // Validasi nilai status agar hanya menerima 'Lunas' atau 'Belum Lunas'
-if (!in_array($Status, ['Lunas', 'BelumLunas'])) {
+if (!in_array($Status, ['Lunas', 'Belum Lunas'])) {
     echo json_encode(["success" => false, "message" => "Status tidak valid!"]);
     exit;
 }

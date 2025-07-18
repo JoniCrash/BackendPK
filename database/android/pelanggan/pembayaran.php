@@ -11,35 +11,13 @@ function sendError($message)
 
 // Validasi dan sanitasi input
 $id_tagihan = filter_var($_POST['id_tagihan'] ?? 0, FILTER_VALIDATE_INT);
-$status = filter_var($_POST['Status'] ?? 'BelumLunas');
-
-// Validasi ID Tagihan
-if (!$id_tagihan) {
-    sendError("ID Tagihan tidak valid.");
-}
-
-// Ambil Nama_Lengkap dan periode dari tabel tagihan
-$query_name_periode = "
-    SELECT Nama_Lengkap, DATE_FORMAT(dibuat_pada_, '%M %Y') AS periode 
-    FROM tb_tagihan 
-    WHERE id_tagihan = ?";
-$stmt = $koneksi->prepare($query_name_periode);
-$stmt->bind_param("i", $id_tagihan);
-$stmt->execute();
-$result = $stmt->get_result();
-$row = $result->fetch_assoc();
-
-// Validasi data tagihan
-if (!$row) {
-    sendError("Data tidak ditemukan untuk ID Tagihan: $id_tagihan");
-}
-$periode = $row['periode'];
+$status = filter_var($_POST['Status'] ?? 'Belum Lunas');
 
 // Simpan data pembayaran
-$query_insert = "INSERT INTO tb_pembayaran (id_tagihan, periode, status) 
-                 VALUES (?, ?, ?)";
+$query_insert = "INSERT INTO tb_pembayaran (id_tagihan, Status) 
+                 VALUES (?, ?)";
 $stmt_insert = $koneksi->prepare($query_insert);
-$stmt_insert->bind_param("isss", $id_tagihan, $nama_lengkap, $periode, $status);
+$stmt_insert->bind_param("is", $id_tagihan, $status);
 
 if (!$stmt_insert->execute()) {
     sendError("Gagal mengirim bukti pembayaran: " . $stmt_insert->error);

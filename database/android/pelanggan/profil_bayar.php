@@ -1,4 +1,7 @@
 <?php
+
+header('Content-Type: application/json');
+
 include('../../../conf/config.php');
 
 // Pastikan semua input tersedia
@@ -11,11 +14,22 @@ if (isset($_POST['id_tagihan'])) {
         exit();
     }
 
+
+
     // Query untuk mengambil data tagihan berdasarkan id_tagihan
-    $query = mysqli_query(
-        $koneksi,
-        "SELECT * FROM tb_pembayaran WHERE id_tagihan = '$id_tagihan'"
-    );
+$query = mysqli_query(
+    $koneksi,
+    "SELECT 
+        tb_pembayaran.*, 
+        tb_tagihan.*, 
+        tb_pengajuan.Nama_Lengkap
+    FROM tb_pembayaran
+    JOIN tb_tagihan ON tb_pembayaran.id_tagihan = tb_tagihan.id_tagihan
+    JOIN tb_pelanggan ON tb_tagihan.id_pelanggan = tb_pelanggan.id_pelanggan
+    JOIN tb_pengajuan ON tb_pelanggan.id_pengajuan = tb_pengajuan.id_pengajuan
+    WHERE tb_pembayaran.id_tagihan = '$id_tagihan'"
+);
+
 
     if (mysqli_num_rows($query) > 0) {
         $pembayaran = [];

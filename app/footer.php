@@ -380,7 +380,7 @@ function ubahStatusTagihan(id_tagihan, status) {
   console.log("Mengirim status:", id_tagihan, status); // Debug log untuk mengecek data yang dikirim
   
   const xhr = new XMLHttpRequest();
-  xhr.open("POST", "http://localhost:80/backendpk/database/update/update_status_tagihan.php", true);
+  xhr.open("POST", "http://localhost:8080/backendpk/database/update/update_status_tagihan.php", true);
   xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
   
   xhr.onreadystatechange = function () {
@@ -402,20 +402,31 @@ function ubahStatusPembayaran(id_pembayaran, Status) {
   console.log("Mengirim status:", id_pembayaran, Status); // Debug log untuk mengecek data yang dikirim
   
   const xhr = new XMLHttpRequest();
-  xhr.open("POST", "http://localhost:80/backendpk/database/update/update_status_pembayaran.php", true);
+  xhr.open("POST", "http://localhost:8080/backendpk/database/update/update_status_pembayaran.php", true);
   xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
   
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState === 4) {
-      console.log("Response:", xhr.responseText); // Log respons dari server untuk debugging
-      if (xhr.status === 200) {
-        Swal.fire('Berhasil!', 'Status berhasil diperbarui.', 'success');
-        // window.location.reload(); 
-      } else {
-        Swal.fire('Gagal!', 'Tidak dapat memperbarui status.', 'error');
+xhr.onreadystatechange = function () {
+  if (xhr.readyState === 4) {
+    console.log("Raw Response:", xhr.responseText);
+
+    if (xhr.status === 200) {
+      try {
+        const response = JSON.parse(xhr.responseText);
+        if (response.success) {
+          Swal.fire('Berhasil!', response.message, 'success');
+        } else {
+          Swal.fire('Gagal!', response.message, 'error');
+        }
+      } catch (e) {
+        Swal.fire('Gagal!', 'Gagal membaca respons server.', 'error');
+        console.error("JSON parse error:", e);
       }
+    } else {
+      Swal.fire('Gagal!', 'Terjadi kesalahan jaringan.', 'error');
     }
-  };
+  }
+};
+
   
   xhr.send("id_pembayaran=" + id_pembayaran + "&Status=" + Status);
 }

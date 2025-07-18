@@ -54,8 +54,8 @@
                         $query = mysqli_query($koneksi, "
                             SELECT 
                                 pb.*,
-                                tg.*,
-                                pl.*,
+                                tg.periode,
+                                pl.id_pelanggan,
                                 pj.*,
                                 pk.*
                             FROM tb_pembayaran pb
@@ -69,15 +69,13 @@
                     $query = mysqli_query($koneksi, "
                         SELECT 
                             pb.*,
-                            tg.*,
-                            pl.*,
-                            pj.*,
-                            pk.*
+                            tg.periode,
+                            pl.id_pelanggan,
+                            pj.*
                         FROM tb_pembayaran pb
                         JOIN tb_tagihan tg ON pb.id_tagihan = tg.id_tagihan
                         JOIN tb_pelanggan pl ON tg.id_pelanggan = pl.id_pelanggan
                         JOIN tb_pengajuan pj ON pl.id_pengajuan = pj.id_pengajuan
-                        JOIN paket pk ON tg.id_paket = pk.id_paket
                   ");
                     }
                     while($pembayaran = mysqli_fetch_array($query)){
@@ -86,8 +84,9 @@
                   <tr>
                     <td width = 5%><?php echo $no?></td>
                      <td><a href="index.php?page=profil-pembayaran&id_pembayaran=<?php echo $pembayaran['id_pembayaran']; ?>"><?php echo $pembayaran['id_pembayaran']; ?></a></td>
-                    <td><?php echo $pembayaran['Nama_Lengkap']; ?></td>
+                    <td><?php echo  $pembayaran['Nama_Lengkap']; ?></td>
 
+                    <!-- Menampilkan gambar pada kolom tabel -->
                     <!-- <td>
                     <img src="../database/android/pelanggan/<?= htmlspecialchars($pembayaran['bukti_pembayaran']) ?>" alt="Bukti Pembayaran" style="max-width: 30%; height: 30%; border: 1px solid #ccc; border-radius: 5px;">   
                     </td> -->
@@ -97,7 +96,7 @@
                     <select
                         onchange="ubahStatusPembayaran(<?php echo $pembayaran ['id_pembayaran'];?>, this.value)">
                         <option value="Lunas" <?php echo ($pembayaran['Status'] == 'Lunas') ? 'selected' : ''; ?>>Lunas</option>
-                        <option value="BelumLunas" <?php echo ($pembayaran['Status'] == 'BelumLunas') ? 'selected' : ''; ?>>Belum Lunas</option>
+                        <option value="Belum Lunas" <?php echo ($pembayaran['Status'] == 'Belum Lunas') ? 'selected' : ''; ?>>Belum Lunas</option>
                     </select>
                   </td>
                     <td class="noExport">
