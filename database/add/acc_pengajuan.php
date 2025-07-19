@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $query_pengajuan = "SELECT * FROM tb_pengajuan WHERE id_pengajuan = '$id_pengajuan'";
     $result_pengajuan = mysqli_query($koneksi, $query_pengajuan);
     $data_pengajuan = mysqli_fetch_assoc($result_pengajuan);
-
+//mmm
     if ($data_pengajuan) {        
         // Data berhasil ditemukan, pindahkan ke tabel pelanggan
         $id_pengajuan = $data_pengajuan['id_pengajuan'];
