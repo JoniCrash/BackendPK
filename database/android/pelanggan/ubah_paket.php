@@ -2,19 +2,22 @@
 include('../../../conf/config.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $id_pelanggan = $_POST['id_pelanggan'];
-    $paket_diajukan = $_POST['paket_diajukan'];
+// file_put_contents("debug_post.txt", print_r($_POST, true), FILE_APPEND);
+$id_pelanggan = mysqli_real_escape_string($koneksi, $_POST['id_pelanggan']);
+$id_paket = mysqli_real_escape_string($koneksi, $_POST['id_paket']);
 
-    // Simpan request ke database, misalnya tabel: tb_request_ubah_paket
-    $query = "INSERT INTO tb_req_ubah_paket (id_pelanggan, id_paket, status, dibuat_pada)
-              VALUES ('$id_pelanggan', '$paket_diajukan', 'menunggu', NOW())";
+
+    // ✅ Perbaiki di sini: gunakan $id_paket, bukan $paket_diajukan
+    $query = "INSERT INTO tb_req_ubah_paket (id_pelanggan, id_paket, status, di_buat_pada)
+              VALUES ('$id_pelanggan', '$id_paket', 'Menunggu', NOW())";
 
     $result = mysqli_query($koneksi, $query);
 
     if ($result) {
         echo json_encode(["status" => "success", "message" => "Permintaan berhasil disimpan."]);
     } else {
-        echo json_encode(["status" => "error", "message" => "Gagal menyimpan permintaan."]);
+        echo json_encode(["status" => "error", "message" => "Gagal menyimpan permintaan.","error" => mysqli_error($koneksi) // Tambahkan ini
+        ]);
     }
 }
 ?>

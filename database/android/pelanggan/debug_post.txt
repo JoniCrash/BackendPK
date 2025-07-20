@@ -1,0 +1,25 @@
+Array
+(
+    [id_pelanggan] => 3022
+    [id_paket] => 100mbps
+)
+Array
+(
+    [id_pelanggan] => 3022
+    [id_paket] => PKT03
+)
+Array
+(
+    [id_pelanggan] => 3022
+    [id_paket] => PKT03
+)
+Array
+(
+    [id_pelanggan] => 3022
+    [id_paket] => 3
+)
+Array
+(
+    [id_pelanggan] => 3022
+    [id_paket] => 1
+)

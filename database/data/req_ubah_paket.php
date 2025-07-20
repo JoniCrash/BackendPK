@@ -25,23 +25,55 @@
                     </tr>
                   </table>
                 </form>
-                <?php
-                if (isset($_POST['filter'])) {
-                  $dari_tgl = mysqli_real_escape_string($koneksi,$_POST['dari_tgl']);
-                  $sampai_tgl = mysqli_real_escape_string($koneksi,$_POST['sampai_tgl']);
-                  echo " Dari Tanggal  " . $dari_tgl . " Sampai Tanggal  " . $sampai_tgl ;
-                }
+              <?php
+              $no = 0; 
+              if (isset($_POST['filter'])) {
+                $dari_tgl = mysqli_real_escape_string($koneksi, $_POST['dari_tgl']);
+                $sampai_tgl = mysqli_real_escape_string($koneksi, $_POST['sampai_tgl']);
+                $query = mysqli_query($koneksi, "
+                  SELECT req.*, p.Nama_Lengkap, pk.nama_paket, pk.kecepatan
+                  FROM tb_req_ubah_paket req
+                  INNER JOIN tb_pelanggan p ON req.id_pelanggan = p.id_pelanggan
+                  INNER JOIN tb_paket pk ON req.id_paket = pk.id_paket
+                  WHERE req.di_buat_pada BETWEEN '$dari_tgl' AND '$sampai_tgl'
+                  ORDER BY req.di_buat_pada DESC
+                ");
+              } else {
+                $query = mysqli_query($koneksi, "
+                  SELECT req.*, p.Nama_Lengkap, pk.nama_paket, pk.kecepatan
+                  FROM tb_req_ubah_paket req
+                  INNER JOIN tb_pelanggan p ON req.id_pelanggan = p.id_pelanggan
+                  INNER JOIN tb_paket pk ON req.id_paket = pk.id_paket
+                  ORDER BY req.di_buat_pada DESC
+                ");
+              }
+              while ($paket = mysqli_fetch_array($query)) {
+                $no++;
               ?>
+              <tr>
+                <td><?php echo $no ?></td>
+                <td><?php echo $paket['id_pelanggan']; ?></td>
+                <td><?php echo $paket['Nama_Lengkap']; ?></td>
+                <td><?php echo $paket['nama_paket']; ?></td>
+                <td><?php echo $paket['kecepatan']; ?></td>
+                <td>
+                  <?php echo ucfirst($paket['status']); ?>
+                  <br>
+                  <small><?php echo $paket['di_buat_pada']; ?></small>
+                </td>
+              </tr>
+              <?php } ?>
+
               <br><br>
-                <table id="example1" class="table table-bordered table-striped" data-title="Laporan Data Paket Pelanggan">
+                <table id="example1" class="table table-bordered table-striped" data-title="Laporan Data Request Ubah Paket">
                   <thead>
                   <tr>
                     <th>No</th>
-                    <th>Id Pelanggan</th>
+                    <th>ID Pelanggan</th>
                     <th>Nama Pelanggan</th>
-                    <th>Paket</th>
+                    <th>Paket Diajukan</th>
                     <th>Kecepatan</th>
-                    <th class="noExport">Action</th>
+                    <th>Status</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -78,14 +110,6 @@
                     <td><?php echo $paket ['Nama_Lengkap'];?></td>
                     <td><?php echo $paket ['nama_paket'];?></td>
                     <td><?php echo $paket ['kecepatan'];?></td>
-                    <!-- <td>
-                    <select
-                        onchange="ubahPaket(<?php echo $paket ['id_pelanggan'];?>, this.value)">
-                        <option value="30 MBPS" <?php echo ($paket['nama_paket'] == '30 MBPS') ? 'selected' : ''; ?>>30 MBPS</option>
-                        <option value="50 MBPS" <?php echo ($paket['nama_paket'] == '50 MBPS') ? 'selected' : ''; ?>>50 MBPS</option>
-                        <option value="100 MBPS" <?php echo ($paket['nama_paket'] == '100 MBPS') ? 'selected' : ''; ?>>100 MBPS</option>
-                    </select>
-                    </td> -->
                     <td class="noExport">
                     <a href="index.php?page=ubah-paket-pelanggan&id=<?php echo $paket ['id_pelanggan'];?>" class="btn btn-sm btn-success">Ubah Paket</a>
                     </td>
