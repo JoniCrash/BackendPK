@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 20 Jul 2025 pada 06.05
+-- Waktu pembuatan: 20 Jul 2025 pada 16.21
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.2.12
 
@@ -159,9 +159,17 @@ CREATE TABLE `tb_req_ubah_paket` (
   `id_request` int(10) NOT NULL,
   `id_pelanggan` int(10) NOT NULL,
   `id_paket` int(11) NOT NULL,
-  `status` enum('Di Setujui','Di Tolak') NOT NULL,
+  `status` enum('Di Setujui','Di Tolak','Menunggu') NOT NULL,
   `di_buat_pada` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `tb_req_ubah_paket`
+--
+
+INSERT INTO `tb_req_ubah_paket` (`id_request`, `id_pelanggan`, `id_paket`, `status`, `di_buat_pada`) VALUES
+(1, 3022, 3, 'Di Tolak', '2025-07-20'),
+(2, 3022, 1, 'Di Tolak', '2025-07-20');
 
 -- --------------------------------------------------------
 
@@ -271,6 +279,7 @@ ALTER TABLE `tb_pengajuan`
 -- Indeks untuk tabel `tb_req_ubah_paket`
 --
 ALTER TABLE `tb_req_ubah_paket`
+  ADD PRIMARY KEY (`id_request`),
   ADD KEY `id_pelanggan` (`id_pelanggan`,`id_paket`),
   ADD KEY `id_paket` (`id_paket`);
 
@@ -328,6 +337,12 @@ ALTER TABLE `tb_pembayaran`
 --
 ALTER TABLE `tb_pengajuan`
   MODIFY `id_pengajuan` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2035;
+
+--
+-- AUTO_INCREMENT untuk tabel `tb_req_ubah_paket`
+--
+ALTER TABLE `tb_req_ubah_paket`
+  MODIFY `id_request` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_tagihan`
