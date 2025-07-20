@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 19 Jul 2025 pada 00.02
+-- Waktu pembuatan: 20 Jul 2025 pada 06.05
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.2.12
 
@@ -152,6 +152,20 @@ INSERT INTO `tb_pengajuan` (`id_pengajuan`, `id_user`, `Nama_Lengkap`, `Nomor_Id
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `tb_req_ubah_paket`
+--
+
+CREATE TABLE `tb_req_ubah_paket` (
+  `id_request` int(10) NOT NULL,
+  `id_pelanggan` int(10) NOT NULL,
+  `id_paket` int(11) NOT NULL,
+  `status` enum('Di Setujui','Di Tolak') NOT NULL,
+  `di_buat_pada` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `tb_tagihan`
 --
 
@@ -254,6 +268,13 @@ ALTER TABLE `tb_pengajuan`
   ADD KEY `id_paket` (`id_paket`);
 
 --
+-- Indeks untuk tabel `tb_req_ubah_paket`
+--
+ALTER TABLE `tb_req_ubah_paket`
+  ADD KEY `id_pelanggan` (`id_pelanggan`,`id_paket`),
+  ADD KEY `id_paket` (`id_paket`);
+
+--
 -- Indeks untuk tabel `tb_tagihan`
 --
 ALTER TABLE `tb_tagihan`
@@ -349,6 +370,13 @@ ALTER TABLE `tb_pembayaran`
 ALTER TABLE `tb_pengajuan`
   ADD CONSTRAINT `tb_pengajuan_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user_app` (`id_user`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `tb_pengajuan_ibfk_2` FOREIGN KEY (`id_paket`) REFERENCES `paket` (`id_paket`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Ketidakleluasaan untuk tabel `tb_req_ubah_paket`
+--
+ALTER TABLE `tb_req_ubah_paket`
+  ADD CONSTRAINT `tb_req_ubah_paket_ibfk_1` FOREIGN KEY (`id_paket`) REFERENCES `paket` (`id_paket`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tb_req_ubah_paket_ibfk_2` FOREIGN KEY (`id_pelanggan`) REFERENCES `tb_pelanggan` (`id_pelanggan`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `tb_tagihan`
