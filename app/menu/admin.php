@@ -37,6 +37,12 @@
                 </a>
               </li>
               <li class="nav-item">
+                <a href="index.php?page=data-request-ubah-paket" class="nav-link" >
+                  <i class="far fa-folder nav-icon"></i>
+                  <p>Data Request Ubah Paket</p>
+                </a>
+              </li>
+              <li class="nav-item">
                 <a href="index.php?page=data-pelanggan" class="nav-link">
                   <i class="far fa-user nav-icon"></i>
                   <p>Pelanggan</p>

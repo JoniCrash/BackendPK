@@ -51,6 +51,9 @@ if (isset($_GET['page'])){
   }elseif($_GET['page']=='data-paket'){
     //data paket
     include('content-header/content_header_data_paket.php');
+      }elseif($_GET['page']=='data-request-ubah-paket'){
+    //data paket
+    include('content-header/content_header_data_request_ubah_paket.php');
   }elseif($_GET['page']=='data-paket-pelanggan'){
     //Data Paket Pelanggan
     include('content-header/content_header_data_paket_pelanggan.php');
@@ -76,7 +79,7 @@ if (isset($_GET['page'])){
     include('content-header/content_header_profil_pembayaran.php');
   }
   elseif($_GET['page']=='tambah-pengajuan'){
-    //Profil Pngajuan
+    //Tambah Pengajuan
     include('content-header/content_header_pengajuan_baru.php');
   }
     elseif($_GET['page']=='terima-pengajuan'){
@@ -149,6 +152,9 @@ if (isset($_GET['page'])){
   }else if($_GET['page']=='data-paket'){
     //Data Paket Pelanggan
     include('../database/data/data_paket.php');
+      }else if($_GET['page']=='data-request-ubah-paket'){
+    //Data Request Ubah Paket
+    include('../database/data/req_ubah_paket.php');
   }else if($_GET['page']=='data-pengajuan'){
     //Data Pengajuan
     include('../database/data/data_pengajuan.php');
