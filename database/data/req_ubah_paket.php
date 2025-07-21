@@ -49,7 +49,7 @@ if (isset($_POST['filter'])) {
     INNER JOIN paket pk ON req.id_paket = pk.id_paket
     ORDER BY req.di_buat_pada DESC
   ");
-}
+}s
 ?>
 
 <br><br>
@@ -57,7 +57,7 @@ if (isset($_POST['filter'])) {
   <thead>
     <tr>
       <th>No</th>
-      <th>ID Pelanggan</th>
+      <th>ID Request</th>
       <th>ID Pelanggan</th>
       <th>Nama Pelanggan</th>
       <th>Paket Diajukan</th>
@@ -77,7 +77,7 @@ if (isset($_POST['filter'])) {
         <td><?php echo $paket['kecepatan']; ?></td>
         <td><?php echo ucfirst($paket['status']); ?></td>
         <td><?php echo $paket['di_buat_pada']; ?></td>
-    <td><a href="index.php?page=ubah-paket-pelanggan&id=<?php echo $paket['id_pelanggan']; ?>" class="btn btn-sm btn-success mt-1">Ubah Paket</a></td>
+    <!-- <td><a href="index.php?page=ubah-paket-pelanggan&id=<?php echo $paket['id_pelanggan']; ?>" class="btn btn-sm btn-success mt-1">Ubah Paket</a></td> -->
       </tr>
     <?php } ?>
   </tbody>

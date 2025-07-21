@@ -40,8 +40,9 @@
                     <th>ID Terminasi</th>
                     <th>ID Pelanggan</th>
                     <th>Nama Lengkap</th>
+                    <th>Alasan</th>
                     <th>Tanggal</th>
-                    <th class="noExport">Action</th>
+                    <!-- <th class="noExport">Action</th> -->
                   </tr>
                   </thead>
                   <tbody>
@@ -87,10 +88,11 @@
                     <!-- </td> -->
                      <td><?php echo $terminasi ['id_pelanggan'];?></td>
                     <td><?php echo $terminasi ['Nama_Lengkap'];?></td>
+                    <td><?php echo $terminasi ['alasan'];?></td>
                     <td><?php echo $terminasi ['dibuat_pada_'];?></td>
-                    <td class="noExport">
+                    <!-- <td class="noExport">
                       <a onclick="hapus_data_terminasi(<?php echo $terminasi ['id_terminasi'];?>)" class="btn btn-sm btn-danger">Hapus</a>
-                    </td>
+                    </td> -->
                   </tr>
                   <?php }?>
                   </tbody>
