@@ -14,8 +14,8 @@ $email = $_POST['Email'] ?? '';
 $no1 = $_POST['Nomor_Hp_1'] ?? '';
 $no2 = $_POST['Nomor_Hp_2'] ?? '';
 $id_paket = $_POST['id_paket'] ?? '';
-$nama_paket = $_POST['nama_paket'] ?? '';
-$kecepata = $_POST['kecepatan'] ?? '';
+// $nama_paket = $_POST['nama_paket'] ?? '';
+// $kecepata = $_POST['kecepatan'] ?? '';
 
 // Validasi file yang diunggah
 if (!isset($_FILES['fotoktp'], $_FILES['fotodepanrumah'])) {
@@ -33,7 +33,7 @@ if ($paket_data) {
 } else {
     $nama_paket = ''; // Jika tidak ditemukan
     $kecepatan = ''; // Jika tidak ditemukan
-}
+// }
 
 // Proses penyimpanan ke database
 $query_insert = "INSERT INTO tb_pengajuan (
@@ -49,8 +49,6 @@ $query_insert = "INSERT INTO tb_pengajuan (
     Nomor_Hp_1,
     Nomor_Hp_2,
     id_paket,
-    nama_paket,
-    kecepatan
     
 ) VALUES (
     '$id_user',
@@ -65,8 +63,6 @@ $query_insert = "INSERT INTO tb_pengajuan (
     '$no1',
     '$no2',
     '$id_paket',
-    '$nama_paket',
-    '$kecepatan'
 )";
 
 if (mysqli_query($koneksi, $query_insert)) {
