@@ -1,0 +1,23 @@
+Array
+(
+    [fotoktp] => Array
+        (
+            [name] => fotoktp.jpg
+            [full_path] => fotoktp.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\phpA11B.tmp
+            [error] => 0
+            [size] => 14005
+        )
+
+    [fotodepanrumah] => Array
+        (
+            [name] => fotodepanrumah.jpg
+            [full_path] => fotodepanrumah.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\phpA13B.tmp
+            [error] => 0
+            [size] => 10874
+        )
+
+)

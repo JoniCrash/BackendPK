@@ -14,6 +14,9 @@ $email = $_POST['Email'] ?? '';
 $no1 = $_POST['Nomor_Hp_1'] ?? '';
 $no2 = $_POST['Nomor_Hp_2'] ?? '';
 $id_paket = $_POST['id_paket'] ?? '';
+file_put_contents("log_post.txt", print_r($_POST, true));
+file_put_contents("log_files.txt", print_r($_FILES, true));
+
 // $nama_paket = $_POST['nama_paket'] ?? '';
 // $kecepata = $_POST['kecepatan'] ?? '';
 
@@ -33,7 +36,7 @@ if ($paket_data) {
 } else {
     $nama_paket = ''; // Jika tidak ditemukan
     $kecepatan = ''; // Jika tidak ditemukan
-// }
+}
 
 // Proses penyimpanan ke database
 $query_insert = "INSERT INTO tb_pengajuan (
@@ -48,7 +51,7 @@ $query_insert = "INSERT INTO tb_pengajuan (
     Email,
     Nomor_Hp_1,
     Nomor_Hp_2,
-    id_paket,
+    id_paket
     
 ) VALUES (
     '$id_user',
@@ -62,40 +65,68 @@ $query_insert = "INSERT INTO tb_pengajuan (
     '$email',
     '$no1',
     '$no2',
-    '$id_paket',
+    '$id_paket'
 )";
 
 if (mysqli_query($koneksi, $query_insert)) {
     // Ambil ID pengajuan yang baru saja dibuat
     $id_pengajuan = mysqli_insert_id($koneksi);
 
-    // Lokasi file sementara
     $file_ktp_tmp = $_FILES['fotoktp']['tmp_name'];
-    $file_depanrumah_tmp = $_FILES['fotodepanrumah']['tmp_name'];
+$file_depanrumah_tmp = $_FILES['fotodepanrumah']['tmp_name'];
 
-    // Ekstensi file
-    $file_ktp_ext = strtolower(pathinfo($_FILES['fotoktp']['name'], PATHINFO_EXTENSION));
-    $file_depanrumah_ext = strtolower(pathinfo($_FILES['fotodepanrumah']['name'], PATHINFO_EXTENSION));
+$file_ktp_ext = strtolower(pathinfo($_FILES['fotoktp']['name'], PATHINFO_EXTENSION));
+$file_depanrumah_ext = strtolower(pathinfo($_FILES['fotodepanrumah']['name'], PATHINFO_EXTENSION));
 
-    // Lokasi folder tujuan
-    $target_dir_ktp = 'foto_ktp/';
-    $target_dir_depanrumah = 'foto_depan_rumah/';
-    if (!file_exists($target_dir_ktp)) mkdir($target_dir_ktp, 0777, true);
-    if (!file_exists($target_dir_depanrumah)) mkdir($target_dir_depanrumah, 0777, true);
+$target_dir_ktp = 'foto_ktp/';
+$target_dir_depanrumah = 'foto_depan_rumah/';
+if (!file_exists($target_dir_ktp)) mkdir($target_dir_ktp, 0777, true);
+if (!file_exists($target_dir_depanrumah)) mkdir($target_dir_depanrumah, 0777, true);
 
-    // Nama file baru
-    $file_ktp_name = $target_dir_ktp . "fotoktp_" . $id_pengajuan . "." . $file_ktp_ext;
-    $file_depanrumah_name = $target_dir_depanrumah . "fotoDepanRumah_" . $id_pengajuan . "." . $file_depanrumah_ext;
+// hanya nama file
+$file_ktp_name_only = "fotoktp_" . $id_pengajuan . "." . $file_ktp_ext;
+$file_depanrumah_name_only = "fotoDepanRumah_" . $id_pengajuan . "." . $file_depanrumah_ext;
 
-    // Pindahkan file ke folder tujuan
-    if (move_uploaded_file($file_ktp_tmp, $file_ktp_name) &&
-        move_uploaded_file($file_depanrumah_tmp, $file_depanrumah_name)) {
+// full path untuk move
+$file_ktp_path = $target_dir_ktp . $file_ktp_name_only;
+$file_depanrumah_path = $target_dir_depanrumah . $file_depanrumah_name_only;
+
+if (move_uploaded_file($file_ktp_tmp, $file_ktp_path) &&
+    move_uploaded_file($file_depanrumah_tmp, $file_depanrumah_path)) {
+
+    $query_update = "UPDATE tb_pengajuan SET
+        Foto_KTP = '$file_ktp_name_only',
+        Foto_Depan_Rumah = '$file_depanrumah_name_only'
+        WHERE id_pengajuan = $id_pengajuan";
+
+
+    // Lokasi file sementara
+    // $file_ktp_tmp = $_FILES['fotoktp']['tmp_name'];
+    // $file_depanrumah_tmp = $_FILES['fotodepanrumah']['tmp_name'];
+
+    // // Ekstensi file
+    // $file_ktp_ext = strtolower(pathinfo($_FILES['fotoktp']['name'], PATHINFO_EXTENSION));
+    // $file_depanrumah_ext = strtolower(pathinfo($_FILES['fotodepanrumah']['name'], PATHINFO_EXTENSION));
+
+    // // Lokasi folder tujuan
+    // $target_dir_ktp = 'foto_ktp/';
+    // $target_dir_depanrumah = 'foto_depan_rumah/';
+    // if (!file_exists($target_dir_ktp)) mkdir($target_dir_ktp, 0777, true);
+    // if (!file_exists($target_dir_depanrumah)) mkdir($target_dir_depanrumah, 0777, true);
+
+    // // Nama file baru
+    // $file_ktp_name = $target_dir_ktp . "fotoktp_" . $id_pengajuan . "." . $file_ktp_ext;
+    // $file_depanrumah_name = $target_dir_depanrumah . "fotoDepanRumah_" . $id_pengajuan . "." . $file_depanrumah_ext;
+
+    // // Pindahkan file ke folder tujuan
+    // if (move_uploaded_file($file_ktp_tmp, $file_ktp_name) &&
+    //     move_uploaded_file($file_depanrumah_tmp, $file_depanrumah_name)) {
         
-        // Update database dengan nama file
-        $query_update = "UPDATE tb_pengajuan SET
-            Foto_KTP = '$file_ktp_name',
-            Foto_Depan_Rumah = '$file_depanrumah_name'
-            WHERE id_pengajuan = $id_pengajuan";
+    //     // Update database dengan nama file
+    //     $query_update = "UPDATE tb_pengajuan SET
+    //         Foto_KTP = '$file_ktp_name',
+    //         Foto_Depan_Rumah = '$file_depanrumah_name'
+    //         WHERE id_pengajuan = $id_pengajuan";
 
         if (mysqli_query($koneksi, $query_update)) {
             echo json_encode(["message" => "Data pengajuan dan foto berhasil disimpan."]);

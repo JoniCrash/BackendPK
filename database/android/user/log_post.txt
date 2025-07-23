@@ -1,0 +1,15 @@
+Array
+(
+    [provinsi] => Jawa Barat
+    [kota] => Cirebon
+    [Email] => a@gmail.com
+    [Alamat_Pemasangan] => Jl. Syech Lemahabang No.04, Astanamukti, Kec. Pangenan, Kabupaten Cirebon, Jawa Barat 45182, Indonesia
+    [Nomor_Identitas_KTP] => 12
+    [latitude] => -6.79588039
+    [id_user] => 1011
+    [id_paket] => 1
+    [Nama_Lengkap] => a
+    [Nomor_Hp_2] => 12
+    [longitude] => 108.64111829
+    [Nomor_Hp_1] => 12
+)
