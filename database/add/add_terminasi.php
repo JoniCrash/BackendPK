@@ -12,14 +12,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($data_pelanggan) {
         // Data berhasil ditemukan, pindahkan ke tabel terminasi
         $id_pelanggan = $data_pelanggan['id_pelanggan'];
-        $nama_lengkap = $data_pelanggan['Nama_Lengkap'];
+        // $nama_lengkap = $data_pelanggan['Nama_Lengkap'];
         
         // Masukkan data ke tabel terminasi
 $query_terminasi = "
     INSERT INTO tb_terminasi 
-    (id_pelanggan,Nama_Lengkap) 
+    (id_pelanggan) 
     VALUES 
-    ('$id_pelanggan','$nama_lengkap')";
+    ('$id_pelanggan')";
 
 $result_terminasi = mysqli_query($koneksi, $query_terminasi);
 

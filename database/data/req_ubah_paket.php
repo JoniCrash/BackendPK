@@ -49,7 +49,7 @@ if (isset($_POST['filter'])) {
     INNER JOIN paket pk ON req.id_paket = pk.id_paket
     ORDER BY req.di_buat_pada DESC
   ");
-}s
+}
 ?>
 
 <br><br>
