@@ -5,9 +5,9 @@ Array
             [name] => fotoktp.jpg
             [full_path] => fotoktp.jpg
             [type] => image/jpeg
-            [tmp_name] => C:\xampp\tmp\php21ED.tmp
+            [tmp_name] => C:\xampp\tmp\phpAD9D.tmp
             [error] => 0
-            [size] => 29772
+            [size] => 14005
         )
 
     [fotodepanrumah] => Array
@@ -15,9 +15,9 @@ Array
             [name] => fotodepanrumah.jpg
             [full_path] => fotodepanrumah.jpg
             [type] => image/jpeg
-            [tmp_name] => C:\xampp\tmp\php21EE.tmp
+            [tmp_name] => C:\xampp\tmp\phpADDD.tmp
             [error] => 0
-            [size] => 9089
+            [size] => 10874
         )
 
 )

@@ -10,10 +10,10 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-              <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-lg">
+              <!-- <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-lg">
                   Tambah Data
                 </button>
-                <br></br>
+                <br></br> -->
                 <form method="post">
                   <table>
                     <tr>

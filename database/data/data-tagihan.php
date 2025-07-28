@@ -10,11 +10,11 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-              <a href="index.php?page=tambah-pelanggan">
+              <!-- <a href="index.php?page=tambah-pelanggan">
               <button type="button" class="btn btn-info">Tambah Tagihan</button>
               </a>
                 <br></br>
-                <form method="post">
+                <form method="post"> -->
                   <table>
                     <tr>
                       <td>Dari Tanggal</td>

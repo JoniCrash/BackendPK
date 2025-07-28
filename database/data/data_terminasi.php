@@ -13,7 +13,7 @@
               <!-- <a href="index.php?page=tambah-pelanggan">
               <button type="button" class="btn btn-info">Tambah Pelanggan</button>
               </a> -->
-                <br></br>
+                <!-- <br></br> -->
                 <form method="post">
                   <table>
                     <tr>

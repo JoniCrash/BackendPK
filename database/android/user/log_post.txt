@@ -2,14 +2,14 @@ Array
 (
     [provinsi] => Jawa Barat
     [kota] => Cirebon
-    [Email] => iw@gmail.com
+    [Email] => asd@gmail.com
     [Alamat_Pemasangan] => Komplek Tapir Boulevard Blok E No. 14A, Jalan Pemuda, Sunyaragi, Kesambi, Sunyaragi, Kec. Kesambi, Kota Cirebon, Jawa Barat 45132, Indonesia
     [Nomor_Identitas_KTP] => 123
-    [latitude] => -6.72740423
-    [id_user] => 1012
+    [latitude] => -6.72742962
+    [id_user] => 1011
     [id_paket] => 1
-    [Nama_Lengkap] => iw
+    [Nama_Lengkap] => asd
     [Nomor_Hp_2] => 123
-    [longitude] => 108.54276634
+    [longitude] => 108.54268359
     [Nomor_Hp_1] => 123
 )
