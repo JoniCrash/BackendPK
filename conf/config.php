@@ -1,5 +1,5 @@
 <?php
-$host		= "localhost"; // sesuaikan alamat server anda
+$host		= "eyehot.store"; // sesuaikan alamat server anda
 $username	= "iwan"; // sesuaikan user web server anda
 $password	= "Iwan123???"; // sesuaikan password web server anda
 $database	= "cometservice"; // sesuaikan database web server anda
