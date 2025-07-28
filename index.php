@@ -1,132 +1,265 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Masuk</title>
-
-  <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="app/plugins/fontawesome-free/css/all.min.css">
-  <!-- icheck bootstrap -->
-  <link rel="stylesheet" href="app/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="app/dist/css/adminlte.min.css">
-  <!-- SweetAlert2 -->
-  <link rel="stylesheet" href="app/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
-</head>
-
-
-
-<body class="hold-transition login-page">
-<div class="login-box">
-  <!-- /.login-logo -->
-  <div class="card card-outline card-primary">
-    <div class="card-header text-center">
-      <a href="#" class="h1"><b>Comet</b> service</a><br>
-      <b>Combo internet service provider</b>
-    </div>
-    <div class="card-body">
-      <p class="login-box-msg">Masuk ke akun <b>ADMIN</b></p>
-
-      <form action="conf/autentikasi.php" method="post">
-        <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Username" name = "username">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-envelope"></span>
-            </div>
-          </div>
-        </div>
-        <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Password" name ="password">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-lock"></span>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <!-- <div class="col-8">
-            <div class="icheck-primary">
-              <input type="checkbox" id="remember">
-              <label for="remember">
-                Remember Me
-              </label>
-            </div>
-          </div> -->
-          <!-- /.col -->
-          <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block">Masuk</button>
-          </div>
-          <!-- /.col -->
-        </div>
-      </form>
-
-      <!-- <div class="social-auth-links text-center mt-2 mb-3">
-        <a href="#" class="btn btn-block btn-primary">
-          <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
-        </a>
-        <a href="#" class="btn btn-block btn-danger">
-          <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
-        </a>
-      </div> -->
-      <!-- /.social-auth-links -->
-
-      <!-- <p class="mb-1">
-        <a href="forgot-password.html">I forgot my password</a>
-      </p>
-      <p class="mb-0">
-        <a href="register.html" class="text-center">Register a new membership</a>
-      </p> -->
-    </div>
-    <!-- /.card-body -->
-  </div>
-  <!-- /.card -->
-</div>
-<!-- /.login-box -->
-
-<!-- jQuery -->
-<script src="app/plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="app/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- AdminLTE App -->
-<script src="app/dist/js/adminlte.min.js"></script>
-<!-- SweetAlert2 -->
-<script src="app/plugins/sweetalert2/sweetalert2.min.js"></script>
-</body>
 <?php
+header("Cache-Control: no-cache, must-revalidate");
+header("Pragma: no-cache");
+header("Expires: 0");
+?>
 
-if(isset($_GET['eror'])){
-$x = ($_GET['eror']);
-if( $x ==1 ){
-  echo "
-  <script>var Toast = Swal.mixin({
-    toast: true,
-    position: 'top-end',
-    showConfirmButton: false,
-    timer: 3000
-  });
-  Toast.fire({
-    icon: 'warning',
-    title: 'Login gagal'
-  })</script>";
-}else if($x == 2){
-  echo "
-  <script>var Toast = Swal.mixin({
-    toast: true,
-    position: 'top-end',
-    showConfirmButton: false,
-    timer: 3000
-  });
-  Toast.fire({
-    icon: 'warning',
-    title: 'Silahkan masukan username dan password'
-  })</script>";
-}else{
-  echo"";
+<html lang="en">
+<?php
+session_start();
+if(!$_SESSION ['nama']){
+  header('Location: ../index.php?session=pageExpired');
 }
+include('../conf/config.php');
+// include('../database/add/add_user.php')
+?>
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
+
+  <!-- Preloader -->
+<!-- <?php //include('preloader.php');?> -->
+
+  <!-- Navbar -->
+  <!-- <?php //include('navbar.php');?> -->
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+<?php include('logo.php');?>
+    <!-- Sidebar -->
+    <?php include('sidebar.php');?>
+    <!-- /.sidebar -->
+  </aside>
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+<!-- <?php include('content_header.php');?> -->
+<?php 
+include('header.php');
+if (isset($_GET['page'])){
+  if($_GET['page']=='dashboard'){
+    //Dashboard
+    include('content-header/content_header_dashboard.php');
+  }elseif($_GET['page']=='data-user'){
+    //User App
+    include('content-header/content_header_user.php');
+  }elseif($_GET['page']=='data-pelanggan'){
+    //Data Pelanggan
+    include('content-header/content_header_pelanggan.php');
+  }elseif($_GET['page']=='data-paket'){
+    //data paket
+    include('content-header/content_header_data_paket.php');
+      }elseif($_GET['page']=='data-request-ubah-paket'){
+    //data paket
+    include('content-header/content_header_data_request_ubah_paket.php');
+  }elseif($_GET['page']=='data-paket-pelanggan'){
+    //Data Paket Pelanggan
+    include('content-header/content_header_data_paket_pelanggan.php');
+  }elseif($_GET['page']=='data-pengajuan'){
+    //Data Pengajuan
+    include('content-header/content_header_pengajuan.php');
+  }elseif($_GET['page']=='data-pembayaran'){
+    //Data Pembayaran
+    include('content-header/content_header_pembayaran.php');
+      }elseif($_GET['page']=='data-terminasi'){
+    //Data Terminasi
+    include('content-header/content_header_data_terminasi.php');
+  }elseif($_GET['page']=='profil-pelanggan'){
+    //Profil Pelanggan
+    include('content-header/content_header_profil_pelanggan.php');
+  }
+  elseif($_GET['page']=='profil-pengajuan'){
+    //Profil Pengajuan
+    include('content-header/content_header_profil_pengajuan.php');
+  } 
+  elseif($_GET['page']=='profil-pembayaran'){
+    //Profil Pembayaran
+    include('content-header/content_header_profil_pembayaran.php');
+  }
+  elseif($_GET['page']=='tambah-pengajuan'){
+    //Tambah Pengajuan
+    include('content-header/content_header_pengajuan_baru.php');
+  }
+    elseif($_GET['page']=='terima-pengajuan'){
+    //terima pengajuan
+    include('content-header/content_header_terima_pengajuan.php');
+  }
+  elseif($_GET['page']=='tambah-pelanggan'){
+    //tambah pelanggan
+    include('content-header/content_header_pelanggan_baru.php');
+  }
+  elseif($_GET['page']=='data-tagihan'){
+
+    include('content-header/content_header_tagihan.php');
+  }
+  elseif($_GET['page']=='buat-tagihan'){
+    include('content-header/content_header_buat_tagihan.php');
+  }
+
+  elseif($_GET['page']=='invoice'){
+    include('content-header/content_header_invoice.php');
+  }
+  elseif($_GET['page']=='delete-pengajuan'){
+    include('content-header/content_header_delete_pengajuan.php');
+  }
+  elseif($_GET['page']=='delete-pelanggan'){
+    include('content-header/content_header_delete_pelanggan.php');
+  }
+  elseif($_GET['page']=='delete-tagihan'){
+    include('content-header/content_header_delete_tagihan.php');
+  }
+  elseif($_GET['page']=='delete-pembayaran'){
+    include('content-header/content_header_delete_pembayaran.php');
+  }
+  elseif($_GET['page']=='edit-pelanggan'){
+    include('content-header/content_header_edit_pelanggan.php');
+  }
+  elseif($_GET['page']=='ubah-paket-pelanggan'){
+    include('content-header/content_header_ubah_paket_pelanggan.php');
+  }
+  elseif($_GET['page']=='update-pelanggan'){
+    include('content-header/content_header_update_pelanggan.php');
+  }
+  elseif($_GET['page']=='update-paket-pelanggan'){
+    include('content-header/content_header_update_paket_pelanggan.php');
+  }
+  elseif($_GET['page']=='buat-terminasi'){
+    //buat terminasi
+    include('content-header/content_header_buat_terminasi.php');
+  }
+
+  else{
+    include('content-header/content_header_dashboard.php');
+  }
+}else{
+  include('content-header/content_header_dashboard.php');
 }
 ?>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+
+<?php
+if (isset($_GET['page'])){
+  if($_GET['page']=='dashboard'){
+    //Dashboard
+    include('dashboard.php');
+  }else if($_GET['page']=='data-user'){
+    //User App
+    include('../database/data/data_user.php');
+  }else if($_GET['page']=='data-paket'){
+    //Data Paket Pelanggan
+    include('../database/data/data_paket.php');
+      }else if($_GET['page']=='data-request-ubah-paket'){
+    //Data Request Ubah Paket
+    include('../database/data/req_ubah_paket.php');
+  }else if($_GET['page']=='data-pengajuan'){
+    //Data Pengajuan
+    include('../database/data/data_pengajuan.php');
+  }else if($_GET['page']=='data-pelanggan'){
+    //Data Pelanggan
+    include('../database/data/data_pelanggan.php');
+  }else if($_GET['page']=='data-paket-pelanggan'){
+    //Data Paket Pelanggan
+    include('../database/data/data_paket_pelanggan.php');
+  }else if($_GET['page']=='data-tagihan' ){
+    //Data Tagihan
+    include('../database/data/data-tagihan.php');
+  }else if($_GET['page']=='data-pembayaran'){
+    //Data Pembayaran
+    include('../database/data/data_pembayaran.php');
+      }else if($_GET['page']=='data-terminasi'){
+    //Data Terminasi
+    include('../database/data/data_terminasi.php');
+  }else if ($_GET['page'] == 'profil-pengajuan' && isset($_GET['id_pengajuan'])) {
+    //Profil Pengajuan
+    include('../database/profil/profil_pengajuan.php');
+  }else if ($_GET['page'] == 'profil-pelanggan' && isset($_GET['id_pelanggan'])) {
+    //Profil Pelanggan
+      include('../database/profil/profil_pelanggan.php');
+  }else if ($_GET['page'] == 'profil-pembayaran' && isset($_GET['id_pembayaran'])) {
+    //Profil Pembayaran
+    include('../database/profil/profil_pembayaran.php');
+  }else if ($_GET['page'] == 'buat-tagihan' && isset($_GET['id_pelanggan'])) {
+    //Buat Tagihan
+    include('../database/tagihan/tagihan.php');
+}else if ($_GET['page'] == 'delete-user' && isset($_GET['id_user'])) {
+  //Delete Pengajuan
+  include('../database/delete/delete_user.php');
+}
+else if ($_GET['page'] == 'delete-pengajuan' && isset($_GET['id_pengajuan'])) {
+  //Delete Pengajuan
+  include('../database/delete/delete_pengajuan.php');
+}
+else if ($_GET['page'] == 'delete-pelanggan' && isset($_GET['id_pelanggan'])) {
+  //Delete Pelanggan
+  include('../database/delete/delete_pelanggan.php');
+}
+else if ($_GET['page'] == 'delete-tagihan' && isset($_GET['id_tagihan'])) {
+  //Delete Tagihan
+  include('../database/delete/delete_tagihan.php');
+}
+else if ($_GET['page'] == 'delete-pembayaran' && isset($_GET['id_pembayaran'])) {
+  //Delete Pembayaran
+  include('../database/delete/delete_pembayaran.php');
+}
+else if($_GET['page']=='tambah-pengajuan'){
+  //Tambahan Pengajuan
+  include('../database/add/add_pengajuan.php');
+}
+
+else if($_GET['page']=='terima-pengajuan'){
+  //Terima pengajuan
+  include('../database/add/acc_pengajuan.php');
+}
+
+  else if($_GET['page']=='tambah-pelanggan'){
+    //Tambahan Pelanggan
+    include('../database/add/pelanggan_baru.php');
+  }
+  else if($_GET['page']=='edit-pelanggan'){
+    include('../database/edit/edit_pelanggan.php');
+  }
+  else if($_GET['page']=='ubah-paket-pelanggan'){
+    include('../database/edit/ubah_paket_pelanggan.php');
+  }
+  else if($_GET['page']=='update-pelanggan'){
+    include('../database/update/update_pelanggan.php');
+  }
+  else if($_GET['page']=='update-paket-pelanggan'){
+    include('../database/update/update_paket_pelanggan.php');
+  }
+  else if($_GET['page']=='buat-terminasi'){
+  //Terima pengajuan
+  include('../database/add/add_terminasi.php');
+}
+  // else if($_GET['page']=='edit-data'){
+  //   include('edit/edit_data.php');
+  // }
+  
+  else{
+    include('not-found.php');
+  }
+ }else{
+  include('dashboard.php');
+}
+?>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+<?php include('footer.php');?>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+
+</body>
 </html>
