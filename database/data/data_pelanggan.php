@@ -10,9 +10,9 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-              <a href="index.php?page=tambah-pelanggan">
+              <!-- <a href="index.php?page=tambah-pelanggan">
               <button type="button" class="btn btn-info">Tambah Pelanggan</button>
-              </a>
+              </a> -->
                 <br></br>
                 <form method="post">
                   <table>
@@ -92,7 +92,7 @@
                     </select>
                     </td>
                     <td class="noExport">
-                      <a onclick="hapus_data_pelanggan(<?php echo $pelanggan ['id_pelanggan'];?>)" class="btn btn-sm btn-secondary">Hapus</a>
+                      <!-- <a onclick="hapus_data_pelanggan(<?php echo $pelanggan ['id_pelanggan'];?>)" class="btn btn-sm btn-secondary">Hapus</a> -->
                       <a href="index.php?page=edit-pelanggan&id=<?php echo $pelanggan ['id_pelanggan'];?>" class="btn btn-sm btn-success">Edit</a>
                       <a onclick="buatTagihan(<?php echo $pelanggan ['id_pelanggan'];?>)" class="btn btn-sm btn-primary">Buat Tagihan</a>
                        <!-- <a onclick="addTerminasi(<?php echo $pelanggan ['id_pelanggan'];?>)" class="btn btn-sm btn-danger">Terminasi</a> -->
