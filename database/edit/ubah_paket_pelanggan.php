@@ -4,7 +4,7 @@ $query = mysqli_query($koneksi, "SELECT * FROM tb_pelanggan WHERE id_pelanggan='
 $pelanggan = mysqli_fetch_array($query);
 
 // Ambil semua paket dari tb_paket
-$paket_query = mysqli_query($koneksi, "SELECT * FROM tb_paket");
+$paket_query = mysqli_query($koneksi, "SELECT * FROM paket");
 ?>
 
 <section class="content">
@@ -54,23 +54,4 @@ $paket_query = mysqli_query($koneksi, "SELECT * FROM tb_paket");
   </div>
 </section>
 
-<script>
-function setPaketInfo() {
-    var select = document.getElementById("paket");
-    var selectedOption = select.options[select.selectedIndex];
 
-    var kecepatan = selectedOption.getAttribute("data-kecepatan") || '';
-    var nama = selectedOption.getAttribute("data-nama") || '';
-
-    document.getElementById("kecepatan_display").value = kecepatan;
-    document.getElementById("kecepatan").value = kecepatan;
-
-    document.getElementById("nama_paket_display").value = nama;
-    document.getElementById("nama_paket").value = nama;
-}
-
-// Saat halaman pertama kali load, langsung isi info paket
-document.addEventListener("DOMContentLoaded", function () {
-    setPaketInfo();
-});
-</script>

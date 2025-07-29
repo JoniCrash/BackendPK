@@ -226,6 +226,27 @@ function setPaketID() {
 </script>
 
 <script>
+function setPaketInfo() {
+    var select = document.getElementById("paket");
+    var selectedOption = select.options[select.selectedIndex];
+
+    var kecepatan = selectedOption.getAttribute("data-kecepatan") || '';
+    var nama = selectedOption.getAttribute("data-nama") || '';
+
+    document.getElementById("kecepatan_display").value = kecepatan;
+    document.getElementById("kecepatan").value = kecepatan;
+
+    document.getElementById("nama_paket_display").value = nama;
+    document.getElementById("nama_paket").value = nama;
+}
+
+// Saat halaman pertama kali load, langsung isi info paket
+document.addEventListener("DOMContentLoaded", function () {
+    setPaketInfo();
+});
+</script>
+
+<script>
   function buatTagihan(id_pelanggan) {
     if (confirm("Apakah Anda yakin ingin membuat tagihan untuk pelanggan ini?")) {
       // Kirim permintaan ke server menggunakan URL
