@@ -92,10 +92,8 @@
                     </select>
                     </td>
                     <td class="noExport">
-                      <!-- <a onclick="hapus_data_pelanggan(<?php echo $pelanggan ['id_pelanggan'];?>)" class="btn btn-sm btn-secondary">Hapus</a> -->
                       <a href="index.php?page=edit-pelanggan&id=<?php echo $pelanggan ['id_pelanggan'];?>" class="btn btn-sm btn-success">Edit</a>
                       <a onclick="buatTagihan(<?php echo $pelanggan ['id_pelanggan'];?>)" class="btn btn-sm btn-primary">Buat Tagihan</a>
-                       <!-- <a onclick="addTerminasi(<?php echo $pelanggan ['id_pelanggan'];?>)" class="btn btn-sm btn-danger">Terminasi</a> -->
                         <form action="index.php?page=buat-terminasi" method="POST" style="display:inline;">
                         <input type="hidden" name="id_pelanggan" value="<?= $pelanggan['id_pelanggan']; ?>">
                         <button type="submit" class="btn btn-sm btn-danger">Terminasi</button>

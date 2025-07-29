@@ -1,12 +1,10 @@
 <?php
 $id_pelanggan = $_GET['id'];
-
-// Ambil data pelanggan termasuk id_paket saat ini
 $query = mysqli_query($koneksi, "SELECT * FROM tb_pelanggan WHERE id_pelanggan='$id_pelanggan'");
 $pelanggan = mysqli_fetch_array($query);
 
-// Ambil semua paket untuk isi dropdown
-$paket_query = mysqli_query($koneksi, "SELECT * FROM paket");
+// Ambil semua paket dari tb_paket
+$paket_query = mysqli_query($koneksi, "SELECT * FROM tb_paket");
 ?>
 
 <section class="content">
@@ -22,16 +20,16 @@ $paket_query = mysqli_query($koneksi, "SELECT * FROM paket");
 
           <div class="form-group">
             <label>Ubah Paket</label>
-            <select name="id_paket" id="paket" class="form-control" onchange="updatePaketInfo()">
-              <option value="">Pilih</option>
+            <select name="id_paket" id="paket" class="form-control" onchange="setPaketInfo()">
+              <option value="">Pilih Paket</option>
               <?php while ($paket = mysqli_fetch_array($paket_query)) : ?>
                 <option 
-                  value="<?php echo $paket['id_paket']; ?>" 
-                  data-kecepatan="<?php echo $paket['kecepatan']; ?>" 
-                  data-nama="<?php echo $paket['nama_paket']; ?>"
-                  <?php echo ($paket['id_paket'] == $pelanggan['id_paket']) ? 'selected' : ''; ?>
+                  value="<?= $paket['id_paket']; ?>" 
+                  data-kecepatan="<?= $paket['kecepatan']; ?>" 
+                  data-nama="<?= $paket['nama_paket']; ?>"
+                  <?= ($paket['id_paket'] == $pelanggan['id_paket']) ? 'selected' : ''; ?>
                 >
-                  <?php echo $paket['nama_paket']; ?>
+                  <?= $paket['nama_paket']; ?>
                 </option>
               <?php endwhile; ?>
             </select>
@@ -57,7 +55,7 @@ $paket_query = mysqli_query($koneksi, "SELECT * FROM paket");
 </section>
 
 <script>
-  function updatePaketInfo() {
+function setPaketInfo() {
     var select = document.getElementById("paket");
     var selectedOption = select.options[select.selectedIndex];
 
@@ -69,10 +67,10 @@ $paket_query = mysqli_query($koneksi, "SELECT * FROM paket");
 
     document.getElementById("nama_paket_display").value = nama;
     document.getElementById("nama_paket").value = nama;
-  }
+}
 
-  // Jalankan saat pertama kali load untuk isi default value
-  document.addEventListener("DOMContentLoaded", function () {
-    updatePaketInfo();
-  });
+// Saat halaman pertama kali load, langsung isi info paket
+document.addEventListener("DOMContentLoaded", function () {
+    setPaketInfo();
+});
 </script>
