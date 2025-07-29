@@ -402,7 +402,7 @@ function ubahStatusPembayaran(id_pembayaran, Status) {
   console.log("Mengirim status:", id_pembayaran, Status); // Debug log untuk mengecek data yang dikirim
   
   const xhr = new XMLHttpRequest();
-  xhr.open("POST", "https://localhost/database/update/update_status_pembayaran.php", true);
+  xhr.open("POST", "https://localhost/backendpk/database/update/update_status_pembayaran.php", true);
   xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
   
 xhr.onreadystatechange = function () {
