@@ -6,6 +6,8 @@ header("Expires: 0");
 header("Access-Control-Allow-Origin: *"); // Izinkan semua origin (untuk development saja)
 header("Access-Control-Allow-Methods: POST");
 header("Access-Control-Allow-Headers: Content-Type");
+header("Access-Control-Allow-Origin: https://eyehot.store");
+
 ?>
 
 <html lang="en">
