@@ -3,6 +3,9 @@
 header("Cache-Control: no-cache, must-revalidate");
 header("Pragma: no-cache");
 header("Expires: 0");
+header("Access-Control-Allow-Origin: *"); // Izinkan semua origin (untuk development saja)
+header("Access-Control-Allow-Methods: POST");
+header("Access-Control-Allow-Headers: Content-Type");
 ?>
 
 <html lang="en">

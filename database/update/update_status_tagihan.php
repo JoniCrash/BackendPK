@@ -11,7 +11,7 @@ $id_tagihan = mysqli_real_escape_string($koneksi, $_POST['id_tagihan']);
 $status = mysqli_real_escape_string($koneksi, $_POST['status']);
 
 // Validasi nilai status agar hanya menerima 'Lunas' atau 'Belum Lunas'
-if (!in_array($status, ['Lunas', 'BelumLunas'])) {
+if (!in_array($status, ['Lunas', 'Belum Lunas'])) {
     echo json_encode(["success" => false, "message" => "status tidak valid!"]);
     exit;
 }

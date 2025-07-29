@@ -2,7 +2,7 @@
 header('Content-Type: application/json');
 error_reporting(0);
 ini_set('display_errors', 0);
-ob_start(); // Tangani output buffer untuk mencegah output yang tidak diinginkan
+// ob_start(); // Tangani output buffer untuk mencegah output yang tidak diinginkan
 
 include('../../../conf/config.php');
 
@@ -46,7 +46,7 @@ if (isset($_POST['email'])) {
 
     $stmt->close(); // Tutup statement
 } else {
-    ob_clean();
+    // ob_clean();
     echo json_encode(["status" => "error", "message" => "Input tidak lengkap."]);
 }
 

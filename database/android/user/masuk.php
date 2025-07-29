@@ -1,7 +1,7 @@
 <?php
 // ob_start();
-include('../../../conf/config.php'); // Pastikan path ini benar
 header("Content-Type: application/json");
+include('../../../conf/config.php'); // Pastikan path ini benar
 
 // Pastikan input tersedia
 if (!isset($_POST['username'])) {
