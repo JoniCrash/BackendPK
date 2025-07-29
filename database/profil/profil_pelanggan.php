@@ -235,7 +235,7 @@ $koneksi->close();
                                                     <fieldset class="well bg-light">
                                                         <legend class="well-legend bg-light"><strong>Foto Depan Rumah</strong></legend>
                                                        
-                                                       <img src="../database/android/user/foto_depan_rumah/<?= htmlspecialchars($pelanggan['Foto_Depan_Rumah']) ?>" alt="Foto KTP" style="max-width: 100%; height: auto; border: 1px solid #ccc; border-radius: 5px;">
+                                                       <img src="../database/android/user/foto_depan_rumah/<?= htmlspecialchars($pelanggan['Foto_Depan_Rumah']) ?>" alt="Foto_Depan_Rumah" style="max-width: 100%; height: auto; border: 1px solid #ccc; border-radius: 5px;">
                                                               
                                                     </fieldset>
                                                 </div>
