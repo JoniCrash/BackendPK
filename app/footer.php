@@ -380,7 +380,7 @@ function ubahStatusTagihan(id_tagihan, status) {
   console.log("Mengirim status:", id_tagihan, status); // Debug log untuk mengecek data yang dikirim
   
   const xhr = new XMLHttpRequest();
-  xhr.open("POST", "http://localhost/database/update/update_status_tagihan.php", true);
+  xhr.open("POST", "https://eyehot.store/database/update/update_status_tagihan.php", true);
   xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
   
   xhr.onreadystatechange = function () {
