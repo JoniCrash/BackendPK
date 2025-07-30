@@ -13,8 +13,8 @@
               <!-- <a href="index.php?page=tambah-pelanggan">
               <button type="button" class="btn btn-info">Tambah Tagihan</button>
               </a>
-                <br></br>
-                <form method="post"> -->
+                <br></br> -->
+                <form method="post">
                   <table>
                     <tr>
                       <td>Dari Tanggal</td>
