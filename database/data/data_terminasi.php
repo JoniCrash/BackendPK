@@ -33,7 +33,11 @@
                 }
               ?>
               <br><br>
-                <table id="example1" class="table table-bordered table-striped" data-title="Laporan Data Terminasi">
+                  <table id="example1" class="table table-bordered table-striped"
+                  data-title="Laporan Data Terminasi"
+                  data-dari="<?= isset($_POST['filter']) ? htmlspecialchars($_POST['dari_tgl']) : '' ?>"
+                  data-sampai="<?= isset($_POST['filter']) ? htmlspecialchars($_POST['sampai_tgl']) : '' ?>">
+                <!-- <table id="example1" class="table table-bordered table-striped" data-title="Laporan Data Terminasi"> -->
                   <thead>
                   <tr>
                     <th>No</th>
