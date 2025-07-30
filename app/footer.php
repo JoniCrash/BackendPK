@@ -110,15 +110,22 @@
               margin: [0, 0, 0, 10]
             });
 
-          // Tambahkan info filter tanggal
-          if (filterTanggalText) {
-            doc.content.splice(1, 0, {
-              text: filterTanggalText,
-              alignment: 'left',
-              fontSize: 10,
-              margin: [0, 0, 0, 10]
-            });
-          }
+            // Tambahkan tanggal cetak dan periode di bawah logo
+            if (filterTanggalText) {
+              doc.content.splice(1, 0, {
+                text: filterTanggalText + '\nTanggal Cetak: ' + formattedToday,
+                alignment: 'left',
+                fontSize: 10,
+                margin: [0, 0, 0, 10]
+              });
+            } else {
+              doc.content.splice(1, 0, {
+                text: 'Tanggal Cetak: ' + formattedToday,
+                alignment: 'left',
+                fontSize: 10,
+                margin: [0, 0, 0, 10]
+              });
+            }
 
           // Ganti judul
           doc.content[2].text = reportTitle;
