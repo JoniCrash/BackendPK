@@ -122,7 +122,7 @@ doc.content.splice(0, 0, {
           margin: [0, 0, 0, 5]
         },
         {
-          text: 'Jl Pemuda Komplek Saphire Boulevard Blok E-10 Kelurahan Sunyaragi Kecamatan Kesambi RT 005 RT 008 Kota Cirebon Jawa Barat',
+          text: 'Jl Pemuda Komplek Saphire Boulevard Blok E-10 Kelurahan Sunyaragi Kecamatan Kesambi RT 005 RW 008 Kota Cirebon Jawa Barat',
           fontSize: 10,
           alignment: 'center'
         },
@@ -218,7 +218,7 @@ doc.content.splice(0, 0, {
                   PT. Solusindo Bintang Pratama Cirebon
                 </div>
                 <div style="font-size: 12px;">
-                  Jl Pemuda Komplek Saphire Boulevard Blok E-10 Kelurahan Sunyaragi Kecamatan Kesambi RT 005 RT 008 Kota Cirebon Jawa Barat
+                  Jl Pemuda Komplek Saphire Boulevard Blok E-10 Kelurahan Sunyaragi Kecamatan Kesambi RT 005 RW 008 Kota Cirebon Jawa Barat
                 </div>
               </div>
 
