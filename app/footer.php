@@ -131,21 +131,27 @@
                   }
                 ],
                 alignment: 'left'
-              }
-            ],
-            margin: [0, 0, 0, 20]
-          });
-          doc.content.splice(1, 0, {
-            canvas: [
-              {
+              },
+                            {
                 type: 'line',
                 x1: 0, y1: 0,
                 x2: 515, y2: 0,
                 lineWidth: 1
               }
             ],
-            margin: [0, 5, 0, 10]
+            margin: [0, 0, 0, 20]
           });
+          // doc.content.splice(1, 0, {
+          //   canvas: [
+          //     {
+          //       type: 'line',
+          //       x1: 0, y1: 0,
+          //       x2: 515, y2: 0,
+          //       lineWidth: 1
+          //     }
+          //   ],
+          //   margin: [0, 5, 0, 10]
+          // });
 
 
             // Tambahkan tanggal cetak dan periode di bawah logo
