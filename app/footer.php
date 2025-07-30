@@ -166,7 +166,7 @@
             }
 
           // Ganti judul
-          doc.content[2].text = reportTitle;
+          // doc.content[2].text = reportTitle;
 
           // Tanda tangan
           doc.content.push({
