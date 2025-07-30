@@ -78,14 +78,6 @@
                     <td><?php echo $paket ['Nama_Lengkap'];?></td>
                     <td><?php echo $paket ['nama_paket'];?></td>
                     <td><?php echo $paket ['kecepatan'];?></td>
-                    <!-- <td>
-                    <select
-                        onchange="ubahPaket(<?php echo $paket ['id_pelanggan'];?>, this.value)">
-                        <option value="30 MBPS" <?php echo ($paket['nama_paket'] == '30 MBPS') ? 'selected' : ''; ?>>30 MBPS</option>
-                        <option value="50 MBPS" <?php echo ($paket['nama_paket'] == '50 MBPS') ? 'selected' : ''; ?>>50 MBPS</option>
-                        <option value="100 MBPS" <?php echo ($paket['nama_paket'] == '100 MBPS') ? 'selected' : ''; ?>>100 MBPS</option>
-                    </select>
-                    </td> -->
                     <td class="noExport">
                     <a href="index.php?page=ubah-paket-pelanggan&id=<?php echo $paket ['id_pelanggan'];?>" class="btn btn-sm btn-success">Ubah Paket</a>
                     </td>

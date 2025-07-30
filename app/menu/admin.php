@@ -63,8 +63,8 @@
               </li>
               <li class="nav-item">
                 <a href="index.php?page=data-terminasi" class="nav-link">
-                  <i class="far fa-trash-can nav-icon"></i>
-                  <p>Terminasi</p>
+                  <i class="far fa-user nav-icon"></i>
+                  <p>Request Terminasi</p>
                 </a>
               </li>
               <!-- <li class="nav-item">

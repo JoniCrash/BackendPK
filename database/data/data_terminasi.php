@@ -83,7 +83,9 @@
                       ?>
                   <tr>
                     <td width = 5%><?php echo $no?></td>
-                    <td><a href="index.php?page=profil-terminasi&id_terminasi=<?php echo $terminasi['id_terminasi']; ?>"><?php echo $terminasi['id_terminasi']; ?></a></td>
+                    <td>
+                      <!-- <a href="index.php?page=profil-terminasi&id_terminasi=<?php echo $terminasi['id_terminasi']; ?>"> -->
+                        <?php echo $terminasi['id_terminasi']; ?></a></td>
 
                     <!-- </td> -->
                      <td><?php echo $terminasi ['id_pelanggan'];?></td>
