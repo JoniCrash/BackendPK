@@ -208,7 +208,7 @@ if ($id_pengajuan > 0) {
                                                         <div class="mt-2 mb-3 ml-1 mr-1">
                                                         <div class="input-group input-group-sm">
                                                        
-                                                       <img src="https://eyehot.store/database/android/user/foto_depan_rumah/<?= htmlspecialchars($pengajuan['Foto_Depan_Rumah']) ?>" alt="Foto Depan Rumah" style="max-width: 100%; height: 100%; border: 1px solid #ccc; border-radius: 5px;">
+                                                       <img src="database/android/user/foto_depan_rumah/<?= htmlspecialchars($pengajuan['Foto_Depan_Rumah']) ?>" alt="Foto Depan Rumah" style="max-width: 100%; height: 100%; border: 1px solid #ccc; border-radius: 5px;">
 
                                                        </div>                                                           
                                                         </div>
