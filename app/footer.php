@@ -409,7 +409,7 @@ function ubahStatusTagihan(id_tagihan, status) {
       console.log("Response:", xhr.responseText); // Log respons dari server untuk debugging
       if (xhr.status === 200) {
         Swal.fire('Berhasil!', 'Status berhasil diperbarui.', 'success');
-        window.location.reload(); 
+        // window.location.reload(); 
       } else {
         Swal.fire('Gagal!', 'Tidak dapat memperbarui status.', 'error');
       }
