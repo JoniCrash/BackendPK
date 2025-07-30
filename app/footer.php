@@ -193,11 +193,14 @@
           const $body = $(win.document.body);
 
           $body.prepend(`
-            <div style="display: flex; align-items: center; margin-bottom: 10px;">
-              <div style="flex: 0 0 auto; margin-right: 15px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
+              <!-- Gambar kiri -->
+              <div style="flex: 0 0 auto;">
                 <img src="dist/img/comet_light.jpg" style="height: 80px;">
               </div>
-              <div style="flex: 1; text-align: left;">
+
+              <!-- Teks tengah -->
+              <div style="flex: 1; text-align: center;">
                 <div style="font-size: 20px; font-weight: bold;">
                   PT. Maju Kena Mundur Kena
                 </div>
@@ -205,6 +208,11 @@
                   Jl. Ini Itu, Kelurahan Ini Itu, Kecamatan Ini Itu,<br>
                   Kota Ini Itu, Jawa Barat
                 </div>
+              </div>
+
+              <!-- Gambar kanan -->
+              <div style="flex: 0 0 auto;">
+                <img src="dist/img/logo-sbp.jpg" style="height: 80px;">
               </div>
             </div>
             <hr style="border: none; border-top: 1px solid #000; margin-bottom: 20px;">
