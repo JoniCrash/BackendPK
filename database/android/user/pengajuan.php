@@ -14,8 +14,8 @@ $email = $_POST['Email'] ?? '';
 $no1 = $_POST['Nomor_Hp_1'] ?? '';
 $no2 = $_POST['Nomor_Hp_2'] ?? '';
 $id_paket = $_POST['id_paket'] ?? '';
-file_put_contents("log_post.txt", print_r($_POST, true));
-file_put_contents("log_files.txt", print_r($_FILES, true));
+// file_put_contents("log_post.txt", print_r($_POST, true));
+// file_put_contents("log_files.txt", print_r($_FILES, true));
 
 // $nama_paket = $_POST['nama_paket'] ?? '';
 // $kecepata = $_POST['kecepatan'] ?? '';
@@ -51,7 +51,8 @@ $query_insert = "INSERT INTO tb_pengajuan (
     Email,
     Nomor_Hp_1,
     Nomor_Hp_2,
-    id_paket
+    id_paket,
+    status
     
 ) VALUES (
     '$id_user',
@@ -65,7 +66,8 @@ $query_insert = "INSERT INTO tb_pengajuan (
     '$email',
     '$no1',
     '$no2',
-    '$id_paket'
+    '$id_paket',
+    'Menunggu'
 )";
 
 if (mysqli_query($koneksi, $query_insert)) {
