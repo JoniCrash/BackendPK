@@ -19,7 +19,7 @@ $pelanggan = mysqli_fetch_array($query);
             <h3 class="card-title">Edit Data Pelanggan</h3>
         </div>
         <div class="card-body">
-            <form method="POST" action="../update/update_pelanggan.php">
+            <form method="POST" action="../database/update/update_pelanggan.php">
     <!-- Dikirim ke update_pengajuan -->
     <input type="hidden" name="id_pengajuan" value="<?php echo $pelanggan['id_pengajuan']; ?>">
     <input type="hidden" name="id_pelanggan" value="<?php echo $pelanggan['id_pelanggan']; ?>">
