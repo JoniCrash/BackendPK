@@ -1,16 +1,16 @@
 <?php
 include('../../conf/config.php');
-echo '<pre>';
-print_r($_POST);
-echo '</pre>';
-exit;
+// echo '<pre>';
+// print_r($_POST);
+// echo '</pre>';
+// exit;
 $id_pengajuan = $_POST['id_pengajuan'];
 $fields = [];
 
 // Tambah kolom satu per satu jika ada datanya
 if (isset($_POST['nama_lengkap'])) {
         // Ambil dari form
-    $nama_lengkap = mysqli_real_escape_string($koneksi, $_POST['Nama_Lengkap']);
+    $nama_lengkap = mysqli_real_escape_string($koneksi, $_POST['nama_lengkap']);
     // Siapkan untuk query update ke kolom `nomorhp1` di database
     $fields[] = "Nama_Lengkap = '$nama_lengkap'";
 }
@@ -62,6 +62,28 @@ if (!empty($_POST['kecepatan'])) {
     $kecepatan = mysqli_real_escape_string($koneksi, $_POST['kecepatan']);
     $fields[] = "kecepatan = '$kecepatan'";
 }
+
+// // Upload foto_ktp jika ada file baru
+// if (isset($_FILES['foto_ktp']) && $_FILES['foto_ktp']['name'] != '') {
+//     $ktp_name = $_FILES['foto_ktp']['name'];
+//     $ktp_tmp = $_FILES['foto_ktp']['tmp_name'];
+//     $ktp_target = 'uploads/' . time() . '_ktp_' . basename($ktp_name);
+    
+//     if (move_uploaded_file($ktp_tmp, $ktp_target)) {
+//         $fields[] = "foto_ktp = '$ktp_target'";
+//     }
+// }
+
+// // Upload foto_depan_rumah jika ada file baru
+// if (isset($_FILES['foto_depan_rumah']) && $_FILES['foto_depan_rumah']['name'] != '') {
+//     $rumah_name = $_FILES['foto_depan_rumah']['name'];
+//     $rumah_tmp = $_FILES['foto_depan_rumah']['tmp_name'];
+//     $rumah_target = 'uploads/' . time() . '_rumah_' . basename($rumah_name);
+    
+//     if (move_uploaded_file($rumah_tmp, $rumah_target)) {
+//         $fields[] = "foto_depan_rumah = '$rumah_target'";
+//     }
+// }
 
 // Gabungkan semua field yang akan diupdate
 $set_clause = implode(", ", $fields);
