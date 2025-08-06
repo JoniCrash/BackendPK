@@ -32,23 +32,16 @@
                   data-title="Laporan Data Pengajuan"
                   data-dari="<?= isset($_POST['filter']) ? htmlspecialchars($_POST['dari_tgl']) : '' ?>"
                   data-sampai="<?= isset($_POST['filter']) ? htmlspecialchars($_POST['sampai_tgl']) : '' ?>">
-                <!-- <table id="example1" class="table table-bordered table-striped" data-title="Laporan Data Pengajuan"> -->
                   <thead>
                   <tr>
                     <th>No</th>
                     <th>ID Pengajuan</th>
-                    <!-- <th>ID User</th> -->
                     <th>Nama Lengkap</th>
-                    <!-- <th>NIK</th> -->
                     <th>Alamat Pemasangan</th>
-                    <!-- <th>Latitude</th>
-                    <th>Longitude</th> -->
                     <th>Email</th>
                     <th>Nomor Telepon</th>
-                    <!-- <th>Nomor Hp 2</th> -->
                     <th>Paket</th>
-                    <!-- <th>Foto KTP</th>
-                    <th>Foto Depan Rumah</th> -->
+                    <th>Status</th>
                     <th class="noExport">Action</th>
                   </tr>
                   </thead>
@@ -83,13 +76,12 @@
                   <tr>
                     <td width = 5%><?= $no?></td>
                     <td><a href="index.php?page=profil-pengajuan&id_pengajuan=<?php echo $pengajuan['id_pengajuan']; ?>"><?php echo $pengajuan['id_pengajuan']; ?></a></td>
-                    <!-- <td><?php echo $pengajuan['id_user']; ?></td> -->
                     <td><?= $pengajuan ['Nama_Lengkap'];?></td>
-                    <!-- <td><?= $pengajuan ['Nomor_Identitas_KTP'];?></td> -->
                     <td><?= $pengajuan ['Alamat_Pemasangan'];?></td>
                     <td><?= $pengajuan ['Email'];?></td>
                     <td><?= $pengajuan ['Nomor_Hp_1'];?></td>
-                    <td><?= $pengajuan ['nama_paket'];?></td>
+                    <td><?= $pengajuan ['kecepatan'];?></td>
+                    <td><?= $pengajuan ['status'];?></td>
                     <td class="noExport">
                       <a onclick="hapus_data_pengajuan(<?= $pengajuan ['id_pengajuan'];?>)" class="btn btn-sm btn-danger">Hapus</a>
                       
