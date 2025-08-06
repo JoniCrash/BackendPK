@@ -87,18 +87,11 @@
                       ?>
                   <tr>
                     <td width = 5%><?php echo $no?></td>
-                    <td>
-                      <!-- <a href="index.php?page=profil-terminasi&id_terminasi=<?php echo $terminasi['id_terminasi']; ?>"> -->
-                        <?php echo $terminasi['id_terminasi']; ?></a></td>
-
-                    <!-- </td> -->
-                     <td><?php echo $terminasi ['id_pelanggan'];?></td>
+                    <td><?php echo $terminasi['id_terminasi']; ?></a></td>
+                    <td><?php echo $terminasi ['id_pelanggan'];?></td>
                     <td><?php echo $terminasi ['Nama_Lengkap'];?></td>
                     <td><?php echo $terminasi ['alasan'];?></td>
                     <td><?php echo $terminasi ['dibuat_pada_'];?></td>
-                    <!-- <td class="noExport">
-                      <a onclick="hapus_data_terminasi(<?php echo $terminasi ['id_terminasi'];?>)" class="btn btn-sm btn-danger">Hapus</a>
-                    </td> -->
                   </tr>
                   <?php }?>
                   </tbody>
