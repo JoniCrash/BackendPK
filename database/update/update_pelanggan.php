@@ -1,6 +1,9 @@
 <?php
 include('../../conf/config.php');
-
+echo '<pre>';
+print_r($_POST);
+echo '</pre>';
+exit;
 $id_pengajuan = $_POST['id_pengajuan'];
 $Nama_Lengkap = $_POST['nama_lengkap'];
 $Nomor_Identitas_KTP = $_POST['nik'];
