@@ -34,7 +34,7 @@ if (isset($_POST['id_user'])) {
                 "username" => $user['username'],
                 "email" => $user['email'],
                 "password" => $user['pass'],
-                "status_pengajuan" => $status_pengajuan
+                "status" => $status_pengajuan
             ]
         ]);
     } else {
