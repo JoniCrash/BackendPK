@@ -2,7 +2,7 @@
 include('../../conf/config.php');
 
 $id_pengajuan = $_POST['id_pengajuan'];
-$Nama_Lengkap = $_POST['lama_lengkap'];
+$Nama_Lengkap = $_POST['nama_lengkap'];
 $Nomor_Identitas_KTP = $_POST['nik'];
 $Alamat_Pemasangan = $_POST['alamat_pemasangan'];
 $latitude = $_POST['latitude'];
