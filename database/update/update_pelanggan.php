@@ -1,34 +1,31 @@
 <?php
 include('../../conf/config.php');
 
-// Ambil data dari form
-$id_pelanggan = $_POST['id_pelanggan'];
-$nama_lengkap = $_POST['nama_lengkap'];
-$nik = $_POST['nik'];
-$alamat_pemasangan = $_POST['alamat_pemasangan'];
+$id_pengajuan = $_POST['id_pengajuan'];
+$Nama_Lengkap = $_POST['lama_lengkap'];
+$Nomor_Identitas_KTP = $_POST['nik'];
+$Alamat_Pemasangan = $_POST['alamat_pemasangan'];
 $latitude = $_POST['latitude'];
 $longitude = $_POST['longitude'];
-$email = $_POST['email'];
-$nomor_hp_1 = $_POST['nomor_hp_1'];
-$nomor_hp_2 = $_POST['nomor_hp_2'];
+$Email =  $_POST['email'];
+$Nomor_Hp_1 = $_POST['nomor_hp_1'];
+$Nomor_Hp_2 = $_POST['nomor_hp_2'];
 $id_paket = $_POST['id_paket'];
 $nama_paket = $_POST['nama_paket'];
 
-// Query update
-$query = "UPDATE tb_pelanggan SET 
-          Nama_Lengkap = '$nama_lengkap', 
-          Nomor_Identitas_KTP = '$nik', 
-          Alamat_Pemasangan = '$alamat_pemasangan', 
+$query = "UPDATE tb_pengajuan SET 
+          Nama_Lengkap = '$Nama_Lengkap', 
+          Nomor_Identitas_KTP = '$Nomor_Identitas_KTP', 
+          Alamat_Pemasangan = '$Alamat_Pemasangan', 
           latitude = '$latitude', 
           longitude = '$longitude', 
-          Email = '$email', 
-          Nomor_Hp_1 = '$nomor_hp_1', 
-          Nomor_Hp_2 = '$nomor_hp_2', 
+          Email = '$Email', 
+          Nomor_Hp_1 = '$Nomor_Hp_1', 
+          Nomor_Hp_2 = '$Nomor_Hp_2', 
           id_paket = '$id_paket', 
           nama_paket = '$nama_paket' 
-          WHERE id_pelanggan = '$id_pelanggan'";
+          WHERE id_pengajuan = '$id_pengajuan'";
 
-// Eksekusi query
 if (mysqli_query($koneksi, $query)) {
     echo "<script>alert('Data pelanggan berhasil diperbarui.'); window.location.href = 'index.php?page=data-pelanggan';</script>";
 } else {
