@@ -474,6 +474,27 @@ document.addEventListener("DOMContentLoaded", function () {
   xhr.send("id_pelanggan=" + id_pelanggan + "nama_paket=" + paket + "kecepatan" + kecepatan + "&id_paket" + id_paket);
 }
 
+function ubahStatusPengajuan(id_pengajuan, status) {
+  console.log("Mengirim status:", id_pengajuan, Status); // Debug log untuk mengecek data yang dikirim
+  
+  const xhr = new XMLHttpRequest();
+  xhr.open("POST", "https://eyehot.store/database/update/update_status_pengajuan.php", true);
+  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4) {
+      console.log("Response:", xhr.responseText); // Log respons dari server untuk debugging
+      if (xhr.status === 200) {
+        Swal.fire('Berhasil!', 'Status berhasil diperbarui.', 'success');
+        // window.location.reload(); 
+      } else {
+        Swal.fire('Gagal!', 'Tidak dapat memperbarui status.', 'error');
+      }
+    }
+  };
+  
+  xhr.send("id_pengajuan=" + id_pengajuan + "&status=" + status);
+}
 
 function ubahStatusPelanggan(id_pelanggan, Status) {
   console.log("Mengirim status:", id_pelanggan, Status); // Debug log untuk mengecek data yang dikirim

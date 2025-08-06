@@ -81,7 +81,17 @@
                     <td><?= $pengajuan ['Email'];?></td>
                     <td><?= $pengajuan ['Nomor_Hp_1'];?></td>
                     <td><?= $pengajuan ['kecepatan'];?></td>
-                    <td><?= $pengajuan ['status'];?></td>
+                    <!-- <td><?= $pengajuan ['status'];?></td> -->
+
+                    <td>
+                    <select
+                        onchange="ubahStatusPengajuan(<?php echo $pengajuan ['id_pengajuan'];?>, this.value)">
+                        <option value="Menunggu" <?php echo ($pengajuan['status'] == 'Menunggu') ? 'selected' : ''; ?>>Menunggu</option>
+                        <option value="Di Tolak" <?php echo ($pengajuan['status'] == 'Di Tolak') ? 'selected' : ''; ?>>Di Tolak</option>
+                        <option value="Di Terima" <?php echo ($pengajuan['status'] == 'Di Terima') ? 'selected' : ''; ?>>Di Terima</option>
+                    </select>
+                    </td>
+
                     <td class="noExport">
                       <a onclick="hapus_data_pengajuan(<?= $pengajuan ['id_pengajuan'];?>)" class="btn btn-sm btn-danger">Hapus</a>
                       
