@@ -92,7 +92,8 @@
                     <td><?php echo $tagihan['id_tagihan']; ?></td>
                     <td><?php echo $tagihan ['kecepatan'];?></td>
                     <td><?php echo $tagihan ['periode'];?></td>
-                    <td><?php echo $tagihan ['total_harga'];?></td>
+                    <td>Rp <?php echo number_format($tagihan['total_harga'], 0, ',', '.'); ?></td>
+                    <!-- <td><?php echo $tagihan ['total_harga'];?></td> -->
                     <td>
                     <select
                         onchange="ubahStatusTagihan(<?php echo $tagihan ['id_tagihan'];?>, this.value)">
