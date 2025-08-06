@@ -475,7 +475,7 @@ document.addEventListener("DOMContentLoaded", function () {
 }
 
 function ubahStatusPengajuan(id_pengajuan, status) {
-  console.log("Mengirim status:", id_pengajuan, Status); // Debug log untuk mengecek data yang dikirim
+  console.log("Mengirim status:", id_pengajuan, status); // Debug log untuk mengecek data yang dikirim
   
   const xhr = new XMLHttpRequest();
   xhr.open("POST", "https://eyehot.store/database/update/update_status_pengajuan.php", true);
