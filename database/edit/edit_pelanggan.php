@@ -41,6 +41,17 @@ $pelanggan = mysqli_fetch_array($query);
         </div>
 
         <div class="form-group">
+        <label>Provinsi</label>
+        <input type="text" name="provinsi" class="form-control" placeholder="provinsi" value = "<?php echo $pelanggan['provinsi'];?>">
+        </div>
+
+        <div class="form-group">
+        <label>Kota</label>
+        <input type="text" name="kota" class="form-control" placeholder="kota" value = "<?php echo $pelanggan['kota'];?>">
+        </div>
+        
+
+        <div class="form-group">
         <label>Latitude</label>
         <input type="text" name="latitude" class="form-control" placeholder="latitude" value = "<?php echo $pelanggan['latitude'];?>">
         </div>
@@ -67,14 +78,13 @@ $pelanggan = mysqli_fetch_array($query);
 
         <div class="form-group">
         <label>Paket</label>
-        <input type="text" class="form-control text-sm numeric bg-light" value="<?php echo $pelanggan['nama_paket'];?>" readonly>
+        <input type="text" class="form-control text-sm numeric bg-light" value="<?php echo $pelanggan['kecepatan'];?>" readonly>
         <select name="id_paket">
             <option value="">Pilih</option>
             <?php
             $q = mysqli_query($koneksi, "SELECT * FROM paket");
             while ($paket = mysqli_fetch_array($q)) {
                 $selected = $paket['id_paket'] == $pelanggan['id_paket'] ? 'selected' : '';
-                echo "<option value='{$paket['id_paket']}' $selected>{$paket['nama_paket']}</option>";
                 echo "<option value='{$paket['id_paket']}' $selected>{$paket['kecepatan']}</option>";
             }
             ?>

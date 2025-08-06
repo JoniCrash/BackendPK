@@ -22,6 +22,14 @@ if (isset($_POST['alamat_pemasangan'])) {
     $alamat = mysqli_real_escape_string($koneksi, $_POST['alamat_pemasangan']);
     $fields[] = "Alamat_Pemasangan = '$alamat'";
 }
+if (isset($_POST['provinsi'])) {
+    $provinsi = mysqli_real_escape_string($koneksi, $_POST['provinsi']);
+    $fields[] = "provinsi = '$provinsi'";
+}
+if (isset($_POST['kota'])) {
+    $kota = mysqli_real_escape_string($koneksi, $_POST['kota']);
+    $fields[] = "kota = '$kota'";
+}
 if (isset($_POST['latitude'])) {
     $lat = mysqli_real_escape_string($koneksi, $_POST['latitude']);
     $fields[] = "latitude = '$lat'";
