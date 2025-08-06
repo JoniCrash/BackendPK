@@ -13,7 +13,7 @@ if (isset($_POST['id_pelanggan'])) {
             pk.*
         FROM tb_pelanggan pl
         JOIN tb_pengajuan pj ON pl.id_pengajuan = pj.id_pengajuan
-        JOIN paket pk ON pj.id_paket = pk.id_paket
+        JOIN paket pk ON pl.id_paket = pk.id_paket
         WHERE pl.id_pelanggan = ?
     ");
     $stmt->bind_param("s", $id_pelanggan);
