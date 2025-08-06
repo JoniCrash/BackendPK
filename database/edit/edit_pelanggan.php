@@ -76,7 +76,7 @@ $pelanggan = mysqli_fetch_array($query);
         <input type="text" name="no_hp2" class="form-control" placeholder="Nomor HP 2" value = "<?php echo $pelanggan['Nomor_Hp_2'];?>">
         </div>
 
-        <div class="form-group">
+        <!-- <div class="form-group">
         <label>Paket</label>
         <input type="text" class="form-control text-sm numeric bg-light" value="<?php echo $pelanggan['kecepatan'];?>" readonly>
         <select name="id_paket">
@@ -89,12 +89,6 @@ $pelanggan = mysqli_fetch_array($query);
             }
             ?>
         </select>
-        </div>
-
-        <!-- <div class="form-group">
-        <label class="font-weight-normal">ID Paket</label>
-          <input type="text" name="id_paket" id="id_paket" class="form-control" readonly />
-          <input type="hidden" id="nama_paket" name="nama_paket"/>
         </div> -->
     </div>
   </div>

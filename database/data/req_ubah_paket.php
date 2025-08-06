@@ -79,9 +79,16 @@ if (isset($_POST['filter'])) {
         <td><?php echo $paket['Nama_Lengkap']; ?></td>
         <td><?php echo $paket['nama_paket']; ?></td>
         <td><?php echo $paket['kecepatan']; ?></td>
-        <td><?php echo ucfirst($paket['status']); ?></td>
+        <!-- <td><?php echo ucfirst($paket['status']); ?></td> -->
+        <td>
+        <select
+            onchange="ubahStatusReqPaket(<?php echo $pelanggan ['id_pelanggan'];?>, this.value)">
+            <option value="Menunggu" <?php echo ($pelanggan['status'] == 'Menunggu') ? 'selected' : ''; ?>>Menunggu</option>
+            <option value="Di Tolak" <?php echo ($pelanggan['status'] == 'Di Tolak') ? 'selected' : ''; ?>>Di Tolak</option>
+            <option value="Di Setujui" <?php echo ($pelanggan['status'] == 'Di Setujui') ? 'selected' : ''; ?>>Di Setujui</option>
+        </select>
+        </td>
         <td><?php echo $paket['di_buat_pada']; ?></td>
-    <!-- <td><a href="index.php?page=ubah-paket-pelanggan&id=<?php echo $paket['id_pelanggan']; ?>" class="btn btn-sm btn-success mt-1">Ubah Paket</a></td> -->
       </tr>
     <?php } ?>
   </tbody>
