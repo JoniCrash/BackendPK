@@ -68,19 +68,24 @@ $pelanggan = mysqli_fetch_array($query);
         <div class="form-group">
         <label>Paket</label>
         <input type="text" class="form-control text-sm numeric bg-light" value="<?php echo $pelanggan['nama_paket'];?>" readonly>
-        <select name="paket" id="paket" class="form-control" onchange="setPaketID()">
-          <option>Pilih</option>
-          <option value="1">30 mbps</option>
-          <option value="2">50 mbps</option>
-          <option value="3">100 mbps</option>
-      </select>
+        <select name="id_paket">
+            <option value="">Pilih</option>
+            <?php
+            $q = mysqli_query($koneksi, "SELECT * FROM paket");
+            while ($paket = mysqli_fetch_array($q)) {
+                $selected = $paket['id_paket'] == $pelanggan['id_paket'] ? 'selected' : '';
+                echo "<option value='{$paket['id_paket']}' $selected>{$paket['nama_paket']}</option>";
+                echo "<option value='{$paket['id_paket']}' $selected>{$paket['kecepatan']}</option>";
+            }
+            ?>
+        </select>
         </div>
 
-        <div class="form-group">
+        <!-- <div class="form-group">
         <label class="font-weight-normal">ID Paket</label>
           <input type="text" name="id_paket" id="id_paket" class="form-control" readonly />
           <input type="hidden" id="nama_paket" name="nama_paket"/>
-        </div>
+        </div> -->
     </div>
   </div>
   <div class="row">
