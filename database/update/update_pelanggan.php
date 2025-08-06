@@ -30,7 +30,7 @@ $query = "UPDATE tb_pelanggan SET
 
 // Eksekusi query
 if (mysqli_query($koneksi, $query)) {
-    echo "<script>alert('Data pelanggan berhasil diperbarui.'); window.location.href = '../admin/index.php?page=data-pelanggan';</script>";
+    echo "<script>alert('Data pelanggan berhasil diperbarui.'); window.location.href = 'index.php?page=data-pelanggan';</script>";
 } else {
     echo "<script>alert('Gagal memperbarui data: " . mysqli_error($koneksi) . "'); history.back();</script>";
 }
